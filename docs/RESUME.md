@@ -102,9 +102,12 @@ This smoke uses synthetic images, not new tissue. Pinning the revision is requir
 weights are intentionally excluded from all backups. Original checkpoint SHA256:
 `6e077eda234bebc595868d918d3458d9dd32a050199b0ff04443b2f46a0a3b1e`.
 
-### GitHub authentication if the push is blocked
+### GitHub authentication — push failed in this checkpoint
 
-Do this interactively in the terminal. Do not paste a token into chat or URLs:
+The authorized push failed because no GitHub credential was available; remote
+milestone2 was absent when checked. Code is recoverable from the verified Drive
+Git bundle. Do this interactively in the terminal. Do not paste a token into chat
+or URLs:
 
 ```bash
 gh auth login --hostname github.com --git-protocol https --web

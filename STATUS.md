@@ -123,7 +123,10 @@ source member hashes, SHA256 inventory, Git bundle, restore helper and final
 verification report. Existing `artifacts/`, `docs/`, `code_backups/` backups are
 preserved. Full location index: `docs/ARTIFACTS.md`. The final report records exact
 Git commit/push outcome; a push is not established merely by a local commit.
-GitHub CLI currently lacks authentication; secure recovery steps are saved in
+The authorized Git push was attempted and failed: Git cannot read a GitHub
+username without credentials. Remote milestone2 was checked and is absent.
+The local commits and verified Drive Git bundle preserve the code; no push
+success is claimed. Secure browser authentication steps are saved in
 `docs/RESUME.md`. No credentials, chat/session records or large artifacts belong
 in Git. Authorized public remote: https://github.com/UltraSpiral/LungCancer.git,
 branch `milestone2`; preserve any remote work and never force push.

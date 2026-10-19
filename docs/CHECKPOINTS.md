@@ -63,3 +63,7 @@ export and native records are distinct; interactive resumption remains unverifie
 No claims of completed training/evaluation or timing measurements are added.
 
 See [full recovery guide](RESUME.md) and `/content/drive/MyDrive/LungCancer_AC215/recovery/20261019T002107Z/VERIFICATION.md`.
+
+Recovery outcome update: source/artifact checks passed; the initial authorized
+GitHub push failed for missing credentials and remote milestone2 was absent.
+The final Git bundle and full commit SHA are in the timestamped Drive report.
