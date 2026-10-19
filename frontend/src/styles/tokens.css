@@ -1,0 +1,153 @@
+/*
+ * Design tokens — extracted from "AI-Assisted Lung Cancer Screening.fig".
+ * Measured from the Figma design (Screen 2 · Review unless noted).
+ * The Figma file is an html.to.design import with no variables, so this file
+ * is the single place these values are codified. Components must not use raw
+ * colours, radii or shadows.
+ */
+:root {
+  /* ── Colour · page ─────────────────────────────────────────────── */
+  --color-page: #eceef2;
+  --color-page-blob-a: #e4e7ee; /* radial, bottom-left, fades out at 60% */
+  --color-page-blob-b: #dde6f7; /* radial, top-right, fades out at 62% */
+
+  /* ── Colour · ink & text ───────────────────────────────────────── */
+  --color-ink: #161a21; /* primary text, dark pill, borders */
+  --color-text-body: #3d434d; /* zoom glyphs, paragraph body */
+  --color-text-muted: #4b515c; /* nav tabs, chip text, hide button */
+  --color-text-secondary: #697080; /* labels, captions, mono readouts */
+  --color-text-tertiary: #8a909b; /* role label, "model v2.3", hints */
+  --color-text-disabled: #a3a8b2;
+  --color-text-faint: #b4b8c0; /* "—" placeholder numerals */
+  --color-text-placeholder: #757575;
+  --color-text-on-accent: #ffffff;
+
+  /* ink tints (ink #161A21 at n%) */
+  --color-ink-5: rgb(22 26 33 / 0.05);
+  --color-ink-6: rgb(22 26 33 / 0.06);
+  --color-ink-7: rgb(22 26 33 / 0.07); /* panel section dividers */
+  --color-ink-8: rgb(22 26 33 / 0.08); /* control strokes, bar tracks */
+  --color-ink-10: rgb(22 26 33 / 0.1);
+  --color-ink-12: rgb(22 26 33 / 0.12);
+  --color-ink-14: rgb(22 26 33 / 0.14); /* toggle off track, chip strokes */
+  --color-ink-86: rgb(22 26 33 / 0.86); /* dark overlay pill on slide */
+
+  /* white tints */
+  --color-white: #ffffff;
+  --color-white-60: rgb(255 255 255 / 0.6); /* segmented nav */
+  --color-white-70: rgb(255 255 255 / 0.7); /* role chip, textarea */
+  --color-white-72: rgb(255 255 255 / 0.72); /* glass card */
+  --color-white-80: rgb(255 255 255 / 0.8); /* zoom / fit pills */
+  --color-white-82: rgb(255 255 255 / 0.82); /* slide overlay labels */
+  --color-white-94: rgb(255 255 255 / 0.94); /* modal glass */
+  --color-white-95: rgb(255 255 255 / 0.95); /* glass hairline stroke */
+
+  /* ── Colour · accent ───────────────────────────────────────────── */
+  --color-accent: #2f66f0;
+  --color-accent-outline: #1d4fe0;
+  --color-accent-10: rgb(47 102 240 / 0.1); /* tinted chips, AI Assist tag */
+  --color-accent-18: rgb(47 102 240 / 0.18); /* minimap viewport fill */
+  --color-accent-45: rgb(47 102 240 / 0.45); /* focused field stroke */
+  --color-accent-55: rgb(47 102 240 / 0.55); /* secondary bars */
+  --color-accent-60: rgb(47 102 240 / 0.6); /* primary glow */
+
+  /* ── Colour · warning ──────────────────────────────────────────── */
+  --color-warning: #f0a020; /* flag dots, QC marks */
+  --color-warning-bg: #fff1d6; /* "Urgent" chip fill */
+  --color-warning-text: #8a5200; /* "Urgent" chip text */
+  --color-warning-heading: #9a5a00;
+
+  /* ── Colour · slide ────────────────────────────────────────────── */
+  --color-slide-pane: #e7d9e8;
+  --color-heatmap-low: #1e46ff;
+  --color-heatmap-mid: #0090ff;
+  --color-heatmap-high: #00f0ff;
+
+  /* ── Radius ────────────────────────────────────────────────────── */
+  --radius-pill: 999px;
+  --radius-card: 20px;
+  --radius-pane: 14px; /* slide panes, focused textarea */
+  --radius-field: 12px; /* textarea, inputs */
+  --radius-row: 10px; /* list rows in panel */
+  --radius-avatar: 8.47px;
+  --radius-control: 7.94px; /* −/+ buttons inside zoom pill */
+  --radius-minimap: 8px;
+  --radius-icon-button: 7.42px; /* modal close */
+  --radius-brand: 7px;
+  --radius-marker: 6.36px; /* numbered region markers on slide */
+  --radius-badge: 5.3px; /* numbered region badges in panel */
+  --radius-knob: 3.18px; /* toggle knob */
+  --radius-dot: 1.86px; /* chip status square */
+
+  /* ── Shadow & blur ─────────────────────────────────────────────── */
+  --shadow-card: 0 16px 40px -12px rgb(16 24 40 / 0.1), 0 1px 2px rgb(16 24 40 / 0.04);
+  --shadow-nav: 0 1px 2px rgb(16 24 40 / 0.05);
+  --shadow-minimap: 0 4px 14px rgb(16 24 40 / 0.25);
+  --shadow-marker: 0 2px 6px rgb(0 0 0 / 0.25);
+  --shadow-knob: 0 1px 2px rgb(0 0 0 / 0.2);
+  --shadow-primary-glow: 0 6px 16px -6px var(--color-accent-60);
+  --blur-glass: 24px;
+  --blur-overlay: 10px;
+
+  /* ── Typography ────────────────────────────────────────────────── */
+  --font-sans: 'Geist', ui-sans-serif, system-ui, -apple-system, 'Segoe UI', sans-serif;
+  --font-mono: 'Geist Mono', ui-monospace, 'SF Mono', Menlo, monospace;
+  /* Case IDs, slide IDs and numeric readouts (zoom, magnification, stats, timers). */
+  --font-numeric: 'Instrument Sans', var(--font-sans);
+
+  --weight-light: 300;
+  --weight-regular: 400;
+  --weight-medium: 500;
+  --weight-semibold: 600;
+
+  /* size / line-height pairs. html.to.design reports "lh 100%" with text box
+     heights of 14/16/17/18… which is Geist's natural line box; those are
+     encoded as explicit px line-heights here. */
+  --text-11: 11px;
+  --lh-11: 14px;
+  --text-12: 12px;
+  --lh-12: 16px;
+  --lh-12-para: 19.2px; /* slide caption paragraph */
+  --text-13: 13px;
+  --lh-13: 17px;
+  --text-14: 14px;
+  --lh-14: 18px;
+  --lh-14-para: 21.7px; /* panel body paragraph */
+  --text-15: 15px;
+  --lh-15: 19px;
+  --lh-15-para: 23.25px;
+  --text-16: 16px;
+  --lh-16: 21px;
+  --text-18: 18px;
+  --lh-18: 23px;
+  --text-20: 20px;
+  --lh-20: 26px;
+  --text-22: 22px;
+  --lh-22: 26.4px;
+  --tracking-22: -0.44px;
+  --text-26: 26px;
+  --lh-26: 34px;
+  --tracking-26: -0.52px;
+  --text-52: 52px;
+  --lh-52: 52px;
+  --text-24-suffix: 24px;
+  --tracking-stat: -2.34px;
+  --tracking-case-id: -0.2px;
+
+  /* ── Layout ────────────────────────────────────────────────────── */
+  --layout-canvas: 1440px;
+  --layout-gutter: 24px;
+  --layout-gap: 16px; /* between cards */
+  --layout-header-height: 68px;
+  --layout-panel-width: 362px; /* AI analysis panel */
+  --layout-strip-height: 68px; /* case strip */
+  --layout-viewer-height: 640px; /* slide pane */
+
+  /* ── Motion ────────────────────────────────────────────────────── */
+  --ease-standard: cubic-bezier(0.2, 0, 0, 1);
+  --duration-fast: 120ms;
+  --duration-base: 200ms;
+
+  /* ── Focus ─────────────────────────────────────────────────────── */
+  --focus-ring: 0 0 0 2px var(--color-white), 0 0 0 4px var(--color-accent);
+}

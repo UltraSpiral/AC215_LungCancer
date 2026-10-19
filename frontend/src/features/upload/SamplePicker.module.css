@@ -1,0 +1,91 @@
+.block {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  padding: 18px 20px;
+}
+
+.eyebrow {
+  font-size: var(--text-12);
+  line-height: var(--lh-12);
+  color: var(--color-text-secondary);
+}
+
+.headline {
+  font-size: var(--text-22);
+  line-height: var(--lh-22);
+  font-weight: var(--weight-medium);
+  letter-spacing: var(--tracking-22);
+  color: var(--color-ink);
+}
+
+/* Sample list: Figma "Top regions" section (pad 11 12 12, rows pad 7 8 radius 10). */
+.samples {
+  padding: 10px 12px 12px; /* Figma 11 incl. 1px hairline */
+  border-top: 1px solid var(--color-ink-7);
+}
+
+.samplesTitle {
+  padding: 4px 8px 6px;
+  font-size: var(--text-12);
+  line-height: var(--lh-12);
+  font-weight: var(--weight-regular);
+  color: var(--color-text-secondary);
+}
+
+.sampleList {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.sample {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  width: 100%;
+  padding: 7px 8px;
+  border: 0;
+  border-radius: var(--radius-row);
+  background: transparent;
+  text-align: left;
+  cursor: pointer;
+  transition: background-color var(--duration-fast) var(--ease-standard);
+}
+
+.sample:hover {
+  background: var(--color-ink-5);
+}
+
+.thumb {
+  flex: none;
+  width: 36px;
+  height: 36px;
+  border-radius: 8px;
+  object-fit: cover;
+  background: var(--color-slide-pane);
+  box-shadow: inset 0 0 0 1px var(--color-ink-8);
+}
+
+.sampleText {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  min-width: 0;
+}
+
+.sampleId {
+  font-family: var(--font-numeric);
+  font-size: var(--text-13);
+  line-height: var(--lh-13);
+  color: var(--color-ink);
+}
+
+.sampleDetail {
+  font-size: var(--text-12);
+  line-height: var(--lh-12);
+  color: var(--color-text-secondary);
+}

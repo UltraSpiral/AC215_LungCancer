@@ -1,0 +1,217 @@
+/* Figma AI analysis card: 362 wide, pad 1, sections separated by ink @7% hairlines. */
+.panel {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  min-height: 0;
+}
+
+/* Header: h 42, pad 16 20 0 */
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex: none;
+  height: 42px;
+  padding: 16px 20px 0;
+}
+
+.title {
+  display: flex;
+  align-items: baseline;
+  gap: 6px;
+  min-width: 0;
+  font-size: var(--text-13);
+  line-height: var(--lh-13);
+  font-weight: var(--weight-semibold);
+  color: var(--color-ink);
+}
+
+.model {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-weight: var(--weight-regular);
+  color: var(--color-text-tertiary);
+}
+
+.body {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 auto;
+  min-height: 0;
+  overflow-y: auto;
+}
+
+/* Diagnosis block: pad 18 20, gap 6 */
+.block {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  padding: 18px 20px;
+}
+
+.eyebrow {
+  font-size: var(--text-12);
+  line-height: var(--lh-12);
+  color: var(--color-text-secondary);
+}
+
+/* Medium 22 / 26.4, tracking -0.44 */
+.headline {
+  font-size: var(--text-22);
+  line-height: var(--lh-22);
+  font-weight: var(--weight-medium);
+  letter-spacing: var(--tracking-22);
+  color: var(--color-ink);
+  text-wrap: balance;
+}
+
+/* Body paragraph: Regular 14 / 21.7, body colour (Figma Screen 3 declined copy) */
+.lead,
+.reason {
+  margin-top: 4px;
+  font-size: var(--text-14);
+  line-height: var(--lh-14-para);
+  color: var(--color-text-body);
+}
+
+.reason {
+  overflow-wrap: anywhere;
+}
+
+.meta {
+  font-size: var(--text-12);
+  line-height: var(--lh-12);
+  color: var(--color-text-secondary);
+}
+
+.progress {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin: 12px 0 4px;
+}
+
+.progressMeta {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  font-size: var(--text-12);
+  line-height: var(--lh-12);
+  color: var(--color-text-secondary);
+}
+
+.progressMeta .numeric {
+  color: var(--color-ink);
+  font-variant-numeric: tabular-nums;
+}
+
+/* Stat row: pad 0 20 18 (Confidence / Tumor area slots in Figma) */
+.stats {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  padding: 0 20px 18px;
+}
+
+/* Flags-style list: section pad 15 12 10, title pad 0 8 6, rows pad 8 radius 10 */
+.listSection {
+  padding: 14px 12px 10px; /* Figma 15 incl. 1px hairline */
+  border-top: 1px solid var(--color-ink-7);
+}
+
+.listTitle {
+  padding: 0 8px 6px;
+  font-size: var(--text-12);
+  line-height: var(--lh-12);
+  font-weight: var(--weight-regular);
+  color: var(--color-text-secondary);
+}
+
+.listEmpty {
+  padding: 8px;
+  font-size: var(--text-13);
+  line-height: var(--lh-13);
+  color: var(--color-text-tertiary);
+}
+
+.list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.warning {
+  display: flex;
+  align-items: flex-start;
+  gap: 9px;
+  padding: 8px 8px 8px 9px;
+  border-radius: var(--radius-row);
+  font-size: var(--text-13);
+  line-height: 1.4;
+  color: var(--color-ink);
+}
+
+.warningDot {
+  flex: none;
+  width: 7px;
+  height: 7px;
+  margin-top: 5px;
+  background: var(--color-warning);
+}
+
+/* Selected slide row (Figma "Top regions" row: pad 7 8, radius 10, gap 10) */
+.slideSection {
+  margin-top: auto;
+  padding: 10px 12px 12px;
+  border-top: 1px solid var(--color-ink-7);
+}
+
+.slideRow {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 7px 8px;
+  border-radius: var(--radius-row);
+}
+
+.slideThumb {
+  flex: none;
+  width: 36px;
+  height: 36px;
+  border-radius: 8px;
+  object-fit: cover;
+  background: var(--color-slide-pane);
+  box-shadow: inset 0 0 0 1px var(--color-ink-8);
+}
+
+.slideText {
+  min-width: 0;
+}
+
+.slideName {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-family: var(--font-numeric);
+  font-size: var(--text-13);
+  line-height: var(--lh-13);
+  color: var(--color-ink);
+}
+
+.slideDetail {
+  margin-top: 2px;
+  font-size: var(--text-12);
+  line-height: var(--lh-12);
+  color: var(--color-text-secondary);
+}
+
+/* Action bar: top hairline, pad 15 16 16, gap 8 (Agree / Disagree in Figma) */
+.actions {
+  display: flex;
+  gap: 8px;
+  flex: none;
+  padding: 14px 16px 16px;
+  border-top: 1px solid var(--color-ink-7);
+}

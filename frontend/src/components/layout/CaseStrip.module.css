@@ -1,0 +1,48 @@
+/* Figma case strip: 1392×68 glass, case id at x 25, fields at x 199 (gap 28), chips right-aligned at 25. */
+.strip {
+  display: flex;
+  align-items: center;
+  height: var(--layout-strip-height);
+  padding: 0 24px;
+}
+
+.caseId {
+  font-family: var(--font-numeric);
+  font-size: var(--text-20);
+  line-height: var(--lh-20);
+  font-weight: var(--weight-medium);
+  letter-spacing: var(--tracking-case-id);
+  color: var(--color-ink);
+}
+
+.fields {
+  display: flex;
+  gap: 28px;
+  margin: 0 0 0 32px;
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.field dt {
+  font-size: var(--text-11);
+  line-height: var(--lh-11);
+  color: var(--color-text-secondary);
+}
+
+.field dd {
+  margin: 0;
+  font-size: var(--text-14);
+  line-height: var(--lh-14);
+  color: var(--color-ink);
+}
+
+.chips {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-left: auto;
+}

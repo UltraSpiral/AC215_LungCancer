@@ -1,0 +1,35 @@
+.root {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.number {
+  font-size: var(--text-52);
+  line-height: var(--lh-52);
+  font-family: var(--font-numeric);
+  font-weight: var(--weight-regular); /* Instrument Sans has no Light (300) */
+  letter-spacing: var(--tracking-stat);
+  color: var(--color-ink);
+}
+
+.suffix {
+  font-size: var(--text-24-suffix);
+  line-height: 24px;
+  color: var(--color-text-secondary);
+}
+
+.muted,
+.muted .suffix {
+  color: var(--color-text-tertiary);
+}
+
+.empty {
+  color: var(--color-text-faint);
+}
+
+.label {
+  font-size: var(--text-12);
+  line-height: var(--lh-12);
+  color: var(--color-text-secondary);
+}

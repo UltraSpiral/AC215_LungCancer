@@ -1,0 +1,39 @@
+/* Figma "Overlay+Border+Shadow": white @60%, white @95% stroke, pad 5, gap 4, h 43 */
+.track {
+  display: inline-flex;
+  gap: 4px;
+  padding: 4px; /* + 1px border = Figma's 5px inset */
+  background: var(--color-white-60);
+  border: 1px solid var(--color-white-95);
+  border-radius: var(--radius-pill);
+  box-shadow: var(--shadow-nav);
+}
+
+.tab {
+  height: 33px;
+  padding: 0 18px;
+  border: 0;
+  border-radius: var(--radius-pill);
+  background: transparent;
+  color: var(--color-text-muted);
+  font-size: var(--text-13);
+  line-height: var(--lh-13);
+  font-weight: var(--weight-regular);
+  cursor: pointer;
+  transition: background-color var(--duration-fast) var(--ease-standard);
+}
+
+.tab:hover:not(.active):not(:disabled) {
+  background: var(--color-white-70);
+}
+
+.tab:disabled {
+  /* Figma draws inactive tabs identically whether or not they are wired up. */
+  cursor: default;
+}
+
+.active {
+  background: var(--color-ink);
+  color: var(--color-white);
+  font-weight: var(--weight-medium);
+}

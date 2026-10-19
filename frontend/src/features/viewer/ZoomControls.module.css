@@ -1,0 +1,54 @@
+.root {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+/* white @80%, ink @8% stroke, pad 4, gap 2, h 38 */
+.pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 2px;
+  height: 38px;
+  padding: 3px; /* + 1px border = 4 */
+  border: 1px solid var(--color-ink-8);
+  border-radius: var(--radius-pill);
+  background: var(--color-white-80);
+}
+
+.step {
+  display: grid;
+  place-items: center;
+  width: 30px;
+  height: 30px;
+  padding: 0;
+  border: 0;
+  border-radius: var(--radius-control);
+  background: transparent;
+  font-size: var(--text-18);
+  line-height: var(--lh-18);
+  color: var(--color-text-body);
+  cursor: pointer;
+}
+
+.step:hover:not(:disabled) {
+  background: var(--color-ink-6);
+}
+
+.step:disabled {
+  cursor: default;
+  opacity: 0.4;
+}
+
+/* Instrument Sans Medium 15 (Figma: Geist Mono), min 64 wide (Figma 63.99 incl. 18.5 side padding) */
+.readout {
+  min-width: 64px;
+  padding: 0 10px;
+  text-align: center;
+  font-family: var(--font-numeric);
+  font-size: var(--text-15);
+  line-height: var(--lh-15);
+  font-weight: var(--weight-medium);
+  color: var(--color-ink);
+  font-variant-numeric: tabular-nums;
+}

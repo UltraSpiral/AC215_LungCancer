@@ -1,0 +1,37 @@
+.frame {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  max-width: var(--layout-canvas);
+  margin: 0 auto;
+}
+
+/* Figma: pad 4 24 24, gap 16 between strip and the viewer/panel row. */
+.main {
+  display: flex;
+  flex-direction: column;
+  gap: var(--layout-gap);
+  padding: 4px var(--layout-gutter) var(--layout-gutter);
+}
+
+/* At the Figma frame size (1440×1061) the row is exactly 881px tall: the
+   viewport minus header (68), top pad (4), strip (68), gap (16), bottom pad (24). */
+.grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) var(--layout-panel-width);
+  gap: var(--layout-gap);
+  height: max(720px, calc(100vh - var(--layout-header-height) - var(--layout-strip-height) - 44px));
+}
+
+.viewer,
+.panel {
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.viewer > *,
+.panel > * {
+  flex: 1 1 auto;
+  min-height: 0;
+}

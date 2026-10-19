@@ -1,0 +1,105 @@
+/* Figma viewer card: pad 15 17 17, gap 12 — toolbar (38) / pane / caption. */
+.root {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  height: 100%;
+  padding: 14px 16px 16px; /* + 1px card border */
+}
+
+.toolbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 38px;
+  flex: none;
+}
+
+/* Figma slide pane: #E7D9E8, radius 14 (640 tall at the Figma frame size; fills here). */
+.pane {
+  position: relative;
+  flex: 1 1 auto;
+  min-height: 420px;
+  overflow: hidden;
+  border-radius: var(--radius-pane);
+  background: var(--color-slide-pane);
+}
+
+.osd {
+  position: absolute;
+  inset: 0;
+}
+
+.osd[hidden] {
+  display: none;
+}
+
+/* Figma "Overlay+OverlayBlur": white @82%, blur 10, pad 6 12, gap 6 */
+.label {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  z-index: 2;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  height: 28px;
+  padding: 0 12px;
+  border-radius: var(--radius-pill);
+  background: var(--color-white-82);
+  backdrop-filter: blur(var(--blur-overlay));
+  -webkit-backdrop-filter: blur(var(--blur-overlay));
+  font-size: var(--text-12);
+  line-height: var(--lh-12);
+  font-weight: var(--weight-medium);
+  color: var(--color-ink);
+  pointer-events: none;
+}
+
+.labelMag {
+  font-family: var(--font-numeric);
+  font-weight: var(--weight-regular);
+  color: var(--color-text-secondary);
+  font-variant-numeric: tabular-nums;
+}
+
+.message {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  padding: 24px;
+  text-align: center;
+}
+
+.messageTitle {
+  font-size: var(--text-14);
+  line-height: var(--lh-14);
+  font-weight: var(--weight-semibold);
+  color: var(--color-ink);
+}
+
+.messageDetail {
+  max-width: 360px;
+  font-size: var(--text-13);
+  line-height: 1.55;
+  color: var(--color-text-secondary);
+}
+
+.messageDetail code {
+  font-family: var(--font-mono);
+  font-size: var(--text-12);
+}
+
+/* Figma caption: Regular 12 / 19.2, secondary */
+.caption {
+  flex: none;
+  min-height: 42px;
+  padding-top: 3px;
+  font-size: var(--text-12);
+  line-height: var(--lh-12-para);
+  color: var(--color-text-secondary);
+}

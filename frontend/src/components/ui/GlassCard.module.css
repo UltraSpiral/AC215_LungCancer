@@ -1,0 +1,16 @@
+/* Figma: "Overlay+Border+OverlayBlur" — fill #FFF@72%, stroke #FFF@95% 1px inside,
+   radius 20, background blur 24, shadow 0 16 40 -12 #101828@10% + 0 1 2 @4%. */
+.card {
+  position: relative;
+  background: var(--color-white-72);
+  border: 1px solid var(--color-white-95);
+  border-radius: var(--radius-card);
+  box-shadow: var(--shadow-card);
+  backdrop-filter: blur(var(--blur-glass));
+  -webkit-backdrop-filter: blur(var(--blur-glass));
+}
+
+.modal {
+  background: var(--color-white-94);
+  border-color: var(--color-white);
+}

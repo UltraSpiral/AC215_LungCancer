@@ -1,0 +1,88 @@
+.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  border: 1px solid transparent;
+  border-radius: var(--radius-pill);
+  font-family: var(--font-sans);
+  font-size: var(--text-14);
+  line-height: var(--lh-14);
+  white-space: nowrap;
+  cursor: pointer;
+  transition:
+    background-color var(--duration-fast) var(--ease-standard),
+    box-shadow var(--duration-fast) var(--ease-standard),
+    opacity var(--duration-fast) var(--ease-standard);
+}
+
+.button:disabled {
+  cursor: not-allowed;
+  opacity: 0.5;
+}
+
+/* Figma "Agree": #2F66F0, white Geist Medium 14 */
+.primary {
+  background: var(--color-accent);
+  color: var(--color-text-on-accent);
+  font-weight: var(--weight-medium);
+}
+.primary:hover:not(:disabled) {
+  box-shadow: var(--shadow-primary-glow);
+}
+
+/* Figma "Disagree": ink @6% fill, ink @12% 1px stroke, Regular 14 */
+.secondary {
+  background: var(--color-ink-6);
+  border-color: var(--color-ink-12);
+  color: var(--color-ink);
+  font-weight: var(--weight-regular);
+}
+.secondary:hover:not(:disabled) {
+  background: var(--color-ink-8);
+}
+
+/* Figma modal "Cancel": no fill, muted text */
+.ghost {
+  background: transparent;
+  color: var(--color-text-muted);
+}
+.ghost:hover:not(:disabled) {
+  background: var(--color-ink-5);
+}
+
+/* Figma viewer "Fit": white @80%, ink @8% stroke, Regular 13, body colour */
+.glass {
+  background: var(--color-white-80);
+  border-color: var(--color-ink-8);
+  color: var(--color-text-body);
+  font-size: var(--text-13);
+  line-height: var(--lh-13);
+}
+.glass:hover:not(:disabled) {
+  background: var(--color-white);
+}
+
+.lg {
+  height: 44px;
+  padding: 0 20px;
+}
+.secondary.lg {
+  height: 46px;
+}
+.md {
+  height: 38px;
+  padding: 0 18px;
+}
+.ghost.md {
+  padding: 0 16px;
+}
+.sm {
+  height: 35px;
+  padding: 0 14px; /* Figma pad 15 includes its 1px inside stroke */
+}
+
+.block {
+  flex: 1 1 0;
+  min-width: 0;
+}

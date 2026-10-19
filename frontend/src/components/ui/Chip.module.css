@@ -1,0 +1,71 @@
+.chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  border-radius: var(--radius-pill);
+  white-space: nowrap;
+  font-weight: var(--weight-medium);
+}
+
+.md {
+  height: 28px;
+  padding: 0 12px;
+  font-size: var(--text-12);
+  line-height: var(--lh-12);
+}
+.sm {
+  height: 22px;
+  padding: 0 10px;
+  font-size: var(--text-11);
+  line-height: var(--lh-11);
+}
+.xs {
+  height: 26px;
+  padding: 0 10px;
+  font-size: var(--text-12);
+  line-height: var(--lh-12);
+  font-weight: var(--weight-regular);
+}
+
+.dot {
+  flex: none;
+  width: 7px;
+  height: 7px;
+  border-radius: var(--radius-dot);
+  background: currentColor;
+}
+
+/* "Urgent · 48 h" */
+.warning {
+  background: var(--color-warning-bg);
+  color: var(--color-warning-text);
+}
+/* "Confident", "AI Assist" */
+.accent {
+  background: var(--color-accent-10);
+  color: var(--color-accent);
+}
+/* "Declined to predict", "Pathologist-written" */
+.dark {
+  background: var(--color-ink);
+  color: var(--color-white);
+}
+.dark .dot {
+  background: transparent;
+  border: 1px solid var(--color-white);
+}
+/* "Routine · 5 days", "Draft · autosaved" */
+.neutral {
+  background: var(--color-ink-6);
+  color: var(--color-text-muted);
+}
+/* "Pathologist" role chip in header */
+.glass {
+  background: var(--color-white-70);
+  color: var(--color-text-muted);
+}
+/* "Hide ›" */
+.soft {
+  background: var(--color-ink-5);
+  color: var(--color-text-muted);
+}

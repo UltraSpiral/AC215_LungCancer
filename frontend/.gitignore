@@ -1,0 +1,37 @@
+# Logs
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+node_modules
+dist
+dist-ssr
+*.local
+
+# Editor directories and files
+.vscode/*
+!.vscode/extensions.json
+.idea
+.DS_Store
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+
+# Whole-slide images and generated Deep Zoom tiles (large; regenerate with tools/convert-slides)
+sample-slides/
+public/slides/
+# Local-only working notes and verification output
+docs/
+mvp-frontend-plan.md
+__pycache__/
+.venv/
+
+# The repo-root .gitignore ignores *token* and .env.*; keep these two tracked.
+!src/styles/tokens.css
+!.env.example
