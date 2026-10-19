@@ -1,0 +1,4 @@
+# Only packages missing from the inspected Colab runtime.
+# Install locally with: python -m pip install --no-deps --target .vendor -r requirements.txt
+openslide-python==1.4.6
+openslide-bin==4.0.1.2

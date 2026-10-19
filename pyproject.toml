@@ -1,0 +1,20 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "lungcancer-ac215"
+version = "0.1.0"
+description = "Specimen-audited TCGA lung WSI prototype with frozen UNI2-h features"
+requires-python = ">=3.11"
+dependencies = ["torch", "torchvision", "timm>=0.9.8", "huggingface-hub", "openslide-python", "openslide-bin", "numpy", "scipy", "scikit-learn>=1.6", "Pillow", "requests", "joblib"]
+
+[project.scripts]
+lungcancer = "lungcancer.__main__:main"
+
+[tool.setuptools.packages.find]
+include = ["lungcancer*"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["."]

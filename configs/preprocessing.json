@@ -1,0 +1,13 @@
+{
+  "target_mpp": 0.5,
+  "tile_size": 224,
+  "max_tiles": 512,
+  "minimum_tissue_fraction": 0.5,
+  "thumbnail_max": 4096,
+  "saturation_min": 0.08,
+  "value_min": 0.15,
+  "value_max": 0.98,
+  "mask_min_component_pixels": 16,
+  "mask_closing_iterations": 1,
+  "seed": 215
+}

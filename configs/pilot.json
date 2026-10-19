@@ -1,0 +1,18 @@
+{
+  "workspace": "/content/LungCancer",
+  "raw_slide_root": "/tmp/lungcancer-raw",
+  "local_artifact_root": "/content/LungCancer/artifacts",
+  "persistent_root": "/content/drive/MyDrive/LungCancer_AC215",
+  "gdc_projects": ["TCGA-LUAD", "TCGA-LUSC"],
+  "raw_download_budget_bytes": 10000000000,
+  "target_slides_per_class": 3,
+  "classes": ["non_tumor", "adenocarcinoma", "squamous"],
+  "encoder_repository": "MahmoodLab/UNI2-h",
+  "expected_embedding_dimension": 1536,
+  "target_mpp": 0.5,
+  "tile_size": 224,
+  "max_tiles": 512,
+  "minimum_tissue_fraction": 0.5,
+  "seed": 215,
+  "review_required_before_cohort_expansion": true
+}
