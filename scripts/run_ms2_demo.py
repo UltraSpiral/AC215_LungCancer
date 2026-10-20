@@ -194,7 +194,8 @@ def main():
             image_id = subprocess.check_output(['docker', 'inspect', '--format', '{{.Image}}', container],
                                                env=env, text=True).strip()
             report['images'][service] = image_identity(image_id, env)
-        report['images']['preprocessing'] = image_identity('lungcancer-cpu:milestone2', env)
+        report['images']['preprocessing'] = image_identity(
+            env.get('LC_CPU_IMAGE') or 'lungcancer-cpu:milestone2', env)
         report['status'] = 'success'
     except Exception as exc:
         report.update(status='error', reason=str(exc))

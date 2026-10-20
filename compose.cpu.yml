@@ -1,5 +1,5 @@
 x-cpu: &cpu
-  image: lungcancer-cpu:milestone2
+  image: ${LC_CPU_IMAGE:-lungcancer-cpu:milestone2}
   platform: ${LC_CPU_PLATFORM:-linux/arm64}
   build:
     context: .

@@ -1,5 +1,10 @@
 # Local preprocessed-slide application
 
+For a new checkout, use [REVIEWER_SETUP.md](REVIEWER_SETUP.md): protected bundle
+access, checksum/restore and a separate project/port/image configuration for
+testing alongside the existing app. [PIPELINE_SCOPE.md](PIPELINE_SCOPE.md)
+maps the upstream Colab stages and exact local input/output boundaries.
+
 For MS2, **`make ms2-demo`** is now the tested single-command bounded replay:
 it builds/starts this app, verifies the prepared snapshot and runs a separate
 16-tile real preprocessing smoke, then uploads the real supplied slide and

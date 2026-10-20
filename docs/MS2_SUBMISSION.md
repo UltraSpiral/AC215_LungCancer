@@ -5,6 +5,12 @@ the bounded, preprocessed-slide MVP. [Readiness details](MS2_READINESS.md),
 [design evolution](MS2_DESIGN.md) and [execution evidence](evidence/ms2/2026-10-20/README.md)
 provide the supporting records.
 
+[PIPELINE_SCOPE.md](PIPELINE_SCOPE.md) maps every stage's environment,
+inputs/outputs and executed boundary. [REVIEWER_SETUP.md](REVIEWER_SETUP.md)
+provides the protected input link, checksum, fresh restore and parallel-run
+instructions. Upstream Colab processing and local prepared-feature serving
+are explicitly separate from the real 16-tile preprocessing smoke.
+
 Checkpoint 30 adds the detailed, source-based
 [technical overview](TECHNICAL_OVERVIEW.md). Internal draft presentation and
 rehearsal materials are excluded from the public deliverables.
@@ -93,10 +99,12 @@ evidence directory; reruns are unnecessary merely to read the submission.
 ## Reviewer and teammate access
 
 Git contains source, configuration, selected evidence and exact commands.
-The private portable input archive is deliberately separate. Before the demo,
-ensure the presenting teammate/reviewer has authorized access to the existing
-snapshot and understands that a Git clone alone does not contain model/cache
-binaries. Do not download additional slides or UNI2 weights for this MVP.
+The private portable input archive is deliberately separate. The
+[reviewer guide](REVIEWER_SETUP.md) provides its exact protected Drive link,
+observed access scope and complete clone/restore instructions. A Git clone
+alone does not contain model/cache binaries. Additional reviewers need their
+own authorized artifact access; no public sharing is enabled. Do not download
+additional slides or UNI2 weights for this MVP.
 
 On a new ARM64 checkout only, with an already-obtained copy of the archive:
 

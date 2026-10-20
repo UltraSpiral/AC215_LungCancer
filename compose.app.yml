@@ -1,7 +1,7 @@
 name: lungcancer-app
 services:
   api:
-    image: lungcancer-app-api:milestone2
+    image: ${LC_APP_API_IMAGE:-lungcancer-app-api:milestone2}
     platform: linux/arm64
     build:
       context: .
@@ -24,7 +24,7 @@ services:
       start_period: 10s
 
   web:
-    image: lungcancer-app-web:milestone2
+    image: ${LC_APP_WEB_IMAGE:-lungcancer-app-web:milestone2}
     platform: linux/arm64
     build:
       context: .

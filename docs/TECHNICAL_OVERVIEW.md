@@ -1,5 +1,9 @@
 # Technical overview: data, model and application
 
+The concise [pipeline stage map](PIPELINE_SCOPE.md) identifies environments,
+inputs/outputs and verification boundaries. [Reviewer setup](REVIEWER_SETUP.md)
+contains the protected artifact link and isolated clone/restore/start procedure.
+
 This document explains the implemented MS2 system, the decisions behind it,
 and the scope of the saved execution evidence. It is current at checkpoint 30,
 October 20, 2026. Source links and recorded artifacts support the descriptions;
