@@ -174,3 +174,11 @@ will be verified separately and recorded in persistent docs/GIT_PUBLICATION.md.
 Added browser-login instructions and a non-destructive Mac Git-bundle fallback.
 No data/model work was repeated. See
 [checkpoint 18](checkpoints/2026-10-20-18-git-identity.md).
+
+## 19 — Return to the same chat after GitHub login
+
+Verified the installed resume command, actual session UUID/home and existing
+rollout record. Saved exact quit/login/resume steps and a new-session fallback
+in docs/RETURN_TO_CHAT.md. Authentication/push remain pending. No ML stages
+were rerun. These Markdown updates are pending commit after login and are
+included in the verified persistent source/document backup.

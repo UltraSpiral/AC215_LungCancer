@@ -1,3 +1,18 @@
+# Return to this chat — checkpoint 19
+
+Keep the current Colab runtime running. Type `/quit` in Codex, then run the
+following at the terminal shell prompt. Complete the browser login before
+running the resume command:
+
+```bash
+gh auth login --hostname github.com --git-protocol https --web
+CODEX_HOME=/root/.codex-lung-recovery codex resume 01a1513c-c07c-7100-8c49-70f63dff2251 -C /content/LungCancer
+```
+
+Then tell Codex: `GitHub login is complete. Push milestone2 and verify the remote SHA.`
+These are needed now and have not been executed by the agent. For another
+terminal or a lost-runtime fallback, read [RETURN_TO_CHAT.md](RETURN_TO_CHAT.md).
+
 # Current Git identity and authentication — checkpoint 18
 
 The user selected UltraSpiral <UltraSpiral@users.noreply.github.com>. This

@@ -1,5 +1,9 @@
 # Latest Git identity and publication check — checkpoint 18
 
+For the current short GitHub-login interruption, use
+[RETURN_TO_CHAT.md](RETURN_TO_CHAT.md), added at checkpoint 19. It includes
+the exact CODEX_HOME and session UUID; keep this Colab runtime running.
+
 The user selected UltraSpiral <UltraSpiral@users.noreply.github.com>, configured
 locally. No Codex-author commit was made. Authentication is separate: this
 runtime's gh login is missing. Read the private persistent docs/GIT_PUBLICATION.md

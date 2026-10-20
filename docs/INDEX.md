@@ -1,5 +1,6 @@
 # Current checkpoints
 
+- [19 — Exact commands to return after GitHub login](RETURN_TO_CHAT.md)
 - [18 — User Git identity and publication recovery](checkpoints/2026-10-20-18-git-identity.md)
 - [16 — Corrected real modeling results](checkpoints/2026-10-20-16-modeling-results.md)
 - [17 — Apple Silicon CPU container handoff](checkpoints/2026-10-20-17-cpu-containers.md)
