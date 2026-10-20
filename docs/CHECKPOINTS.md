@@ -164,6 +164,7 @@ prepared. Torch-free x86_64 script sequence passed 29 tests, 44 real caches,
 12 frozen reference predictions and real 16-tile preprocessing. Actual M1 Docker
 execution is pending and belongs to the user's Mac Codex. Full slide-to-prediction
 container verification remains separately pending. See checkpoint 17/CPU guide.
+
 # Checkpoint 18 — user-selected Git identity and publication recovery
 
 User explicitly selected UltraSpiral <UltraSpiral@users.noreply.github.com>.
@@ -173,4 +174,3 @@ will be verified separately and recorded in persistent docs/GIT_PUBLICATION.md.
 Added browser-login instructions and a non-destructive Mac Git-bundle fallback.
 No data/model work was repeated. See
 [checkpoint 18](checkpoints/2026-10-20-18-git-identity.md).
-

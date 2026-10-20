@@ -1,3 +1,14 @@
+# Latest Git identity and publication check — checkpoint 18
+
+The user selected UltraSpiral <UltraSpiral@users.noreply.github.com>, configured
+locally. No Codex-author commit was made. Authentication is separate: this
+runtime's gh login is missing. Read the private persistent docs/GIT_PUBLICATION.md
+receipt for the actual new commit, push result and verified Git-bundle fallback.
+Do not assume the remote contains the modeling/CPU work without comparing SHAs.
+The secure browser-login command is saved in docs/COMMANDS.md; M1 restoration
+and offline verification are in docs/CPU_CONTAINER_VERIFICATION.md. Completed
+modeling and current scope are recorded below; no new training is needed.
+
 # Current verified state — 2026-10-20, checkpoints 16–17
 
 Real baseline complete: 45 slides processed; one ambiguous portion-link slide
@@ -441,14 +452,3 @@ already verified. See AGENTS.md and checkpoint 14 before doing processing.
 User explicitly approved: go ahead and start. This authorizes the proposed 45-slide, 45-patient cohort (15/class), necessary OpenSlide/pinned-UNI2 setup, 36 additional downloads within the unchanged cumulative 10,000,000,000-byte raw budget, real baseline fitting, fixed patient-level validation/test evaluation, and renamed held-out inference. All nine pilot patients remain in training. Modeling precedes MLOps; profiling remains deferred. Prior pause/pending-auth statements above are historical.
 
 Run directory: `artifacts/modeling/20261020T0220Z/`; persistent counterpart: `/content/drive/MyDrive/LungCancer_AC215/artifacts/modeling/20261020T0220Z/`. A100 80GB and HF cached login verified; pinned OpenSlide wheels installed without replacing PyTorch/CUDA. Frozen UNI2 float32, 512 tiles, physical-scale config and pilot cache identities are preserved. No performance result is claimed at launch.
-# Latest Git identity and publication check — checkpoint 18
-
-The user selected UltraSpiral <UltraSpiral@users.noreply.github.com>, configured
-locally. No Codex-author commit was made. Authentication is separate: this
-runtime's gh login is missing. Read the private persistent docs/GIT_PUBLICATION.md
-receipt for the actual new commit, push result and verified Git-bundle fallback.
-Do not assume the remote contains the modeling/CPU work without comparing SHAs.
-The secure browser-login command is saved in docs/COMMANDS.md; M1 restoration
-and offline verification are in docs/CPU_CONTAINER_VERIFICATION.md. Completed
-modeling and current scope are recorded below; no new training is needed.
-

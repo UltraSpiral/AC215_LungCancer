@@ -51,3 +51,10 @@ Read docs/CPU_CONTAINER_VERIFICATION.md and docs/VERIFICATION_MATRIX.md first.
 No HF credentials or UNI2 weights belong in the CPU image or portable bundle.
 The Colab Drive persistence helper requires a genuine mounted Drive; on the Mac,
 record real local/Drive Desktop persistence explicitly without faking that mount.
+
+# User-selected Git identity
+
+The user explicitly selected UltraSpiral <UltraSpiral@users.noreply.github.com>
+for project commits. Use this identity; do not substitute a Codex author.
+Authentication must use the user's supported GitHub login. Never ask them to
+paste a token into chat or include credentials in code, documents, or remotes.
