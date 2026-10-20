@@ -1,3 +1,18 @@
+# Current commands — checkpoint 23
+
+No manual command is needed. Native M1 CPU verification passed and its saved
+evidence was independently checked from Colab. The existing Mac reproduction
+commands below are historical/completed, not a request to rerun them. Full
+slide-to-prediction container verification and UI/backend work remain pending.
+No new slides, training or profiling are authorized by this evidence review.
+
+Colab synchronization commands already executed:
+
+```bash
+git fetch origin milestone2
+git merge --ff-only origin/milestone2
+```
+
 # Current commands — checkpoint 22, documentation publication
 
 **Needed now:** no manual user command. Codex is handling the authorized commit,

@@ -1,3 +1,12 @@
+# Colab confirmation — checkpoint 23
+
+The published M1 checkpoint 598bcd79662a72af832db698b9761658bd943736 has been
+fast-forwarded into Colab. The approved Drive archive and all 72 SHA256
+inventory entries match; saved JUnit/JSON and images independently confirm the
+native CPU checks. No processing rerun occurred. CPU container verification
+is complete; full slide-to-prediction containers and UI/backend interaction
+remain separately pending. See docs/checkpoints/2026-10-20-23-m1-evidence-confirmed.md.
+
 # CPU verification documentation publication — checkpoint 22
 
 The user authorized committing and pushing the completed native M1 verification

@@ -230,3 +230,12 @@ artifacts/publication/2026-10-20-22-cpu/. Fresh source/Markdown persistence is
 local on this Mac; the immutable checkpoint-21 Drive snapshot is preserved.
 No CPU processing or model tests need repeating for these documentation edits.
 See [checkpoint 22](checkpoints/2026-10-20-22-cpu-publication.md).
+
+## 23 — M1 evidence confirmed from Colab
+
+Fast-forwarded to the published Mac commit 598bcd7, preserving its records.
+Verified the approved evidence archive SHA256, all 72 inventory entries,
+JUnit/JSON success, ARM64 identity and runtime isolation; inspected screenshot
+and tiles. CPU container verification is complete. Full inference containers
+and UI/backend interaction remain pending. No processing reran and the rejected
+optional Mac sync receipt was not uploaded. See checkpoint 23.

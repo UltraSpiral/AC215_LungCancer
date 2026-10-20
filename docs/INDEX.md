@@ -1,3 +1,11 @@
+# Current Colab confirmation — checkpoint 23
+
+The published Mac checkpoint is synchronized locally. Its Drive evidence
+archive, full checksum inventory, JUnit/JSON reports and screenshot were
+independently inspected. See
+[23 — M1 evidence confirmed](checkpoints/2026-10-20-23-m1-evidence-confirmed.md).
+CPU container verification is complete; full inference containers remain pending.
+
 # Current checkpoints
 
 - [22 — Publish the native M1 verification records](checkpoints/2026-10-20-22-cpu-publication.md)
