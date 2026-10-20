@@ -1,4 +1,16 @@
-# Current command status — checkpoint 27, MS2 audit
+# Current command clarification — checkpoint 28
+
+`make app-up` remains the tested cached-feature app build/start command from
+the repository root. It loads the saved model; it does not train or extract
+fresh UNI2 embeddings. No new processing command is needed for this explanation.
+Feature caching is valid; the supplied rubric does not demand encoder
+recomputation on every run. See the correction in [MS2_READINESS.md](MS2_READINESS.md).
+The broader fresh-encoder path is unverified, with its existing restrictions
+unchanged. Documentation checks and the required `python3 scripts/persist_records.py`
+run are recorded locally under `artifacts/ms2_audit/2026-10-20-28/`; the genuine
+Drive guard remains unchanged, with source/Markdown backed up locally.
+
+# Historical command status — checkpoint 27, MS2 audit
 
 No new processing command is needed to review this assessment. From
 `/Users/shlokdholakia/Documents/Harvard/Semesters/SEM3/AC215/LungCancer`,

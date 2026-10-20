@@ -1,4 +1,14 @@
-# MS2 readiness audit — checkpoint 27
+# Feature-cache and MS2 scope clarification — checkpoint 28
+
+The earlier audit overstated fresh UNI2 container execution as an unconditional
+MS2 requirement. Caching real versioned embeddings is valid; the saved model
+computes fresh predictions without retraining. Full encoder execution in
+containers remains unverified, while the cached app remains verified. The
+selected pipeline boundary and one-command evidence must be explicit. Read the
+correction in [docs/MS2_READINESS.md](docs/MS2_READINESS.md) and checkpoint 28.
+No scientific code/artifacts, authorization or running service changed.
+
+# Historical MS2 readiness audit — checkpoint 27
 
 The current rubric/evidence mapping is in [docs/MS2_READINESS.md](docs/MS2_READINESS.md).
 The real baseline, native CPU verification and cached-feature UI/API demo are

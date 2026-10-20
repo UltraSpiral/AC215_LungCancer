@@ -295,3 +295,18 @@ without removing history. No processing, tests, new data/weights or modeling
 ran. Persistence/publication receipts are local; a new Drive mirror is not
 claimed. See [checkpoint 27](checkpoints/2026-10-20-27-ms2-readiness.md) and
 [the complete current checklist](MS2_READINESS.md).
+
+## 28 — Feature caching, model serving and scope correction (2026-10-20)
+
+The user asked whether missing fresh-encoder container verification meant
+training at runtime. Clarified that model parameters and per-slide feature
+vectors are different artifacts, and that the verified app computes new
+predictions from real cached embeddings with the saved model. Caching is a
+valid design. Corrected checkpoint 27's overly strong rubric interpretation:
+fresh UNI2 execution on every run is not explicitly required. The broader
+uncached-slide container path remains unverified; chosen pipeline boundaries
+and one-command input/output evidence should be documented accurately.
+No processing, scientific artifact change or authorization expansion occurred.
+Records/source are backed up locally; no new Drive mirror is claimed. See
+[checkpoint 28](checkpoints/2026-10-20-28-cache-scope-clarification.md) and the
+correction in [MS2_READINESS.md](MS2_READINESS.md).

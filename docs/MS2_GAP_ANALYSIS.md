@@ -1,5 +1,10 @@
 # Current MS2 assessment — checkpoint 27
 
+Correction at checkpoint 28: cached real features are valid, and the supplied
+rubric does not explicitly demand fresh UNI2 execution on every run. The
+unverified broader encoder path is separate from the verified app. Read the
+clarification at the top of MS2_READINESS.md before the older assessment.
+
 Read [MS2_READINESS.md](MS2_READINESS.md) for the current requirement/evidence
 mapping. The baseline, native ARM64 CPU checks and real cached-feature app
 are complete. Full scientific pipeline verification inside containers, selected

@@ -1,3 +1,24 @@
+# Current verified local source/record backup — checkpoint 28
+
+Updated: 2026-10-20T11:08:49.314187+00:00
+
+Source archive: `/Users/shlokdholakia/Documents/Harvard/Semesters/SEM3/AC215/LungCancer/artifacts/backups/code-20261020T110848Z.tar.gz`.
+SHA256: `b29421e460c816526d8ed8221c75081ccab9fbd995af1cf616beb7a501f0310d`.
+
+All 208 archived source files passed fresh-extraction byte comparisons.
+Frontend/backend, locks, containers and current records are included; private
+slides, model/feature/weight binaries, caches, secrets and Codex state are
+excluded. This archive contains the previous backup pointer; separate copied
+Markdown includes this refreshed pointer.
+
+Local backup/publication receipts: `/Users/shlokdholakia/Documents/Harvard/Semesters/SEM3/AC215/LungCancer/artifacts/ms2_audit/2026-10-20-28`.
+The genuine Colab Drive guard refused copying on this Mac; the helper's log
+is retained. No guard or mount was changed and no new Drive mirror is claimed.
+This is the model-serving/cache-scope documentation correction only; no
+scientific code or artifacts changed and no processing/tests were rerun.
+
+## Earlier backup records — retained
+
 # Current verified local source/record backup — checkpoint 27
 
 Updated: 2026-10-20T11:02:21.623263+00:00

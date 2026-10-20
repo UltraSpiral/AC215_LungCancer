@@ -1,4 +1,12 @@
-# Current submission-readiness audit — checkpoint 27
+# Current clarification — checkpoint 28
+
+[Feature caching, model serving and MS2 scope](checkpoints/2026-10-20-28-cache-scope-clarification.md)
+corrects the earlier requirement interpretation. Cached features are valid;
+training at runtime is unnecessary. Fresh UNI2 container execution remains an
+unverified broader path, rather than an explicit every-run rubric requirement.
+The current [readiness checklist](MS2_READINESS.md) includes this correction.
+
+# Historical submission-readiness audit — checkpoint 27
 
 Read [MS2_READINESS.md](MS2_READINESS.md) for the supplied rubric mapped to
 executed evidence and remaining technical/publication/presentation items.
@@ -32,6 +40,7 @@ CPU container verification is complete; full inference containers remain pending
 
 # Current checkpoints
 
+- [28 — Feature caching and MS2 scope clarified](checkpoints/2026-10-20-28-cache-scope-clarification.md)
 - [27 — MS2 requirement/evidence audit](checkpoints/2026-10-20-27-ms2-readiness.md)
 - [Current submission readiness checklist](MS2_READINESS.md)
 - [26 — Working native M1 cached-feature application](checkpoints/2026-10-20-26-cached-feature-app.md)
