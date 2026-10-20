@@ -1,0 +1,31 @@
+{
+  "status": "success",
+  "scope": "small real-SVS CPU preprocessing smoke only",
+  "source_file_id": "a2e48dce-1874-468d-a302-fd30b3107f4a",
+  "source_md5": "a86f358f5325b6229035d19ed23440aa",
+  "selected_tiles": 16,
+  "actual_output_mpp": [
+    0.49926116071428567,
+    0.49926116071428567
+  ],
+  "quality_warnings": [
+    "fewer_than_32_tiles",
+    "embedded_icc_profile_present_not_applied"
+  ],
+  "config": {
+    "target_mpp": 0.5,
+    "tile_size": 224,
+    "max_tiles": 16,
+    "minimum_tissue_fraction": 0.5,
+    "thumbnail_max": 1024,
+    "saturation_min": 0.08,
+    "value_min": 0.15,
+    "value_max": 0.98,
+    "mask_min_component_pixels": 16,
+    "mask_closing_iterations": 1,
+    "seed": 215
+  },
+  "smoke_config_differs_from_frozen_model_config": true,
+  "uni2_encoding_performed": false,
+  "class_prediction_performed": false
+}

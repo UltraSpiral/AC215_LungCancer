@@ -1,3 +1,32 @@
+# Current verified MS2 source/evidence backup — checkpoint 29
+
+Updated: 2026-10-20T11:25:32.860226+00:00
+
+Source archive: `/Users/shlokdholakia/Documents/Harvard/Semesters/SEM3/AC215/LungCancer/artifacts/backups/code-20261020T112532Z.tar.gz`.
+SHA256: `6c02c8207d3bc8a4a59310772559cf07ddc28bb56e2f326bfb78539a8a9dd207`.
+Archive size: 4,662,362 bytes; 242 source/evidence files.
+
+Fresh extraction verified every archived file against the current checkout.
+Coverage includes frontend/backend, locks, containers, the new runner, submission
+and design records, and selected original/new public evidence. The 2.54 MB
+original successful Docker screenshot is intentionally included. Private raw
+slides, classifier/embedding/weight binaries, dependency/browser caches,
+authentication, Codex state and the original full proposal PDF are excluded.
+
+Local source/record/evidence and Git publication receipts:
+`/Users/shlokdholakia/Documents/Harvard/Semesters/SEM3/AC215/LungCancer/artifacts/ms2_audit/2026-10-20-29`.
+Current Markdown and selected evidence receive separate SHA256-verified copies.
+The archive contains the pointer present at creation; separate records include
+this refreshed pointer. Earlier backups/private inputs/outputs remain intact.
+
+The genuine Colab persistence helper created the local archive and refused Drive
+copying because no Colab Drive mount exists on this Mac. Its failure log is
+retained; no guard or security setting changed. New private backups remain local.
+Reviewed source/evidence is published normally to GitHub; no new private Drive
+mirror, fresh UNI2 extraction, training or Canvas submission is claimed.
+
+## Earlier backup records — retained
+
 # Current verified local source/record backup — checkpoint 28
 
 Updated: 2026-10-20T11:08:49.314187+00:00

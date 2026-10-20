@@ -1,0 +1,107 @@
+mkdir -p local_outputs/app/jobs
+docker compose -f compose.app.yml --profile test build app-tests
+Compose can now delegate builds to bake for better performance.
+ To do so, set COMPOSE_BAKE=true.
+#0 building with "desktop-linux" instance using docker driver
+
+#1 [app-tests internal] load build definition from backend.Dockerfile
+#1 transferring dockerfile: 1.50kB done
+#1 DONE 0.0s
+
+#2 [app-tests] resolve image config for docker-image://docker.io/docker/dockerfile:1
+#2 DONE 0.6s
+
+#3 [app-tests] docker-image://docker.io/docker/dockerfile:1@sha256:4edf897a3ffa55b89f906fc8cc78afdb3f1834cc9c7083565e611a8a7d5fe99e
+#3 resolve docker.io/docker/dockerfile:1@sha256:4edf897a3ffa55b89f906fc8cc78afdb3f1834cc9c7083565e611a8a7d5fe99e 0.0s done
+#3 CACHED
+
+#4 [app-tests internal] load metadata for docker.io/library/python:3.13.15-slim-bookworm@sha256:2325bb286ec344af3e5898cc224b5844e2707ac6e26b1632516fd3edc84a5e26
+#4 DONE 0.0s
+
+#5 [app-tests internal] load .dockerignore
+#5 transferring context:
+#5 transferring context: 529B done
+#5 DONE 0.0s
+
+#6 [app-tests dependencies 1/6] FROM docker.io/library/python:3.13.15-slim-bookworm@sha256:2325bb286ec344af3e5898cc224b5844e2707ac6e26b1632516fd3edc84a5e26
+#6 resolve docker.io/library/python:3.13.15-slim-bookworm@sha256:2325bb286ec344af3e5898cc224b5844e2707ac6e26b1632516fd3edc84a5e26 done
+#6 DONE 0.0s
+
+#7 [app-tests internal] load build context
+#7 transferring context: 343.51kB 0.0s done
+#7 DONE 0.0s
+
+#8 [app-tests dependencies 4/6] WORKDIR /opt/backend
+#8 CACHED
+
+#9 [app-tests dependencies 5/6] COPY backend/pyproject.toml backend/uv.lock ./
+#9 CACHED
+
+#10 [app-tests runtime 5/7] COPY lungcancer ./lungcancer
+#10 CACHED
+
+#11 [app-tests runtime 4/7] WORKDIR /opt/app
+#11 CACHED
+
+#12 [app-tests dependencies 3/6] RUN python -m pip install --no-cache-dir uv==0.12.21
+#12 CACHED
+
+#13 [app-tests runtime 2/7] RUN apt-get update && apt-get install -y --no-install-recommends libgomp1 libstdc++6 ca-certificates     && rm -rf /var/lib/apt/lists/*
+#13 CACHED
+
+#14 [app-tests dependencies 2/6] RUN apt-get update && apt-get install -y --no-install-recommends build-essential ca-certificates     && rm -rf /var/lib/apt/lists/*
+#14 CACHED
+
+#15 [app-tests runtime 3/7] COPY --from=dependencies /opt/backend /opt/backend
+#15 CACHED
+
+#16 [app-tests runtime 6/7] COPY scripts ./scripts
+#16 CACHED
+
+#17 [app-tests dependencies 6/6] RUN uv sync --frozen --no-dev --no-install-project --no-cache
+#17 CACHED
+
+#18 [app-tests runtime 7/7] COPY backend ./backend
+#18 DONE 0.1s
+
+#19 [app-tests test-dependencies 1/1] RUN uv sync --frozen --no-install-project --no-cache
+#19 0.614 Downloading pygments (1.2MiB)
+#19 9.471  Downloaded pygments
+#19 9.472 Prepared 7 packages in 9.24s
+#19 9.551 Installed 7 packages in 78ms
+#19 9.551  + httpcore==1.0.9
+#19 9.551  + httpx==0.28.1
+#19 9.551  + iniconfig==2.3.1
+#19 9.551  + packaging==26.3
+#19 9.551  + pluggy==1.7.0
+#19 9.551  + pygments==2.21.0
+#19 9.551  + pytest==8.4.2
+#19 DONE 9.7s
+
+#20 [app-tests tests 1/1] COPY --from=test-dependencies /opt/backend /opt/backend
+#20 DONE 1.7s
+
+#21 [app-tests] exporting to image
+#21 exporting layers
+#21 exporting layers 0.3s done
+#21 exporting manifest sha256:0a9e348146d86cf1f6c90e1c463c554891d2b8f95a2626cd1a28ebff7267e11f done
+#21 exporting config sha256:78e701d98db4731598a0776b735a8e53971329c14f65f8f4409372b94acd725e done
+#21 exporting attestation manifest sha256:8803547d4017dec7485422662e5b2500b08ebb389684e74a8ba681a408a9e421 done
+#21 exporting manifest list sha256:344783b0771cb79b5d7b24111acc38d140b17bc8d0ea1dae121c590677b93269 done
+#21 naming to docker.io/library/lungcancer-app-tests:milestone2 done
+#21 unpacking to docker.io/library/lungcancer-app-tests:milestone2 0.1s done
+#21 DONE 0.4s
+
+#22 [app-tests] resolving provenance for metadata file
+#22 DONE 0.0s
+ app-tests  Built
+docker compose -f compose.app.yml --profile test run --rm app-tests
+..............                                                           [100%]
+=============================== warnings summary ===============================
+../backend/.venv/lib/python3.13/site-packages/fastapi/testclient.py:1
+  /opt/backend/.venv/lib/python3.13/site-packages/fastapi/testclient.py:1: StarletteDeprecationWarning: Using `httpx` with `starlette.testclient` is deprecated; install `httpx2` instead.
+    from starlette.testclient import TestClient as TestClient  # noqa
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+--------------- generated xml file: /work/jobs/backend-tests.xml ---------------
+14 passed, 1 warning in 3.70s

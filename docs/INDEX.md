@@ -1,4 +1,16 @@
-# Current clarification — checkpoint 28
+# Current MS2 submission entry point — checkpoint 29
+
+- [Submission guide, tested commands and remaining team tasks](MS2_SUBMISSION.md)
+- [Original MS1 mock-up and implemented MVP refinements](MS2_DESIGN.md)
+- [Indexed actual Docker/test/model/design/replay evidence](evidence/ms2/2026-10-20/README.md)
+- [Checkpoint 29 — Single-command replay and evidence packaging](checkpoints/2026-10-20-29-ms2-submission-package.md)
+
+`make ms2-demo` passed on the M1. The original and new execution evidence is
+packaged for GitHub; actual presentation/team rehearsal and Canvas submission
+remain. The chosen cache boundary is explicit; fresh UNI2 container execution
+is not claimed.
+
+# Historical clarification — checkpoint 28
 
 [Feature caching, model serving and MS2 scope](checkpoints/2026-10-20-28-cache-scope-clarification.md)
 corrects the earlier requirement interpretation. Cached features are valid;
@@ -40,6 +52,7 @@ CPU container verification is complete; full inference containers remain pending
 
 # Current checkpoints
 
+- [29 — MS2 replay and submission evidence](checkpoints/2026-10-20-29-ms2-submission-package.md)
 - [28 — Feature caching and MS2 scope clarified](checkpoints/2026-10-20-28-cache-scope-clarification.md)
 - [27 — MS2 requirement/evidence audit](checkpoints/2026-10-20-27-ms2-readiness.md)
 - [Current submission readiness checklist](MS2_READINESS.md)

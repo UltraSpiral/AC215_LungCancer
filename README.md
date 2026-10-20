@@ -1,5 +1,15 @@
 # Working local preprocessed-slide application
 
+[MS2 submission guide](docs/MS2_SUBMISSION.md) ·
+[Original design and MVP refinements](docs/MS2_DESIGN.md) ·
+[Docker logs, test reports, screenshots and replay evidence](docs/evidence/ms2/2026-10-20/README.md).
+
+The tested single-command bounded pipeline demonstration is **`make ms2-demo`**.
+It validates prepared inputs, runs a separate real preprocessing smoke and
+obtains a new real HTTP prediction from the saved classifier/cached features.
+It preserves output artifacts and leaves the browser app running. No fresh
+UNI2 extraction or training is performed.
+
 From the repository root, run the tested single build/start command:
 
 ```bash

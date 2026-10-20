@@ -1,0 +1,87 @@
+{"argv": ["make", "cpu-build"]}
+docker compose -f compose.cpu.yml build cpu-check
+Compose can now delegate builds to bake for better performance.
+ To do so, set COMPOSE_BAKE=true.
+#0 building with "desktop-linux" instance using docker driver
+
+#1 [cpu-check internal] load build definition from Dockerfile
+#1 transferring dockerfile: 1.33kB done
+#1 DONE 0.0s
+
+#2 [cpu-check] resolve image config for docker-image://docker.io/docker/dockerfile:1
+#2 DONE 0.5s
+
+#3 [cpu-check] docker-image://docker.io/docker/dockerfile:1@sha256:4edf897a3ffa55b89f906fc8cc78afdb3f1834cc9c7083565e611a8a7d5fe99e
+#3 resolve docker.io/docker/dockerfile:1@sha256:4edf897a3ffa55b89f906fc8cc78afdb3f1834cc9c7083565e611a8a7d5fe99e done
+#3 CACHED
+
+#4 [cpu-check internal] load metadata for docker.io/library/python:3.13.15-slim-bookworm@sha256:2325bb286ec344af3e5898cc224b5844e2707ac6e26b1632516fd3edc84a5e26
+#4 DONE 0.0s
+
+#5 [cpu-check internal] load .dockerignore
+#5 transferring context: 529B done
+#5 DONE 0.0s
+
+#6 [cpu-check dependencies 1/6] FROM docker.io/library/python:3.13.15-slim-bookworm@sha256:2325bb286ec344af3e5898cc224b5844e2707ac6e26b1632516fd3edc84a5e26
+#6 resolve docker.io/library/python:3.13.15-slim-bookworm@sha256:2325bb286ec344af3e5898cc224b5844e2707ac6e26b1632516fd3edc84a5e26 0.0s done
+#6 DONE 0.0s
+
+#7 [cpu-check internal] load build context
+#7 transferring context: 394.23kB 0.0s done
+#7 DONE 0.0s
+
+#8 [cpu-check runtime  3/10] COPY --from=dependencies /opt/cpu /opt/cpu
+#8 CACHED
+
+#9 [cpu-check dependencies 2/6] RUN apt-get update && apt-get install -y --no-install-recommends build-essential ca-certificates     && rm -rf /var/lib/apt/lists/*
+#9 CACHED
+
+#10 [cpu-check dependencies 5/6] COPY containers/cpu/pyproject.toml containers/cpu/uv.lock ./
+#10 CACHED
+
+#11 [cpu-check runtime  4/10] COPY --from=dependencies /usr/local/bin/uv /usr/local/bin/uv
+#11 CACHED
+
+#12 [cpu-check runtime  2/10] RUN apt-get update && apt-get install -y --no-install-recommends libgomp1 libstdc++6 ca-certificates     && rm -rf /var/lib/apt/lists/*
+#12 CACHED
+
+#13 [cpu-check dependencies 4/6] WORKDIR /opt/cpu
+#13 CACHED
+
+#14 [cpu-check dependencies 6/6] RUN uv sync --frozen --no-dev --no-install-project --no-cache
+#14 CACHED
+
+#15 [cpu-check dependencies 3/6] RUN python -m pip install --no-cache-dir uv==0.12.21
+#15 CACHED
+
+#16 [cpu-check runtime  5/10] WORKDIR /content/LungCancer
+#16 CACHED
+
+#17 [cpu-check runtime  6/10] COPY lungcancer ./lungcancer
+#17 DONE 0.0s
+
+#18 [cpu-check runtime  7/10] COPY scripts ./scripts
+#18 DONE 0.0s
+
+#19 [cpu-check runtime  8/10] COPY tests ./tests
+#19 DONE 0.0s
+
+#20 [cpu-check runtime  9/10] COPY configs ./configs
+#20 DONE 0.0s
+
+#21 [cpu-check runtime 10/10] COPY pyproject.toml ./pyproject.toml
+#21 DONE 0.0s
+
+#22 [cpu-check] exporting to image
+#22 exporting layers 0.1s done
+#22 exporting manifest sha256:2e4716041fdb42236f9a49bbbd6604f86453c7cf1a4087757cb9c4b582710b8c done
+#22 exporting config sha256:8cec117ad37199408864fb9c50b12b0f82bf1330ad5f3e352b36d7699e9bdf91 0.0s done
+#22 exporting attestation manifest sha256:6ecf4e3356b5184be561dc3b4a999b57b5dd59dc9fc5edf635e315d5eaef16fb 0.0s done
+#22 exporting manifest list sha256:9b9ae71b215a62045a8f15e7f6c4334eae9f974ac1bf9066a2f6cdcfb4294694 done
+#22 naming to docker.io/library/lungcancer-cpu:milestone2 done
+#22 unpacking to docker.io/library/lungcancer-cpu:milestone2 0.0s done
+#22 DONE 0.3s
+
+#23 [cpu-check] resolving provenance for metadata file
+#23 DONE 0.0s
+ cpu-check  Built

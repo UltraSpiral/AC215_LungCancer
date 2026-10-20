@@ -1,5 +1,24 @@
 # Milestone 2 readiness — 2026-10-20, checkpoint 27
 
+## Current completion update — checkpoint 29
+
+The bounded MVP now has an actually executed **`make ms2-demo`** command and
+a committed evidence package: original CPU/app logs, reports, successful Docker
+screenshot, preprocessing visuals, original saved experiment metadata, the
+original MS1 mock-up appendix and the new input-to-output replay. See
+[MS2_SUBMISSION.md](MS2_SUBMISSION.md) for the current entry point.
+
+The user supplied the original proposal and reported TF approval of MS1 plus
+permission to simplify MS2. The [design record](MS2_DESIGN.md) attributes this
+feedback and documents concrete refinements. Prior missing-evidence/mock-up
+and separate-command statements below are superseded by this update.
+
+Remaining team tasks: actual presentation deck, shared rehearsal, confirmation
+of reviewer/teammate access to the existing private input snapshot, and Canvas
+submission of the final full SHA. The broader fresh-UNI2 container path remains
+unverified; the executed command clearly separates the new 16-tile smoke from
+the immutable 512-tile model cache. No training or fresh encoding ran.
+
 ## Correction — checkpoint 28: feature caching and pipeline scope
 
 The earlier assessment made fresh UNI2 extraction inside containers sound like
@@ -21,8 +40,9 @@ without a cache. That is a limit on the broader claim, not evidence that the
 cached app is broken or that caching fails the assignment. For MS2, document
 the selected workflow boundary and its versioned upstream artifacts, and make
 the ingestion/preprocessing and sample-input/output evidence easy to reproduce.
-The two executed commands are currently separate scoped workflows; a single
-combined scientific data-processing run is not established by their existence.
+At checkpoint 28 the executed commands were separate scoped workflows. At
+checkpoint 29, make ms2-demo executes the bounded prepared-feature workflow,
+including a separate preprocessing smoke, with preserved input/output evidence.
 The rubric's intended breadth remains a grading/scope interpretation; an
 extra TF approval step is not imposed merely because features are cached.
 
@@ -54,11 +74,11 @@ rubric's actual wording and the chosen cached-feature architecture.
 | Train/adapt a baseline | [Corrected modeling results](checkpoints/2026-10-20-16-modeling-results.md), training/evaluation scripts and [44-patient snapshot](../configs/modeling_snapshot_44_audit2.json) | Completed in Colab: frozen UNI2-h, slide mean pooling, training-only scaler and L2 logistic regression C=0.01. UNI2 was not fine-tuned. No new training is needed to establish that a baseline exists. |
 | Early experiments, rationale and next decisions | Checkpoint 16, [training plan](TRAINING_PLAN.md), saved private model/evaluation outputs | Results are documented: validation macro F1 0.667, test 1.000 on six previously observed provisional-test patients. Preserve tiny/reused-test, preparation, sparse-normal and site limitations. Add a concise current next-iteration explanation and selected original experiment artifacts to the submission evidence. No new experiments are authorized by this audit. |
 | Data/model versions used by containers | Input snapshot, source SHA/MD5, model/classifier hash, split identity, encoder and feature fingerprints are checked and recorded | Verified for CPU/app. The frozen snapshot and explicit identities satisfy the supplied minimum version-tracking approach; DVC is not specifically required. |
-| Compose and one-command execution | `compose.cpu.yml` + `make cpu-check`; `compose.app.yml` + tested `make app-up` | Both commands work for their stated scopes. App startup is one command, followed by the user's upload. Neither command proves the full ingestion → preprocessing → fresh UNI2 features → saved-model prediction pipeline. |
-| Containerized core pipeline, start-to-finish evidence | Real preprocessing and saved-model/cache checks succeeded separately inside ARM64 containers; real full-slide inference ran in Colab | The broader fresh-UNI2 workflow remains unverified. The rubric does not explicitly require encoder recomputation on every run. Define the versioned cached-feature boundary and document how the chosen ingestion/preprocessing and inference workflow runs; separate checks do not prove an unexecuted larger workflow. |
+| Compose and one-command execution | Existing CPU/app Compose plus new `make ms2-demo`, actually executed at checkpoint 29 | Bounded replay passed: app startup, prepared-input validation, real preprocessing smoke, actual upload/poll/prediction/overlay and image identities. Fresh UNI2 extraction is not part of this command or claim. |
+| Containerized core pipeline, start-to-finish evidence | Checkpoint 29 executes the chosen prepared-feature workflow, with a separately identified real 16-tile preprocessing smoke and real 512-tile cached-model inference | Actual scoped input/output evidence is packaged. GDC acquisition and fresh encoder extraction occurred in Colab; their full container path remains unverified. The supplied rubric does not explicitly prohibit cached upstream features. |
 | Minimal working UI/backend skeleton | Real browser → nginx → API → content-matched cached vectors → saved classifier → UI | Verified: 14 backend tests, frontend type/lint/production build checks, 10 real browser/API scenarios; renamed input invariance, unknown/modified input rejection and real API outage recovery. One supported preprocessed slide is sufficient for this disclosed skeleton. Arbitrary-slide support is not claimed. |
-| Milestone 1 mock-up/wireframe, refinement based on feedback | Existing React design, components and retained mock-only design states; HTTP implementation adds honest support boundaries and real results | Working design is present. No separately tracked original wireframe/deck or explicit record of actual TF feedback was found. Include/link the original design and document implementation-driven refinements; do not invent feedback. |
-| Screenshot of running instance, sample input/output and logs | [Genuine result screenshot](evidence/2026-10-20-app-result.png), [unknown-input screenshot](evidence/2026-10-20-app-unknown.png), [actual execution summary/result](evidence/2026-10-20-app-verification.json) are committed | App proof is on GitHub. The successful CPU terminal screenshot, raw CPU build/run log, JSON/JUnit, Docker inspections and preprocessing visuals are saved locally/previously backed up, but are not tracked in Git. Publish selected sanitized evidence or explicit accessible evidence links for the submission. Keep raw slides, weights, model binaries, caches and secrets out of Git. |
+| Milestone 1 mock-up/wireframe, refinement based on feedback | Original proposal appendix rendered and visually inspected; [MS2_DESIGN.md](MS2_DESIGN.md) compares the four original screens to the working MVP | Packaged in checkpoint 29. TF approval/simplification feedback is attributed to the user's report. Illustrative original design images are separate from actual runtime screenshots. |
+| Screenshot of running instance, sample input/output and logs | Existing app proof plus [the full selected evidence index](evidence/ms2/2026-10-20/README.md) | Packaged original CPU Docker screenshot/log/JUnit/JSON/visuals, saved experiment metadata, app logs/reports and new scoped replay outputs with hashes. Private input/model/embedding/weight binaries remain outside Git. |
 | Fresh reviewer setup | Source archive extraction and Git recovery-bundle fresh-clone byte comparisons passed | Source recovery is verified. A new reviewer still needs authorized access to the existing private snapshot; a Git clone alone does not contain those inputs. The app has not been rerun from a fresh clone during this audit. |
 | GitHub milestone2 and full SHA on Canvas | Implementation commit was pushed normally; local/live remote SHA matched before this audit | Publish final chosen deliverables, recheck live full SHA and submit that exact commit hash on Canvas by the supplied deadline, October 20 at 10:00 PM ET. Canvas submission is unverified. |
 | Presentation and individual checks | Code, commands and evidence are available for a walkthrough | No presentation deck is tracked in this checkout. A deck may exist elsewhere; this audit has not verified it. Prepare the team presentation and shared understanding of all components. |
@@ -71,35 +91,23 @@ ChromaDB and agent services do not establish extra vision-project requirements.
 The user's pasted rubric is the basis for this assessment. The chosen pipeline
 boundary should be explicit for review; this audit does not determine a grade.
 
-## What remains, in priority order
+## Original priorities, updated at checkpoint 29
 
-1. **State and demonstrate the selected pipeline boundary.** Present versioned
-   real features produced in Colab as upstream artifacts, then document the
-   executed containerized preprocessing checks and cached-feature inference
-   with exact commands, inputs and outputs. Check that the chosen scope has a
-   reproducible one-command data-processing example; current app startup and
-   CPU checks are separate. Caching is not itself a missing feature. Only if
-   claiming the larger fresh-UNI2 container workflow must that missing execution
-   be implemented and verified. Model loading does not require retraining.
-   Current restrictions on weights/downloads and further real experiments
-   remain. The rubric does not explicitly demand arbitrary new-slide support
-   or fresh encoder execution on every run.
-2. **Finish the GitHub evidence package.** Include selected sanitized original
-   CPU run log, test report, real preprocessing output/visual, successful Docker
-   screenshot, Docker/data identities and early modeling artifacts. Add an
-   evidence index explaining input identity, commands and output. Existing app
-   result JSON and screenshots are already committed. This is evidence
-   publication, not a reason to rerun unchanged CPU checks, refit or redownload.
-3. **Finish design and presentation records.** Include or link the original
-   Milestone 1 mock-up; explain actual refinements and available feedback.
-   Prepare the 10–15-minute team walkthrough, then Q&A and individual checks.
-   Everyone should explain specimen labels, patient separation, scaler fitting,
-   frozen encoder versus learned head, version identities, container networking,
-   cached-feature limits, tests and the actual debugging fixes.
-4. **Publish and submit.** Check the exact final diff, push normally to
-   `milestone2`, verify local/live full SHA equality and put the final SHA on
-   Canvas. The documentation commit containing this audit is not evidence that
-   the pending technical work or Canvas submission has been completed.
+1. **Selected pipeline boundary and replay: completed for the bounded MVP.**
+   `make ms2-demo` passed; exact commands, source identities, scope and outputs
+   are saved. It reuses versioned real features and the saved model. Broader
+   fresh-UNI2 container execution stays outside this verification claim.
+2. **Selected evidence package: prepared at checkpoint 29.** Original CPU/app
+   evidence and modeling metadata are indexed with hashes; the unchanged full
+   suites were not repeated. The new runner's relevant preprocessing/inference
+   sequence was actually executed with new output paths.
+3. **Design record: prepared; actual presentation and team rehearsal remain.**
+   The original MS1 mock-up, implementation refinements and user-reported TF
+   feedback are recorded. Prepare the deck and shared repository understanding.
+   Confirm authorized private-snapshot access on the demo machine.
+4. **Final publication and Canvas submission.** Publication receipts identify
+   the final reviewed commit and live-SHA comparison. Put that full SHA on
+   Canvas by the supplied deadline. Canvas submission has not been verified.
 
 No extra slides, retraining, split changes, clinical validation, Kubernetes,
 public hosting or optional profiling is needed merely to demonstrate the

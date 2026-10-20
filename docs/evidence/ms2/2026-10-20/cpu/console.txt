@@ -1,0 +1,103 @@
+docker compose -f compose.cpu.yml build cpu-check
+Compose can now delegate builds to bake for better performance.
+ To do so, set COMPOSE_BAKE=true.
+#0 building with "desktop-linux" instance using docker driver
+
+#1 [cpu-check internal] load build definition from Dockerfile
+#1 transferring dockerfile: 1.33kB done
+#1 DONE 0.0s
+
+#2 [cpu-check] resolve image config for docker-image://docker.io/docker/dockerfile:1
+#2 DONE 0.7s
+
+#3 [cpu-check] docker-image://docker.io/docker/dockerfile:1@sha256:4edf897a3ffa55b89f906fc8cc78afdb3f1834cc9c7083565e611a8a7d5fe99e
+#3 resolve docker.io/docker/dockerfile:1@sha256:4edf897a3ffa55b89f906fc8cc78afdb3f1834cc9c7083565e611a8a7d5fe99e 0.0s done
+#3 CACHED
+
+#4 [cpu-check internal] load metadata for docker.io/library/python:3.13.15-slim-bookworm@sha256:2325bb286ec344af3e5898cc224b5844e2707ac6e26b1632516fd3edc84a5e26
+#4 DONE 0.0s
+
+#5 [cpu-check internal] load .dockerignore
+#5 transferring context: 382B done
+#5 DONE 0.0s
+
+#6 [cpu-check dependencies 1/6] FROM docker.io/library/python:3.13.15-slim-bookworm@sha256:2325bb286ec344af3e5898cc224b5844e2707ac6e26b1632516fd3edc84a5e26
+#6 resolve docker.io/library/python:3.13.15-slim-bookworm@sha256:2325bb286ec344af3e5898cc224b5844e2707ac6e26b1632516fd3edc84a5e26 0.0s done
+#6 DONE 0.0s
+
+#7 [cpu-check internal] load build context
+#7 transferring context: 3.76kB 0.0s done
+#7 DONE 0.0s
+
+#8 [cpu-check runtime  9/10] COPY configs ./configs
+#8 CACHED
+
+#9 [cpu-check dependencies 4/6] WORKDIR /opt/cpu
+#9 CACHED
+
+#10 [cpu-check runtime  8/10] COPY tests ./tests
+#10 CACHED
+
+#11 [cpu-check runtime  3/10] COPY --from=dependencies /opt/cpu /opt/cpu
+#11 CACHED
+
+#12 [cpu-check runtime  5/10] WORKDIR /content/LungCancer
+#12 CACHED
+
+#13 [cpu-check runtime  2/10] RUN apt-get update && apt-get install -y --no-install-recommends libgomp1 libstdc++6 ca-certificates     && rm -rf /var/lib/apt/lists/*
+#13 CACHED
+
+#14 [cpu-check dependencies 2/6] RUN apt-get update && apt-get install -y --no-install-recommends build-essential ca-certificates     && rm -rf /var/lib/apt/lists/*
+#14 CACHED
+
+#15 [cpu-check dependencies 6/6] RUN uv sync --frozen --no-dev --no-install-project --no-cache
+#15 CACHED
+
+#16 [cpu-check dependencies 5/6] COPY containers/cpu/pyproject.toml containers/cpu/uv.lock ./
+#16 CACHED
+
+#17 [cpu-check dependencies 3/6] RUN python -m pip install --no-cache-dir uv==0.12.21
+#17 CACHED
+
+#18 [cpu-check runtime  7/10] COPY scripts ./scripts
+#18 CACHED
+
+#19 [cpu-check runtime  4/10] COPY --from=dependencies /usr/local/bin/uv /usr/local/bin/uv
+#19 CACHED
+
+#20 [cpu-check runtime  6/10] COPY lungcancer ./lungcancer
+#20 CACHED
+
+#21 [cpu-check runtime 10/10] COPY pyproject.toml ./pyproject.toml
+#21 CACHED
+
+#22 [cpu-check] exporting to image
+#22 exporting layers done
+#22 exporting manifest sha256:b6cea7cf8960d023df3bd5bf6624b8ab3674b4e1da45329303d0dbc529a18314 done
+#22 exporting config sha256:1b879e320b7af4a34f8db2964bcaf5c26f9bef747034e676854cf8edd1384410 done
+#22 exporting attestation manifest sha256:2802ad43493a072e65af2ee63b51f27e3328e048dbafc118cf0167461699e1c4 0.0s done
+#22 exporting manifest list sha256:c78cfbdd188e4c02a5330f110ccdcc77c8a6c7b9c815e893fd6ea3ca0f40a0da done
+#22 naming to docker.io/library/lungcancer-cpu:milestone2 done
+#22 unpacking to docker.io/library/lungcancer-cpu:milestone2 0.0s done
+#22 DONE 0.1s
+
+#23 [cpu-check] resolving provenance for metadata file
+#23 DONE 0.0s
+ cpu-check  Built
+mkdir -p local_outputs/cpu
+docker compose -f compose.cpu.yml run --rm cpu-check
+.............................                                            [100%]
+=============================== warnings summary ===============================
+tests/test_pipeline.py::test_scaler_is_fit_on_training_only_and_probability_class_order
+tests/test_pipeline.py::test_prediction_is_independent_of_arbitrary_renaming
+  /opt/cpu/.venv/lib/python3.13/site-packages/sklearn/linear_model/_logistic.py:451: DeprecationWarning: scipy.optimize: The `disp` and `iprint` options of the L-BFGS-B solver are deprecated and will be removed in SciPy 1.18.0.
+    opt_res = optimize.minimize(
+
+tests/test_pipeline.py::test_undefined_metrics_are_explicit
+  /opt/cpu/.venv/lib/python3.13/site-packages/sklearn/metrics/_classification.py:407: UserWarning: A single label was found in 'y_true' and 'y_pred'. For the confusion matrix to have the correct shape, use the 'labels' parameter to pass all known labels.
+    warnings.warn(
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+----------------- generated xml file: /outputs/unit-tests.xml ------------------
+29 passed, 3 warnings in 10.57s
+{'started_at': '2026-10-20T04:23:50.081544+00:00', 'architecture': 'aarch64', 'python': '3.13.15', 'status': 'success', 'stages': {'unit': {'status': 'success', 'data': 'synthetic unit fixtures only'}, 'cache': {'status': 'success', 'scope': 'real cached UNI2 embeddings and saved logistic head only', 'slides': 44, 'real_tile_embeddings': 22483, 'all_finite': True, 'patient_separation_verified': True, 'training_only_scaler_verified': True, 'class_order': ['non_tumor', 'adenocarcinoma', 'squamous'], 'frozen_reference_predictions_checked': 12, 'maximum_probability_difference': 5.551115123125783e-17, 'probability_tolerance': 1e-08, 'model_identifier': '42af9fb3f51e1539d994af4f20e2980e4118eac6a8cd665aeb372c1440b2fed5', 'split_identifier': '964f3b6c073863efbe38b560cfe93b2783cff5d822c64bde12f71241a7a4f2c4', 'new_model_training_performed': False, 'new_test_metric_evaluation_performed': False, 'uni2_encoding_performed': False, 'full_slide_prediction_performed': False}, 'preprocess': {'status': 'success', 'scope': 'small real-SVS CPU preprocessing smoke only', 'source_file_id': 'a2e48dce-1874-468d-a302-fd30b3107f4a', 'source_md5': 'a86f358f5325b6229035d19ed23440aa', 'selected_tiles': 16, 'actual_output_mpp': [0.49926116071428567, 0.49926116071428567], 'quality_warnings': ['fewer_than_32_tiles', 'embedded_icc_profile_present_not_applied'], 'config': {'target_mpp': 0.5, 'tile_size': 224, 'max_tiles': 16, 'minimum_tissue_fraction': 0.5, 'thumbnail_max': 1024, 'saturation_min': 0.08, 'value_min': 0.15, 'value_max': 0.98, 'mask_min_component_pixels': 16, 'mask_closing_iterations': 1, 'seed': 215}, 'smoke_config_differs_from_frozen_model_config': True, 'uni2_encoding_performed': False, 'class_prediction_performed': False}}, 'full_slide_to_prediction_container_verification': 'pending', 'openslide_library_version': '4.0.1', 'dependencies': {'numpy': '2.1.3', 'scipy': '1.16.3', 'scikit-learn': '1.6.1', 'Pillow': '11.3.0', 'joblib': '1.6.0', 'openslide-python': '1.4.6', 'openslide-bin': '4.0.1.2', 'pytest': '8.4.2'}, 'data_snapshot_identifier': 'f9491fe4d35f30267df95d26c61d6bb325908694e6df7d746a6acb9826eddb24', 'finished_at': '2026-10-20T04:24:10.113712+00:00', 'elapsed_seconds': 20.03702234299999}

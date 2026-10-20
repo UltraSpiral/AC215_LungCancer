@@ -1,4 +1,18 @@
-# Feature-cache and MS2 scope clarification — checkpoint 28
+# MS2 replay and submission evidence prepared — checkpoint 29
+
+`make ms2-demo` passed on the M1: build/start, prepared-input inventory, real
+16-tile preprocessing smoke, actual HTTP upload/poll, new saved-classifier
+prediction from the immutable 512-tile cache, overlay and image identities.
+The original CPU/app reports, successful Docker screenshot, preprocessing
+visuals, saved training metadata and original MS1 mock-up are packaged under
+docs/evidence/ms2/2026-10-20/. TF approval of MS1 and permission to simplify MS2
+are attributed to the user's report. See [docs/MS2_SUBMISSION.md](docs/MS2_SUBMISSION.md).
+Remaining team tasks: actual deck, shared rehearsal/private-snapshot access,
+and final full-SHA Canvas submission. No training/encoding, new acquisitions,
+split changes or new test metrics occurred. Broader fresh-UNI2 container work
+remains unverified. The full unchanged CPU/app test suites were not repeated.
+
+# Historical feature-cache and MS2 scope clarification — checkpoint 28
 
 The earlier audit overstated fresh UNI2 container execution as an unconditional
 MS2 requirement. Caching real versioned embeddings is valid; the saved model

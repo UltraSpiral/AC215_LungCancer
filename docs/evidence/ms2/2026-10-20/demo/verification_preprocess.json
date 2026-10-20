@@ -1,0 +1,54 @@
+{
+  "started_at": "2026-10-20T11:17:55.126047+00:00",
+  "architecture": "aarch64",
+  "python": "3.13.15",
+  "status": "success",
+  "stages": {
+    "preprocess": {
+      "status": "success",
+      "scope": "small real-SVS CPU preprocessing smoke only",
+      "source_file_id": "a2e48dce-1874-468d-a302-fd30b3107f4a",
+      "source_md5": "a86f358f5325b6229035d19ed23440aa",
+      "selected_tiles": 16,
+      "actual_output_mpp": [
+        0.49926116071428567,
+        0.49926116071428567
+      ],
+      "quality_warnings": [
+        "fewer_than_32_tiles",
+        "embedded_icc_profile_present_not_applied"
+      ],
+      "config": {
+        "target_mpp": 0.5,
+        "tile_size": 224,
+        "max_tiles": 16,
+        "minimum_tissue_fraction": 0.5,
+        "thumbnail_max": 1024,
+        "saturation_min": 0.08,
+        "value_min": 0.15,
+        "value_max": 0.98,
+        "mask_min_component_pixels": 16,
+        "mask_closing_iterations": 1,
+        "seed": 215
+      },
+      "smoke_config_differs_from_frozen_model_config": true,
+      "uni2_encoding_performed": false,
+      "class_prediction_performed": false
+    }
+  },
+  "full_slide_to_prediction_container_verification": "pending",
+  "openslide_library_version": "4.0.1",
+  "dependencies": {
+    "numpy": "2.1.3",
+    "scipy": "1.16.3",
+    "scikit-learn": "1.6.1",
+    "Pillow": "11.3.0",
+    "joblib": "1.6.0",
+    "openslide-python": "1.4.6",
+    "openslide-bin": "4.0.1.2",
+    "pytest": "8.4.2"
+  },
+  "data_snapshot_identifier": "f9491fe4d35f30267df95d26c61d6bb325908694e6df7d746a6acb9826eddb24",
+  "finished_at": "2026-10-20T11:17:57.458843+00:00",
+  "elapsed_seconds": 2.3328080849996695
+}

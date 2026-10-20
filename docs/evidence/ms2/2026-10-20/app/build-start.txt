@@ -1,0 +1,167 @@
+mkdir -p local_outputs/app/jobs
+docker compose -f compose.app.yml up --build -d --wait --wait-timeout 120 api web
+Compose can now delegate builds to bake for better performance.
+ To do so, set COMPOSE_BAKE=true.
+#0 building with "desktop-linux" instance using docker driver
+
+#1 [api internal] load build definition from backend.Dockerfile
+#1 transferring dockerfile: 1.50kB done
+#1 DONE 0.0s
+
+#2 [api] resolve image config for docker-image://docker.io/docker/dockerfile:1
+#2 DONE 0.4s
+
+#3 [api] docker-image://docker.io/docker/dockerfile:1@sha256:4edf897a3ffa55b89f906fc8cc78afdb3f1834cc9c7083565e611a8a7d5fe99e
+#3 resolve docker.io/docker/dockerfile:1@sha256:4edf897a3ffa55b89f906fc8cc78afdb3f1834cc9c7083565e611a8a7d5fe99e done
+#3 CACHED
+
+#4 [api internal] load metadata for docker.io/library/python:3.13.15-slim-bookworm@sha256:2325bb286ec344af3e5898cc224b5844e2707ac6e26b1632516fd3edc84a5e26
+#4 DONE 0.0s
+
+#5 [api internal] load .dockerignore
+#5 transferring context: 529B done
+#5 DONE 0.0s
+
+#6 [api dependencies 1/6] FROM docker.io/library/python:3.13.15-slim-bookworm@sha256:2325bb286ec344af3e5898cc224b5844e2707ac6e26b1632516fd3edc84a5e26
+#6 resolve docker.io/library/python:3.13.15-slim-bookworm@sha256:2325bb286ec344af3e5898cc224b5844e2707ac6e26b1632516fd3edc84a5e26 0.0s done
+#6 DONE 0.0s
+
+#7 [api internal] load build context
+#7 transferring context: 344.99kB 0.0s done
+#7 DONE 0.0s
+
+#8 [api runtime 3/7] COPY --from=dependencies /opt/backend /opt/backend
+#8 CACHED
+
+#9 [api dependencies 2/6] RUN apt-get update && apt-get install -y --no-install-recommends build-essential ca-certificates     && rm -rf /var/lib/apt/lists/*
+#9 CACHED
+
+#10 [api dependencies 5/6] COPY backend/pyproject.toml backend/uv.lock ./
+#10 CACHED
+
+#11 [api dependencies 4/6] WORKDIR /opt/backend
+#11 CACHED
+
+#12 [api runtime 4/7] WORKDIR /opt/app
+#12 CACHED
+
+#13 [api dependencies 6/6] RUN uv sync --frozen --no-dev --no-install-project --no-cache
+#13 CACHED
+
+#14 [api runtime 2/7] RUN apt-get update && apt-get install -y --no-install-recommends libgomp1 libstdc++6 ca-certificates     && rm -rf /var/lib/apt/lists/*
+#14 CACHED
+
+#15 [api dependencies 3/6] RUN python -m pip install --no-cache-dir uv==0.12.21
+#15 CACHED
+
+#16 [api runtime 5/7] COPY lungcancer ./lungcancer
+#16 CACHED
+
+#17 [api runtime 6/7] COPY scripts ./scripts
+#17 DONE 0.0s
+
+#18 [api runtime 7/7] COPY backend ./backend
+#18 DONE 0.0s
+
+#19 [api] exporting to image
+#19 exporting layers 0.0s done
+#19 exporting manifest sha256:b0582f5fd6411be32c7f0aa522c844d99d4cb9ed4de64640f4f9baf019825838 done
+#19 exporting config sha256:478fb493df4433172a922521872e81db6a959023dcb456985e9c2c633703414c done
+#19 exporting attestation manifest sha256:b1bf9157617c38389a6de5450db95d9b2415e6fdaac1a5f7949508413a82a9c2 done
+#19 exporting manifest list sha256:d4371e618895c27ca080419b2568b99d2960a85f345844af221e9d3a172ec738 done
+#19 naming to docker.io/library/lungcancer-app-api:milestone2 done
+#19 unpacking to docker.io/library/lungcancer-app-api:milestone2 0.0s done
+#19 DONE 0.1s
+
+#20 [api] resolving provenance for metadata file
+#20 DONE 0.0s
+
+#21 [web internal] load build definition from frontend.Dockerfile
+#21 transferring dockerfile: 619B done
+#21 DONE 0.0s
+
+#2 [web] resolve image config for docker-image://docker.io/docker/dockerfile:1
+#2 DONE 0.5s
+
+#3 [web] docker-image://docker.io/docker/dockerfile:1@sha256:4edf897a3ffa55b89f906fc8cc78afdb3f1834cc9c7083565e611a8a7d5fe99e
+#3 resolve docker.io/docker/dockerfile:1@sha256:4edf897a3ffa55b89f906fc8cc78afdb3f1834cc9c7083565e611a8a7d5fe99e 0.0s done
+#3 CACHED
+
+#22 [web internal] load metadata for docker.io/library/node:24-bookworm-slim@sha256:a5f4366e834695d5f363b920c104953a535d3a9864d1bdf74566a0ebe01daee5
+#22 DONE 0.0s
+
+#23 [web internal] load metadata for docker.io/library/nginx:stable-alpine@sha256:970364228b1e4f932abc22d321932816782cca8a20b85a77552a7cfe9acfb3b5
+#23 DONE 0.0s
+
+#24 [web internal] load .dockerignore
+#24 transferring context: 529B done
+#24 DONE 0.0s
+
+#25 [web build 1/6] FROM docker.io/library/node:24-bookworm-slim@sha256:a5f4366e834695d5f363b920c104953a535d3a9864d1bdf74566a0ebe01daee5
+#25 resolve docker.io/library/node:24-bookworm-slim@sha256:a5f4366e834695d5f363b920c104953a535d3a9864d1bdf74566a0ebe01daee5 done
+#25 DONE 0.0s
+
+#26 [web stage-1 1/3] FROM docker.io/library/nginx:stable-alpine@sha256:970364228b1e4f932abc22d321932816782cca8a20b85a77552a7cfe9acfb3b5
+#26 resolve docker.io/library/nginx:stable-alpine@sha256:970364228b1e4f932abc22d321932816782cca8a20b85a77552a7cfe9acfb3b5 0.0s done
+#26 DONE 0.0s
+
+#27 [web internal] load build context
+#27 transferring context: 419.39kB 0.0s done
+#27 DONE 0.0s
+
+#28 [web build 2/6] WORKDIR /app
+#28 CACHED
+
+#29 [web build 5/6] COPY frontend ./
+#29 CACHED
+
+#30 [web stage-1 2/3] COPY containers/app/nginx.conf /etc/nginx/nginx.conf
+#30 CACHED
+
+#31 [web build 4/6] RUN npm ci
+#31 CACHED
+
+#32 [web build 6/6] RUN npm run check
+#32 CACHED
+
+#33 [web build 3/6] COPY frontend/package.json frontend/package-lock.json ./
+#33 CACHED
+
+#34 [web stage-1 3/3] COPY --from=build /app/dist /usr/share/nginx/html
+#34 CACHED
+
+#35 [web] exporting to image
+#35 exporting layers done
+#35 exporting manifest sha256:2e07a783bb9701490fbf6494befbb0f91c860428514f6b9f23d63156f3659db5 done
+#35 exporting config sha256:0071a1b3302559eb455df342064f8ed0ad57171235a543c5467ec33ddc694088 done
+#35 exporting attestation manifest sha256:89ed65ecdd1b0e1c47fd42eddbd20e22218cbcbb322ee276c38d23fa987dbddd done
+#35 exporting manifest list sha256:168848a062c54823adb83a0a93fc3c11b3d33ffdc20ab97681e9ed5a42d6efbd
+#35 exporting manifest list sha256:168848a062c54823adb83a0a93fc3c11b3d33ffdc20ab97681e9ed5a42d6efbd done
+#35 naming to docker.io/library/lungcancer-app-web:milestone2 done
+#35 unpacking to docker.io/library/lungcancer-app-web:milestone2 done
+#35 DONE 0.0s
+
+#36 [web] resolving provenance for metadata file
+#36 DONE 0.0s
+ api  Built
+ web  Built
+ Network lungcancer-app_ingress  Creating
+ Network lungcancer-app_ingress  Created
+ Container lungcancer-app-web-1  Stopping
+ Container lungcancer-app-web-1  Stopped
+ Container lungcancer-app-api-1  Recreate
+ Container lungcancer-app-api-1  Recreated
+ Container lungcancer-app-web-1  Recreate
+ Container lungcancer-app-web-1  Recreated
+ Container lungcancer-app-api-1  Starting
+ Container lungcancer-app-api-1  Started
+ Container lungcancer-app-api-1  Waiting
+ Container lungcancer-app-api-1  Healthy
+ Container lungcancer-app-web-1  Starting
+ Container lungcancer-app-web-1  Started
+ Container lungcancer-app-api-1  Waiting
+ Container lungcancer-app-web-1  Waiting
+ Container lungcancer-app-api-1  Healthy
+ Container lungcancer-app-web-1  Healthy
+python3 scripts/check_app_ready.py
+App ready: http://127.0.0.1:8080/ (real backend verified)

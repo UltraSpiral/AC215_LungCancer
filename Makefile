@@ -41,3 +41,7 @@ app-test:
 	$(APP_COMPOSE) --profile test run --rm app-tests
 app-logs:
 	$(APP_COMPOSE) logs --no-color api web
+
+.PHONY: ms2-demo
+ms2-demo:
+	python3 scripts/run_ms2_demo.py

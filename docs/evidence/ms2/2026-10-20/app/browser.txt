@@ -1,0 +1,16 @@
+{
+  "status": "success",
+  "scenarios": [
+    "fixture_routes_isolated",
+    "known-result",
+    "renamed-result",
+    "renamed_filename_invariance",
+    "misleading_case_metadata",
+    "modified_slide",
+    "unknown_slide",
+    "empty_upload",
+    "oversized_upload",
+    "backend_unavailable"
+  ],
+  "report": "<REPOSITORY_ROOT>/local_outputs/app/browser-final/browser-report.json"
+}

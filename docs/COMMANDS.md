@@ -1,4 +1,43 @@
-# Current command clarification — checkpoint 28
+# Current MS2 commands — checkpoint 29
+
+Working directory:
+`/Users/shlokdholakia/Documents/Harvard/Semesters/SEM3/AC215/LungCancer`.
+Codex executed the tested bounded single-command demo with exit 0:
+
+```bash
+make ms2-demo
+```
+
+The script builds/starts the app, validates the existing snapshot, runs a real
+16-tile preprocessing smoke, uploads the supplied slide to the actual HTTP
+backend, checks the new saved-model prediction against its frozen reference,
+and saves the real overlay/Docker identities in a new
+`local_outputs/ms2/<UTC>-<id>/`. The 512-tile cache remains immutable; the
+smoke is separate and no new UNI2 features or model fitting occurs.
+
+Executed logging command (the pipeline preserves a failing exit):
+
+```bash
+set -o pipefail
+make ms2-demo 2>&1 | tee local_outputs/ms2/one-command-execution.txt
+```
+
+The `local_outputs/ms2/` parent already existed. Future normal runs need only
+the first command; the runner creates a new output directory automatically.
+App-only `make app-up`, `make app-stop` and `make app-resume` remain unchanged.
+The current Mac input is already restored; do not overwrite it. Fresh-reviewer
+restore/access instructions are in [MS2_SUBMISSION.md](MS2_SUBMISSION.md).
+Selected logs, reports, screenshots, saved training metadata and original
+mock-up now have a [GitHub evidence index](evidence/ms2/2026-10-20/README.md).
+Actual presentation/rehearsal and Canvas submission remain team tasks.
+
+Publication uses the selected UltraSpiral identity and normal push. Final SHA,
+backup/fresh-clone receipts and local record copies are under
+`artifacts/ms2_audit/2026-10-20-29/`. The required persistence helper retains
+its genuine Drive guard and refuses a nonexistent Colab mount on this Mac;
+verified new backups are local. No new private Drive mirror is claimed.
+
+# Historical command clarification — checkpoint 28
 
 `make app-up` remains the tested cached-feature app build/start command from
 the repository root. It loads the saved model; it does not train or extract

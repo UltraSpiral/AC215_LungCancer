@@ -1,5 +1,11 @@
 # Current MS2 assessment — checkpoint 27
 
+Checkpoint 29 packages the saved evidence and original MS1 mock-up and executes
+`make ms2-demo` for the bounded prepared-feature workflow. Current submission
+entry point: [MS2_SUBMISSION.md](MS2_SUBMISSION.md). Remaining team work is the
+actual deck/rehearsal, demo input-access confirmation and Canvas submission.
+Older missing-evidence/design/separate-command statements are historical.
+
 Correction at checkpoint 28: cached real features are valid, and the supplied
 rubric does not explicitly demand fresh UNI2 execution on every run. The
 unverified broader encoder path is separate from the verified app. Read the

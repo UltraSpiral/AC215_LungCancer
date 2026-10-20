@@ -1,0 +1,24 @@
+{
+  "id": "29a83848c1571569e7251908c592d19d5cf0ef48c0fd7c35cdaa5d54c2a3e63e",
+  "image_id": "sha256:c78cfbdd188e4c02a5330f110ccdcc77c8a6c7b9c815e893fd6ea3ca0f40a0da",
+  "network_mode": "none",
+  "read_only_rootfs": true,
+  "mounts": [
+    {
+      "Destination": "/inputs",
+      "Mode": "ro",
+      "Propagation": "rprivate",
+      "RW": false,
+      "Source": "<REPOSITORY_ROOT>/local_data/cpu_bundle",
+      "Type": "bind"
+    },
+    {
+      "Destination": "/outputs",
+      "Mode": "rw",
+      "Propagation": "rprivate",
+      "RW": true,
+      "Source": "<REPOSITORY_ROOT>/local_outputs/cpu",
+      "Type": "bind"
+    }
+  ]
+}

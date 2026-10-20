@@ -1,5 +1,12 @@
 # Verification scope
 
+Checkpoint 29 adds executed `make ms2-demo` and a selected public evidence
+package. It verifies the prepared-input workflow, a separate real preprocessing
+smoke and cached-feature HTTP prediction in one command. The new 16 smoke tiles
+are not classifier inputs; the immutable 512-tile cache is used. See
+[MS2_SUBMISSION.md](MS2_SUBMISSION.md) and
+[actual evidence](evidence/ms2/2026-10-20/README.md).
+
 The supplied MS2 rubric has a current detailed mapping in
 [MS2_READINESS.md](MS2_READINESS.md), checkpoint 27. Verified cached inference
 and a separately executed preprocessing smoke do not establish the complete
@@ -23,6 +30,7 @@ of [MS2_READINESS.md](MS2_READINESS.md).
 | Apple Silicon CPU container execution | **Passed on Apple M1, linux/arm64, checkpoint 21:** make exit 0; 29 tests; 44 real caches / 22,483 vectors; 12 frozen probabilities matched within 5.56e-17; real 16-tile smoke and inspected overlays | Logs, reports, image identity and genuine MS2 screenshot saved locally; approved Drive evidence package passed SHA256 readback; see checkpoint 21 |
 | Full slide-to-prediction container | Separate pending verification | Real encoder loading, embeddings and prediction in a suitable execution environment |
 | Native ARM64 cached-feature app | **Passed, checkpoint 26:** actual Chromium upload/poll/result with saved classifier; 10 browser/API scenarios; 14 backend tests; production frontend checks; genuine screenshots; stop/resume and host readiness | One supplied preprocessed raw slide; no fresh UNI2 extraction; local-demo session/job limits in LOCAL_APP.md |
+| Single-command bounded MS2 replay | **Passed, checkpoint 29:** make ms2-demo exited 0; app start, prepared inventory, real 16-tile smoke, actual HTTP prediction from 512 cached tiles, frozen-reference comparison, overlay and ARM64 image identities | Original/new evidence packaged; complete fresh-encoder path remains outside this scope |
 | Optional synchronized profiling | Deferred | No stage timings or hardware-only A100 speedup claimed |
 
 Final model artifacts are under

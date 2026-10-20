@@ -310,3 +310,21 @@ No processing, scientific artifact change or authorization expansion occurred.
 Records/source are backed up locally; no new Drive mirror is claimed. See
 [checkpoint 28](checkpoints/2026-10-20-28-cache-scope-clarification.md) and the
 correction in [MS2_READINESS.md](MS2_READINESS.md).
+
+## 29 — Tested bounded MS2 replay and submission evidence (2026-10-20)
+
+The user supplied the approved MS1 proposal and reported permission from the
+TF to simplify MS2. Reviewed all four pages; packaged the original mock-up and
+documented actual design changes. Added and executed make ms2-demo on the M1:
+native app start, prepared-input validation, real 16-tile preprocessing smoke,
+actual HTTP upload/poll, new prediction from the immutable 512-tile cache,
+reference comparison and actual overlay/image identities. Exit 0; maximum
+reference difference 6.938893903907228e-18. Published evidence includes original
+CPU/app logs, JUnit/JSON, genuine Docker screenshot, preprocessing visuals,
+saved training metadata, original design and new replay outputs, with hashes.
+Full unchanged test suites were not rerun. No fresh encoding, training, data
+acquisition, split change or new metrics occurred. Actual deck/team rehearsal,
+private-snapshot access confirmation and Canvas submission remain team tasks.
+Source/evidence backups and publication receipts remain local; no new Drive
+mirror is claimed. See [checkpoint 29](checkpoints/2026-10-20-29-ms2-submission-package.md)
+and [MS2_SUBMISSION.md](MS2_SUBMISSION.md).

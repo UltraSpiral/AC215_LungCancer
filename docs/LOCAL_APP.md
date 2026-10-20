@@ -1,5 +1,13 @@
 # Local preprocessed-slide application
 
+For MS2, **`make ms2-demo`** is now the tested single-command bounded replay:
+it builds/starts this app, verifies the prepared snapshot and runs a separate
+16-tile real preprocessing smoke, then uploads the real supplied slide and
+captures its saved-classifier result/overlay. Existing 512-tile embeddings stay
+immutable; the new smoke is not passed to UNI2 or the classifier. See
+[MS2_SUBMISSION.md](MS2_SUBMISSION.md) and
+[the actual replay evidence](evidence/ms2/2026-10-20/README.md).
+
 The existing React interface now calls a real Python HTTP backend. The backend
 matches uploaded file contents to one previously processed slide, verifies its
 cached UNI2 vectors, mean-pools them in float64 and applies the saved audit2

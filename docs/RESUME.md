@@ -1,3 +1,15 @@
+# Current submission/replay — checkpoint 29
+
+Read [MS2_SUBMISSION.md](MS2_SUBMISSION.md) for the current submission entry
+point and [the evidence index](evidence/ms2/2026-10-20/README.md) for actual
+logs/reports/screenshots. `make ms2-demo` passed on the M1, orchestrating the
+bounded prepared-feature workflow plus a separate real preprocessing smoke.
+Inputs remain in local_data/cpu_bundle/; existing app-only commands below still
+work. The original MS1 design and user-reported TF approval/simplification
+feedback are in MS2_DESIGN.md. Presentation/rehearsal, input access for the demo
+machine and Canvas submission remain team tasks. No fresh UNI2 container path
+or new real training is authorized or claimed.
+
 # Current local app — checkpoint 26
 
 The native ARM64 cached-feature application is implemented and browser-verified.
