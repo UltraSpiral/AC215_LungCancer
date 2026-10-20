@@ -1,3 +1,15 @@
+# Current handoff — checkpoint 25
+
+All context for the next local M1 UI/API task is saved in
+docs/MAC_CODEX_HANDOFF.md. Real modeling and native ARM64 CPU checks are complete.
+The new app is not yet implemented or run. The next local task uses content-
+verified cached UNI2 features and the saved classifier, with explicit support
+limits; no fresh encoding or real model fitting. Full slide-to-prediction
+container verification remains separately pending. Source backup coverage now
+includes the existing frontend while excluding inputs, dependencies and secrets.
+Checkpoint 25 and the private persistent docs/GIT_PUBLICATION.md receipt record
+handoff verification/publication; earlier instructions below are dated history.
+
 # Colab confirmation — checkpoint 23
 
 The published M1 checkpoint 598bcd79662a72af832db698b9761658bd943736 has been

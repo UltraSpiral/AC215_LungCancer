@@ -1,4 +1,33 @@
+# Current handoff commands — checkpoint 25
+
+The next action is to give local Codex docs/MAC_CODEX_HANDOFF.md as its task.
+No app startup command is implemented yet; local Codex will create, run and
+record the actual command. The existing make cpu-check already passed.
+
+Repository synchronization for local Codex, after inspecting status and branch:
+
+```bash
+git status --short --branch
+git branch --show-current
+git fetch origin milestone2
+```
+
+If already on milestone2 and local edits/commits permit a fast-forward, local
+Codex can run:
+
+```bash
+git merge --ff-only origin/milestone2
+```
+
+Preserve local work; do not reset, force-push or replace private bundle/output
+directories. The full prompt specifies all artifact paths and acceptance checks.
+No Colab/HF authentication, new slides, new training or GPU work is needed.
+
 # Current commands — checkpoint 23
+
+Checkpoint 24 recommends a real cached-feature UI/backend demo next. No app
+startup command is implemented yet and no manual processing command is needed.
+Implementation/execution await the user's next instruction; see checkpoint 24.
 
 No manual command is needed. Native M1 CPU verification passed and its saved
 evidence was independently checked from Colab. The existing Mac reproduction

@@ -1,3 +1,14 @@
+# Local Mac application handoff — checkpoint 25
+
+The user requested persisted/pushed context for local Codex. Read
+docs/MAC_CODEX_HANDOFF.md first for the next bounded task: native M1 UI/backend
+interaction using the real saved classifier and verified cached UNI2 embeddings.
+The Colab handoff task does not implement the app. The successor local session
+should execute the provided task when the user invokes it. CPU Docker checks are
+already complete; no new slides, UNI2 weights, real training, split changes,
+test-metric reruns or profiling are authorized. Full raw-slide-to-UNI2 container
+verification remains separate. Preserve the existing Mac evidence and approvals.
+
 # Native M1 CPU verification completed — checkpoint 21
 
 On 2026-10-20, actual `make cpu-check` passed in `linux/arm64` Docker on Apple

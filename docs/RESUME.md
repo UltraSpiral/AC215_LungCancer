@@ -1,3 +1,12 @@
+# Current local-Mac task handoff — checkpoint 25
+
+For the next application task, read MAC_CODEX_HANDOFF.md. It is self-contained:
+model/data identities, scientific limits, existing UI/API code, private local
+inputs, verified CPU evidence, scope boundaries and concrete acceptance checks.
+The new UI/backend app has not been implemented or executed. Earlier Colab
+authentication/CPU setup instructions below describe completed historical work.
+No Colab runtime or GPU is needed for the proposed cached-feature app.
+
 # Current Mac state — checkpoint 21
 
 The native M1 Docker CPU checks have completed successfully. Do not rerun them

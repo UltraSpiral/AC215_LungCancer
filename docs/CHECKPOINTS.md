@@ -239,3 +239,23 @@ JUnit/JSON success, ARM64 identity and runtime isolation; inspected screenshot
 and tiles. CPU container verification is complete. Full inference containers
 and UI/backend interaction remain pending. No processing reran and the rejected
 optional Mac sync receipt was not uploaded. See checkpoint 23.
+
+## 24 — Recommended next step: real application interaction
+
+Source review confirms the frontend defaults to fixtures and the reference
+HTTP server does not run the classifier. Recommend a native ARM64 UI/API demo
+using the actual saved model and content-verified cached features for the
+already-bundled slide, with explicit cache-only scope and unknown-input errors.
+Full containerized slide-to-UNI2 inference remains separate. This is planning
+only; no implementation, service startup, installation or ML run occurred.
+See checkpoint 24; no manual command is needed now.
+
+## 25 — Complete Mac application handoff and recovery coverage
+
+Saved the comprehensive local task/context in docs/MAC_CODEX_HANDOFF.md and
+prepared checkpoint 24 for publication. App implementation/execution remains
+pending the successor session. Extended source backups to include frontend
+source/lock/assets and future backend/app Compose files, excluding generated
+inputs, dependencies and credentials. Verify the actual archive and staged
+diff, persist to mounted Drive, publish normally and verify matching SHAs.
+No scientific artifacts or processing stage changed. See checkpoint 25.

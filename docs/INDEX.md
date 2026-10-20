@@ -1,5 +1,12 @@
 # Current Colab confirmation — checkpoint 23
 
+Recommended next action, planning only:
+[24 — Working application interaction](checkpoints/2026-10-20-24-next-app-step.md).
+
+The complete successor-task context is now saved:
+[Mac Codex handoff](MAC_CODEX_HANDOFF.md) and
+[25 — Persistence/publication summary](checkpoints/2026-10-20-25-mac-app-handoff.md).
+
 The published Mac checkpoint is synchronized locally. Its Drive evidence
 archive, full checksum inventory, JUnit/JSON reports and screenshot were
 independently inspected. See

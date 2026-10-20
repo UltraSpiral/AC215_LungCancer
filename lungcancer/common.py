@@ -82,18 +82,33 @@ def backup_code(root=DEFAULT_PERSISTENT):
     archive.parent.mkdir(parents=True, exist_ok=True)
     allowed = ['lungcancer', 'scripts', 'tests', 'configs', 'README.md', 'STATUS.md', 'AGENTS.md',
                'pyproject.toml', 'requirements.txt', '.gitignore', 'docs',
-               'containers','compose.cpu.yml','Makefile','.dockerignore']
+               'containers','frontend','backend','compose.cpu.yml','compose.app.yml',
+               'compose.yml','docker-compose.yml','Makefile','.dockerignore']
+    excluded_dirs={'__pycache__','.pytest_cache','.venv','node_modules','.cache',
+                   'dist','sample-slides','local_data','local_outputs','private_codex_recovery',
+                   '.git','.codex','.agents','.aws','artifacts','raw','data','uploads'}
+    excluded_suffixes={'.svs','.pt','.pth','.bin','.safetensors','.npz','.joblib',
+                       '.sqlite','.sqlite3','.jsonl','.bundle','.pyc','.gz','.zip','.log'}
+    def source_file(item):
+        relative=item.relative_to(ROOT)
+        return (item.is_file() and not item.is_symlink()
+                and not set(relative.parts)&excluded_dirs
+                and relative.parts[:3]!=('frontend','public','slides')
+                and item.suffix.lower() not in excluded_suffixes
+                and '.sqlite' not in item.name
+                and item.name not in {'auth.json','credentials.json','hosts.yml',
+                                      '.npmrc','.pypirc','.netrc','.git-credentials'}
+                and (not item.name.startswith('.env') or item.name=='.env.example'))
     with tarfile.open(archive, 'w:gz') as tf:
         for name in allowed:
             path = ROOT / name
             if not path.exists():
                 continue
-            if path.is_file():
+            if source_file(path):
                 tf.add(path, arcname=name)
-            else:
+            elif path.is_dir() and not path.is_symlink():
                 for item in sorted(path.rglob('*')):
-                    if (item.is_file() and not set(item.parts)&{'__pycache__','.pytest_cache','.venv','node_modules','.cache'}
-                            and not item.name.startswith('.env')):
+                    if source_file(item):
                         tf.add(item, arcname=str(item.relative_to(ROOT)))
     return persist_file(archive, Path('code_backups') / archive.name, root)
 

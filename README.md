@@ -1,3 +1,11 @@
+# Next local Mac task
+
+Read [docs/MAC_CODEX_HANDOFF.md](docs/MAC_CODEX_HANDOFF.md) for the complete
+implementation prompt and verified model/artifact context. Modeling and native
+ARM64 CPU verification passed. The next app task connects the existing UI to
+real cached-feature classification; it has not been implemented or run yet.
+Full slide-to-prediction container verification remains separate.
+
 # Current baseline and M1 verification
 
 The real UNI2-h baseline is trained and has held-out predictions/inference.
