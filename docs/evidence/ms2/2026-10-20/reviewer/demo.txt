@@ -1,0 +1,339 @@
+python3 scripts/run_ms2_demo.py
+Running: make app-up
+mkdir -p local_outputs/app/jobs
+docker compose -f compose.app.yml up --build -d --wait --wait-timeout 120 api web
+Compose can now delegate builds to bake for better performance.
+ To do so, set COMPOSE_BAKE=true.
+#0 building with "desktop-linux" instance using docker driver
+
+#1 [api internal] load build definition from backend.Dockerfile
+#1 transferring dockerfile: 1.53kB 0.0s done
+#1 DONE 0.1s
+
+#2 [api] resolve image config for docker-image://docker.io/docker/dockerfile:1
+#2 DONE 0.8s
+
+#3 [api] docker-image://docker.io/docker/dockerfile:1@sha256:4edf897a3ffa55b89f906fc8cc78afdb3f1834cc9c7083565e611a8a7d5fe99e
+#3 resolve docker.io/docker/dockerfile:1@sha256:4edf897a3ffa55b89f906fc8cc78afdb3f1834cc9c7083565e611a8a7d5fe99e 0.0s done
+#3 CACHED
+
+#4 [api internal] load metadata for docker.io/library/python:3.13.15-slim-bookworm@sha256:2325bb286ec344af3e5898cc224b5844e2707ac6e26b1632516fd3edc84a5e26
+#4 DONE 0.3s
+
+#5 [api internal] load .dockerignore
+#5 transferring context: 529B done
+#5 DONE 0.0s
+
+#6 [api dependencies 1/6] FROM docker.io/library/python:3.13.15-slim-bookworm@sha256:2325bb286ec344af3e5898cc224b5844e2707ac6e26b1632516fd3edc84a5e26
+#6 resolve docker.io/library/python:3.13.15-slim-bookworm@sha256:2325bb286ec344af3e5898cc224b5844e2707ac6e26b1632516fd3edc84a5e26 0.0s done
+#6 DONE 0.0s
+
+#7 [api internal] load build context
+#7 transferring context: 356.15kB 0.0s done
+#7 DONE 0.1s
+
+#8 [api dependencies 2/6] RUN apt-get update && apt-get install -y --no-install-recommends build-essential ca-certificates     && rm -rf /var/lib/apt/lists/*
+#8 CACHED
+
+#9 [api dependencies 3/6] RUN python -m pip install --no-cache-dir uv==0.12.21
+#9 CACHED
+
+#10 [api dependencies 4/6] WORKDIR /opt/backend
+#10 CACHED
+
+#11 [api dependencies 5/6] COPY backend/pyproject.toml backend/uv.lock ./
+#11 DONE 0.0s
+
+#12 [api dependencies 6/6] RUN uv sync --frozen --no-dev --no-install-project --no-cache
+#12 0.852 Using CPython 3.13.15 interpreter at: /usr/local/bin/python3
+#12 0.854 Creating virtual environment at: .venv
+#12 1.093 Downloading numpy (13.0MiB)
+#12 1.095 Downloading scipy (31.8MiB)
+#12 1.109 Downloading openslide-bin (2.5MiB)
+#12 1.111 Downloading scikit-learn (11.6MiB)
+#12 1.111 Downloading pillow (5.7MiB)
+#12 1.112 Downloading pydantic-core (2.0MiB)
+#12 12.17  Downloaded pydantic-core
+#12 14.44  Downloaded openslide-bin
+#12 25.63  Downloaded pillow
+#12 40.99  Downloaded scikit-learn
+#12 43.96  Downloaded numpy
+#12 60.07  Downloaded scipy
+#12 60.08 Prepared 28 packages in 59.18s
+#12 61.02 Installed 28 packages in 940ms
+#12 61.02  + annotated-doc==0.0.5
+#12 61.02  + annotated-types==0.8.0
+#12 61.02  + anyio==4.15.1
+#12 61.02  + certifi==2026.10.19
+#12 61.02  + charset-normalizer==3.5.2
+#12 61.02  + click==8.5.0
+#12 61.02  + cloudpickle==3.1.2
+#12 61.02  + fastapi==0.150.0
+#12 61.02  + h11==0.16.0
+#12 61.02  + idna==3.20
+#12 61.02  + joblib==1.6.0
+#12 61.02  + numpy==2.1.3
+#12 61.02  + openslide-bin==4.0.1.2
+#12 61.02  + openslide-python==1.4.6
+#12 61.02  + opentelemetry-api==1.45.1
+#12 61.02  + pillow==11.3.0
+#12 61.02  + pydantic==2.14.1
+#12 61.02  + pydantic-core==2.50.1
+#12 61.02  + python-multipart==0.0.32
+#12 61.02  + requests==2.32.4
+#12 61.02  + scikit-learn==1.6.1
+#12 61.02  + scipy==1.16.3
+#12 61.02  + starlette==1.9.0
+#12 61.02  + threadpoolctl==3.7.0
+#12 61.02  + typing-extensions==4.16.0
+#12 61.02  + typing-inspection==0.4.4
+#12 61.02  + urllib3==2.8.0
+#12 61.02  + uvicorn==0.54.0
+#12 DONE 61.9s
+
+#13 [api runtime 2/7] RUN apt-get update && apt-get install -y --no-install-recommends libgomp1 libstdc++6 ca-certificates     && rm -rf /var/lib/apt/lists/*
+#13 CACHED
+
+#14 [api runtime 3/7] COPY --from=dependencies /opt/backend /opt/backend
+#14 CACHED
+
+#15 [api runtime 4/7] WORKDIR /opt/app
+#15 CACHED
+
+#16 [api runtime 5/7] COPY lungcancer ./lungcancer
+#16 DONE 0.0s
+
+#17 [api runtime 6/7] COPY scripts ./scripts
+#17 DONE 0.0s
+
+#18 [api runtime 7/7] COPY backend ./backend
+#18 DONE 0.0s
+
+#19 [api] exporting to image
+#19 exporting layers 0.1s done
+#19 exporting manifest sha256:76e1b6312203bccce35979abe22b38db45aeb839533ac94ff106912373724356 done
+#19 exporting config sha256:ace38f6b815ff8c5d1126eddd6a9312031608fbf8a51a39e555aff08847de9b6 done
+#19 exporting attestation manifest sha256:653e15c90845c537eb6e7f01a750bc69ef13a102d5b493c5c57ba4360f907068 done
+#19 exporting manifest list sha256:f5ed71872521b460f70e07f2cf81b75826356b13129202a61a2f70c7347c8c61 done
+#19 naming to docker.io/library/lungcancer-review-api:milestone2 done
+#19 unpacking to docker.io/library/lungcancer-review-api:milestone2 0.0s done
+#19 DONE 0.1s
+
+#20 [api] resolving provenance for metadata file
+#20 DONE 0.0s
+
+#21 [web internal] load build definition from frontend.Dockerfile
+#21 transferring dockerfile: 656B done
+#21 DONE 0.0s
+
+#2 [web] resolve image config for docker-image://docker.io/docker/dockerfile:1
+#2 DONE 1.5s
+
+#3 [web] docker-image://docker.io/docker/dockerfile:1@sha256:4edf897a3ffa55b89f906fc8cc78afdb3f1834cc9c7083565e611a8a7d5fe99e
+#3 resolve docker.io/docker/dockerfile:1@sha256:4edf897a3ffa55b89f906fc8cc78afdb3f1834cc9c7083565e611a8a7d5fe99e 0.0s done
+#3 CACHED
+
+#22 [web internal] load metadata for docker.io/library/node:24-bookworm-slim@sha256:a5f4366e834695d5f363b920c104953a535d3a9864d1bdf74566a0ebe01daee5
+#22 DONE 0.3s
+
+#23 [web internal] load metadata for docker.io/library/nginx:stable-alpine@sha256:970364228b1e4f932abc22d321932816782cca8a20b85a77552a7cfe9acfb3b5
+#23 DONE 0.3s
+
+#24 [web internal] load .dockerignore
+#24 transferring context: 529B done
+#24 DONE 0.0s
+
+#25 [web stage-1 1/3] FROM docker.io/library/nginx:stable-alpine@sha256:970364228b1e4f932abc22d321932816782cca8a20b85a77552a7cfe9acfb3b5
+#25 resolve docker.io/library/nginx:stable-alpine@sha256:970364228b1e4f932abc22d321932816782cca8a20b85a77552a7cfe9acfb3b5 0.0s done
+#25 DONE 0.0s
+
+#26 [web build 1/6] FROM docker.io/library/node:24-bookworm-slim@sha256:a5f4366e834695d5f363b920c104953a535d3a9864d1bdf74566a0ebe01daee5
+#26 resolve docker.io/library/node:24-bookworm-slim@sha256:a5f4366e834695d5f363b920c104953a535d3a9864d1bdf74566a0ebe01daee5 0.0s done
+#26 DONE 0.0s
+
+#27 [web internal] load build context
+#27 transferring context: 420.05kB 0.0s done
+#27 DONE 0.0s
+
+#25 [web stage-1 1/3] FROM docker.io/library/nginx:stable-alpine@sha256:970364228b1e4f932abc22d321932816782cca8a20b85a77552a7cfe9acfb3b5
+#25 CACHED
+
+#28 [web build 2/6] WORKDIR /app
+#28 CACHED
+
+#29 [web build 3/6] COPY frontend/package.json frontend/package-lock.json ./
+#29 CACHED
+
+#30 [web build 4/6] RUN npm ci
+#30 CACHED
+
+#31 [web stage-1 2/3] COPY containers/app/nginx.conf /etc/nginx/nginx.conf
+#31 DONE 0.0s
+
+#32 [web build 5/6] COPY frontend ./
+#32 DONE 0.0s
+
+#33 [web build 6/6] RUN npm run check
+#33 0.939
+#33 0.939 > lung-screening-frontend@0.0.0 check
+#33 0.939 > npm run typecheck && npm run lint && npm run build
+#33 0.939
+#33 1.043
+#33 1.043 > lung-screening-frontend@0.0.0 typecheck
+#33 1.043 > tsc --noEmit -p tsconfig.app.json && tsc --noEmit -p tsconfig.node.json
+#33 1.043
+#33 1.836
+#33 1.836 > lung-screening-frontend@0.0.0 lint
+#33 1.836 > oxlint --deny-warnings src
+#33 1.836
+#33 2.066 Found 0 warnings and 0 errors.
+#33 2.066 Finished in 128ms on 50 files with 116 rules using 8 threads.
+#33 2.157
+#33 2.157 > lung-screening-frontend@0.0.0 build
+#33 2.157 > vite build
+#33 2.157
+#33 2.809 vite v8.3.4 building client environment for production...
+#33 2.822 transforming...
+#33 2.969 ✓ 86 modules transformed.
+#33 3.041 rendering chunks...
+#33 3.091 computing gzip size...
+#33 3.099 dist/index.html                             0.72 kB │ gzip:  0.38 kB
+#33 3.099 dist/assets/KitchenSink-DwXcOdoi.css        1.41 kB │ gzip:  0.57 kB
+#33 3.099 dist/assets/index-BXxd4kg2.css             22.74 kB │ gzip:  5.14 kB
+#33 3.099 dist/assets/rolldown-runtime-WkwZ5CU-.js    0.59 kB │ gzip:  0.36 kB
+#33 3.099 dist/assets/KitchenSink-p2NJ8YmF.js         7.32 kB │ gzip:  2.53 kB
+#33 3.099 dist/assets/index-BeWjDTc5.js              41.17 kB │ gzip: 14.54 kB
+#33 3.099 dist/assets/react-7VJPxFFw.js             218.75 kB │ gzip: 68.26 kB
+#33 3.099 dist/assets/openseadragon-BmiKBxaY.js     348.15 kB │ gzip: 87.43 kB
+#33 3.099
+#33 3.099 ✓ built in 289ms
+#33 DONE 3.1s
+
+#34 [web stage-1 3/3] COPY --from=build /app/dist /usr/share/nginx/html
+#34 DONE 0.0s
+
+#35 [web] exporting to image
+#35 exporting layers 0.1s done
+#35 exporting manifest sha256:c163f8d6eb379a2f7e83d565ba5793a70a9a571f8cc586d0258c537dff71857f done
+#35 exporting config sha256:699598d690a70f0793e4111a239deb90531d84f5f40d84e059855f67cbcde3f2 done
+#35 exporting attestation manifest sha256:4c1f4ba453e14c04a4f8086c39e786b23a7f199c5f93b4c87d58446caba5c8ad done
+#35 exporting manifest list sha256:57a43ccfe0f6180dac8d8d7a071c5bad86565bca4b7d5228d3caee343f9aea92 done
+#35 naming to docker.io/library/lungcancer-review-web:milestone2 done
+#35 unpacking to docker.io/library/lungcancer-review-web:milestone2 0.0s done
+#35 DONE 0.1s
+
+#36 [web] resolving provenance for metadata file
+#36 DONE 0.0s
+ api  Built
+ web  Built
+ Network lungcancer-ms2-review_app  Creating
+ Network lungcancer-ms2-review_app  Created
+ Network lungcancer-ms2-review_ingress  Creating
+ Network lungcancer-ms2-review_ingress  Created
+ Container lungcancer-ms2-review-api-1  Creating
+ Container lungcancer-ms2-review-api-1  Created
+ Container lungcancer-ms2-review-web-1  Creating
+ Container lungcancer-ms2-review-web-1  Created
+ Container lungcancer-ms2-review-api-1  Starting
+ Container lungcancer-ms2-review-api-1  Started
+ Container lungcancer-ms2-review-api-1  Waiting
+ Container lungcancer-ms2-review-api-1  Healthy
+ Container lungcancer-ms2-review-web-1  Starting
+ Container lungcancer-ms2-review-web-1  Started
+ Container lungcancer-ms2-review-web-1  Waiting
+ Container lungcancer-ms2-review-api-1  Waiting
+ Container lungcancer-ms2-review-api-1  Healthy
+ Container lungcancer-ms2-review-web-1  Healthy
+python3 scripts/check_app_ready.py
+App ready: http://127.0.0.1:18080/ (real backend verified)
+Running: make cpu-build
+docker compose -f compose.cpu.yml build cpu-check
+Compose can now delegate builds to bake for better performance.
+ To do so, set COMPOSE_BAKE=true.
+#0 building with "desktop-linux" instance using docker driver
+
+#1 [cpu-check internal] load build definition from Dockerfile
+#1 transferring dockerfile: 1.33kB done
+#1 DONE 0.0s
+
+#2 [cpu-check] resolve image config for docker-image://docker.io/docker/dockerfile:1
+#2 DONE 0.3s
+
+#3 [cpu-check] docker-image://docker.io/docker/dockerfile:1@sha256:4edf897a3ffa55b89f906fc8cc78afdb3f1834cc9c7083565e611a8a7d5fe99e
+#3 resolve docker.io/docker/dockerfile:1@sha256:4edf897a3ffa55b89f906fc8cc78afdb3f1834cc9c7083565e611a8a7d5fe99e 0.0s done
+#3 CACHED
+
+#4 [cpu-check internal] load metadata for docker.io/library/python:3.13.15-slim-bookworm@sha256:2325bb286ec344af3e5898cc224b5844e2707ac6e26b1632516fd3edc84a5e26
+#4 DONE 0.0s
+
+#5 [cpu-check internal] load .dockerignore
+#5 transferring context: 529B done
+#5 DONE 0.0s
+
+#6 [cpu-check dependencies 1/6] FROM docker.io/library/python:3.13.15-slim-bookworm@sha256:2325bb286ec344af3e5898cc224b5844e2707ac6e26b1632516fd3edc84a5e26
+#6 resolve docker.io/library/python:3.13.15-slim-bookworm@sha256:2325bb286ec344af3e5898cc224b5844e2707ac6e26b1632516fd3edc84a5e26 0.0s done
+#6 DONE 0.0s
+
+#7 [cpu-check internal] load build context
+#7 transferring context: 394.38kB 0.0s done
+#7 DONE 0.0s
+
+#8 [cpu-check runtime  2/10] RUN apt-get update && apt-get install -y --no-install-recommends libgomp1 libstdc++6 ca-certificates     && rm -rf /var/lib/apt/lists/*
+#8 CACHED
+
+#9 [cpu-check dependencies 2/6] RUN apt-get update && apt-get install -y --no-install-recommends build-essential ca-certificates     && rm -rf /var/lib/apt/lists/*
+#9 CACHED
+
+#10 [cpu-check dependencies 5/6] COPY containers/cpu/pyproject.toml containers/cpu/uv.lock ./
+#10 CACHED
+
+#11 [cpu-check runtime  3/10] COPY --from=dependencies /opt/cpu /opt/cpu
+#11 CACHED
+
+#12 [cpu-check runtime  4/10] COPY --from=dependencies /usr/local/bin/uv /usr/local/bin/uv
+#12 CACHED
+
+#13 [cpu-check dependencies 6/6] RUN uv sync --frozen --no-dev --no-install-project --no-cache
+#13 CACHED
+
+#14 [cpu-check dependencies 4/6] WORKDIR /opt/cpu
+#14 CACHED
+
+#15 [cpu-check dependencies 3/6] RUN python -m pip install --no-cache-dir uv==0.12.21
+#15 CACHED
+
+#16 [cpu-check runtime  5/10] WORKDIR /content/LungCancer
+#16 CACHED
+
+#17 [cpu-check runtime  6/10] COPY lungcancer ./lungcancer
+#17 DONE 0.0s
+
+#18 [cpu-check runtime  7/10] COPY scripts ./scripts
+#18 DONE 0.0s
+
+#19 [cpu-check runtime  8/10] COPY tests ./tests
+#19 DONE 0.0s
+
+#20 [cpu-check runtime  9/10] COPY configs ./configs
+#20 DONE 0.0s
+
+#21 [cpu-check runtime 10/10] COPY pyproject.toml ./pyproject.toml
+#21 DONE 0.0s
+
+#22 [cpu-check] exporting to image
+#22 exporting layers 0.1s done
+#22 exporting manifest sha256:37b800a75d6826aefde036fd4a48f35321d9489c2fec15b11ab5a667d0e65980 done
+#22 exporting config sha256:a495fc63c9434bf702c1b71256496750043545d71fa4caf1ba3de72dc33e2954 done
+#22 exporting attestation manifest sha256:443b258a7c6e4bccd3ba4919d2b66a1d692650118ab95b6b96a9e95074a6e4fd 0.0s done
+#22 exporting manifest list sha256:e1d591282b84ab5a6f53776ef0c3e91a4ec5e921631a9763e8341d6e88fe5836 done
+#22 naming to docker.io/library/lungcancer-review-cpu:milestone2 done
+#22 unpacking to docker.io/library/lungcancer-review-cpu:milestone2 0.0s done
+#22 DONE 0.2s
+
+#23 [cpu-check] resolving provenance for metadata file
+#23 DONE 0.0s
+ cpu-check  Built
+Running: docker compose -f compose.cpu.yml run --rm real-preprocess
+time="2026-10-20T10:38:19-04:00" level=warning msg="Found orphan containers ([lungcancer-ms2-review-web-1 lungcancer-ms2-review-api-1]) for this project. If you removed or renamed this service in your compose file, you can run this command with the --remove-orphans flag to clean it up."
+{'started_at': '2026-10-20T14:38:19.694647+00:00', 'architecture': 'aarch64', 'python': '3.13.15', 'status': 'success', 'stages': {'preprocess': {'status': 'success', 'scope': 'small real-SVS CPU preprocessing smoke only', 'source_file_id': 'a2e48dce-1874-468d-a302-fd30b3107f4a', 'source_md5': 'a86f358f5325b6229035d19ed23440aa', 'selected_tiles': 16, 'actual_output_mpp': [0.49926116071428567, 0.49926116071428567], 'quality_warnings': ['fewer_than_32_tiles', 'embedded_icc_profile_present_not_applied'], 'config': {'target_mpp': 0.5, 'tile_size': 224, 'max_tiles': 16, 'minimum_tissue_fraction': 0.5, 'thumbnail_max': 1024, 'saturation_min': 0.08, 'value_min': 0.15, 'value_max': 0.98, 'mask_min_component_pixels': 16, 'mask_closing_iterations': 1, 'seed': 215}, 'smoke_config_differs_from_frozen_model_config': True, 'uni2_encoding_performed': False, 'class_prediction_performed': False}}, 'full_slide_to_prediction_container_verification': 'pending', 'openslide_library_version': '4.0.1', 'dependencies': {'numpy': '2.1.3', 'scipy': '1.16.3', 'scikit-learn': '1.6.1', 'Pillow': '11.3.0', 'joblib': '1.6.0', 'openslide-python': '1.4.6', 'openslide-bin': '4.0.1.2', 'pytest': '8.4.2'}, 'data_snapshot_identifier': 'f9491fe4d35f30267df95d26c61d6bb325908694e6df7d746a6acb9826eddb24', 'finished_at': '2026-10-20T14:38:21.655275+00:00', 'elapsed_seconds': 1.9606465010001557}
+MS2 demo success; evidence: <REVIEW_CHECKOUT>/local_outputs/ms2/20261020T143655Z-d7535f83

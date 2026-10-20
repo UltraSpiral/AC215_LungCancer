@@ -1,3 +1,16 @@
+# Current setup, pipeline map and reviewer reproduction — checkpoint 32
+
+- [Stage environments, inputs/outputs and verification boundary](PIPELINE_SCOPE.md).
+- [Protected artifact access and complete reviewer setup](REVIEWER_SETUP.md).
+- [Executed clean-source restore/replay/browser evidence](evidence/ms2/2026-10-20/reviewer/README.md).
+- [Checkpoint 32 — Changes, commands, preservation and limitations](checkpoints/2026-10-20-32-reviewer-reproduction.md).
+- [Archived historical pilot README](history/2026-10-20-pilot-readme.md).
+
+The original app remains on 8080; the isolated test used 18080 and was cleaned
+up. The new setup executed on the existing M1, without claiming a teammate's
+independent run or fresh-UNI2 container execution. No new data/model experiment
+or sharing change occurred.
+
 # Detailed technical explanation — checkpoint 30
 
 Read [TECHNICAL_OVERVIEW.md](TECHNICAL_OVERVIEW.md) for the full data/model/app

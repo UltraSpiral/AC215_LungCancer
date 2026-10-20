@@ -1,0 +1,5 @@
+docker compose -f compose.app.yml stop api web
+ Container lungcancer-ms2-review-web-1  Stopping
+ Container lungcancer-ms2-review-web-1  Stopped
+ Container lungcancer-ms2-review-api-1  Stopping
+ Container lungcancer-ms2-review-api-1  Stopped

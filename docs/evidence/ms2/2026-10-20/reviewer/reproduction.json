@@ -1,0 +1,107 @@
+{
+  "status": "success",
+  "recorded_at_utc": "2026-10-20T14:41:44.486610+00:00",
+  "source_commit_executed": "a25ed2a8aa19a59f7262942a4864ffa59ec7cb53",
+  "source_clean_when_executed": true,
+  "clone_procedure": "Fresh GitHub milestone2 clone; fast-forwarded to the exact local implementation commit before final publication.",
+  "archive": {
+    "bytes": 186505459,
+    "sha256": "c7681d5965a9fb318f07c87f109d77ee740b12a323e500734e522c01d16ee988",
+    "restored_file_count": 187,
+    "inventory_file_count": 186
+  },
+  "archive_access": {
+    "protected_url": "https://drive.google.com/file/d/1WWVdbGjaL27ckhA7mtr3y5x8j06Hw01i/view?usp=drivesdk",
+    "checked_at_utc": "2026-10-20T14:34:00.930059+00:00",
+    "owner_and_one_existing_team_collaborator_explicitly_permitted": true,
+    "sharing_permissions_changed": false,
+    "other_person_login_or_execution_verified": false
+  },
+  "environment": {
+    "host": "Apple M1 arm64; existing Docker Desktop",
+    "project": "lungcancer-ms2-review",
+    "url_during_test": "http://127.0.0.1:18080/",
+    "docker_layer_cache_reuse_allowed": true,
+    "no_host_node_modules_in_fresh_checkout": true,
+    "browser_client": "Existing host Playwright/Chromium and acceptance script; requests went to isolated containers"
+  },
+  "execution": {
+    "make_ms2_demo_exit": 0,
+    "browser_command_exit": 0,
+    "browser_scenarios": 10,
+    "page_errors": 0,
+    "network_mocking_used": false,
+    "api_outage_and_recovery_passed": true,
+    "stop_resume_passed": true,
+    "reviewer_project_removed_after_test": true
+  },
+  "outputs": {
+    "predicted_class": "non_tumor",
+    "model_tiles": 512,
+    "separate_smoke_tiles": 16,
+    "maximum_reference_probability_difference": 6.938893903907228e-18
+  },
+  "original_app": {
+    "url": "http://127.0.0.1:8080/",
+    "containers_before": {
+      "lungcancer-app-api-1": {
+        "id": "fd8ba2a18bcebd7e1546df9ab86b3b71cd53ad1df07636867ffc7896b00de3ee",
+        "image": "sha256:807f622705603a40ec727b7348a098852670ab7aa31672e1f6360e155033f7b8",
+        "status": "running",
+        "health": "healthy"
+      },
+      "lungcancer-app-web-1": {
+        "id": "00d613ee8e76c18138771655a4e1bff717a53c10f0f76ea947599f39dfbb4751",
+        "image": "sha256:d758c119e7563f8f3d9e02ceb81758b01d311b4e4203fed766387a8ab0e85f2b",
+        "status": "running",
+        "health": "healthy"
+      }
+    },
+    "preservation_checks": {
+      "checked_at_utc": "2026-10-20T14:40:13.515088+00:00",
+      "original_containers": {
+        "lungcancer-app-api-1": {
+          "same_container_id": true,
+          "same_image_id": true,
+          "status": "running",
+          "health": "healthy"
+        },
+        "lungcancer-app-web-1": {
+          "same_container_id": true,
+          "same_image_id": true,
+          "status": "running",
+          "health": "healthy"
+        }
+      },
+      "original_image_tags_unchanged": true,
+      "original_manifest_and_186_inventory_entries_unchanged": true,
+      "original_app_ready_at": "http://127.0.0.1:8080/",
+      "reviewer_stop_resume_passed": true,
+      "reviewer_project_removed": true,
+      "reviewer_checkout_source_clean": true,
+      "host_node_modules_not_installed_in_fresh_checkout": true
+    }
+  },
+  "images": {
+    "api": {
+      "id": "sha256:f5ed71872521b460f70e07f2cf81b75826356b13129202a61a2f70c7347c8c61",
+      "os": "linux",
+      "architecture": "arm64"
+    },
+    "web": {
+      "id": "sha256:57a43ccfe0f6180dac8d8d7a071c5bad86565bca4b7d5228d3caee343f9aea92",
+      "os": "linux",
+      "architecture": "arm64"
+    },
+    "preprocessing": {
+      "id": "sha256:e1d591282b84ab5a6f53776ef0c3e91a4ec5e921631a9763e8341d6e88fe5836",
+      "os": "linux",
+      "architecture": "arm64"
+    }
+  },
+  "uni2_encoding_performed": false,
+  "model_training_performed": false,
+  "new_test_metrics_calculated": false,
+  "full_fresh_uni2_container_execution": "pending",
+  "second_machine_or_teammate_execution_claimed": false
+}

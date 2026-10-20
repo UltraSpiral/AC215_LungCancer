@@ -1,0 +1,15 @@
+docker compose -f compose.app.yml up -d --wait --wait-timeout 120 api web
+ Container lungcancer-ms2-review-api-1  Created
+ Container lungcancer-ms2-review-web-1  Created
+ Container lungcancer-ms2-review-api-1  Starting
+ Container lungcancer-ms2-review-api-1  Started
+ Container lungcancer-ms2-review-api-1  Waiting
+ Container lungcancer-ms2-review-api-1  Healthy
+ Container lungcancer-ms2-review-web-1  Starting
+ Container lungcancer-ms2-review-web-1  Started
+ Container lungcancer-ms2-review-web-1  Waiting
+ Container lungcancer-ms2-review-api-1  Waiting
+ Container lungcancer-ms2-review-api-1  Healthy
+ Container lungcancer-ms2-review-web-1  Healthy
+python3 scripts/check_app_ready.py
+App ready: http://127.0.0.1:18080/ (real backend verified)

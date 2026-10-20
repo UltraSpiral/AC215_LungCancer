@@ -1,0 +1,31 @@
+{
+  "job_id": "8611cc1c32004412bfc6995d36509bce",
+  "status": "done",
+  "stage": "Complete",
+  "created_at": "2026-10-20T14:38:22.762053+00:00",
+  "processing_mode": "preprocessed_slide_demo",
+  "result": {
+    "status": "success",
+    "predicted_class": "non_tumor",
+    "class_probabilities": {
+      "non_tumor": 0.9509898894470982,
+      "adenocarcinoma": 0.01920426120080631,
+      "squamous": 0.029805849352095373
+    },
+    "probabilities_calibrated": false,
+    "tiles_analyzed": 512,
+    "quality_warnings": [
+      "embedded_icc_profile_present_not_applied"
+    ],
+    "model_identifier": "42af9fb3f51e1539d994af4f20e2980e4118eac6a8cd665aeb372c1440b2fed5",
+    "encoder_identifier": "debc5e8769258a2e970772801d440debc2500868f5a6cf93b7b5c0c8c1e41324",
+    "data_snapshot_identifier": "f9491fe4d35f30267df95d26c61d6bb325908694e6df7d746a6acb9826eddb24",
+    "source_sha256": "544fc4ab2cf62ebc99e01e734907ec4194c71baba8b61bb4cbca92ae739c9a9d",
+    "source_md5": "a86f358f5325b6229035d19ed23440aa",
+    "feature_fingerprint": "1ac151e2c3e062c5632a4a9279e2914af697caf0158e0eee926e2b4b0185e4f6",
+    "processing_mode": "preprocessed_slide_demo",
+    "uni2_encoding_performed": false,
+    "analyzed_tiles_overlay": "/api/jobs/8611cc1c32004412bfc6995d36509bce/overlay"
+  },
+  "finished_at": "2026-10-20T14:38:22.827818+00:00"
+}

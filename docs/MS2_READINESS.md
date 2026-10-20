@@ -1,5 +1,19 @@
 # Milestone 2 readiness — 2026-10-20, checkpoint 27
 
+## Pipeline/setup follow-through — checkpoint 32
+
+The [pipeline map](PIPELINE_SCOPE.md) now identifies each stage's environment,
+inputs/outputs and boundary. [Reviewer setup](REVIEWER_SETUP.md) includes the
+protected archive link, verified access scope and complete instructions. A
+fresh isolated source/187-file restore passed make ms2-demo and all ten real
+browser/API scenarios on the existing M1, with separate images/port/mounts and
+preserved original app. [New evidence](evidence/ms2/2026-10-20/reviewer/README.md)
+records clean source commit a25ed2a8aa19a59f7262942a4864ffa59ec7cb53.
+The README is current; its intact pilot narrative moved to a linked history
+page with unavailable private artifact links annotated. These results supersede
+the earlier fresh-clone execution gap below. Another person's actual execution
+and full fresh-UNI2 container processing remain unverified.
+
 ## Detailed technical explanation — checkpoint 30
 
 Read [TECHNICAL_OVERVIEW.md](TECHNICAL_OVERVIEW.md) for the source/evidence-based
@@ -89,7 +103,7 @@ rubric's actual wording and the chosen cached-feature architecture.
 | Minimal working UI/backend skeleton | Real browser → nginx → API → content-matched cached vectors → saved classifier → UI | Verified: 14 backend tests, frontend type/lint/production build checks, 10 real browser/API scenarios; renamed input invariance, unknown/modified input rejection and real API outage recovery. One supported preprocessed slide is sufficient for this disclosed skeleton. Arbitrary-slide support is not claimed. |
 | Milestone 1 mock-up/wireframe, refinement based on feedback | Original proposal appendix rendered and visually inspected; [MS2_DESIGN.md](MS2_DESIGN.md) compares the four original screens to the working MVP | Packaged in checkpoint 29. TF approval/simplification feedback is attributed to the user's report. Illustrative original design images are separate from actual runtime screenshots. |
 | Screenshot of running instance, sample input/output and logs | Existing app proof plus [the full selected evidence index](evidence/ms2/2026-10-20/README.md) | Packaged original CPU Docker screenshot/log/JUnit/JSON/visuals, saved experiment metadata, app logs/reports and new scoped replay outputs with hashes. Private input/model/embedding/weight binaries remain outside Git. |
-| Fresh reviewer setup | Source archive extraction and Git recovery-bundle fresh-clone byte comparisons passed | Source recovery is verified. A new reviewer still needs authorized access to the existing private snapshot; a Git clone alone does not contain those inputs. The app has not been rerun from a fresh clone during this audit. |
+| Fresh reviewer setup | Updated at checkpoint 32: actual isolated clean-source clone, verified archive restore, bounded replay and browser/API suite passed | Owner/one collaborator permissions checked; protected artifact and instructions linked. This is the existing M1/Docker installation, not another person's observed execution. |
 | GitHub milestone2 and full SHA on Canvas | Implementation commit was pushed normally; local/live remote SHA matched before this audit | Publish final chosen deliverables, recheck live full SHA and submit that exact commit hash on Canvas by the supplied deadline, October 20 at 10:00 PM ET. Canvas submission is unverified. |
 | Presentation and individual checks | Code, commands and evidence are available for a walkthrough | No presentation deck is tracked in this checkout. A deck may exist elsewhere; this audit has not verified it. Prepare the team presentation and shared understanding of all components. |
 | RAG collection/chunking/vector DB/retrieval | Vision classification project | Not applicable to the vision branch of the supplied rubric. No RAG subsystem is needed for this project. |

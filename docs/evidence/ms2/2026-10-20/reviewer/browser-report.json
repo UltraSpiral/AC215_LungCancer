@@ -1,0 +1,410 @@
+{
+  "status": "success",
+  "started_at": "2026-10-20T14:38:35.962Z",
+  "base_url": "http://127.0.0.1:18080",
+  "scenarios": {
+    "fixture_routes_isolated": {
+      "status": "success",
+      "no_preselected_fixture": true
+    },
+    "known-result": {
+      "status": "success",
+      "job_id": "f6f9c7f429a94ca5801173dc9acef3e5",
+      "result": {
+        "status": "success",
+        "predicted_class": "non_tumor",
+        "class_probabilities": {
+          "non_tumor": 0.9509898894470982,
+          "adenocarcinoma": 0.01920426120080631,
+          "squamous": 0.029805849352095373
+        },
+        "probabilities_calibrated": false,
+        "tiles_analyzed": 512,
+        "quality_warnings": [
+          "embedded_icc_profile_present_not_applied"
+        ],
+        "model_identifier": "42af9fb3f51e1539d994af4f20e2980e4118eac6a8cd665aeb372c1440b2fed5",
+        "encoder_identifier": "debc5e8769258a2e970772801d440debc2500868f5a6cf93b7b5c0c8c1e41324",
+        "data_snapshot_identifier": "f9491fe4d35f30267df95d26c61d6bb325908694e6df7d746a6acb9826eddb24",
+        "source_sha256": "544fc4ab2cf62ebc99e01e734907ec4194c71baba8b61bb4cbca92ae739c9a9d",
+        "source_md5": "a86f358f5325b6229035d19ed23440aa",
+        "feature_fingerprint": "1ac151e2c3e062c5632a4a9279e2914af697caf0158e0eee926e2b4b0185e4f6",
+        "processing_mode": "preprocessed_slide_demo",
+        "uni2_encoding_performed": false,
+        "analyzed_tiles_overlay": "/api/jobs/f6f9c7f429a94ca5801173dc9acef3e5/overlay"
+      }
+    },
+    "renamed-result": {
+      "status": "success",
+      "job_id": "801bf222020c4e4c9aa4a73307fe245c",
+      "result": {
+        "status": "success",
+        "predicted_class": "non_tumor",
+        "class_probabilities": {
+          "non_tumor": 0.9509898894470982,
+          "adenocarcinoma": 0.01920426120080631,
+          "squamous": 0.029805849352095373
+        },
+        "probabilities_calibrated": false,
+        "tiles_analyzed": 512,
+        "quality_warnings": [
+          "embedded_icc_profile_present_not_applied"
+        ],
+        "model_identifier": "42af9fb3f51e1539d994af4f20e2980e4118eac6a8cd665aeb372c1440b2fed5",
+        "encoder_identifier": "debc5e8769258a2e970772801d440debc2500868f5a6cf93b7b5c0c8c1e41324",
+        "data_snapshot_identifier": "f9491fe4d35f30267df95d26c61d6bb325908694e6df7d746a6acb9826eddb24",
+        "source_sha256": "544fc4ab2cf62ebc99e01e734907ec4194c71baba8b61bb4cbca92ae739c9a9d",
+        "source_md5": "a86f358f5325b6229035d19ed23440aa",
+        "feature_fingerprint": "1ac151e2c3e062c5632a4a9279e2914af697caf0158e0eee926e2b4b0185e4f6",
+        "processing_mode": "preprocessed_slide_demo",
+        "uni2_encoding_performed": false,
+        "analyzed_tiles_overlay": "/api/jobs/801bf222020c4e4c9aa4a73307fe245c/overlay"
+      }
+    },
+    "renamed_filename_invariance": {
+      "status": "success",
+      "probability_difference": 0
+    },
+    "misleading_case_metadata": {
+      "status": "success",
+      "job": {
+        "job_id": "25075fb9702d44ffb27b3eff94279c5e",
+        "status": "done",
+        "stage": "Complete",
+        "created_at": "2026-10-20T14:38:47.737641+00:00",
+        "processing_mode": "preprocessed_slide_demo",
+        "result": {
+          "status": "success",
+          "predicted_class": "non_tumor",
+          "class_probabilities": {
+            "non_tumor": 0.9509898894470982,
+            "adenocarcinoma": 0.01920426120080631,
+            "squamous": 0.029805849352095373
+          },
+          "probabilities_calibrated": false,
+          "tiles_analyzed": 512,
+          "quality_warnings": [
+            "embedded_icc_profile_present_not_applied"
+          ],
+          "model_identifier": "42af9fb3f51e1539d994af4f20e2980e4118eac6a8cd665aeb372c1440b2fed5",
+          "encoder_identifier": "debc5e8769258a2e970772801d440debc2500868f5a6cf93b7b5c0c8c1e41324",
+          "data_snapshot_identifier": "f9491fe4d35f30267df95d26c61d6bb325908694e6df7d746a6acb9826eddb24",
+          "source_sha256": "544fc4ab2cf62ebc99e01e734907ec4194c71baba8b61bb4cbca92ae739c9a9d",
+          "source_md5": "a86f358f5325b6229035d19ed23440aa",
+          "feature_fingerprint": "1ac151e2c3e062c5632a4a9279e2914af697caf0158e0eee926e2b4b0185e4f6",
+          "processing_mode": "preprocessed_slide_demo",
+          "uni2_encoding_performed": false,
+          "analyzed_tiles_overlay": "/api/jobs/25075fb9702d44ffb27b3eff94279c5e/overlay"
+        },
+        "finished_at": "2026-10-20T14:38:47.805050+00:00"
+      }
+    },
+    "modified_slide": {
+      "status": "success",
+      "job": {
+        "job_id": "050e916d364147ea9cd82e9db58fcaad",
+        "status": "failed",
+        "stage": "Verifying cached features and applying the saved classifier",
+        "created_at": "2026-10-20T14:38:48.853543+00:00",
+        "processing_mode": "preprocessed_slide_demo",
+        "error": "Unsupported slide: no verified preprocessed features match these file bytes. Use the supplied previously processed slide; this demo cannot process new slides.",
+        "reason": "unsupported_slide",
+        "finished_at": "2026-10-20T14:38:48.857048+00:00"
+      }
+    },
+    "unknown_slide": {
+      "status": "success",
+      "job": {
+        "job_id": "648bd3410fb2438b8a0126c7de2f8f03",
+        "status": "failed",
+        "stage": "Verifying cached features and applying the saved classifier",
+        "created_at": "2026-10-20T14:38:49.024265+00:00",
+        "processing_mode": "preprocessed_slide_demo",
+        "error": "Unsupported slide: no verified preprocessed features match these file bytes. Use the supplied previously processed slide; this demo cannot process new slides.",
+        "reason": "unsupported_slide",
+        "finished_at": "2026-10-20T14:38:49.030839+00:00"
+      }
+    },
+    "empty_upload": {
+      "status": "success",
+      "no_prediction": true
+    },
+    "oversized_upload": {
+      "status": "success",
+      "no_prediction": true
+    },
+    "backend_unavailable": {
+      "status": "success",
+      "no_prediction": true,
+      "actual_api_container_stopped": true
+    }
+  },
+  "requests": [
+    {
+      "method": "GET",
+      "url": "http://127.0.0.1:18080/kitchen-sink?sample=TCGA-05-4244",
+      "resource_type": "document"
+    },
+    {
+      "method": "GET",
+      "url": "http://127.0.0.1:18080/assets/index-BeWjDTc5.js",
+      "resource_type": "script"
+    },
+    {
+      "method": "GET",
+      "url": "http://127.0.0.1:18080/assets/rolldown-runtime-WkwZ5CU-.js",
+      "resource_type": "script"
+    },
+    {
+      "method": "GET",
+      "url": "http://127.0.0.1:18080/assets/react-7VJPxFFw.js",
+      "resource_type": "script"
+    },
+    {
+      "method": "GET",
+      "url": "http://127.0.0.1:18080/assets/openseadragon-BmiKBxaY.js",
+      "resource_type": "script"
+    },
+    {
+      "method": "GET",
+      "url": "http://127.0.0.1:18080/assets/index-BXxd4kg2.css",
+      "resource_type": "stylesheet"
+    },
+    {
+      "method": "GET",
+      "url": "http://127.0.0.1:18080/fonts/Geist-Variable.woff2",
+      "resource_type": "font"
+    },
+    {
+      "method": "GET",
+      "url": "http://127.0.0.1:18080/fonts/InstrumentSans-Variable.woff2",
+      "resource_type": "font"
+    },
+    {
+      "method": "GET",
+      "url": "http://127.0.0.1:18080/",
+      "resource_type": "document"
+    },
+    {
+      "method": "GET",
+      "url": "http://127.0.0.1:18080/assets/index-BeWjDTc5.js",
+      "resource_type": "script"
+    },
+    {
+      "method": "GET",
+      "url": "http://127.0.0.1:18080/assets/rolldown-runtime-WkwZ5CU-.js",
+      "resource_type": "script"
+    },
+    {
+      "method": "GET",
+      "url": "http://127.0.0.1:18080/assets/react-7VJPxFFw.js",
+      "resource_type": "script"
+    },
+    {
+      "method": "GET",
+      "url": "http://127.0.0.1:18080/assets/openseadragon-BmiKBxaY.js",
+      "resource_type": "script"
+    },
+    {
+      "method": "GET",
+      "url": "http://127.0.0.1:18080/assets/index-BXxd4kg2.css",
+      "resource_type": "stylesheet"
+    },
+    {
+      "method": "GET",
+      "url": "http://127.0.0.1:18080/fonts/Geist-Variable.woff2",
+      "resource_type": "font"
+    },
+    {
+      "method": "GET",
+      "url": "http://127.0.0.1:18080/fonts/InstrumentSans-Variable.woff2",
+      "resource_type": "font"
+    },
+    {
+      "method": "POST",
+      "url": "http://127.0.0.1:18080/api/jobs",
+      "resource_type": "xhr"
+    },
+    {
+      "method": "GET",
+      "url": "http://127.0.0.1:18080/api/jobs/f6f9c7f429a94ca5801173dc9acef3e5",
+      "resource_type": "fetch"
+    },
+    {
+      "method": "GET",
+      "url": "http://127.0.0.1:18080/api/jobs/f6f9c7f429a94ca5801173dc9acef3e5/overlay",
+      "resource_type": "image"
+    },
+    {
+      "method": "POST",
+      "url": "http://127.0.0.1:18080/api/jobs",
+      "resource_type": "xhr"
+    },
+    {
+      "method": "GET",
+      "url": "http://127.0.0.1:18080/api/jobs/801bf222020c4e4c9aa4a73307fe245c",
+      "resource_type": "fetch"
+    },
+    {
+      "method": "GET",
+      "url": "http://127.0.0.1:18080/api/jobs/801bf222020c4e4c9aa4a73307fe245c/overlay",
+      "resource_type": "image"
+    },
+    {
+      "method": "POST",
+      "url": "http://127.0.0.1:18080/api/jobs",
+      "resource_type": "xhr"
+    },
+    {
+      "method": "GET",
+      "url": "http://127.0.0.1:18080/api/jobs/648bd3410fb2438b8a0126c7de2f8f03",
+      "resource_type": "fetch"
+    },
+    {
+      "method": "POST",
+      "url": "http://127.0.0.1:18080/api/jobs",
+      "resource_type": "xhr"
+    }
+  ],
+  "responses": [
+    {
+      "method": "POST",
+      "url": "http://127.0.0.1:18080/api/jobs",
+      "status": 202,
+      "body": {
+        "job_id": "f6f9c7f429a94ca5801173dc9acef3e5",
+        "status": "queued"
+      }
+    },
+    {
+      "method": "GET",
+      "url": "http://127.0.0.1:18080/api/jobs/f6f9c7f429a94ca5801173dc9acef3e5",
+      "status": 200,
+      "body": {
+        "job_id": "f6f9c7f429a94ca5801173dc9acef3e5",
+        "status": "done",
+        "stage": "Complete",
+        "created_at": "2026-10-20T14:38:40.267474+00:00",
+        "processing_mode": "preprocessed_slide_demo",
+        "result": {
+          "status": "success",
+          "predicted_class": "non_tumor",
+          "class_probabilities": {
+            "non_tumor": 0.9509898894470982,
+            "adenocarcinoma": 0.01920426120080631,
+            "squamous": 0.029805849352095373
+          },
+          "probabilities_calibrated": false,
+          "tiles_analyzed": 512,
+          "quality_warnings": [
+            "embedded_icc_profile_present_not_applied"
+          ],
+          "model_identifier": "42af9fb3f51e1539d994af4f20e2980e4118eac6a8cd665aeb372c1440b2fed5",
+          "encoder_identifier": "debc5e8769258a2e970772801d440debc2500868f5a6cf93b7b5c0c8c1e41324",
+          "data_snapshot_identifier": "f9491fe4d35f30267df95d26c61d6bb325908694e6df7d746a6acb9826eddb24",
+          "source_sha256": "544fc4ab2cf62ebc99e01e734907ec4194c71baba8b61bb4cbca92ae739c9a9d",
+          "source_md5": "a86f358f5325b6229035d19ed23440aa",
+          "feature_fingerprint": "1ac151e2c3e062c5632a4a9279e2914af697caf0158e0eee926e2b4b0185e4f6",
+          "processing_mode": "preprocessed_slide_demo",
+          "uni2_encoding_performed": false,
+          "analyzed_tiles_overlay": "/api/jobs/f6f9c7f429a94ca5801173dc9acef3e5/overlay"
+        },
+        "finished_at": "2026-10-20T14:38:40.342840+00:00"
+      }
+    },
+    {
+      "method": "GET",
+      "url": "http://127.0.0.1:18080/api/jobs/f6f9c7f429a94ca5801173dc9acef3e5/overlay",
+      "status": 200
+    },
+    {
+      "method": "POST",
+      "url": "http://127.0.0.1:18080/api/jobs",
+      "status": 202,
+      "body": {
+        "job_id": "801bf222020c4e4c9aa4a73307fe245c",
+        "status": "queued"
+      }
+    },
+    {
+      "method": "GET",
+      "url": "http://127.0.0.1:18080/api/jobs/801bf222020c4e4c9aa4a73307fe245c",
+      "status": 200,
+      "body": {
+        "job_id": "801bf222020c4e4c9aa4a73307fe245c",
+        "status": "done",
+        "stage": "Complete",
+        "created_at": "2026-10-20T14:38:44.079454+00:00",
+        "processing_mode": "preprocessed_slide_demo",
+        "result": {
+          "status": "success",
+          "predicted_class": "non_tumor",
+          "class_probabilities": {
+            "non_tumor": 0.9509898894470982,
+            "adenocarcinoma": 0.01920426120080631,
+            "squamous": 0.029805849352095373
+          },
+          "probabilities_calibrated": false,
+          "tiles_analyzed": 512,
+          "quality_warnings": [
+            "embedded_icc_profile_present_not_applied"
+          ],
+          "model_identifier": "42af9fb3f51e1539d994af4f20e2980e4118eac6a8cd665aeb372c1440b2fed5",
+          "encoder_identifier": "debc5e8769258a2e970772801d440debc2500868f5a6cf93b7b5c0c8c1e41324",
+          "data_snapshot_identifier": "f9491fe4d35f30267df95d26c61d6bb325908694e6df7d746a6acb9826eddb24",
+          "source_sha256": "544fc4ab2cf62ebc99e01e734907ec4194c71baba8b61bb4cbca92ae739c9a9d",
+          "source_md5": "a86f358f5325b6229035d19ed23440aa",
+          "feature_fingerprint": "1ac151e2c3e062c5632a4a9279e2914af697caf0158e0eee926e2b4b0185e4f6",
+          "processing_mode": "preprocessed_slide_demo",
+          "uni2_encoding_performed": false,
+          "analyzed_tiles_overlay": "/api/jobs/801bf222020c4e4c9aa4a73307fe245c/overlay"
+        },
+        "finished_at": "2026-10-20T14:38:44.145253+00:00"
+      }
+    },
+    {
+      "method": "GET",
+      "url": "http://127.0.0.1:18080/api/jobs/801bf222020c4e4c9aa4a73307fe245c/overlay",
+      "status": 200
+    },
+    {
+      "method": "POST",
+      "url": "http://127.0.0.1:18080/api/jobs",
+      "status": 202,
+      "body": {
+        "job_id": "648bd3410fb2438b8a0126c7de2f8f03",
+        "status": "queued"
+      }
+    },
+    {
+      "method": "GET",
+      "url": "http://127.0.0.1:18080/api/jobs/648bd3410fb2438b8a0126c7de2f8f03",
+      "status": 200,
+      "body": {
+        "job_id": "648bd3410fb2438b8a0126c7de2f8f03",
+        "status": "failed",
+        "stage": "Verifying cached features and applying the saved classifier",
+        "created_at": "2026-10-20T14:38:49.024265+00:00",
+        "processing_mode": "preprocessed_slide_demo",
+        "error": "Unsupported slide: no verified preprocessed features match these file bytes. Use the supplied previously processed slide; this demo cannot process new slides.",
+        "reason": "unsupported_slide",
+        "finished_at": "2026-10-20T14:38:49.030839+00:00"
+      }
+    },
+    {
+      "method": "POST",
+      "url": "http://127.0.0.1:18080/api/jobs",
+      "status": 503,
+      "body": {
+        "status": "error",
+        "reason": "The model service is unavailable. Start the app and try again."
+      }
+    }
+  ],
+  "page_errors": [],
+  "network_mocking_used": false,
+  "classifier_training_performed": false,
+  "uni2_encoding_performed": false,
+  "api_resumed": true,
+  "finished_at": "2026-10-20T14:39:02.771Z"
+}

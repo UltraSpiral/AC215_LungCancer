@@ -1,3 +1,18 @@
+# Current setup and pipeline boundary — checkpoint 32
+
+Read [the pipeline map](PIPELINE_SCOPE.md) for each stage's environment and
+input/output, and [reviewer setup](REVIEWER_SETUP.md) for the protected artifact,
+checksum and fresh/parallel checkout instructions. The existing Mac inputs are
+already restored; preserve them. Original app: http://127.0.0.1:8080/.
+
+A separate clean-source restore/replay and ten real browser/API scenarios
+passed. Its reviewer containers/networks were cleaned up; source, data and
+outputs remain in artifacts/reviewer_setup/2026-10-20-32/checkout/. The original
+app/images/inventory were unchanged. [Checkpoint 32](checkpoints/2026-10-20-32-reviewer-reproduction.md)
+and [evidence](evidence/ms2/2026-10-20/reviewer/README.md) distinguish this existing
+M1 setup from another person's run and from fresh UNI2 container execution.
+The root README is current; archived pilot instructions are dated history.
+
 # Current technical reading entry point — checkpoint 30
 
 Read [TECHNICAL_OVERVIEW.md](TECHNICAL_OVERVIEW.md) for the detailed scientific

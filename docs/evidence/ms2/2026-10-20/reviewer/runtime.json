@@ -1,0 +1,43 @@
+{
+  "checked_at_utc": "2026-10-20T14:40:11.467240+00:00",
+  "health_after_resume": {
+    "status": "ready",
+    "processing_mode": "preprocessed_slide_demo",
+    "model_identifier": "42af9fb3f51e1539d994af4f20e2980e4118eac6a8cd665aeb372c1440b2fed5",
+    "data_snapshot_identifier": "f9491fe4d35f30267df95d26c61d6bb325908694e6df7d746a6acb9826eddb24",
+    "supported_slides": 1,
+    "uni2_encoding_performed": false
+  },
+  "containers": {
+    "lungcancer-ms2-review-api-1": {
+      "id": "edbed82ae3423cc148db8f3650f32b99433156218295261e27e7698e35656d24",
+      "image": "sha256:f5ed71872521b460f70e07f2cf81b75826356b13129202a61a2f70c7347c8c61",
+      "status": "running",
+      "health": "healthy",
+      "platform": "linux",
+      "readonly_root": true,
+      "mounts": [
+        {
+          "destination": "/work/jobs",
+          "readwrite": true,
+          "type": "bind"
+        },
+        {
+          "destination": "/inputs",
+          "readwrite": false,
+          "type": "bind"
+        }
+      ]
+    },
+    "lungcancer-ms2-review-web-1": {
+      "id": "fcc610bca02107f157aac38e6c3111aa086294ebaabd0eca2be572e0c65e3769",
+      "image": "sha256:57a43ccfe0f6180dac8d8d7a071c5bad86565bca4b7d5228d3caee343f9aea92",
+      "status": "running",
+      "health": "healthy",
+      "platform": "linux",
+      "readonly_root": true,
+      "mounts": []
+    }
+  },
+  "stop_resume_passed": true
+}

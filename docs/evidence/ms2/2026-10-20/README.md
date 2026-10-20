@@ -1,5 +1,10 @@
 # MS2 real execution evidence — October 20, 2026
 
+[Checkpoint 32: isolated clone/restore/start and browser reproduction](reviewer/README.md)
+adds new clean-source execution evidence, protected-artifact access scope,
+187-file restoration, image identities and original-app preservation. Its own
+manifest/SHA256SUMS is separate from the original 27 entries below.
+
 This directory publishes selected original evidence plus a new executed
 single-command cached-feature demonstration. Raw slides, model binaries,
 embeddings, gated weights, authentication and browser caches are excluded.

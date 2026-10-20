@@ -1,0 +1,119 @@
+{
+  "created_at_utc": "2026-10-20T14:41:44.486610+00:00",
+  "source_commit_executed": "a25ed2a8aa19a59f7262942a4864ffa59ec7cb53",
+  "copied_original_artifacts": [
+    {
+      "path": "demo.json",
+      "source_relative_path": "artifacts/reviewer_setup/2026-10-20-32/checkout/local_outputs/ms2/20261020T143655Z-d7535f83/demo.json",
+      "source_sha256": "0dd201d73d3a304a06be15e879f2966994fb68a7abaef873b213213171b518a3",
+      "published_sha256": "0dd201d73d3a304a06be15e879f2966994fb68a7abaef873b213213171b518a3",
+      "path_substitutions": false
+    },
+    {
+      "path": "prediction.json",
+      "source_relative_path": "artifacts/reviewer_setup/2026-10-20-32/checkout/local_outputs/ms2/20261020T143655Z-d7535f83/prediction.json",
+      "source_sha256": "add9403c6d82498e0a10db4fdf7c380a28ac2998318d959824e9a3ab70e606a1",
+      "published_sha256": "add9403c6d82498e0a10db4fdf7c380a28ac2998318d959824e9a3ab70e606a1",
+      "path_substitutions": false
+    },
+    {
+      "path": "real_preprocessing.json",
+      "source_relative_path": "artifacts/reviewer_setup/2026-10-20-32/checkout/local_outputs/ms2/20261020T143655Z-d7535f83/preprocessing/real_preprocessing.json",
+      "source_sha256": "377a50c6a18323d88451325ce95d74cac559c1fc5684de54c62ec8f12625956e",
+      "published_sha256": "377a50c6a18323d88451325ce95d74cac559c1fc5684de54c62ec8f12625956e",
+      "path_substitutions": false
+    },
+    {
+      "path": "verification_preprocess.json",
+      "source_relative_path": "artifacts/reviewer_setup/2026-10-20-32/checkout/local_outputs/ms2/20261020T143655Z-d7535f83/preprocessing/verification_preprocess.json",
+      "source_sha256": "18480db14b040e9379b5468e4eddd61d396a67541e41a6d15fea0556f451b46e",
+      "published_sha256": "18480db14b040e9379b5468e4eddd61d396a67541e41a6d15fea0556f451b46e",
+      "path_substitutions": false
+    },
+    {
+      "path": "browser-report.json",
+      "source_relative_path": "artifacts/reviewer_setup/2026-10-20-32/checkout/local_outputs/app/browser/browser-report.json",
+      "source_sha256": "18b4d3f79a6c6ae2157dc8a9234136e62b65772757913238d571740f73a8a565",
+      "published_sha256": "18b4d3f79a6c6ae2157dc8a9234136e62b65772757913238d571740f73a8a565",
+      "path_substitutions": false
+    },
+    {
+      "path": "restore.txt",
+      "source_relative_path": "artifacts/ms2_audit/2026-10-20-32/restore.txt",
+      "source_sha256": "3005d6e8c79bf99adedb66e0718bffbc19c9c0920aece21bde3cc16f62afe1d7",
+      "published_sha256": "3005d6e8c79bf99adedb66e0718bffbc19c9c0920aece21bde3cc16f62afe1d7",
+      "path_substitutions": false
+    },
+    {
+      "path": "demo.txt",
+      "source_relative_path": "artifacts/ms2_audit/2026-10-20-32/isolated-demo.txt",
+      "source_sha256": "989b6d4bbfa2e75d2004c3f4fc8d857f642506d6146a71119f3e566fa564dbe8",
+      "published_sha256": "197f331200342ac8e90583b7e17c5e61cf4d72fe716d3ae7004378c47d2474b7",
+      "path_substitutions": true,
+      "whitespace_normalization": "Trailing whitespace stripped from each published text line; original source log retained unchanged."
+    },
+    {
+      "path": "browser.txt",
+      "source_relative_path": "artifacts/ms2_audit/2026-10-20-32/isolated-browser.txt",
+      "source_sha256": "252effecd65ab28cbd0b6ee0e321edda6294ba3b0f43d95ea431202f0130be0f",
+      "published_sha256": "39940ab851b6b4a25b496947f4f108bc729c07031ca2512fdf3eceaab633a51e",
+      "path_substitutions": true
+    },
+    {
+      "path": "app-stop.txt",
+      "source_relative_path": "artifacts/ms2_audit/2026-10-20-32/app-stop.txt",
+      "source_sha256": "a4b2904924a1ca18fded0aa90ef715776fac9f725e15631e4fdfdec13ea11e0c",
+      "published_sha256": "a4b2904924a1ca18fded0aa90ef715776fac9f725e15631e4fdfdec13ea11e0c",
+      "path_substitutions": false
+    },
+    {
+      "path": "app-resume.txt",
+      "source_relative_path": "artifacts/ms2_audit/2026-10-20-32/app-resume.txt",
+      "source_sha256": "ea9c9b2e18c0d3d269dfec2c8e2bfa8d16224e0aceb2a1c8635fe58e8aafd162",
+      "published_sha256": "ea9c9b2e18c0d3d269dfec2c8e2bfa8d16224e0aceb2a1c8635fe58e8aafd162",
+      "path_substitutions": false
+    },
+    {
+      "path": "app-down.txt",
+      "source_relative_path": "artifacts/ms2_audit/2026-10-20-32/app-down.txt",
+      "source_sha256": "4148812dfaffadad4f94e7724b0b8cce69e4fe11352b7bf63a6d4e30163e7e3a",
+      "published_sha256": "4148812dfaffadad4f94e7724b0b8cce69e4fe11352b7bf63a6d4e30163e7e3a",
+      "path_substitutions": false
+    },
+    {
+      "path": "runtime.json",
+      "source_relative_path": "artifacts/ms2_audit/2026-10-20-32/reviewer-runtime.json",
+      "source_sha256": "728bd71d0e0ea216d37f85121b773c0969872cf1ed23fc4414e6faeb58f72eb8",
+      "published_sha256": "728bd71d0e0ea216d37f85121b773c0969872cf1ed23fc4414e6faeb58f72eb8",
+      "path_substitutions": false
+    },
+    {
+      "path": "known-result.png",
+      "source_relative_path": "artifacts/reviewer_setup/2026-10-20-32/checkout/local_outputs/app/browser/known-result.png",
+      "source_sha256": "225725b5047cc27ef2f5fc530b782dbbacac765a2e5af71c510a70c408e99ec8",
+      "published_sha256": "225725b5047cc27ef2f5fc530b782dbbacac765a2e5af71c510a70c408e99ec8",
+      "path_substitutions": false
+    },
+    {
+      "path": "unknown-error.png",
+      "source_relative_path": "artifacts/reviewer_setup/2026-10-20-32/checkout/local_outputs/app/browser/unknown-error.png",
+      "source_sha256": "3567e9ac81a4c2a36c962ce9a2dcf7df0eaf702d8bebee1ee819c5e2bd42c75a",
+      "published_sha256": "3567e9ac81a4c2a36c962ce9a2dcf7df0eaf702d8bebee1ee819c5e2bd42c75a",
+      "path_substitutions": false
+    },
+    {
+      "path": "analyzed_tiles_overlay.jpg",
+      "source_relative_path": "artifacts/reviewer_setup/2026-10-20-32/checkout/local_outputs/ms2/20261020T143655Z-d7535f83/analyzed_tiles_overlay.jpg",
+      "source_sha256": "9422725d75a4b8bf64b51b28d90170c7bb5de2471b91e2ba2766cf7120900fb2",
+      "published_sha256": "9422725d75a4b8bf64b51b28d90170c7bb5de2471b91e2ba2766cf7120900fb2",
+      "path_substitutions": false
+    }
+  ],
+  "derived_summary": "reproduction.json",
+  "screenshots_unmodified": true,
+  "substitutions": {
+    "<REVIEW_CHECKOUT>": "absolute isolated checkout path",
+    "<REPO_ROOT>": "absolute original checkout path"
+  },
+  "credentials_private_input_binaries_and_permission_emails_excluded": true
+}

@@ -1,0 +1,13 @@
+docker compose -f compose.app.yml down
+ Container lungcancer-ms2-review-web-1  Stopping
+ Container lungcancer-ms2-review-web-1  Stopped
+ Container lungcancer-ms2-review-web-1  Removing
+ Container lungcancer-ms2-review-web-1  Removed
+ Container lungcancer-ms2-review-api-1  Stopping
+ Container lungcancer-ms2-review-api-1  Stopped
+ Container lungcancer-ms2-review-api-1  Removing
+ Container lungcancer-ms2-review-api-1  Removed
+ Network lungcancer-ms2-review_ingress  Removing
+ Network lungcancer-ms2-review_app  Removing
+ Network lungcancer-ms2-review_app  Removed
+ Network lungcancer-ms2-review_ingress  Removed

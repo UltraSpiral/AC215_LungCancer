@@ -105,11 +105,21 @@ app services as orphans. Do not use `--remove-orphans`: those are the live app.
 ## Reproduction record
 
 Original app/replay evidence is [indexed here](evidence/ms2/2026-10-20/README.md).
-An additional isolated checkout/restore/start is being executed for checkpoint
-32; this preliminary instruction record does not yet claim that new success.
-The final checkpoint will identify the exact source commit, archive checksum,
-187-file restore, image identities, HTTP/browser result and original-app
-preservation.
+An additional isolated setup **passed on 2026-10-20**, using clean source
+`a25ed2a8aa19a59f7262942a4864ffa59ec7cb53`. A fresh GitHub clone was
+fast-forwarded to that exact local implementation commit before publication.
+The verified archive restored 187 files; `make ms2-demo` exited 0 on port 18080,
+and all ten real browser/API scenarios passed with zero page errors. The
+16-tile smoke and 512-tile cached inference stayed separate; maximum frozen
+reference difference was `6.938893903907228e-18`.
+
+Stop/resume passed. The isolated containers/networks were then removed;
+the checkout/inputs/outputs remain preserved locally. The original 8080 app's
+container IDs, image tags and complete input inventory were unchanged and its
+health remained ready. [Logs, report, image identities and unmodified screenshots](evidence/ms2/2026-10-20/reviewer/README.md)
+are published with hashes. [Checkpoint 32](checkpoints/2026-10-20-32-reviewer-reproduction.md)
+records the commands and remaining boundaries. Later documentation/evidence
+publication does not change the runtime source executed at the commit above.
 
 This is an isolated setup on the owner's existing M1/Docker installation.
 Docker layer caches may be reused. It does not establish a second machine,

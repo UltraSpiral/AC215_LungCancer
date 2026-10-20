@@ -1,3 +1,17 @@
+# Reviewer reproduction and clearer onboarding — checkpoint 32
+
+Added the stage/environment/input/output pipeline map, protected input access
+and reviewer setup, and a concise current README with intact pilot history
+moved into docs/history/. A fresh isolated clean checkout restored 187 files,
+passed make ms2-demo and all ten real browser/API scenarios, then passed
+stop/resume and cleanup. Original app IDs, image tags and private inventory
+were unchanged; http://127.0.0.1:8080/ remains ready. Evidence and exact scope:
+[checkpoint 32](docs/checkpoints/2026-10-20-32-reviewer-reproduction.md),
+[reviewer guide](docs/REVIEWER_SETUP.md) and [pipeline map](docs/PIPELINE_SCOPE.md).
+Owner/one collaborator archive permissions were confirmed; no sharing change,
+second-person run, new modeling or full fresh-UNI2 container verification is
+claimed. New backups remain local; Canvas and presentation tasks remain.
+
 # Detailed technical documentation — checkpoint 30
 
 Added [docs/TECHNICAL_OVERVIEW.md](docs/TECHNICAL_OVERVIEW.md), explaining the

@@ -1,5 +1,14 @@
 # Verification scope
 
+Checkpoint 32 adds [a stage-by-stage pipeline boundary](PIPELINE_SCOPE.md),
+[reviewer setup](REVIEWER_SETUP.md) and
+[actual isolated reproduction](evidence/ms2/2026-10-20/reviewer/README.md).
+Fresh clean source plus a 187-file archive restore passed the bounded replay
+and ten real browser/API scenarios on the existing M1. Owner/one collaborator
+archive permissions were confirmed by metadata; no other person's run is
+claimed. The original app/inputs/images were preserved. Fresh UNI2 container
+execution remains a separate pending claim.
+
 Checkpoint 30 is documentation only: the detailed source/evidence-based
 [technical overview](TECHNICAL_OVERVIEW.md) explains this matrix. No processing/
 tests were repeated or scientific artifacts changed. Public deliverables
@@ -36,6 +45,7 @@ of [MS2_READINESS.md](MS2_READINESS.md).
 | Full slide-to-prediction container | Separate pending verification | Real encoder loading, embeddings and prediction in a suitable execution environment |
 | Native ARM64 cached-feature app | **Passed, checkpoint 26:** actual Chromium upload/poll/result with saved classifier; 10 browser/API scenarios; 14 backend tests; production frontend checks; genuine screenshots; stop/resume and host readiness | One supplied preprocessed raw slide; no fresh UNI2 extraction; local-demo session/job limits in LOCAL_APP.md |
 | Single-command bounded MS2 replay | **Passed, checkpoint 29:** make ms2-demo exited 0; app start, prepared inventory, real 16-tile smoke, actual HTTP prediction from 512 cached tiles, frozen-reference comparison, overlay and ARM64 image identities | Original/new evidence packaged; complete fresh-encoder path remains outside this scope |
+| Isolated reviewer reproduction | **Passed, checkpoint 32:** fresh clean Git source, SHA256-verified 187-file restore, separate project/images/port/mounts, make ms2-demo exit 0, ten real browser scenarios, stop/resume and original-app preservation | Existing M1/Docker/browser tooling reused; additional reviewer permissions and a second person's actual run are not inferred |
 | Optional synchronized profiling | Deferred | No stage timings or hardware-only A100 speedup claimed |
 
 Final model artifacts are under

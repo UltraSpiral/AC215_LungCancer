@@ -1,3 +1,69 @@
+# Current setup and reproduction commands — checkpoint 32
+
+For normal setup/run commands, use [REVIEWER_SETUP.md](REVIEWER_SETUP.md).
+The existing original app is ready at http://127.0.0.1:8080/; no restore or
+rerun is needed there. Do not overwrite local_data/cpu_bundle/.
+
+**Actually executed by Codex:** new GitHub clone, fast-forward to clean local
+implementation a25ed2a8aa19a59f7262942a4864ffa59ec7cb53, verified 187-file restore,
+make ms2-demo, ten real browser/API scenarios, stop/resume, then app-down for
+only the isolated project. Clone/fetch/merge, restore, build/runtime and browser
+logs are retained in artifacts/ms2_audit/2026-10-20-32/. GitHub clone initially
+contained 3d38612436ea99cef3e8dac2b2a9bfc3e02415fc; the local fast-forward allowed
+execution of the exact new implementation before final publication.
+
+Isolated working directory (already created; do not clone/restore over it):
+`/Users/shlokdholakia/Documents/Harvard/Semesters/SEM3/AC215/LungCancer/artifacts/reviewer_setup/2026-10-20-32/checkout`.
+The following archive restore and run commands were executed in that directory:
+
+```bash
+python3 scripts/unpack_cpu_bundle.py \
+  --archive '/Users/shlokdholakia/Downloads/CPU Verification Audit Oct 20 2026.tar.gz' \
+  --sha256 c7681d5965a9fb318f07c87f109d77ee740b12a323e500734e522c01d16ee988 \
+  --destination local_data/cpu_bundle --apply
+export COMPOSE_PROJECT_NAME=lungcancer-ms2-review
+export LC_APP_PORT=18080
+export LC_APP_API_IMAGE=lungcancer-review-api:milestone2
+export LC_APP_WEB_IMAGE=lungcancer-review-web:milestone2
+export LC_CPU_IMAGE=lungcancer-review-cpu:milestone2
+make ms2-demo
+make app-stop
+make app-resume
+make app-down
+```
+
+The isolated demo was at http://127.0.0.1:18080/ during verification; cleanup
+removed its containers/networks while preserving all bind-mounted data/output.
+To resume it later, reapply those exports in that checkout and use make app-up.
+The original 8080 project was not stopped or rebuilt.
+
+Browser verification ran from the original repository, reusing its installed
+Playwright/Chromium client against the isolated containers. The same five
+project/port/image exports above were set, plus these absolute paths:
+
+```bash
+export LC_APP_URL=http://127.0.0.1:18080
+export LC_APP_BUNDLE='/Users/shlokdholakia/Documents/Harvard/Semesters/SEM3/AC215/LungCancer/artifacts/reviewer_setup/2026-10-20-32/checkout/local_data/cpu_bundle'
+export LC_APP_OUTPUT='/Users/shlokdholakia/Documents/Harvard/Semesters/SEM3/AC215/LungCancer/artifacts/reviewer_setup/2026-10-20-32/checkout/local_outputs/app/jobs'
+export LC_APP_EVIDENCE_DIR='/Users/shlokdholakia/Documents/Harvard/Semesters/SEM3/AC215/LungCancer/artifacts/reviewer_setup/2026-10-20-32/checkout/local_outputs/app/browser'
+export PLAYWRIGHT_BROWSERS_PATH='/Users/shlokdholakia/Documents/Harvard/Semesters/SEM3/AC215/LungCancer/local_outputs/app/browser-cache'
+set -o pipefail
+node frontend/scripts/test-app.mjs 2>&1 | tee artifacts/ms2_audit/2026-10-20-32/isolated-browser.txt
+```
+
+The actual replay was also logged with pipefail/tee. These are execution records,
+not commands required again now. The browser script stops/restores only the
+selected project API for its outage scenario. Do not copy these test exports
+into the original app shell when using its default project and inputs.
+
+**Persistence/publication:** python3 scripts/persist_records.py, source/Markdown
+checksum and extraction checks, staged-diff review, normal UltraSpiral commit/
+push and live-SHA comparison. The genuine Drive guard is retained; new backups
+are local. **Pending:** additional account access as needed, another person's
+own run, presentation/Canvas, and separately scoped fresh-UNI2 container work.
+No new slides/weights, model fitting, embeddings, split changes or metric reruns
+are authorized by these setup instructions.
+
 # Saved-evidence inspection — checkpoint 31
 
 No new app/model processing command is needed for this review. Existing tested

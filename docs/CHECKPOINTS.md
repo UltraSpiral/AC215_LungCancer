@@ -357,3 +357,21 @@ No implementation/scientific artifact change, runtime/test rerun, new data,
 external sharing or Canvas action occurred. Source/Markdown backups remain
 local; no new Drive mirror is claimed. See
 [checkpoint 31](checkpoints/2026-10-20-31-evidence-inspection.md).
+
+## 32 — Pipeline scope, onboarding and isolated reviewer reproduction (2026-10-20)
+
+Mapped every stage's environment/input/output and kept the separate 16-tile
+smoke versus 512-tile cached-model boundary explicit. Added protected archive
+access, checksum and fresh/parallel setup instructions; shortened the README
+and preserved its pilot narrative with annotated/rebased links in history.
+A fresh GitHub clone fast-forwarded to clean implementation a25ed2a8aa19a59f7262942a4864ffa59ec7cb53
+restored 187 files, passed make ms2-demo and ten real browser/API scenarios,
+then passed stop/resume/cleanup. Original app IDs, image tags and 186 inventory
+entries plus manifest were unchanged. Owner/one existing collaborator's archive
+permissions were confirmed; no access change or another person's run claimed.
+Published fresh logs/reports/screenshots/overlay/image identities with hashes.
+Only image overrides and runner image inspection changed; scientific code,
+model, caches and splits did not. Full fresh-UNI2 Docker verification remains
+pending. No new slides/weights, fitting, features, metrics or profiling ran.
+Local backups/publication receipts are retained without a new Drive mirror.
+See [checkpoint 32](checkpoints/2026-10-20-32-reviewer-reproduction.md).
