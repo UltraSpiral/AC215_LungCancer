@@ -1,3 +1,28 @@
+# Latest verified local source backup
+
+Updated: 2026-10-20, checkpoint 31.
+
+Archive: `artifacts/backups/code-20261020T120629Z.tar.gz`
+
+SHA256: `c85100af4d0f14ce9cc49933faaa44ad66994c64587d29d5d742951e9db9ba1e`
+
+Size: 4,681,771 bytes. Fresh extraction verified 245 source/public-evidence files byte-for-byte.
+
+The source includes the factual checkpoint-31 inspection records. This pointer
+is updated after archive creation; its archived copy therefore contains the
+previous backup pointer. Private review/practice notes, raw slides, models,
+embeddings, weights, credentials and dependency caches are excluded.
+
+The required persistence helper created this archive, then exited 1 at its
+genuine Colab Drive mount guard. No guard change, fabricated mount or new Drive
+mirror occurred. New backups are local. Earlier approved CPU Drive evidence
+and its verified readback remain historical evidence, not a new mirror.
+
+Local source/Markdown/inspection/publication receipts:
+`artifacts/ms2_audit/2026-10-20-31/`.
+
+## Earlier backup records — retained
+
 # Current verified technical-documentation backup — checkpoint 30
 
 Updated: 2026-10-20T11:49:34.220129+00:00

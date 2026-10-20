@@ -61,6 +61,7 @@ CPU container verification is complete; full inference containers remain pending
 
 # Current checkpoints
 
+- [31 — Saved-evidence integrity inspection](checkpoints/2026-10-20-31-evidence-inspection.md)
 - [30 — Detailed technical documentation](checkpoints/2026-10-20-30-technical-documentation.md)
 - [29 — MS2 replay and submission evidence](checkpoints/2026-10-20-29-ms2-submission-package.md)
 - [28 — Feature caching and MS2 scope clarified](checkpoints/2026-10-20-28-cache-scope-clarification.md)

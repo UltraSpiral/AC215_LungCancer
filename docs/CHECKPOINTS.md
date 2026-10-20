@@ -343,3 +343,17 @@ No deck, source-code change, processing/test rerun or Canvas action occurred.
 Local source/Markdown and recovery/publication receipts are saved; no new Drive
 mirror is claimed. See [checkpoint 30](checkpoints/2026-10-20-30-technical-documentation.md)
 and [TECHNICAL_OVERVIEW.md](TECHNICAL_OVERVIEW.md).
+
+## 31 — Saved-evidence integrity inspection (2026-10-20)
+
+Inspected source/instructions and original MS2 evidence without rerunning
+processing. All 27 public evidence checksums matched. Saved JUnit confirms
+29 CPU tests and 14 backend tests, each with zero failures/errors/skips. The
+recorded ten-scenario browser summary and successful replay remain preserved;
+the executed runner hash matches source and the three image identities are
+linux/arm64. Local/live SHA matched at the audited commit. The detailed private
+review stays outside Git; this public record contains the factual inspection.
+No implementation/scientific artifact change, runtime/test rerun, new data,
+external sharing or Canvas action occurred. Source/Markdown backups remain
+local; no new Drive mirror is claimed. See
+[checkpoint 31](checkpoints/2026-10-20-31-evidence-inspection.md).

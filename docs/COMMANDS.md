@@ -1,4 +1,29 @@
-# Current documentation checkpoint — 30
+# Saved-evidence inspection — checkpoint 31
+
+No new app/model processing command is needed for this review. Existing tested
+commands and their boundaries remain unchanged. Codex inspected source and
+saved reports, recomputed the 27 public evidence hashes, parsed saved JUnit,
+checked current local links and compared the executed runner hash. These are
+evidence inspections, not a new test-suite/browser run. The detailed review is
+kept in ignored local storage.
+
+Working directory:
+`/Users/shlokdholakia/Documents/Harvard/Semesters/SEM3/AC215/LungCancer`.
+
+```bash
+git status --short --branch
+git rev-parse HEAD
+git ls-remote origin refs/heads/milestone2
+python3 scripts/persist_records.py
+git diff --check
+```
+
+The persistence helper retains its genuine mounted-Drive guard. Verified new
+source/Markdown copies and inspection/publication receipts are local under
+`artifacts/ms2_audit/2026-10-20-31/`; no new Drive mirror is claimed. No new
+processing, downloads, model fitting, feature extraction or Canvas action ran.
+
+# Historical documentation checkpoint — 30
 
 No new processing command is needed to read the system explanation.
 Read [TECHNICAL_OVERVIEW.md](TECHNICAL_OVERVIEW.md). The tested app/replay
