@@ -80,3 +80,43 @@ Download files can be reacquired by UUID/MD5 after authorization. No original or
 - Native session ID: `01a1513c-c07c-7100-8c49-70f63dff2251`; actual home `/root/.codex`.
 - Recovery instructions and every required setup cell: persistent `docs/RESUME.md`.
 - Exact installed versions: `artifacts/recovery_environment/installed_environment.json`.
+
+## Fresh A100 runtime verification
+
+- Current read-only reports: `/content/drive/MyDrive/LungCancer_AC215/artifacts/recovery_checks/20261019T204309Z`.
+- Current readiness checkpoint: persistent `docs/checkpoints/2026-10-19-07-a100-recovery.md`.
+- Original recovery snapshot/inventories are preserved without modification.
+- All 126 restored historical artifact files matched their checkpoint hashes.
+- Local copies remain under `/content/LungCancer/artifacts`.
+- Python verification helper is included in the latest source backup.
+- Existing frontend code is preserved in the verified GitHub branch and local
+  tracked tree; it was not installed or run.
+
+## 2026-10-20 readiness evidence
+
+- `/content/drive/MyDrive/LungCancer_AC215/artifacts/readiness/2026-10-20/`
+- Checkpoint summary: persistent `docs/checkpoints/2026-10-20-08-readiness.md`.
+- Verification helper: `scripts/verify_restored.py`, plus the recovered existing
+  `scripts/verify_restored_artifacts.py`. No model/data acquisition or fitting.
+
+## Git synchronization recovery copy — 2026-10-20
+
+`/content/drive/MyDrive/LungCancer_AC215/sync_checkpoints/20261020T014239Z` contains pre/post source archives, a full Git bundle, source/hash
+inventories and sync verification. The full archive/bundle includes existing
+frontend source; pipeline-only historical backups remain unchanged.
+
+## Current artifacts — checkpoints 16–17
+
+- Corrected model/results: /content/drive/MyDrive/LungCancer_AC215/artifacts/modeling/20261020T0220Z-audit2/
+- Original provisional run: /content/drive/MyDrive/LungCancer_AC215/artifacts/modeling/20261020T0220Z/
+- Strict metadata audit: /content/drive/MyDrive/LungCancer_AC215/artifacts/discovery_v2/
+- Shared real feature/visual outputs: /content/drive/MyDrive/LungCancer_AC215/artifacts/slides/
+- M1 data archive: /content/drive/MyDrive/LungCancer_AC215/portable/cpu-verification-20261020T0220Z-audit2.tar.gz
+- Portable archive receipt: same directory, cpu-verification-20261020T0220Z-audit2.tar.json
+- CPU logic verification evidence: /content/drive/MyDrive/LungCancer_AC215/artifacts/cpu_verification/colab_all/
+- Current source backup pointer: /content/drive/MyDrive/LungCancer_AC215/docs/LATEST_BACKUP.md
+
+One public raw SVS (a2e48dce-1874-468d-a302-fd30b3107f4a, 71,138,367 bytes,
+MD5 a86f358f5325b6229035d19ed23440aa) is retained in the portable archive for the
+user-requested real preprocessing test. It is excluded from Git. No UNI2 weights,
+credential stores or private Codex state are included in that archive.

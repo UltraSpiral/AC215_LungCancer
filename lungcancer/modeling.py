@@ -150,10 +150,10 @@ def train(split_path,artifact_root,output):
         raise ValueError('training_validation_feature_configuration_mismatch')
     from . import preprocess
     import openslide
+    from . import safety
     for meta in [*metas,*validation_metas]:
-        expected=fingerprint({'source_md5':meta['source_md5'],'config':meta['preprocessing_config'],
-                              'implementation_sha256':checksum(preprocess.__file__),
-                              'openslide_version':openslide.__library_version__})
+        prep=read_json(Path(artifact_root)/meta['file_id']/'preprocessing.json')
+        expected=safety.preprocessing_fingerprint(meta['source_md5'],meta['preprocessing_config'],prep)
         if meta['preprocessing_fingerprint']!=expected:
             raise ValueError('features_not_generated_with_current_preprocessing_implementation')
     if set(y)!=set(CLASSES) or set(yv)!=set(CLASSES): raise ValueError('training_or_validation_missing_class')
@@ -180,6 +180,7 @@ def train(split_path,artifact_root,output):
               'encoder':metas[0]['encoder'],'encoder_identifier':metas[0]['encoder_identifier'],
               'preprocessing_config':metas[0]['preprocessing_config'],
               'preprocessing_implementation_sha256':checksum(preprocess.__file__),
+              'thumbnail_safety_implementation_sha256':checksum(safety.__file__),
               'openslide_library_version':openslide.__library_version__,
               'dependency_versions':{p:importlib.metadata.version(p) for p in ['torch','torchvision','timm','scikit-learn','numpy','joblib']},
               'classifier_sha256':checksum(output/'classifier.joblib'),

@@ -81,7 +81,8 @@ def backup_code(root=DEFAULT_PERSISTENT):
     archive = ROOT / 'artifacts' / 'backups' / f'code-{stamp}.tar.gz'
     archive.parent.mkdir(parents=True, exist_ok=True)
     allowed = ['lungcancer', 'scripts', 'tests', 'configs', 'README.md', 'STATUS.md', 'AGENTS.md',
-               'pyproject.toml', 'requirements.txt', '.gitignore', 'docs']
+               'pyproject.toml', 'requirements.txt', '.gitignore', 'docs',
+               'containers','compose.cpu.yml','Makefile','.dockerignore']
     with tarfile.open(archive, 'w:gz') as tf:
         for name in allowed:
             path = ROOT / name
@@ -91,7 +92,8 @@ def backup_code(root=DEFAULT_PERSISTENT):
                 tf.add(path, arcname=name)
             else:
                 for item in sorted(path.rglob('*')):
-                    if item.is_file() and '__pycache__' not in item.parts and '.pytest_cache' not in item.parts:
+                    if (item.is_file() and not set(item.parts)&{'__pycache__','.pytest_cache','.venv','node_modules','.cache'}
+                            and not item.name.startswith('.env')):
                         tf.add(item, arcname=str(item.relative_to(ROOT)))
     return persist_file(archive, Path('code_backups') / archive.name, root)
 

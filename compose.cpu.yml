@@ -1,0 +1,28 @@
+x-cpu: &cpu
+  image: lungcancer-cpu:milestone2
+  platform: ${LC_CPU_PLATFORM:-linux/arm64}
+  build:
+    context: .
+    dockerfile: containers/cpu/Dockerfile
+  user: "${LC_CPU_UID:-10001}:${LC_CPU_GID:-10001}"
+  network_mode: none
+  read_only: true
+  tmpfs:
+    - /tmp
+  volumes:
+    - ${LC_CPU_BUNDLE:-./local_data/cpu_bundle}:/inputs:ro
+    - ${LC_CPU_OUTPUT:-./local_outputs/cpu}:/outputs
+
+services:
+  cpu-check:
+    <<: *cpu
+    command: ["python", "scripts/verify_cpu_bundle.py", "all", "--bundle", "/inputs", "--output", "/outputs", "--require-arm64"]
+  unit-tests:
+    <<: *cpu
+    command: ["python", "scripts/verify_cpu_bundle.py", "unit", "--bundle", "/inputs", "--output", "/outputs", "--require-arm64"]
+  cached-embeddings:
+    <<: *cpu
+    command: ["python", "scripts/verify_cpu_bundle.py", "cache", "--bundle", "/inputs", "--output", "/outputs", "--require-arm64"]
+  real-preprocess:
+    <<: *cpu
+    command: ["python", "scripts/verify_cpu_bundle.py", "preprocess", "--bundle", "/inputs", "--output", "/outputs", "--require-arm64"]

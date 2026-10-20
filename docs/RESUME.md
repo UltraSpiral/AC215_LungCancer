@@ -1,4 +1,60 @@
+# Current verified state — 2026-10-20, checkpoints 16–17
+
+Real baseline complete: 45 slides processed; one ambiguous portion-link slide
+excluded, leaving 44 independent patients (15 normal / 15 adenocarcinoma /
+14 squamous), split 32 train / 6 validation / 6 test. All nine pilot patients
+stay in training and every other patient retains the original assignment.
+Frozen UNI2-h mean pooling plus training-only scaling and logistic regression
+C=0.01. Validation macro F1 0.667; test macro F1 1.000 on only six patients.
+The provisional test had already been seen before the metadata-only correction;
+no test-based tuning occurred. This is engineering evidence with strong limits.
+Current model ID: 42af9fb3f51e1539d994af4f20e2980e4118eac6a8cd665aeb372c1440b2fed5.
+
+Current artifact root:
+/content/drive/MyDrive/LungCancer_AC215/artifacts/modeling/20261020T0220Z-audit2/
+Use this corrected model. The older 45-slide directory is provisional history.
+All eligible vectors are finite (22,483); real arbitrary-name inference passed.
+Raw download total remains 5,453,285,795 bytes within 10 GB. Prep is inferred,
+not explicitly confirmed Frozen. Detailed results: checkpoint 16 and RESULTS.md.
+
+The user now requests Apple Silicon CPU containers and a local verification
+guide, to be executed/debugged by Codex on their M1. CPU script logic passed in
+an isolated Torch-free Colab environment. Actual Docker/ARM64 execution is pending;
+full slide-to-prediction container verification is tracked separately.
+Read docs/CPU_CONTAINER_VERIFICATION.md and docs/VERIFICATION_MATRIX.md.
+No more real training, cohort expansion or profiling is currently needed/authorized.
+Current commands supersede the historical provisional-run commands below.
+Code backups are indexed by docs/LATEST_BACKUP.md. Git publication result is
+recorded separately in the persistent docs/GIT_PUBLICATION.md receipt.
+
+## Historical status entries — superseded where different from the current state
+
 # Resume this project
+
+Current Git state (checkpoint 09, 2026-10-20): repository synchronization is
+complete. milestone2 tracks origin/milestone2 at `99c52a33ca4f097f27c369af16622740044295ca`; the 95 missing
+tracked frontend files are restored. Local notes/helpers remain uncommitted and
+are backed up. No slide/model/package downloads or training ran. Earlier
+missing-metadata descriptions below refer to the pre-sync state. Follow
+[checkpoint 09](checkpoints/2026-10-20-09-git-sync.md) for the current Git state.
+Full source including existing frontend and Git history are preserved in
+`/content/drive/MyDrive/LungCancer_AC215/sync_checkpoints/20261020T014239Z`; older source archives remain intact.
+
+Latest verification: 2026-10-20, checkpoint 08. All saved artifacts are intact.
+Saved-pilot review is ready; new processing still needs OpenSlide, HF login and
+pinned UNI2 weights. No downloads or training were authorized or performed.
+This fresh archive restore currently has no local Git metadata; the published
+milestone2 branch is verified, but the prior runtime's local Git/frontend linkage
+was not restored in this check. Use [checkpoint 08](checkpoints/2026-10-20-08-readiness.md)
+for the current state. Earlier runtime-specific instructions/results below
+remain historical and must not be treated as current local Git verification.
+
+Read `STATUS.md` first. Latest recovery check: 2026-10-19 on A100-SXM4-80GB.
+GitHub push succeeded after the old checkpoint; verified `milestone2` HEAD is
+`99c52a33ca4f097f27c369af16622740044295ca`. All 126 restored artifact files and
+155 saved checksum entries pass. PyTorch/CUDA work unchanged. Missing prerequisites
+for future extraction: OpenSlide, HF login and pinned UNI2 weights. Nothing was
+installed or reprocessed. Full current evidence: checkpoint 07.
 
 Read `STATUS.md` first. Preserve `/content/LungCancer`. The current gate is pilot
 review: **no new SVS downloads, cohort expansion, training or experiments**.
@@ -61,9 +117,15 @@ git read-tree HEAD
 The final commands select its HEAD and populate the new index without changing
 the restored working files. If `.git` already exists, inspect its branches/remotes first and skip the
 initialization/remote-add commands. Alternatively clone `--branch milestone2` from
-GitHub into `/content/LungCancer` **only if the verified final report confirms a
-successful push** and the workspace does not yet exist. If push failed, the bundle
-is authoritative. Never force a branch over existing work.
+GitHub into `/content/LungCancer` when the workspace does not yet exist.
+The subsequent push has now been verified; the old report's push failure is
+historical. Prefer the current GitHub branch for code, including its existing
+frontend, and recover saved artifacts separately. For offline recovery, the old
+bundle still preserves the Python checkpoint. Never force a branch over work.
+
+Inspection on the A100 found the two OpenSlide wheels still absent. The user
+requested no downloads yet; the install below is deferred, not a command to run
+now. No PyTorch/CUDA replacement is needed.
 
 Install only dependencies absent from the new Colab image. In the captured image,
 only these two local wheels were missing:
@@ -102,12 +164,14 @@ This smoke uses synthetic images, not new tissue. Pinning the revision is requir
 weights are intentionally excluded from all backups. Original checkpoint SHA256:
 `6e077eda234bebc595868d918d3458d9dd32a050199b0ff04443b2f46a0a3b1e`.
 
-### GitHub authentication — push failed in this checkpoint
+### GitHub authentication — only if future authenticated operations need it
 
-The authorized push failed because no GitHub credential was available; remote
-milestone2 was absent when checked. Code is recoverable from the verified Drive
-Git bundle. Do this interactively in the terminal. Do not paste a token into chat
-or URLs:
+Correction: push succeeded after the original checkpoint. The current public
+remote branch and local tracking HEAD were verified at checkpoint 07. The old
+Drive report's failure remains a historical record. Public fetch worked without
+an interactive login; no push was attempted during current readiness checks.
+If later authenticated writes require login, do this interactively in the terminal.
+Do not paste a token into chat or URLs:
 
 ```bash
 gh auth login --hostname github.com --git-protocol https --web
@@ -321,3 +385,70 @@ sha256sum -c SHA256SUMS
 
 Private conversation has its own SHA256SUMS and inventory. Keep it out of GitHub.
 The runtime was not disconnected or shut down by the agent.
+
+## Current A100 verification and next modeling step
+
+See [checkpoint 07](checkpoints/2026-10-19-07-a100-recovery.md) for current evidence
+and missing prerequisites. The original L4 environment above is historical.
+The current runtime has 167.1 GiB RAM and an A100 80 GB with working CUDA; no
+UNI2 model load or processing has been repeated. Existing artifact validation:
+
+```bash
+cd /content/LungCancer
+python scripts/verify_restored_artifacts.py --output artifacts/recovery_checks/manual/artifacts.json
+python scripts/show_pilot.py --check
+```
+
+Before further acquisition/training: review the pilot, propose 30–50 independent
+patients/class with matched preparation, cost it against the remaining budget,
+and fix grouped splits with paired classes together and pilot patients in training.
+No new cohort acquisition or training is authorized yet.
+
+
+## Training plan after the frontend commit
+
+See [TRAINING_PLAN.md](TRAINING_PLAN.md) and checkpoint 10. The scientific model,
+cohort safeguards and patient-level evaluation are unchanged. A later real-model
+HTTP integration is proposed separately and is not authorized or implemented by
+this plan review. Current frontend mock/stub outputs remain UI fixtures only.
+
+## Newly supplied MS2 rubric — checkpoint 12
+
+Read MS2_GAP_ANALYSIS.md before resuming execution. The classifier remains an
+appropriate baseline, but container/uv/one-command execution evidence and
+validated UI/backend interaction are required by the course and remain missing.
+Docker was previously excluded by the brief and is absent from this runtime.
+No Docker build/run or new training/data work was authorized or executed by
+the assessment. The one-hour forecast was modeling-only.
+
+## Authentication now restored — checkpoint 13
+
+HF cached login is verified with 0600 permissions. Do not request repeated
+setup. OpenSlide/checkpoint setup remains incomplete. The 45-slide draft
+supports an initial baseline experiment with 33/6/6 patient assignments in
+a temporary feasibility check; no actual final split or model fit exists yet.
+
+## Latest work order / approval boundary — checkpoint 14
+
+Modeling first, MLOps afterward. The user explicitly said not to start training
+without their approval; the sequencing message is not approval. No model run
+is authorized or active. Existing acquisition pauses remain. HF login is
+already verified. See AGENTS.md and checkpoint 14 before doing processing.
+
+
+## Authorized modeling run — 2026-10-20 checkpoint 15
+
+User explicitly approved: go ahead and start. This authorizes the proposed 45-slide, 45-patient cohort (15/class), necessary OpenSlide/pinned-UNI2 setup, 36 additional downloads within the unchanged cumulative 10,000,000,000-byte raw budget, real baseline fitting, fixed patient-level validation/test evaluation, and renamed held-out inference. All nine pilot patients remain in training. Modeling precedes MLOps; profiling remains deferred. Prior pause/pending-auth statements above are historical.
+
+Run directory: `artifacts/modeling/20261020T0220Z/`; persistent counterpart: `/content/drive/MyDrive/LungCancer_AC215/artifacts/modeling/20261020T0220Z/`. A100 80GB and HF cached login verified; pinned OpenSlide wheels installed without replacing PyTorch/CUDA. Frozen UNI2 float32, 512 tiles, physical-scale config and pilot cache identities are preserved. No performance result is claimed at launch.
+# Latest Git identity and publication check — checkpoint 18
+
+The user selected UltraSpiral <UltraSpiral@users.noreply.github.com>, configured
+locally. No Codex-author commit was made. Authentication is separate: this
+runtime's gh login is missing. Read the private persistent docs/GIT_PUBLICATION.md
+receipt for the actual new commit, push result and verified Git-bundle fallback.
+Do not assume the remote contains the modeling/CPU work without comparing SHAs.
+The secure browser-login command is saved in docs/COMMANDS.md; M1 restoration
+and offline verification are in docs/CPU_CONTAINER_VERIFICATION.md. Completed
+modeling and current scope are recorded below; no new training is needed.
+

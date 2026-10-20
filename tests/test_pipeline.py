@@ -55,6 +55,29 @@ def test_ambiguous_specimen_links_excluded(paired_case):
     assert 'ambiguous_specimen_links' in normalize_file(paired_case)['reasons']
 
 
+def test_duplicate_slide_uuid_under_distinct_portions_is_ambiguous(paired_case):
+    sample=paired_case['cases'][0]['samples'][1]
+    correct=sample['portions'][0]
+    correct['submitter_id']='TCGA-AA-0001-11A-01'
+    wrong=copy.deepcopy(correct)
+    wrong.update(portion_id='wrong-portion',submitter_id='TCGA-AA-0001-11A-02',is_ffpe=True)
+    sample['portions']=[correct,wrong]
+    a=normalize_file(paired_case)
+    sample['portions'].reverse()
+    b=normalize_file(paired_case)
+    assert a==b and a['decision']=='exclude'
+    assert 'ambiguous_specimen_links' in a['reasons']
+    wrong['submitter_id']=correct['submitter_id']
+    assert 'ambiguous_specimen_links' in normalize_file(paired_case)['reasons']
+
+
+def test_unique_uuid_link_with_different_portion_display_barcode_is_flagged(paired_case):
+    paired_case['cases'][0]['samples'][1]['portions'][0]['submitter_id']='TCGA-AA-0001-11A-02'
+    row=normalize_file(paired_case)
+    assert row['decision']=='include' and row['candidate_class']=='non_tumor'
+    assert 'linked_slide_portion_display_barcodes_differ; UUID_link_is_authoritative' in row['warnings']
+
+
 def test_uuid_barcode_disagreement_and_missing_link_fail_closed(paired_case):
     paired_case['associated_entities'][0]['entity_submitter_id']='TCGA-AA-0001-01A-01-TS1'
     assert normalize_file(paired_case)['decision']=='exclude'
@@ -183,6 +206,33 @@ def test_no_large_full_resolution_thumbnail_decode(tmp_path,fake_slide):
     assert read_json(tmp_path/'out'/'processing_failure.json')['status']=='error'
 
 
+def test_bounded_thumbnail_fallback_versions_only_affected_slides(tmp_path,fake_slide,monkeypatch):
+    from lungcancer.safety import prepare_checked,preprocessing_fingerprint
+    fake_slide.dimensions=(14000,13897)
+    fake_slide.level_dimensions=((14000,13897),(3500,3474),(1750,1737))
+    fake_slide.level_downsamples=(1.,4.,8.)
+    monkeypatch.setattr(fake_slide,'close',lambda self:None,raising=False)
+    reads=[]
+    original=fake_slide.read_region
+    def guarded_read(self,location,level,size):
+        assert size[0]*size[1]<=64_000_000
+        reads.append((level,size))
+        return original(self,location,level,size)
+    monkeypatch.setattr(fake_slide,'read_region',guarded_read)
+    slide=tmp_path/'fixture.svs';slide.write_bytes(b'synthetic pyramid unit fixture')
+    config=TileConfig(max_tiles=8)
+    meta=prepare_checked(slide,tmp_path/'out',config,'fixture',checksum(slide,'md5'))
+    assert meta['status']=='success' and meta['thumbnail_policy']['pyramid_level']==1
+    assert reads[0]==(1,(3500,3474))
+    assert meta['thumbnail_size']==[3500,3474]
+    legacy=preprocessing_fingerprint(meta['source_md5'],meta['config'])
+    assert meta['fingerprint']!=legacy
+    assert meta['fingerprint']==preprocessing_fingerprint(meta['source_md5'],meta['config'],meta)
+    changed=copy.deepcopy(meta);changed['thumbnail_policy']['implementation_sha256']='wrong'
+    with pytest.raises(ValueError,match='thumbnail_policy'):
+        preprocessing_fingerprint(meta['source_md5'],meta['config'],changed)
+
+
 def test_cache_invalidates_config_and_inputs_and_preserves_coordinate_order(tmp_path,fake_slide):
     slide=tmp_path/'fixture.svs'; slide.write_bytes(b'synthetic unit fixture')
     directory=tmp_path/'processing'
@@ -215,6 +265,66 @@ def test_embedding_alignment_and_cache_coordinate_integrity(tmp_path):
     atomic_npz(tmp_path/'bad.npz',embeddings=np.zeros((2,1536)),coordinates=np.zeros((2,2)),
                metadata_json=np.array(json.dumps({'coordinates_fingerprint':'wrong'})))
     with pytest.raises(ValueError,match='fingerprint'): load_features(tmp_path/'bad.npz')
+
+
+def test_modeling_run_reuses_only_verified_cache_bytes(tmp_path,fake_slide):
+    from lungcancer.modeling_run import verify_cache
+    slide=tmp_path/'fixture.svs'; slide.write_bytes(b'synthetic cache verification fixture')
+    directory=tmp_path/'processing'; config=TileConfig(max_tiles=8)
+    record={'file_id':'unit-fixture','md5sum':checksum(slide,'md5')}
+    prepare_slide(slide,directory,config,record['file_id'],record['md5sum'])
+    class FixtureEncoder:
+        identifier='synthetic-unit-test-only'
+        metadata={'unit_test_fixture':True}
+        def encode(self,images): return np.ones((len(images),1536),dtype=np.float32)
+    encoder=FixtureEncoder()
+    extract_features(slide,directory,encoder)
+    prep,meta=verify_cache(record,directory,config,encoder)
+    assert prep['selected_count']==meta['shape'][0]==8
+    with pytest.raises(ValueError,match='incompatible_cache'):
+        verify_cache({**record,'md5sum':'0'*32},directory,config,encoder)
+    with np.load(directory/'embeddings.npz',allow_pickle=False) as cache:
+        arrays={k:cache[k] for k in cache.files}
+    arrays['embeddings']=arrays['embeddings']+1
+    atomic_npz(directory/'embeddings.npz',**arrays)
+    with pytest.raises(ValueError,match='embedding_file_checksum'):
+        verify_cache(record,directory,config,encoder)
+
+
+def test_prefetch_verifies_current_raw_and_preserves_serial_extraction():
+    from lungcancer.modeling_run import process_with_prefetch
+    import threading
+    records=[{'file_id':str(i)} for i in range(4)]
+    available={'0'};order=[];active=0;max_active=0;lock=threading.Lock()
+    next_download_started=threading.Event();allow_next_download=threading.Event()
+    def download(record):
+        nonlocal active,max_active
+        with lock:
+            active+=1;max_active=max(max_active,active)
+        if record['file_id']=='1':
+            next_download_started.set()
+            assert allow_next_download.wait(3)
+        available.add(record['file_id'])
+        with lock: active-=1
+    def process(record):
+        assert record['file_id'] in available
+        order.append(record['file_id'])
+        if record['file_id']=='0':
+            assert next_download_started.wait(3)
+            allow_next_download.set()
+    process_with_prefetch(records,process,download,lambda r:r['file_id']=='0')
+    assert order==['0','1','2','3'] and max_active==1
+
+
+def test_prefetch_download_failure_does_not_process_unverified_slide():
+    from lungcancer.modeling_run import process_with_prefetch
+    seen=[]
+    def download(record):
+        if record['file_id']=='bad': raise ValueError('download_failed_fixture')
+    with pytest.raises(ValueError,match='download_failed_fixture'):
+        process_with_prefetch([{'file_id':'ok'},{'file_id':'bad'}],
+                              lambda r:seen.append(r['file_id']),download,lambda r:False)
+    assert seen==['ok']
 
 
 def test_scaler_is_fit_on_training_only_and_probability_class_order():

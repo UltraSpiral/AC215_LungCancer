@@ -42,6 +42,21 @@ def identity_match(entity, node, id_field):
     return bool(barcode and barcode == node.get('submitter_id'))
 
 
+def unique_specimen_links(links):
+    """Keep full UUID hierarchy; do not silently collapse distinct portions.
+
+    Actual UUID relationships determine the specimen. Display-barcode portion
+    numbers may differ in legacy metadata and cannot resolve ambiguous UUIDs.
+    """
+    unique={}
+    for link in links:
+        case,sample,portion,slide,entity=link
+        key=(case.get('case_id'),sample.get('sample_id'),
+             portion.get('portion_id') if portion else None,slide.get('slide_id') if slide else None)
+        unique[key]=link
+    return list(unique.values()),[]
+
+
 def diagnosis_audit(case, project):
     diagnoses = case.get('diagnoses', [])
     relevant = [d for d in diagnoses if d.get('diagnosis_is_primary_disease') is True]
@@ -144,16 +159,16 @@ def normalize_file(hit):
     if unresolved:
         row['reasons'].append('unresolved_or_conflicting_associated_specimen')
         return row
-    unique = {}
-    for link in links:
-        c,s,p,sl,e = link
-        key = (c.get('case_id'), s.get('sample_id'), sl.get('slide_id') if sl else None)
-        unique[key] = link
-    if len(unique) != 1:
-        row['reasons'].append('ambiguous_specimen_links' if len(unique)>1 else 'unresolved_associated_specimen')
+    candidates,link_warnings=unique_specimen_links(links)
+    row['warnings'].extend(link_warnings)
+    if len(candidates) != 1:
+        row['reasons'].append('ambiguous_specimen_links' if len(candidates)>1 else 'unresolved_associated_specimen')
         return row
-    case,sample,portion,slide,entity = next(iter(unique.values()))
+    case,sample,portion,slide,entity = candidates[0]
     slide_barcode = slide.get('submitter_id') if slide else hit.get('file_name','').split('.')[0]
+    if (slide and portion and slide.get('submitter_id') and portion.get('submitter_id') and
+            slide['submitter_id'].rsplit('-',1)[0]!=portion['submitter_id']):
+        row['warnings'].append('linked_slide_portion_display_barcodes_differ; UUID_link_is_authoritative')
     row.update(case_id=case.get('case_id'),patient_id=case.get('submitter_id'),
                project_id=case.get('project',{}).get('project_id'),
                slide_id=slide.get('slide_id') if slide else None, slide_barcode=slide_barcode,

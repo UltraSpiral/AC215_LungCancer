@@ -1,13 +1,157 @@
-# Recovery checkpoint — 2026-10-19 UTC
+# Git publication identity — checkpoint 18
+
+User selected UltraSpiral <UltraSpiral@users.noreply.github.com>; repository-local
+author settings now match. No Codex-author commit was created. GitHub CLI login
+is absent in this fresh runtime. The new commit/push and recovery-bundle result
+must be read from the private persistent docs/GIT_PUBLICATION.md receipt. Do not
+infer publication success from the older synchronized branch status below.
+Browser-login command and Mac fallback: docs/COMMANDS.md and
+docs/CPU_CONTAINER_VERIFICATION.md. Modeling results are unchanged.
+
+# Current verified modeling state — 2026-10-20, checkpoints 16–17
+
+Real baseline complete: 45 slides processed; one ambiguous portion-link slide
+excluded, leaving 44 independent patients (15 normal / 15 adenocarcinoma /
+14 squamous), split 32 train / 6 validation / 6 test. All nine pilot patients
+stay in training and every other patient retains the original assignment.
+Frozen UNI2-h mean pooling plus training-only scaling and logistic regression
+C=0.01. Validation macro F1 0.667; test macro F1 1.000 on only six patients.
+The provisional test had already been seen before the metadata-only correction;
+no test-based tuning occurred. This is engineering evidence with strong limits.
+Current model ID: 42af9fb3f51e1539d994af4f20e2980e4118eac6a8cd665aeb372c1440b2fed5.
+
+Current artifact root:
+/content/drive/MyDrive/LungCancer_AC215/artifacts/modeling/20261020T0220Z-audit2/
+Use this corrected model. The older 45-slide directory is provisional history.
+All eligible vectors are finite (22,483); real arbitrary-name inference passed.
+Raw download total remains 5,453,285,795 bytes within 10 GB. Prep is inferred,
+not explicitly confirmed Frozen. Detailed results: checkpoint 16 and RESULTS.md.
+
+The user now requests Apple Silicon CPU containers and a local verification
+guide, to be executed/debugged by Codex on their M1. CPU script logic passed in
+an isolated Torch-free Colab environment. Actual Docker/ARM64 execution is pending;
+full slide-to-prediction container verification is tracked separately.
+Read docs/CPU_CONTAINER_VERIFICATION.md and docs/VERIFICATION_MATRIX.md.
+No more real training, cohort expansion or profiling is currently needed/authorized.
+Current commands supersede the historical provisional-run commands below.
+Code backups are indexed by docs/LATEST_BACKUP.md. Git publication result is
+recorded separately in the persistent docs/GIT_PUBLICATION.md receipt.
+
+## Historical status entries — superseded where different from the current state
+
+# Synced A100 workspace — 2026-10-20 UTC
+
+## Latest state — Git synchronization complete
+
+Local milestone2 now tracks origin/milestone2; both resolve to `99c52a33ca4f097f27c369af16622740044295ca`,
+with zero commits ahead/behind and a matching live GitHub branch reference.
+Restored 95 absent tracked frontend files. Existing Python source already matched
+GitHub. Newer local documentation and verification helpers were preserved and
+remain uncommitted. All 52 preexisting source files and 135 artifact hashes were
+verified unchanged during synchronization. No frontend install/build/run occurred.
+Full pre/post source archives, inventories and the Git bundle are saved under
+`/content/drive/MyDrive/LungCancer_AC215/sync_checkpoints/20261020T014239Z`. See `docs/checkpoints/2026-10-20-09-git-sync.md`.
+The prior missing-.git notes below describe the pre-sync state and are superseded.
+No slide/model/package download, encoder loading, profiling or training ran.
+OpenSlide/HF login/pinned weights remain missing; saved-pilot review is ready.
+
+## Artifact readiness check before Git synchronization — 2026-10-20
+
+All 155 saved checksum entries and 126 restored artifact files pass. All nine
+real embedding arrays are finite and aligned; specimen labels were re-audited
+from saved raw metadata. A100 80 GB / 167.1 GiB RAM / ~191.9 GiB free disk verified.
+Core imports pass; OpenSlide, HF login and pinned UNI2 weights remain absent.
+Ready for saved-pilot review; new processing awaits setup and authorization.
+Local `.git` is absent, while remote milestone2 is verified. No downloads,
+installation, encoder load, profiling, training or synthetic fitting ran.
+Recovered newer checkpoint-07 handoff records from verified Drive persistence
+without overwriting user edits. Current evidence and every command:
+`docs/checkpoints/2026-10-20-08-readiness.md` and
+`artifacts/readiness/2026-10-20/`. Prior environment notes below are dated history.
+
+## Training plan after the frontend addition
+
+Static review at checkpoint 10 confirms the scientific pipeline is unchanged.
+Keep frozen UNI2-h → mean pooling → training-only scaling and multinomial L2
+logistic regression, with preparation-matched cohorts and fixed patient groups.
+The existing frontend defaults to fixtures and its reference server is a stub;
+no real-model integration or held-out performance is established. Proposed later
+HTTP integration needs output-schema alignment and filename-independent real
+inference, without using viewer JPEG tiles or changing the 512-tile cap to match
+mock values. See docs/TRAINING_PLAN.md. This is planning only and does not
+expand the current authorization. No model/data/package downloads or training ran.
+
+## Latest deadline request — scope choice pending
+
+The user wants the modeling MVP completed under one hour. A concrete offline
+45-slide / 15-patients-per-class engineering proposal reuses all nine cached
+slides and needs 36 new files, 4.433 GB additional raw (5.453 GB cumulative).
+A historical-rate forecast gives ~33 minutes for new data work plus setup,
+fitting/evaluation/inference and backup; no A100 speedup or deadline is guaranteed.
+The original target was 30–50 patients/class, so the material cohort reduction
+is pending the user's choice. HF notebook login is missing; the one-cell setup
+and every assumption are in docs/ONE_HOUR_PLAN.md. No training, model/data
+acquisition, dependency installation or performance experiment has started.
+The draft alone does not authorize expansion or change the raw budget.
+
+## MS2 rubric assessment — infrastructure work remains
+
+The user supplied the full MS2 rubric. Frozen UNI2-h plus a trained logistic
+head fits its baseline adaptation requirement, but no real classifier is fitted
+and the project is not yet a complete MS2 submission. Dockerfiles, Compose/
+one-command execution, uv locks, container run evidence, a runtime screenshot
+and exercised UI/backend interaction are still missing or unverified. Docker
+client/daemon access is absent here. Original Docker/frontend exclusions must
+be reconciled with the new rubric when authorizing submission work. No resources
+were provisioned and no infrastructure/model implementation was launched by
+this assessment. See docs/MS2_GAP_ANALYSIS.md and checkpoint 12. The prior
+one-hour forecast covered the modeling run only, not all MS2 deliverables.
+
+## Latest setup/modeling assessment — checkpoint 13
+
+HF cached login now works and credential files are 0600. A100/CUDA/Drive remain
+available. OpenSlide and pinned UNI2 weights are still absent. The 45-slide,
+45-patient draft supports 33 train / 6 validation / 6 test, with all nine pilot
+patients in training. This is an initial MS2 engineering baseline with very small
+held-out counts; model fitting/results/inference have not run. No persistent
+split was created by the temporary metadata-only check. See checkpoint 13.
+Prior missing-HF notes are historical; do not repeat setup unnecessarily.
+
+## Latest execution order — waiting for explicit training approval
+
+The user prefers modeling first, then MLOps work. Their sequencing message
+explicitly withheld training approval; no training is authorized or running.
+After unambiguous approval, execute the chosen real modeling baseline and save
+all artifacts/configurations/results, then complete and verify the required
+container/uv/one-command/UI-backend deliverables. Existing acquisition pauses
+remain until authorized. Do not ask for HF setup again; it is already verified.
+See docs/checkpoints/2026-10-20-14-execution-order.md. This update ran no model,
+download, experiment or infrastructure build.
 
 ## Current boundary and next action
 
 Work is paused at pilot review. **Do not download slides, expand the cohort, train,
 or start experiments without the user's return and explicit authorization.**
 One-slide profiling is optional, deferred work; do not reacquire its missing SVS now.
-The next action is to reconnect/recover, read this file and `docs/RESUME.md`, and
-inspect the saved pilot using `%run /content/LungCancer/scripts/show_pilot.py`.
-Then wait for the user's review. The requested final scientific MVP is incomplete.
+Recovery is verified. The next action is pilot review, then a costed proposal
+for a larger preparation-matched modeling cohort and fixed patient-level splits.
+No further downloads or training are authorized. The requested final scientific
+MVP remains incomplete. See docs/checkpoints/2026-10-19-07-a100-recovery.md.
+
+## Current runtime readiness (verified 2026-10-19)
+
+A100-SXM4-80GB, 167.1 GiB RAM, ~192 GiB free disk; Python 3.13.15,
+torch 2.11.0+cu130 / torchvision 0.26.0+cu130, CUDA 13.0 available.
+Working PyTorch/CUDA and all installed packages were preserved. Required core
+imports passed. OpenSlide, cached Hugging Face authentication and pinned UNI2-h
+weights are missing; no installation, data/model download or encoder load ran.
+Ready for saved-pilot review and offline planning; feature extraction awaits
+those prerequisites. The prior encoder load was on L4, not this A100.
+
+Verified all 155 recovery checksum entries and all 126 restored artifact files;
+all nine finite [512,1536] embedding arrays have aligned, in-bounds coordinates.
+Original pilot source identities, encoder metadata and visual audits are intact.
+The offline verification helper is scripts/verify_restored_artifacts.py.
 
 ## Objective and architecture
 
@@ -86,7 +230,7 @@ extraction scale ~0.4993–0.5002 MPP. Cache keys cover source checksum, encoder
 transforms, preprocessing and coordinates; writes are atomic. No usable tiles or
 missing scale returns explicit failure.
 
-## Environment and budgets
+## Original pilot environment and current budgets
 
 Python 3.13.15, torch 2.11.0+cu130, compiled CUDA 13.0, NVIDIA L4 23,034 MiB,
 driver 580.82.07, ~53 GiB RAM. Kept working PyTorch/CUDA. Installed only local
@@ -100,8 +244,8 @@ transfer both 1,020,202,701. No expansion approved. Public SVS originals were on
 temporary pipeline downloads and are all omitted/deleted after verified persistence;
 file UUID/MD5/size remain available. User-provided proposal PDF is retained locally
 and in the private recovery source archive, excluded from public Git.
-UNI2 weights (~2.73 GB) remain only in the disposable HF cache and are NOT backed
-up or redistributed. Fresh-runtime encoder reload requires HF authentication and
+UNI2 weights (~2.73 GB) were present only in the original disposable HF cache;
+they are absent on this A100 and are NOT backed up or redistributed. Fresh-runtime encoder reload requires HF authentication and
 network; do not run it merely to inspect saved pilot outputs.
 
 Larger cohort estimate (not approval): 30–50 independent patients per class,
@@ -115,7 +259,7 @@ keep inspected pilot patients in training; never tune against held-out test imag
 Mounted Drive root: `/content/drive/MyDrive/LungCancer_AC215`.
 Timestamped recovery directory: `/content/drive/MyDrive/LungCancer_AC215/recovery/20261019T002107Z`.
 Private session directory: `/content/drive/MyDrive/LungCancer_AC215/private_codex_recovery/20261019T002107Z/01a1513c-c07c-7100-8c49-70f63dff2251`.
-Current Codex home: `/root/.codex`; session ID `01a1513c-c07c-7100-8c49-70f63dff2251`.
+Original snapshot Codex home: `/root/.codex`; session ID `01a1513c-c07c-7100-8c49-70f63dff2251`.
 Keep original workspace path `/content/LungCancer`.
 
 The recovery directory contains verified artifact copies, source archive(s),
@@ -123,10 +267,15 @@ source member hashes, SHA256 inventory, Git bundle, restore helper and final
 verification report. Existing `artifacts/`, `docs/`, `code_backups/` backups are
 preserved. Full location index: `docs/ARTIFACTS.md`. The final report records exact
 Git commit/push outcome; a push is not established merely by a local commit.
-The authorized Git push was attempted and failed: Git cannot read a GitHub
-username without credentials. Remote milestone2 was checked and is absent.
-The local commits and verified Drive Git bundle preserve the code; no push
-success is claimed. Secure browser authentication steps are saved in
+Correction after the original checkpoint: the user subsequently completed the
+GitHub push. The remote milestone2 branch is verified at `99c52a33ca4f097f27c369af16622740044295ca` on 2026-10-20.
+The initial readiness recheck found local Git metadata absent. Checkpoint 09
+subsequently restored Git linkage and 95 missing frontend files on the user's
+explicit synchronization request. Local and remote HEAD now match. Checkpoint 07
+describes a prior runtime's earlier recovery. The original Drive verification report retains its
+historical push-failure result and is not current remote status.
+The latest readiness documentation/helper are local changes saved to Drive;
+no new commit/push was performed during this recovery. Secure login guidance is in
 `docs/RESUME.md`. No credentials, chat/session records or large artifacts belong
 in Git. Authorized public remote: https://github.com/UltraSpiral/LungCancer.git,
 branch `milestone2`; preserve any remote work and never force push.
@@ -140,3 +289,10 @@ interactive continuation. Exact interactive chat restoration on a new runtime
 remains unverified. Readable Markdown is not resumable session data. The final
 assistant response and later events are outside the late snapshot. A new-session
 recovery prompt is saved in `docs/RESUME.md`.
+
+
+## Authorized modeling run — 2026-10-20 checkpoint 15
+
+User explicitly approved: go ahead and start. This authorizes the proposed 45-slide, 45-patient cohort (15/class), necessary OpenSlide/pinned-UNI2 setup, 36 additional downloads within the unchanged cumulative 10,000,000,000-byte raw budget, real baseline fitting, fixed patient-level validation/test evaluation, and renamed held-out inference. All nine pilot patients remain in training. Modeling precedes MLOps; profiling remains deferred. Prior pause/pending-auth statements above are historical.
+
+Run directory: `artifacts/modeling/20261020T0220Z/`; persistent counterpart: `/content/drive/MyDrive/LungCancer_AC215/artifacts/modeling/20261020T0220Z/`. A100 80GB and HF cached login verified; pinned OpenSlide wheels installed without replacing PyTorch/CUDA. Frozen UNI2 float32, 512 tiles, physical-scale config and pilot cache identities are preserved. No performance result is claimed at launch.

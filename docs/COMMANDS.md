@@ -1,3 +1,141 @@
+# Current Git identity and authentication — checkpoint 18
+
+The user selected UltraSpiral <UltraSpiral@users.noreply.github.com>. This
+repository's local Git author settings have been applied; no manual identity
+command is needed. Authentication is separate. If the publication receipt says
+login is missing, run this in the Colab terminal, complete GitHub's browser
+flow, and tell Codex when it finishes:
+
+```bash
+gh auth login --hostname github.com --git-protocol https --web
+```
+
+Do not paste tokens into chat or documents. Exact publication state, commit SHA
+and verified backup identifiers are in the private Drive record
+`/content/drive/MyDrive/LungCancer_AC215/docs/GIT_PUBLICATION.md`.
+
+Codex's post-authentication commands, pending successful login:
+
+```bash
+gh auth setup-git --hostname github.com
+git fetch origin milestone2
+git push origin milestone2
+git rev-parse HEAD
+git ls-remote origin refs/heads/milestone2
+```
+
+Inspect any remote changes before pushing. Matching full SHAs are required to
+claim successful publication. The Mac guide includes a Git-bundle fallback.
+
+# Current modeling commands — checkpoints 16–17
+
+Real modeling is complete. Do not rerun the historical provisional 45-slide
+acquisition/training commands. No manual processing command is needed in Colab.
+
+Display current saved results only:
+
+```python
+%run /content/LungCancer/scripts/show_modeling.py
+```
+
+Read-only re-verification of the current model outputs (no refitting or test
+metric recomputation):
+
+```bash
+python scripts/report_modeling.py --run-root artifacts/modeling/20261020T0220Z-audit2
+```
+
+Apple Silicon setup, archive checksum/restore, one-command `make cpu-check`,
+individual debug targets and the exact Mac Codex prompt are all in
+[CPU_CONTAINER_VERIFICATION.md](CPU_CONTAINER_VERIFICATION.md).
+No HF login is needed for CPU checks. New real training/downloads are not part of
+that scope. The earlier repair_cohort_audit.py command was executed once to create
+the corrected model; it refuses to overwrite an existing model and is not a
+routine resume command.
+
+## Earlier commands and historical authorization boundaries
+
+# Current repository state — checkpoint 09
+
+Git synchronization is complete. milestone2 tracks origin/milestone2; local
+notes/helpers remain uncommitted and preserved. Earlier absent-.git notes below
+are historical. No new data/model/package downloads or training now.
+
+Read-only terminal verification:
+
+```bash
+cd /content/LungCancer
+git status --short --branch
+git rev-parse HEAD
+git rev-parse origin/milestone2
+git rev-list --left-right --count HEAD...origin/milestone2
+git ls-remote origin refs/heads/milestone2
+```
+
+Details and commands already executed:
+[checkpoint 09](checkpoints/2026-10-20-09-git-sync.md).
+
+# Current readiness — checkpoint 08, 2026-10-20
+
+No setup command needs to be run for saved-pilot review. OpenSlide/HF/UNI2 setup
+and Git metadata recovery remain deferred. No downloads or training now.
+The checkpoint-07 local Git repair below describes the previous runtime.
+Current local metadata is absent; remote milestone2 exists and is verified.
+
+Display in one Colab cell:
+
+```python
+%run /content/LungCancer/scripts/show_pilot.py
+```
+
+All current verification commands and results are saved in
+[checkpoint 08](checkpoints/2026-10-20-08-readiness.md). Existing setup and older
+commands below are preserved as references.
+
+# Current A100 runtime — checkpoint 07
+
+Runtime recovery is verified. No commands need to be copied now.
+For evidence and missing prerequisites, see [checkpoint 07](checkpoints/2026-10-19-07-a100-recovery.md).
+GitHub push-failure notes below are historical; current milestone2 is verified
+at `99c52a33ca4f097f27c369af16622740044295ca`. Do not repeat completed preprocessing.
+
+Display existing pilot, notebook:
+
+```python
+%run /content/LungCancer/scripts/show_pilot.py
+```
+
+Read-only verification, terminal (already run):
+
+```bash
+cd /content/LungCancer
+python scripts/verify_restored_artifacts.py --output /content/LungCancer/artifacts/recovery_checks/20261019T204309Z/artifacts.json
+python scripts/show_pilot.py --check
+git status --short --branch
+git rev-parse HEAD
+git ls-remote origin refs/heads/milestone2
+```
+
+Git metadata repair used an empty Git directory, fetched milestone2, selected
+HEAD and populated only the index; it never checked out over working files.
+The following is reference for a future archive restore with NO Git metadata;
+do not rerun initialization in this now-linked workspace:
+
+```bash
+git init -b recovery-workspace
+git remote add origin https://github.com/UltraSpiral/LungCancer.git
+git fetch origin refs/heads/milestone2:refs/remotes/origin/milestone2
+git branch milestone2 origin/milestone2
+git symbolic-ref HEAD refs/heads/milestone2
+git read-tree HEAD
+git branch --set-upstream-to=origin/milestone2 milestone2
+```
+
+Future setup only after authorization (not executed in this check): install
+just the missing local OpenSlide wheels using requirements.txt, authenticate
+with scripts/colab_setup.py in a notebook, and later reload the pinned encoder.
+Keep all package/model/slide downloads and training deferred now.
+
 # Recovery commands — latest instructions
 
 See [docs/RESUME.md](RESUME.md) for the complete A/B/C recovery procedure, exact
@@ -262,3 +400,87 @@ python -u -m lungcancer profile \
 The results use a new directory under local and persistent `artifacts/profiles/`.
 Report bookkeeping and raw acquisition are excluded from stage times. GPU-only
 speedup scenarios are not A100 benchmarks. Do not re-run the full pilot.
+
+## Training-plan review — checkpoint 10
+
+No new processing command is needed or authorized. Read docs/TRAINING_PLAN.md.
+The static Git comparison commands already executed are saved in
+[checkpoint 10](checkpoints/2026-10-20-10-training-plan.md).
+
+## One-hour goal — checkpoint 11
+
+Full scope choice, forecasts, prerequisites and setup command are saved in
+[ONE_HOUR_PLAN.md](ONE_HOUR_PLAN.md). HF login is required in this fresh runtime:
+
+```python
+%run /content/LungCancer/scripts/colab_setup.py
+```
+
+Do not print credentials. Reducing to 15 patients/class is awaiting the user's
+choice; no training/download command is authorized by this draft alone.
+
+## MS2 rubric assessment — checkpoint 12
+
+Saved assessment: docs/MS2_GAP_ANALYSIS.md. Environment availability checks
+already executed:
+
+```bash
+docker --version
+uv --version
+```
+
+Docker is not installed; uv reports 0.12.21. No container build or end-to-end
+command exists yet, so no untested run command is presented as working.
+The provided course template and official UNI sources are linked in the audit.
+
+## Setup confirmation — checkpoint 13
+
+HF authentication is now restored; no repeated notebook setup is needed.
+The environment check already executed was:
+
+```bash
+python scripts/preflight.py --output artifacts/time_budget/2026-10-20/environment_after_setup.json
+```
+
+OpenSlide and pinned UNI2 weights still need routine setup for an authorized
+run. No data/model download or training command was executed in this check.
+
+## Current action — checkpoint 14
+
+No command needs to be run or copied. Modeling is first in the proposed work
+order, followed by MLOps, but explicit training approval has not been given.
+Do not run the historical acquisition/training commands above. No repeat HF
+setup is needed. See checkpoint 14 for the current authorization boundary.
+
+## Current authorized modeling run — checkpoint 15
+
+No manual command is needed while Codex is running it. The command below starts/resumes the same run and never regenerates existing splits. Run only when no other modeling process is active.
+
+```bash
+cd /content/LungCancer
+python -u -m lungcancer.modeling_run --draft artifacts/time_budget/2026-10-20/draft_resource_capped_15.json --run-root artifacts/modeling/20261020T0220Z --batch-size 32
+```
+
+Setup executed (preserves Colab PyTorch):
+
+```bash
+python -m pip install --target /content/LungCancer/.vendor --no-deps openslide-python==1.4.6 openslide-bin==4.0.1.2
+python scripts/preflight.py --output artifacts/modeling_preflight.json
+python -m pytest -q
+```
+
+Official references rechecked: [UNI2-h](https://huggingface.co/MahmoodLab/UNI2-h), [GDC download API](https://docs.gdc.cancer.gov/API/Users_Guide/Downloading_Files/), [OpenSlide Python](https://openslide.org/api/python/). Existing supported HF login is reused; no secret needs copying.
+
+After the run reports success, verify all saved results without refitting or repeating test evaluation:
+
+```bash
+python scripts/report_modeling.py --run-root artifacts/modeling/20261020T0220Z
+```
+
+Colab display helper (after verified completion; reads existing artifacts only):
+
+```python
+%run /content/LungCancer/scripts/show_modeling.py
+```
+
+Data version and immutable file/patient/split identities are recorded in `configs/modeling_snapshot_45.json`. Full specimen audit metadata stays in the persistent artifact manifests.

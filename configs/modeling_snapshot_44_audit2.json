@@ -1,0 +1,605 @@
+{
+  "run_id": "20261020T0220Z-audit2",
+  "created_at": "2026-10-20T03:33:22.689840+00:00",
+  "model_identifier": "42af9fb3f51e1539d994af4f20e2980e4118eac6a8cd665aeb372c1440b2fed5",
+  "cohort_sha256": "3d329eb110252b8f38ed2bf3adec4f8e3b37ea90b724a28fc1341d73fbe87e01",
+  "split_sha256": "c05949a95a03af3a24f089090d1b25337ee452551317837f9a4dbf11589d1d48",
+  "split_identifier": "964f3b6c073863efbe38b560cfe93b2783cff5d822c64bde12f71241a7a4f2c4",
+  "assignments_regenerated": false,
+  "source_assignment_sha256": "fe983cfb1a9472390de35aee66baad68364ec3d436fb8df9212ac1fcb84fc0ab",
+  "excluded_file_ids": [
+    "6125ea6f-c49e-4809-9502-f121e6d35d8c"
+  ],
+  "raw_audit_sha256": "5478a0a7f88ca6adb044ac229abfca9150fc290524627d292e8450b1960a7c3b",
+  "encoder": {
+    "architecture": {
+      "act_layer": "torch.nn.SiLU",
+      "depth": 24,
+      "dynamic_img_size": true,
+      "embed_dim": 1536,
+      "img_size": 224,
+      "init_values": 1e-05,
+      "mlp_layer": "timm.layers.SwiGLUPacked",
+      "mlp_ratio": 5.33334,
+      "no_embed_class": true,
+      "num_classes": 0,
+      "num_heads": 24,
+      "patch_size": 14,
+      "reg_tokens": 8
+    },
+    "checkpoint_sha256": "6e077eda234bebc595868d918d3458d9dd32a050199b0ff04443b2f46a0a3b1e",
+    "data_config": {
+      "crop_mode": "center",
+      "crop_pct": 1,
+      "input_size": [
+        3,
+        224,
+        224
+      ],
+      "interpolation": "bilinear",
+      "mean": [
+        0.485,
+        0.456,
+        0.406
+      ],
+      "std": [
+        0.229,
+        0.224,
+        0.225
+      ]
+    },
+    "embedding_dimension": 1536,
+    "evaluation_mode": true,
+    "frozen": true,
+    "inference_precision": "float32",
+    "repository": "MahmoodLab/UNI2-h",
+    "revision": "d517a8dd47902dd7c308b3c36f63bce47e7b9a43",
+    "timm_version": "1.0.30",
+    "torch_version": "2.11.0+cu130",
+    "transform": "Compose(\n    Resize(size=224, interpolation=bilinear, max_size=None, antialias=True)\n    CenterCrop(size=(224, 224))\n    MaybeToTensor()\n    Normalize(mean=tensor([0.4850, 0.4560, 0.4060]), std=tensor([0.2290, 0.2240, 0.2250]))\n)"
+  },
+  "preprocessing_config": {
+    "mask_closing_iterations": 1,
+    "mask_min_component_pixels": 16,
+    "max_tiles": 512,
+    "minimum_tissue_fraction": 0.5,
+    "saturation_min": 0.08,
+    "seed": 215,
+    "target_mpp": 0.5,
+    "thumbnail_max": 4096,
+    "tile_size": 224,
+    "value_max": 0.98,
+    "value_min": 0.15
+  },
+  "C": 0.01,
+  "counts": {
+    "train": {
+      "non_tumor": {
+        "slides": 11,
+        "patients": 11
+      },
+      "adenocarcinoma": {
+        "slides": 11,
+        "patients": 11
+      },
+      "squamous": {
+        "slides": 10,
+        "patients": 10
+      }
+    },
+    "validation": {
+      "non_tumor": {
+        "slides": 2,
+        "patients": 2
+      },
+      "adenocarcinoma": {
+        "slides": 2,
+        "patients": 2
+      },
+      "squamous": {
+        "slides": 2,
+        "patients": 2
+      }
+    },
+    "test": {
+      "non_tumor": {
+        "slides": 2,
+        "patients": 2
+      },
+      "adenocarcinoma": {
+        "slides": 2,
+        "patients": 2
+      },
+      "squamous": {
+        "slides": 2,
+        "patients": 2
+      }
+    }
+  },
+  "files": [
+    {
+      "file_id": "ee261db5-3576-4c52-90b4-4c8e16f7937e",
+      "md5sum": "df57efabc0237496da15af58f520bc88",
+      "case_id": "44b1d457-3a50-404e-b54c-ca619262bc2f",
+      "patient_id": "TCGA-33-4547",
+      "candidate_class": "non_tumor",
+      "sample_id": "731fc35e-1d92-4c6a-b698-1375bd15a26c",
+      "slide_id": "c695e9cf-f318-48b3-a44b-bce6c3a55ae1",
+      "preparation": "frozen",
+      "split": "train"
+    },
+    {
+      "file_id": "f6c36a27-f310-4c96-b5bf-1b6adc5f86f9",
+      "md5sum": "7d2ff06ea053fad507faacffd5c427e7",
+      "case_id": "ce15f31f-2bad-4485-96fa-495bfa262e66",
+      "patient_id": "TCGA-05-4403",
+      "candidate_class": "adenocarcinoma",
+      "sample_id": "44b1d21c-0794-428c-ba01-82812d74da2f",
+      "slide_id": "4ea11b71-999c-4073-ab56-c6da0eb310f8",
+      "preparation": "frozen",
+      "split": "train"
+    },
+    {
+      "file_id": "bc589465-32ab-406a-94b1-ed48f412f2d9",
+      "md5sum": "3896b560c1f55ce8fb13e07657a5f6d6",
+      "case_id": "8d20352a-6180-40d0-adc0-c87fef854dfa",
+      "patient_id": "TCGA-66-2794",
+      "candidate_class": "squamous",
+      "sample_id": "69ef0674-f493-4dfe-84ea-61f28d11ba69",
+      "slide_id": "017a3383-b912-4701-9f9c-dbed66d18deb",
+      "preparation": "frozen",
+      "split": "train"
+    },
+    {
+      "file_id": "2908ac70-541d-4521-9cf5-83e1178263ea",
+      "md5sum": "39dbf1953cf37a79a35c41e753dce103",
+      "case_id": "9ed5c6fe-24d2-4ee6-88ba-7319c9cfa05e",
+      "patient_id": "TCGA-58-8391",
+      "candidate_class": "non_tumor",
+      "sample_id": "d58f92f5-ace3-4002-b787-51626dcc5d7b",
+      "slide_id": "26566f10-f8a3-4232-ac87-9f7db7dab873",
+      "preparation": "frozen",
+      "split": "train"
+    },
+    {
+      "file_id": "179c64eb-e8ae-46fa-ba37-a2180dcd4ad2",
+      "md5sum": "45fb18840f91cf9ebbd6b9f723739f33",
+      "case_id": "e43a2b72-35c6-4466-9007-ce96caf77ea8",
+      "patient_id": "TCGA-55-A493",
+      "candidate_class": "adenocarcinoma",
+      "sample_id": "a08a22c9-5b3a-4748-89af-0fae50522f1b",
+      "slide_id": "ca814e99-8668-4ff6-b47e-fe722e30f071",
+      "preparation": "frozen",
+      "split": "train"
+    },
+    {
+      "file_id": "660c880b-d78b-4b8b-aceb-5dc7c8e4a3f1",
+      "md5sum": "397886f395f878d5d54553fa8b12024e",
+      "case_id": "d3e604d1-f8e3-47f7-86fb-104035590af8",
+      "patient_id": "TCGA-98-A538",
+      "candidate_class": "squamous",
+      "sample_id": "1804b286-ccd1-42b1-bae4-feab67dbeec0",
+      "slide_id": "e3054c6e-bf8e-4cbb-b66f-6ffb82d2b518",
+      "preparation": "frozen",
+      "split": "train"
+    },
+    {
+      "file_id": "615609e8-fb52-41f7-8abe-d0e9d4d14742",
+      "md5sum": "91708d9cef5d6ddc0c4ee9b58fc2701d",
+      "case_id": "b2bc53d6-ef78-4ae9-a6b5-1c7cad9a43eb",
+      "patient_id": "TCGA-55-7910",
+      "candidate_class": "non_tumor",
+      "sample_id": "a4dd7043-345b-420e-8b36-1604ed86c6b6",
+      "slide_id": "bcf0ef2a-e2ab-4451-9245-30b0207484c7",
+      "preparation": "frozen",
+      "split": "train"
+    },
+    {
+      "file_id": "8cc3b5f7-1f74-4bb9-a046-9870d8cdf912",
+      "md5sum": "e0d66fcc1ffcbe87d6cc43b90930deb6",
+      "case_id": "77828a90-8e2a-4664-b674-d837e6e34fe4",
+      "patient_id": "TCGA-69-7761",
+      "candidate_class": "adenocarcinoma",
+      "sample_id": "c8c5aa67-c6b9-48ba-ace2-b040170d73fc",
+      "slide_id": "5fbed09f-c790-4e78-a3c7-e026c878d906",
+      "preparation": "frozen",
+      "split": "train"
+    },
+    {
+      "file_id": "90c06ba4-30bf-49d5-a84b-ddc213de048d",
+      "md5sum": "4839459a6e2680abb1b31216080511bd",
+      "case_id": "f3e67161-1532-4b50-a9b5-0da80410c4d7",
+      "patient_id": "TCGA-60-2715",
+      "candidate_class": "squamous",
+      "sample_id": "5848ee1c-191f-4434-b7c6-598058aa0dd8",
+      "slide_id": "19cda9b1-60ee-4a23-9a47-adc769e600f5",
+      "preparation": "frozen",
+      "split": "train"
+    },
+    {
+      "file_id": "e498723d-0339-4bd2-8977-91e77dca3081",
+      "md5sum": "4a57a7906f92a9aa779696eaad1fd518",
+      "case_id": "230dc42d-681c-4e31-9d2e-c724e61829fb",
+      "patient_id": "TCGA-44-8119",
+      "candidate_class": "non_tumor",
+      "sample_id": "a82b1d48-b36d-4eaf-8658-3b19c7533203",
+      "slide_id": "d7257647-1870-456f-869c-a89806caba2a",
+      "preparation": "frozen",
+      "split": "train"
+    },
+    {
+      "file_id": "eabd3848-a437-48c9-888f-d26ac91a4572",
+      "md5sum": "3c033640567b5e13fbe2e3d3955c40eb",
+      "case_id": "daf0e08e-1738-43f8-874a-b37d79cbe3a7",
+      "patient_id": "TCGA-78-7536",
+      "candidate_class": "adenocarcinoma",
+      "sample_id": "359f80d0-faea-42ad-82c7-e34d238a3a3e",
+      "slide_id": "976e5028-cc47-4c8b-a069-b8aa4761acda",
+      "preparation": "frozen",
+      "split": "train"
+    },
+    {
+      "file_id": "7701f57e-f2c2-4731-9d52-c98c2b84c891",
+      "md5sum": "474edcaab53bdea5b369b2fc181e02b4",
+      "case_id": "5b6c3188-5d33-4473-bdd4-0cb9671e9047",
+      "patient_id": "TCGA-NC-A5HF",
+      "candidate_class": "squamous",
+      "sample_id": "cdfaedf5-1ed3-433d-b2ca-dbc95fd0d75d",
+      "slide_id": "645e44c8-5848-4380-89d8-9ee5f799b644",
+      "preparation": "frozen",
+      "split": "train"
+    },
+    {
+      "file_id": "db65ae8d-2429-4fa7-a35e-d07f06df20a0",
+      "md5sum": "f9771fc15bf3cb6fc7dac6a820596080",
+      "case_id": "d49b0369-905c-4608-96a9-cc854980fc4c",
+      "patient_id": "TCGA-66-2781",
+      "candidate_class": "non_tumor",
+      "sample_id": "b71c4bdc-1798-4422-ad70-f184cf1ed6d8",
+      "slide_id": "0d18a30f-2d81-4c78-b605-7502a2aa2c02",
+      "preparation": "frozen",
+      "split": "train"
+    },
+    {
+      "file_id": "b664fd8c-666a-4a61-ac60-c998f2b28e28",
+      "md5sum": "7ba2746a969a74e676974dcce5b212f4",
+      "case_id": "5c266025-e590-457c-af86-4c2dc9797267",
+      "patient_id": "TCGA-62-8395",
+      "candidate_class": "adenocarcinoma",
+      "sample_id": "aafb0ebe-3fde-4cfb-a560-11e85e839dcc",
+      "slide_id": "0f1436e6-0065-4dd7-a132-b6a21a097e48",
+      "preparation": "frozen",
+      "split": "validation"
+    },
+    {
+      "file_id": "513f5958-8ae8-4a46-acdc-30a64d3e2dc0",
+      "md5sum": "8bfde478f68f220f109dad8a3db55279",
+      "case_id": "b0818bee-c32c-405c-ba09-956091fbe09b",
+      "patient_id": "TCGA-43-6771",
+      "candidate_class": "squamous",
+      "sample_id": "12b448e3-2d58-4e68-92e1-dd484742cd99",
+      "slide_id": "5851788a-d535-4bab-8e8c-bf1ef8408a2b",
+      "preparation": "frozen",
+      "split": "train"
+    },
+    {
+      "file_id": "cd93c38e-343c-4e09-9f76-ab107dcade83",
+      "md5sum": "b00f299b74e82fd10a8b558869916af8",
+      "case_id": "f03aacb8-5565-425f-a8d5-be1056f882e0",
+      "patient_id": "TCGA-60-2725",
+      "candidate_class": "non_tumor",
+      "sample_id": "1162cdab-eace-4842-812d-20604a8a1e44",
+      "slide_id": "55f878b9-5c08-4210-9ed6-eb1cd93744ef",
+      "preparation": "frozen",
+      "split": "train"
+    },
+    {
+      "file_id": "954d197b-3af5-478e-b37f-8fad2b3f1b14",
+      "md5sum": "4add4442f0dbabce018432f168a93763",
+      "case_id": "75a0bb0b-6528-4fb8-a9e6-254905d21df4",
+      "patient_id": "TCGA-MN-A4N1",
+      "candidate_class": "adenocarcinoma",
+      "sample_id": "44d07be5-4621-41a2-a574-35122a3e5fbc",
+      "slide_id": "04cdf8d0-66c6-40de-9dbf-82702391ba88",
+      "preparation": "frozen",
+      "split": "train"
+    },
+    {
+      "file_id": "1d41c293-56aa-4adc-9425-7fa73ca1b1f4",
+      "md5sum": "0162b67b8e75b072923ca2f0bdbf5f49",
+      "case_id": "f1aa75c3-13f3-4bd9-9e51-923c2f62c2f7",
+      "patient_id": "TCGA-56-7822",
+      "candidate_class": "squamous",
+      "sample_id": "0481655b-0f3f-4917-9d3a-12032bd47c9d",
+      "slide_id": "f26ed42a-0dfe-4f58-878d-16dfbc79a800",
+      "preparation": "frozen",
+      "split": "test"
+    },
+    {
+      "file_id": "e5c88b83-5d99-4b9f-b7f5-e7c8024d3adb",
+      "md5sum": "fd95e3ce7ce1ac49176cce88c37e7105",
+      "case_id": "ee850103-6314-41a3-9734-8b520de95b40",
+      "patient_id": "TCGA-77-7139",
+      "candidate_class": "non_tumor",
+      "sample_id": "177fb718-0d74-40e0-a349-a22d9c50a5e1",
+      "slide_id": "317cc95d-dcad-4608-8f79-4541aa1b20a7",
+      "preparation": "frozen",
+      "split": "train"
+    },
+    {
+      "file_id": "0194c498-3aa7-461a-8caf-c78b81b0e0a2",
+      "md5sum": "4d6394a36b94c13a2b0136edf34d010b",
+      "case_id": "9c7875ad-ab71-4d48-b2e3-e4c7a46393e9",
+      "patient_id": "TCGA-49-6745",
+      "candidate_class": "adenocarcinoma",
+      "sample_id": "357f3efe-e2c9-432a-a2b6-75a5fdbae3be",
+      "slide_id": "a41e5347-9c8d-4003-a48a-43cd9bfb9dcc",
+      "preparation": "frozen",
+      "split": "train"
+    },
+    {
+      "file_id": "979ae005-74f6-4f9b-a48a-78eef2fbce06",
+      "md5sum": "6ac809e8c9fd608cb0c3429fd201d8a3",
+      "case_id": "f728a4d9-53d4-43a5-abc1-4016d388efa8",
+      "patient_id": "TCGA-33-4583",
+      "candidate_class": "squamous",
+      "sample_id": "6bde2659-f01a-4c1c-99c2-edbcad232af3",
+      "slide_id": "03091b43-a1f6-4b76-ae2f-5d85e0ea6030",
+      "preparation": "frozen",
+      "split": "validation"
+    },
+    {
+      "file_id": "2263e5d9-d2d7-4dce-a4e6-9edef7519e9e",
+      "md5sum": "8c98fb19ecfe1b5e8ee06b1808e445c4",
+      "case_id": "088edf89-d2b5-40c7-b066-df3bd383f7ea",
+      "patient_id": "TCGA-49-4505",
+      "candidate_class": "non_tumor",
+      "sample_id": "5812901f-a0ce-4772-862d-ff9ad12b0ee8",
+      "slide_id": "e019788b-29ba-4469-bda7-c39824386c12",
+      "preparation": "frozen",
+      "split": "train"
+    },
+    {
+      "file_id": "04ba3369-ae30-4ab6-8ec6-3c1a4f4b3193",
+      "md5sum": "15f39099f3ad244ed7e11881bfb0c846",
+      "case_id": "cc4bd56a-25c5-4c48-b583-ac3aeb778ca6",
+      "patient_id": "TCGA-38-4628",
+      "candidate_class": "adenocarcinoma",
+      "sample_id": "a74f6423-b5d3-4ae2-b61f-3ee04b1073bf",
+      "slide_id": "e36d38b6-0744-49c3-be1b-eedd00a80d57",
+      "preparation": "frozen",
+      "split": "train"
+    },
+    {
+      "file_id": "d3ff1a32-98e8-43ff-b0ab-b50dc50ada1f",
+      "md5sum": "b0310aa4785de3449e337353f0d99ada",
+      "case_id": "e5e4ead7-f2d8-4d72-aedc-393ee002a081",
+      "patient_id": "TCGA-22-4599",
+      "candidate_class": "squamous",
+      "sample_id": "5de486c6-1569-4f07-97ce-dbbc7889b402",
+      "slide_id": "cee4c3e2-66dd-44ac-976b-f02a6ce6013e",
+      "preparation": "frozen",
+      "split": "train"
+    },
+    {
+      "file_id": "96208124-212d-4b8a-ab8e-ef8e7550094f",
+      "md5sum": "9ca3da7ed5b4627cb562a5c0cff4ec21",
+      "case_id": "ae39e358-08d7-4367-ae68-82b469e791e4",
+      "patient_id": "TCGA-73-4675",
+      "candidate_class": "non_tumor",
+      "sample_id": "f422bc11-2bec-4e61-aa7e-384b157a83f7",
+      "slide_id": "f59c71af-4fcb-459c-93af-a7ab09d80fb6",
+      "preparation": "frozen",
+      "split": "train"
+    },
+    {
+      "file_id": "96ed3b0e-636f-4bd7-adef-869532a623c2",
+      "md5sum": "82eafcfbcec711a941cb5f6ff65a7cf8",
+      "case_id": "bab43415-d413-40be-a4c0-2c40a52afe6a",
+      "patient_id": "TCGA-44-2668",
+      "candidate_class": "adenocarcinoma",
+      "sample_id": "dd9a6c68-b8b4-4168-9ff9-72a45f20c44f",
+      "slide_id": "d4db0c2b-9247-458b-a931-62ff45e4f859",
+      "preparation": "frozen",
+      "split": "train"
+    },
+    {
+      "file_id": "50031276-21a2-4478-bc83-53a1abf6593a",
+      "md5sum": "a6cc8a664f5b11f1ec1002c5c1eb4251",
+      "case_id": "af1d9d69-0a45-4ad3-9873-57fbe4a4b895",
+      "patient_id": "TCGA-18-3414",
+      "candidate_class": "squamous",
+      "sample_id": "a3613a4d-7138-4878-9a26-2b377512b70e",
+      "slide_id": "160234d0-fa16-438f-96fa-c608d6c1d793",
+      "preparation": "frozen",
+      "split": "test"
+    },
+    {
+      "file_id": "a35ec2db-c25b-468d-acf2-8578a7773645",
+      "md5sum": "42c88a424459ea9aa6f0fb5d61c21f4f",
+      "case_id": "dd7eda40-9aae-46b2-914e-788b76b43087",
+      "patient_id": "TCGA-39-5027",
+      "candidate_class": "non_tumor",
+      "sample_id": "0f7076c3-4121-4d3d-bb3b-ff923064a1a0",
+      "slide_id": "621260d3-7776-4d5d-8837-446e53ccdbf8",
+      "preparation": "frozen",
+      "split": "train"
+    },
+    {
+      "file_id": "92197c1c-8441-45b3-97da-0ce17921c99a",
+      "md5sum": "b2b9c8b9d72bed8d2333c7ed3ebd930e",
+      "case_id": "e8b7a103-644f-4865-92f8-80b053bd5e17",
+      "patient_id": "TCGA-35-3615",
+      "candidate_class": "adenocarcinoma",
+      "sample_id": "7407d705-6ec6-4143-93d2-eedcf5a22399",
+      "slide_id": "40ee8b17-cbd1-4b88-bfd9-0685f18f3829",
+      "preparation": "frozen",
+      "split": "test"
+    },
+    {
+      "file_id": "8edee956-4521-403b-8322-f1c5da28e53b",
+      "md5sum": "418ac92491e4ebb02ec8e02171fa6ae7",
+      "case_id": "d484c95f-5128-4239-a6e5-1496de39ba4b",
+      "patient_id": "TCGA-68-8251",
+      "candidate_class": "squamous",
+      "sample_id": "4595d7e9-85d8-4eab-9b8e-3dd624dd792c",
+      "slide_id": "8b9eba86-bdd7-4cbc-b114-924cc4267af6",
+      "preparation": "frozen",
+      "split": "train"
+    },
+    {
+      "file_id": "a2e48dce-1874-468d-a302-fd30b3107f4a",
+      "md5sum": "a86f358f5325b6229035d19ed23440aa",
+      "case_id": "47cbb242-a356-43ba-95c3-0b0c9ef90fbf",
+      "patient_id": "TCGA-22-4609",
+      "candidate_class": "non_tumor",
+      "sample_id": "894d620e-4c29-4499-94bf-dcb510cd5aca",
+      "slide_id": "4be570db-64af-47db-9e36-dd81172b28cc",
+      "preparation": "frozen",
+      "split": "test"
+    },
+    {
+      "file_id": "e2e77b73-8feb-4f5e-b09b-b2fb813240aa",
+      "md5sum": "480b94f7fff358e73db9c33237fc49cf",
+      "case_id": "f77cf4d3-9829-4fd3-95a1-b29aed9e94b8",
+      "patient_id": "TCGA-64-1678",
+      "candidate_class": "adenocarcinoma",
+      "sample_id": "0a2d9fad-c5df-46c1-bf96-529c7c92dfba",
+      "slide_id": "7cb663b8-f94b-4803-b581-317aaa10d113",
+      "preparation": "frozen",
+      "split": "train"
+    },
+    {
+      "file_id": "084cc3ce-0c38-4683-9dd3-458632db13d8",
+      "md5sum": "d7559a669927572a4144ec85289d08ef",
+      "case_id": "d00d93d5-8d6b-4e5b-816c-f3d726d65d3d",
+      "patient_id": "TCGA-37-A5EN",
+      "candidate_class": "squamous",
+      "sample_id": "ec73cdb0-efa2-4cc2-9a75-a6fc45dad0ea",
+      "slide_id": "1ab05cbe-39c3-42bf-81c5-2ecf1920cfd0",
+      "preparation": "frozen",
+      "split": "train"
+    },
+    {
+      "file_id": "bf6969ee-bfa6-4b13-8e3b-8e37332f2cfd",
+      "md5sum": "fc8117ea1999b586ce925c126dcbfc45",
+      "case_id": "05534064-8b43-4c82-95da-70fd83bd6560",
+      "patient_id": "TCGA-78-7540",
+      "candidate_class": "non_tumor",
+      "sample_id": "e1eac78a-5641-438a-933d-b86fb5c404cb",
+      "slide_id": "92595ecb-3d54-496c-acef-6206f69fa2a5",
+      "preparation": "frozen",
+      "split": "test"
+    },
+    {
+      "file_id": "c90322c7-be38-49ad-bde4-ea66277d64d8",
+      "md5sum": "644c02b764f3df715287440afa514335",
+      "case_id": "ac0d7a82-82cb-4aec-b859-e37375f3de8b",
+      "patient_id": "TCGA-97-8547",
+      "candidate_class": "adenocarcinoma",
+      "sample_id": "3073311b-5b00-4fd7-b1f6-1067d2e86564",
+      "slide_id": "cf6c29cd-1bf5-41f4-b008-d3e47aeff4ac",
+      "preparation": "frozen",
+      "split": "validation"
+    },
+    {
+      "file_id": "fcf5a39f-5537-4cbf-8f27-8235dd087921",
+      "md5sum": "7118a3de8f2f9aa91983f9b4045c65b4",
+      "case_id": "cee6e9f6-6d7e-4096-a9bc-2cce004fb218",
+      "patient_id": "TCGA-34-2604",
+      "candidate_class": "non_tumor",
+      "sample_id": "d7eb4b88-1476-40af-a35a-d3f5c6f56099",
+      "slide_id": "4c2e3e94-0b46-4c19-a4bb-578981ce8e0c",
+      "preparation": "frozen",
+      "split": "validation"
+    },
+    {
+      "file_id": "1f417895-d5ba-4373-abc5-c1ce523d0420",
+      "md5sum": "2571eba5d0dce96e879793bc5a6571ad",
+      "case_id": "e739b4f7-ae46-45c6-9013-9571cbadaf99",
+      "patient_id": "TCGA-93-7348",
+      "candidate_class": "adenocarcinoma",
+      "sample_id": "cd8ff232-b36b-4ed0-a0c6-7e0e172ea390",
+      "slide_id": "4cdbc1f4-9893-4ab8-8f29-5815620ef381",
+      "preparation": "frozen",
+      "split": "test"
+    },
+    {
+      "file_id": "374c3296-121f-4081-bea1-143696155559",
+      "md5sum": "9634f39beac7da2de644e857bba7392d",
+      "case_id": "43ea8913-abfe-495d-a909-d57da13d1a27",
+      "patient_id": "TCGA-77-8008",
+      "candidate_class": "squamous",
+      "sample_id": "42b05509-93fb-497c-aa5d-48bf5f591167",
+      "slide_id": "9c362be3-0860-4500-9805-6ae28d23b685",
+      "preparation": "frozen",
+      "split": "validation"
+    },
+    {
+      "file_id": "07fc3708-da69-476d-be08-665d22e33f2c",
+      "md5sum": "9795ad91702b29ff3a8108bfb9ab4c81",
+      "case_id": "0b31dbdf-0623-48e4-a0ec-017650dceda7",
+      "patient_id": "TCGA-91-6836",
+      "candidate_class": "non_tumor",
+      "sample_id": "baa41644-5248-4838-acc4-56d35c7a88ae",
+      "slide_id": "269174cd-2593-4e3c-a52a-3c0496b059ed",
+      "preparation": "frozen",
+      "split": "validation"
+    },
+    {
+      "file_id": "cfde6b7d-3711-436f-9d2a-7bd029c02ade",
+      "md5sum": "6b55132ffbedd3a14ea87d409c060150",
+      "case_id": "ebcba7f2-ce13-4bae-97cd-91a6b1dcd465",
+      "patient_id": "TCGA-50-5932",
+      "candidate_class": "adenocarcinoma",
+      "sample_id": "7ecb9621-7a1f-4876-9dfb-9b77cc4cb7b4",
+      "slide_id": "e89b93f1-255e-42ac-a0eb-7c3df060b669",
+      "preparation": "frozen",
+      "split": "train"
+    },
+    {
+      "file_id": "497a5d0d-94a5-42d4-83b8-322cc5578917",
+      "md5sum": "d20d16fd2c0c41472bf67927726d32f8",
+      "case_id": "52924e27-7b36-4e25-83b2-abc51dd72668",
+      "patient_id": "TCGA-85-8584",
+      "candidate_class": "squamous",
+      "sample_id": "bda47d6e-7523-48c0-971e-87275df997a2",
+      "slide_id": "2efb82b2-c4b9-43cc-8508-6a3faa8be1a0",
+      "preparation": "frozen",
+      "split": "train"
+    },
+    {
+      "file_id": "f9e7d00d-a7f3-469f-9d68-5c7bb701902d",
+      "md5sum": "e4216e5546fdae1f93095a5b84e70f8e",
+      "case_id": "8479ec58-f5e7-4d9d-a382-2688ed93ca8e",
+      "patient_id": "TCGA-51-4080",
+      "candidate_class": "non_tumor",
+      "sample_id": "be87da43-09a8-4949-92ce-1c9fbf467e0d",
+      "slide_id": "db7ac745-4aeb-4041-af48-f14361858f25",
+      "preparation": "frozen",
+      "split": "train"
+    },
+    {
+      "file_id": "b18d4df2-ec3b-43ca-9385-2ca68f94bb18",
+      "md5sum": "98282c91d86758dee8439bf363af7ccb",
+      "case_id": "03c3409a-9d16-41d0-9e26-f9fc2547a4c8",
+      "patient_id": "TCGA-73-4677",
+      "candidate_class": "adenocarcinoma",
+      "sample_id": "ef88b85a-61ee-44e1-bb63-1b4ce9154bfb",
+      "slide_id": "1ee2d660-c047-4a0d-9d80-8ffa52451dc5",
+      "preparation": "frozen",
+      "split": "train"
+    },
+    {
+      "file_id": "d4ca52ec-0e15-44e9-b46d-5efc029a15b9",
+      "md5sum": "426f938dbabf115486bf27de97f6c796",
+      "case_id": "349e01b0-0c88-4321-839e-0a84edf11a73",
+      "patient_id": "TCGA-34-5234",
+      "candidate_class": "squamous",
+      "sample_id": "8620b5a0-e9ed-427b-9675-ee8ee798686e",
+      "slide_id": "65e6276e-830a-46f5-8b3d-7aa84f22b1aa",
+      "preparation": "frozen",
+      "split": "train"
+    }
+  ]
+}

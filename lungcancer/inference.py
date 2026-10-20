@@ -24,6 +24,10 @@ def predict(slide_path,model_root,output):
         if (metadata['preprocessing_implementation_sha256']!=checksum(preprocess.__file__) or
                 metadata['openslide_library_version']!=openslide.__library_version__):
             raise ValueError('preprocessing_implementation_or_openslide_version_mismatch')
+        from . import safety
+        if ('thumbnail_safety_implementation_sha256' in metadata and
+                metadata['thumbnail_safety_implementation_sha256']!=checksum(safety.__file__)):
+            raise ValueError('thumbnail_safety_implementation_mismatch')
         config=TileConfig(**metadata['preprocessing_config'])
         # No filename parsing, diagnosis access, or TCGA metadata is used here.
         prep=prepare_slide(slide_path,output/'processing',config)

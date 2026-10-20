@@ -1,3 +1,15 @@
+# Current baseline and M1 verification
+
+The real UNI2-h baseline is trained and has held-out predictions/inference.
+The corrected eligible cohort has 44 patients (32/6/6); one multiply linked
+slide was excluded. Validation macro F1 is 0.667; test macro F1 is 1.000 on only
+six patients, with the audit/reused-test caveats in checkpoint 16.
+
+Start with [STATUS.md](STATUS.md), [modeling results](docs/checkpoints/2026-10-20-16-modeling-results.md),
+[Apple Silicon CPU guide](docs/CPU_CONTAINER_VERIFICATION.md) and
+[verification matrix](docs/VERIFICATION_MATRIX.md). CPU Docker/ARM64 execution
+and full slide-to-prediction container verification remain separate pending work.
+
 # Lung histopathology classification MVP
 
 AC215 engineering prototype: whole slide → tissue tiles → frozen UNI2-h → slide mean pooling → multinomial logistic regression.
