@@ -1,0 +1,58 @@
+{
+  "status": "success",
+  "scope": "Native ARM64 cached-feature application; no fresh UNI2 encoding",
+  "browser": "Native mac-arm64 Chromium 156 / Playwright 1.64.1",
+  "backend_tests": {
+    "passed": 14,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0
+  },
+  "frontend_checks": "TypeScript, oxlint and Vite production build passed, including Docker HTTP build",
+  "browser_scenarios": {
+    "fixture_routes_isolated": "success",
+    "known-result": "success",
+    "renamed-result": "success",
+    "renamed_filename_invariance": "success",
+    "misleading_case_metadata": "success",
+    "modified_slide": "success",
+    "unknown_slide": "success",
+    "empty_upload": "success",
+    "oversized_upload": "success",
+    "backend_unavailable": "success"
+  },
+  "page_errors": 0,
+  "network_mocking_used": false,
+  "known_slide_result": {
+    "status": "success",
+    "predicted_class": "non_tumor",
+    "class_probabilities": {
+      "non_tumor": 0.9509898894470982,
+      "adenocarcinoma": 0.01920426120080631,
+      "squamous": 0.029805849352095373
+    },
+    "probabilities_calibrated": false,
+    "tiles_analyzed": 512,
+    "quality_warnings": [
+      "embedded_icc_profile_present_not_applied"
+    ],
+    "model_identifier": "42af9fb3f51e1539d994af4f20e2980e4118eac6a8cd665aeb372c1440b2fed5",
+    "encoder_identifier": "debc5e8769258a2e970772801d440debc2500868f5a6cf93b7b5c0c8c1e41324",
+    "data_snapshot_identifier": "f9491fe4d35f30267df95d26c61d6bb325908694e6df7d746a6acb9826eddb24",
+    "source_sha256": "544fc4ab2cf62ebc99e01e734907ec4194c71baba8b61bb4cbca92ae739c9a9d",
+    "source_md5": "a86f358f5325b6229035d19ed23440aa",
+    "feature_fingerprint": "1ac151e2c3e062c5632a4a9279e2914af697caf0158e0eee926e2b4b0185e4f6",
+    "processing_mode": "preprocessed_slide_demo",
+    "uni2_encoding_performed": false,
+    "analyzed_tiles_overlay": "/api/jobs/25300fb1a2b347708c1686b19674ef4d/overlay"
+  },
+  "maximum_frozen_reference_probability_difference": 6.938893903907228e-18,
+  "probability_tolerance": 1e-08,
+  "renamed_probability_difference": 0,
+  "api_restored_after_outage_test": true,
+  "full_fresh_uni2_container_verification": "pending",
+  "screenshots": {
+    "2026-10-20-app-result.png": "e993f324ab7ea03791607471045629de6f87d38c8c153b5166666661d4e4384c",
+    "2026-10-20-app-unknown.png": "90d5f536a4f06097300959be74a29df9c368fa18ccb5a952d86fb1d81912ead1"
+  }
+}

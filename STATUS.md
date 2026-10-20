@@ -1,4 +1,21 @@
-# Current handoff — checkpoint 25
+# Working native M1 cached-feature app — checkpoint 26
+
+The bounded local app is implemented and executed: browser → nginx → real API →
+verified cached UNI2 vectors → saved audit2 scaler/logistic head → real UI result.
+`make app-up` is the tested single build/start command; http://127.0.0.1:8080/.
+14 backend tests and all 10 browser/API scenarios passed. Renamed identical
+slide bytes and misleading case metadata preserve exact probabilities; unknown
+or modified bytes fail with no prediction. Frontend type/lint/build checks,
+actual API outage recovery and full app stop/resume passed. Genuine screenshots,
+responses, Docker identities and logs are saved; see
+[LOCAL_APP.md](docs/LOCAL_APP.md) and
+[checkpoint 26](docs/checkpoints/2026-10-20-26-cached-feature-app.md).
+The app remains a one-slide preprocessed-feature demo; full fresh-UNI2 container
+verification is pending. No weights/slides, training, split/encoder/preprocessing
+changes, test-metric reruns or profiling occurred. Earlier pending-app entries
+below are historical.
+
+# Historical handoff — checkpoint 25
 
 All context for the next local M1 UI/API task is saved in
 docs/MAC_CODEX_HANDOFF.md. Real modeling and native ARM64 CPU checks are complete.

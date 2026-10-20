@@ -9,7 +9,7 @@
 | Torch-free CPU script sequence | Passed on x86_64 Colab: 29 tests, 44 real caches, real 16-tile SVS smoke | This is not Docker/ARM64 execution evidence |
 | Apple Silicon CPU container execution | **Passed on Apple M1, linux/arm64, checkpoint 21:** make exit 0; 29 tests; 44 real caches / 22,483 vectors; 12 frozen probabilities matched within 5.56e-17; real 16-tile smoke and inspected overlays | Logs, reports, image identity and genuine MS2 screenshot saved locally; approved Drive evidence package passed SHA256 readback; see checkpoint 21 |
 | Full slide-to-prediction container | Separate pending verification | Real encoder loading, embeddings and prediction in a suitable execution environment |
-| UI/backend interaction | Existing frontend and reference stub preserved | Run and document actual interaction; fixtures remain UI fixtures |
+| Native ARM64 cached-feature app | **Passed, checkpoint 26:** actual Chromium upload/poll/result with saved classifier; 10 browser/API scenarios; 14 backend tests; production frontend checks; genuine screenshots; stop/resume and host readiness | One supplied preprocessed raw slide; no fresh UNI2 extraction; local-demo session/job limits in LOCAL_APP.md |
 | Optional synchronized profiling | Deferred | No stage timings or hardware-only A100 speedup claimed |
 
 Final model artifacts are under

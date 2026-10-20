@@ -1,4 +1,5 @@
 import type { ReactNode } from 'react';
+import { inferenceMode } from '../../api';
 import { Button, ProgressBar, StatNumber } from '../../components/ui';
 import { useNow } from '../../lib/useNow';
 import { formatBytes, formatElapsed, formatInt, shortJobId } from '../../lib/formatters';
@@ -46,6 +47,12 @@ export function AnalysisPanel(props: AnalysisPanelProps) {
         aria-live="polite"
         aria-busy={analysis.phase === 'uploading' || analysis.phase === 'analysing'}
       >
+        {inferenceMode === 'http' && (
+          <section className={styles.block}>
+            <p className={styles.eyebrow}>Preprocessed-slide demo</p>
+            <p className={styles.meta}>Uses previously extracted features for the supplied slide. New slides cannot be processed here.</p>
+          </section>
+        )}
         <PanelBody {...props} />
         {slide && <SlideSummary slide={slide} />}
       </div>

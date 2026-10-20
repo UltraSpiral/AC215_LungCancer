@@ -103,12 +103,15 @@ export function parsePrediction(raw: unknown): Prediction {
     return invalid(`unknown predicted_class ${JSON.stringify(raw.predicted_class)}`);
   }
   const probs = raw.class_probabilities;
-  if (!isObject(probs) || !PREDICTED_CLASSES.every((c) => isFiniteNumber(probs[c]))) {
+  if (!isObject(probs) || !PREDICTED_CLASSES.every((c) => isFiniteNumber(probs[c]) && probs[c] >= 0 && probs[c] <= 1)) {
     return invalid('class_probabilities must have a number for every class');
   }
+  if (Math.abs(PREDICTED_CLASSES.reduce((total, c) => total + (probs[c] as number), 0) - 1) > 1e-6) {
+    return invalid('class_probabilities must sum to one');
+  }
   if (raw.probabilities_calibrated !== false) return invalid('probabilities_calibrated must be false');
-  if (!isFiniteNumber(raw.tiles_analyzed) || raw.tiles_analyzed < 0 || !Number.isInteger(raw.tiles_analyzed)) {
-    return invalid('tiles_analyzed must be a non-negative integer');
+  if (!isFiniteNumber(raw.tiles_analyzed) || raw.tiles_analyzed <= 0 || !Number.isInteger(raw.tiles_analyzed)) {
+    return invalid('tiles_analyzed must be a positive integer');
   }
   if (!Array.isArray(raw.quality_warnings) || !raw.quality_warnings.every((w) => typeof w === 'string')) {
     return invalid('quality_warnings must be a list of code strings');

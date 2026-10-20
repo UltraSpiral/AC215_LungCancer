@@ -1,10 +1,22 @@
-# Next local Mac task
+# Working local preprocessed-slide application
 
-Read [docs/MAC_CODEX_HANDOFF.md](docs/MAC_CODEX_HANDOFF.md) for the complete
-implementation prompt and verified model/artifact context. Modeling and native
-ARM64 CPU verification passed. The next app task connects the existing UI to
-real cached-feature classification; it has not been implemented or run yet.
-Full slide-to-prediction container verification remains separate.
+From the repository root, run the tested single build/start command:
+
+```bash
+make app-up
+```
+
+Open **http://127.0.0.1:8080/** and choose the existing
+`local_data/cpu_bundle/sample/sample.svs`. The native ARM64 frontend/API demo
+uses the real saved classifier with verified cached UNI2 features. Identical
+renamed bytes work; unknown slides fail without a prediction. This stage does
+not extract new UNI2 features from arbitrary uploaded slides.
+
+[App guide and commands](docs/LOCAL_APP.md) ·
+[Real browser screenshot](docs/evidence/2026-10-20-app-result.png) ·
+[Executed verification](docs/checkpoints/2026-10-20-26-cached-feature-app.md).
+Modeling and native CPU checks are complete. Full fresh-UNI2 slide-to-prediction
+container verification remains separate and pending.
 
 # Current baseline and M1 verification
 
@@ -16,9 +28,9 @@ six patients, with the audit/reused-test caveats in checkpoint 16.
 Start with [STATUS.md](STATUS.md), [modeling results](docs/checkpoints/2026-10-20-16-modeling-results.md),
 [Apple Silicon CPU guide](docs/CPU_CONTAINER_VERIFICATION.md) and
 [verification matrix](docs/VERIFICATION_MATRIX.md). CPU Docker/ARM64 execution
-and full slide-to-prediction container verification remain separate pending work.
+passed; full fresh-UNI2 slide-to-prediction container verification remains pending.
 
-# Lung histopathology classification MVP
+# Historical pilot record — superseded by the current baseline above
 
 AC215 engineering prototype: whole slide → tissue tiles → frozen UNI2-h → slide mean pooling → multinomial logistic regression.
 

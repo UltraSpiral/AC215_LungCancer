@@ -21,7 +21,7 @@ export function ReviewPage() {
   const clearSlide = useCaseStore((s) => s.clearSlide);
   const startAnalysis = useCaseStore((s) => s.startAnalysis);
   const cancelAnalysis = useCaseStore((s) => s.cancelAnalysis);
-  const source = useViewerSource(slide);
+  const source = useViewerSource(slide, analysis);
   // Before a slide arrives, show the live Eastern clock; afterwards, when it was received.
   const now = useNow(1_000);
 

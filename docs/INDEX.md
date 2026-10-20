@@ -1,4 +1,13 @@
-# Current Colab confirmation — checkpoint 23
+# Current application — checkpoint 26
+
+The native M1 cached-feature application is implemented and browser-verified.
+From the repository root use `make app-up`; open http://127.0.0.1:8080/.
+See [LOCAL_APP.md](LOCAL_APP.md),
+[checkpoint 26](checkpoints/2026-10-20-26-cached-feature-app.md) and
+[the genuine screenshot](evidence/2026-10-20-app-result.png).
+Full fresh-UNI2 container verification remains pending.
+
+# Historical Colab confirmation — checkpoint 23
 
 Recommended next action, planning only:
 [24 — Working application interaction](checkpoints/2026-10-20-24-next-app-step.md).
@@ -15,6 +24,8 @@ CPU container verification is complete; full inference containers remain pending
 
 # Current checkpoints
 
+- [26 — Working native M1 cached-feature application](checkpoints/2026-10-20-26-cached-feature-app.md)
+- [Local app guide, tested commands and scope](LOCAL_APP.md)
 - [22 — Publish the native M1 verification records](checkpoints/2026-10-20-22-cpu-publication.md)
 - [21 — Native M1 Docker CPU checks passed](checkpoints/2026-10-20-21-native-arm64.md)
 - [20 — GitHub login and publication verified](checkpoints/2026-10-20-20-github-published.md)
@@ -27,11 +38,13 @@ CPU container verification is complete; full inference containers remain pending
 
 These supersede earlier pause/pending-auth/pending-Mac statements. Current model
 is audit2 (44 eligible patients). Native M1 Docker CPU validation passed at
-checkpoint 21; full slide-to-prediction containers and UI/backend remain pending.
+checkpoint 21; cached-feature UI/backend interaction passed at checkpoint 26.
+Full fresh-UNI2 slide-to-prediction containers remain pending.
 Local evidence: `local_outputs/cpu/`. Local source/document/evidence backup:
 see [LATEST_BACKUP.md](LATEST_BACKUP.md). After explicit user approval, the Drive
 evidence package was uploaded and SHA256-verified by readback. The current
-Markdown mirror is tracked by `local_outputs/cpu/cloud_persistence_receipt.json`.
+checkpoint-21 Markdown mirror is tracked by `local_outputs/cpu/cloud_persistence_receipt.json`.
+New app persistence/publication status is recorded in checkpoint 26.
 
 # LungCancer project records
 

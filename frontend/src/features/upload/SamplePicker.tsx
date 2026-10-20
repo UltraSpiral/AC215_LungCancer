@@ -1,9 +1,21 @@
 import { formatBytes } from '../../lib/formatters';
+import { inferenceMode } from '../../api';
 import { SAMPLE_SLIDES } from '../../mocks/sampleSlides';
 import styles from './SamplePicker.module.css';
 
 /** Idle-state panel content: the bundled sample slides. Uploads go through the viewer's drop zone. */
 export function SamplePicker({ onSample }: { onSample: (sampleId: string) => void }) {
+  if (inferenceMode === 'http') {
+    return (
+      <section className={styles.block}>
+        <p className={styles.eyebrow}>Preprocessed-slide demo</p>
+        <h3 className={styles.headline}>Choose the supplied slide</h3>
+        <p>Upload the previously processed sample.svs using browse files.</p>
+        <p>This demo recognizes its file contents, even after renaming. Other slides cannot be analyzed here.</p>
+        <p>Maximum upload: 80 MB. Research demonstration only.</p>
+      </section>
+    );
+  }
   return (
     <>
       <section className={styles.block}>

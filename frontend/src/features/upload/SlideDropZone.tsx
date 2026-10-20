@@ -1,5 +1,6 @@
 import { useRef, useState, type DragEvent } from 'react';
 import { cx } from '../../lib/cx';
+import { inferenceMode } from '../../api';
 import { ACCEPTED_EXTENSIONS, isAcceptedSlide } from './accept';
 import styles from './SlideDropZone.module.css';
 
@@ -16,6 +17,10 @@ export function SlideDropZone({ onFile }: { onFile: (file: File) => void }) {
     if (!file) return;
     if (!isAcceptedSlide(file)) {
       setRejected(`${file.name} is not a .svs whole-slide image.`);
+      return;
+    }
+    if (inferenceMode === 'http' && (file.size === 0 || file.size > 80_000_000)) {
+      setRejected(file.size === 0 ? 'The selected slide is empty.' : 'The demo upload limit is 80 MB.');
       return;
     }
     setRejected(null);
@@ -49,7 +54,9 @@ export function SlideDropZone({ onFile }: { onFile: (file: File) => void }) {
             browse files
           </button>
         </p>
-        <p className={styles.meta}>Aperio .svs · analysed on the model server</p>
+        <p className={styles.meta}>
+          {inferenceMode === 'http' ? 'Aperio .svs · previously processed sample · up to 80 MB' : 'Aperio .svs · analysed on the model server'}
+        </p>
         <input
           ref={inputRef}
           className="visually-hidden"

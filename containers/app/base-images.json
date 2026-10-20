@@ -1,0 +1,14 @@
+[
+  {
+    "tag": "node:24-bookworm-slim",
+    "index_digest": "sha256:a5f4366e834695d5f363b920c104953a535d3a9864d1bdf74566a0ebe01daee5",
+    "arm64_manifest_digest": "sha256:156e9bc7a0a267cc6ca77b4283e32b123479342df684ce297455d7b95ff5a6b5",
+    "official_source": "https://github.com/nodejs/docker-node.git#f27125230b3c367dcf63043ea3fe286fb3d0914c:24/bookworm-slim"
+  },
+  {
+    "tag": "nginx:stable-alpine",
+    "index_digest": "sha256:970364228b1e4f932abc22d321932816782cca8a20b85a77552a7cfe9acfb3b5",
+    "arm64_manifest_digest": "sha256:b42a296458c2dbdc6d75d44ccd873369aa1664ff4319c975e25fa9cfc062b30a",
+    "official_source": "https://github.com/nginx/docker-nginx.git#4b9f658be76820b24e4ef4605413a5c08707a512:stable/alpine"
+  }
+]

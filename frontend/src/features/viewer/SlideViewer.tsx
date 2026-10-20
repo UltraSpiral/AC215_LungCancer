@@ -10,6 +10,7 @@ import { ZoomControls } from './ZoomControls';
 export type ViewerSource =
   | { kind: 'empty' }
   | { kind: 'loading' }
+  | { kind: 'image'; url: string; detail: string }
   | { kind: 'dzi'; meta: SlideMetadata; attribution?: string }
   | { kind: 'message'; title: string; detail: ReactNode };
 
@@ -87,7 +88,13 @@ export function SlideViewer({ source, emptyContent }: SlideViewerProps) {
         )}
         {source.kind === 'empty' && emptyContent
           ? emptyContent
-          : source.kind !== 'dzi' && <PaneMessage source={source} />}
+          : source.kind !== 'dzi' && source.kind !== 'image' && <PaneMessage source={source} />}
+        {source.kind === 'image' && (
+          <figure className={styles.cachedPreview}>
+            <img src={source.url} alt="Actual supplied slide with previously analyzed tile locations" />
+            <figcaption>{source.detail}</figcaption>
+          </figure>
+        )}
         {meta && failed && (
           <PaneMessage
             source={{
@@ -128,7 +135,7 @@ export function SlideViewer({ source, emptyContent }: SlideViewerProps) {
   );
 }
 
-function PaneMessage({ source }: { source: Exclude<ViewerSource, { kind: 'dzi' }> }) {
+function PaneMessage({ source }: { source: Exclude<ViewerSource, { kind: 'dzi' } | { kind: 'image' }> }) {
   if (source.kind === 'loading') {
     return <div className={styles.message} aria-busy="true" />;
   }

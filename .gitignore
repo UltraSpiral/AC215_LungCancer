@@ -33,4 +33,6 @@ auth.json
 .codex/
 .agents/
 .aws/
+node_modules/
+frontend/dist/
 Milestone 1 Project Proposals Shlok Dholakia.pdf

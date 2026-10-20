@@ -1,4 +1,17 @@
-# Current local-Mac task handoff — checkpoint 25
+# Current local app — checkpoint 26
+
+The native ARM64 cached-feature application is implemented and browser-verified.
+From `/Users/shlokdholakia/Documents/Harvard/Semesters/SEM3/AC215/LungCancer`,
+use `make app-resume` for existing images or `make app-up` to build/start.
+The tested URL is http://127.0.0.1:8080/. Inputs already exist in
+`local_data/cpu_bundle/`; do not restore over them or download anything.
+Read [LOCAL_APP.md](LOCAL_APP.md), [COMMANDS.md](COMMANDS.md) and
+[checkpoint 26](checkpoints/2026-10-20-26-cached-feature-app.md). No Colab/HF login,
+Torch or new UNI2 extraction is needed. The app handles one content-matched
+preprocessed slide. Full fresh-UNI2 container verification remains pending.
+Existing CPU evidence remains intact and needs no unchanged test rerun.
+
+# Historical local-Mac task handoff — checkpoint 25
 
 For the next application task, read MAC_CODEX_HANDOFF.md. It is self-contained:
 model/data identities, scientific limits, existing UI/API code, private local

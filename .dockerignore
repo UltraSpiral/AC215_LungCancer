@@ -10,10 +10,13 @@
 artifacts
 local_data
 local_outputs
-frontend
+frontend/dist
+frontend/sample-slides
+frontend/public/slides
 **/.env
 **/.env.*
 **/*token*
+!frontend/src/styles/tokens.css
 **/*credential*
 **/auth.json
 **/*.svs
@@ -26,3 +29,8 @@ frontend
 **/*.tar*
 **/*.bundle
 **/*.pdf
+**/.npmrc
+**/.pypirc
+**/.netrc
+**/.git-credentials
+**/hosts.yml

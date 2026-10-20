@@ -1,5 +1,12 @@
 # Local Mac Codex handoff: real cached-feature application demo
 
+Execution update — checkpoint 26: this bounded task has now been implemented
+and verified on the M1, including actual browser/API interaction. Read
+[LOCAL_APP.md](LOCAL_APP.md) and
+[checkpoint 26](checkpoints/2026-10-20-26-cached-feature-app.md) for current
+commands, evidence and remaining full-pipeline limits. The original canonical
+handoff below is preserved as the implementation specification/history.
+
 This is the self-contained context and implementation prompt for Codex on the
 user's M1 Mac. The Colab agent is preparing/persisting this handoff, not building
 or running the application. When the user gives you this handoff as a task,

@@ -1,5 +1,16 @@
 # Frontend — pathologist review MVP
 
+## Verified real cached-feature demo
+
+From the repository root use `make app-up`, then open http://127.0.0.1:8080/.
+The production image explicitly builds HTTP mode against same-origin `/api`.
+It uses the saved audit2 classifier and the one content-matched supplied slide;
+it does not run the illustrative stub. See [the app guide](../docs/LOCAL_APP.md)
+for tested behavior, screenshots, supported input and limits.
+
+The development commands below retain isolated mock fixtures for UI work.
+They do not establish genuine-model behavior; the Compose app/browser evidence does.
+
 Web UI for the slide classifier: a pathologist opens a whole-slide image, sends it to the model and
 sees the predicted class (non-tumour, adenocarcinoma/LUAD, squamous/LUSC), the model identifier, the
 number of tiles analysed and any preprocessing quality warnings.

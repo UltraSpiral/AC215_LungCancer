@@ -259,3 +259,25 @@ source/lock/assets and future backend/app Compose files, excluding generated
 inputs, dependencies and credentials. Verify the actual archive and staged
 diff, persist to mounted Drive, publish normally and verify matching SHAs.
 No scientific artifacts or processing stage changed. See checkpoint 25.
+
+
+## 26 — Native M1 cached-feature app implemented and verified (2026-10-20)
+
+Safely fast-forwarded through the Colab handoff to b9ae02a, preserving all local
+private inputs and CPU evidence. Implemented a real content-matched saved-model
+backend, HTTP frontend, 512-coordinate preview and native ARM64 Compose app.
+The tested build/start command is make app-up; browser URL 127.0.0.1:8080.
+14 backend tests and all 10 actual browser/API scenarios passed, including
+renamed/misleading metadata invariance, unsupported/modified input, upload bounds,
+fixture isolation and an actual API outage. Frontend checks and stop/resume passed.
+The first browser connection failed because the internal-only network did not
+publish the host port; retained failure evidence, fixed web ingress and added a
+host readiness probe. Real screenshots/responses and runtime identity evidence
+are saved; selected lightweight proof is committed. All private manifest entries
+and core frozen fingerprints/locks remain unchanged. Source/local evidence backups
+and publication receipts are tracked in LATEST_BACKUP.md and checkpoint 26.
+No new private Drive upload is inferred from the earlier CPU archive approval.
+Full fresh-UNI2 container verification remains pending. No new raw/weight download,
+training, split changes, test-metric rerun or profiling occurred. See
+[checkpoint 26](checkpoints/2026-10-20-26-cached-feature-app.md) and
+[LOCAL_APP.md](LOCAL_APP.md).

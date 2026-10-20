@@ -1,5 +1,6 @@
 import { lazy, Suspense, useEffect, useState } from 'react';
 import { ReviewPage } from './pages/ReviewPage';
+import { inferenceMode } from './api';
 
 const KitchenSink = lazy(() => import('./pages/KitchenSink').then((m) => ({ default: m.KitchenSink })));
 
@@ -13,7 +14,7 @@ export function Router() {
     return () => window.removeEventListener('popstate', onPop);
   }, []);
 
-  if (path.replace(/\/$/, '') === '/kitchen-sink') {
+  if (inferenceMode === 'mock' && path.replace(/\/$/, '') === '/kitchen-sink') {
     return (
       <Suspense fallback={null}>
         <KitchenSink />

@@ -1,3 +1,100 @@
+# Current commands — checkpoint 26, working cached-feature app
+
+Working directory for all root commands:
+`/Users/shlokdholakia/Documents/Harvard/Semesters/SEM3/AC215/LungCancer`.
+Codex executed the processing/build/browser checks; no manual processing step is
+pending. The app was left running at **http://127.0.0.1:8080/**.
+
+**Tested single build/start command:**
+
+```bash
+cd /Users/shlokdholakia/Documents/Harvard/Semesters/SEM3/AC215/LungCancer
+make app-up
+```
+
+**Executed stop/resume; additional operator commands:**
+
+```bash
+make app-stop
+make app-resume
+make app-logs
+# Optional cleanup when finished; removes containers/network, preserves bind-mounted evidence:
+make app-down
+```
+
+`app-up`/`app-resume` check the real browser-facing API after container health.
+The retained input is `local_data/cpu_bundle/sample/sample.svs`; existing
+private directories must not be overwritten. Current HTTP job IDs are in-memory
+per session; job evidence remains on disk after restart.
+
+**Checks executed by Codex:**
+
+```bash
+# Initial safe synchronization from a clean milestone2:
+git status --short --branch
+git fetch origin milestone2
+git merge --ff-only origin/milestone2
+
+# Existing locked frontend dependencies; host Node v23.11.0, npm 10.9.2:
+cd frontend
+npm ci --cache /private/tmp/lungcancer-npm-cache
+npm run check
+PLAYWRIGHT_BROWSERS_PATH=../local_outputs/app/browser-cache npx playwright install chromium
+cd ..
+
+# Torch-free HTTP dependencies, preserving model versions:
+uv lock --directory backend --cache-dir /private/tmp/lungcancer-uv-cache
+
+set -o pipefail
+make app-up 2>&1 | tee local_outputs/app/build-start-network-fixed.log
+make app-test 2>&1 | tee local_outputs/app/backend-tests-initial.log
+PLAYWRIGHT_BROWSERS_PATH=local_outputs/app/browser-cache \
+  LC_APP_EVIDENCE_DIR=local_outputs/app/browser-final \
+  node frontend/scripts/test-app.mjs 2>&1 | tee local_outputs/app/browser-network-fixed.log
+make app-stop 2>&1 | tee local_outputs/app/stop.log
+make app-resume 2>&1 | tee local_outputs/app/resume.log
+make app-logs > local_outputs/app/compose.log
+```
+
+The first dependency-install pipeline exited 1 because of its `tee` directory;
+installation itself completed. The first browser run exited 1 on a real network
+mapping error. Both failures are preserved separately; the corrected run passed.
+Do not overwrite successful/failing browser evidence when rerunning; choose a
+new `LC_APP_EVIDENCE_DIR`. The browser test genuinely stops/restores the API for
+its outage case. No network mocking or synthetic model answer is used.
+
+The frontend Docker build also executed `npm ci` and `npm run check` using its
+pinned Node 24 ARM64 image, with HTTP mode and `/api` baked in. No host npm setup
+is needed merely to start the Compose app. The unchanged CPU suite was not rerun.
+
+**Publication/persistence commands for completion:**
+
+```bash
+python3 scripts/persist_records.py
+git diff --check
+git diff --cached --check
+git commit -m "Add verified ARM64 cached-feature web demo"
+git push origin milestone2
+git rev-parse HEAD
+git ls-remote origin refs/heads/milestone2
+git status --short --branch
+```
+
+Codex stages only reviewed source, locks, container configuration, tests, records
+and the selected genuine lightweight screenshots/summary. The Colab helper's
+real-mounted-Drive guard refuses copying on this Mac and is not bypassed. Source,
+Markdown and selected bulk app evidence receive verified local backups; a Git
+recovery bundle receives checksum and fresh-clone verification under
+`artifacts/app_checkpoints/2026-10-20-26/`. The earlier approved Drive backup is
+preserved. New private app evidence/publication receipts are not uploaded by
+implication. See LATEST_BACKUP.md and checkpoint 26 for the actual receipts.
+
+**Pending future stage:** full raw SVS → fresh UNI2 encoding → prediction in a
+container. No weights, additional slides, refitting, split/preprocessing changes,
+new test metrics or optional profiling are authorized by this completed demo.
+
+# Historical execution commands — previous checkpoints
+
 # Current handoff commands — checkpoint 25
 
 The next action is to give local Codex docs/MAC_CODEX_HANDOFF.md as its task.

@@ -1,5 +1,5 @@
 import { create } from 'zustand';
-import { inference, runAnalysis, type SlideInput } from '../api';
+import { inference, inferenceMode, runAnalysis, type SlideInput } from '../api';
 import type { CaseInfo } from '../components/layout/CaseStrip';
 import { DEFAULT_CASE, SAMPLE_CASES, UPLOAD_CASE } from '../mocks/cases';
 import { SAMPLE_SLIDES, sampleForFilename } from '../mocks/sampleSlides';
@@ -19,6 +19,7 @@ interface CaseStore {
 
 /** `?sample=TCGA-…` preselects a sample slide (handy for demos and screenshots). */
 function initialSlide(): SlideSelection | null {
+  if (inferenceMode === 'http') return null;
   const id = new URLSearchParams(window.location.search).get('sample');
   const sample = SAMPLE_SLIDES.find((s) => s.id === id);
   return sample ? { kind: 'sample', sample, receivedAt: Date.now() } : null;
@@ -44,6 +45,7 @@ export const useCaseStore = create<CaseStore>()((set, get) => ({
   analysis: { phase: 'idle' },
 
   selectSample: (sampleId) => {
+    if (inferenceMode === 'http') return;
     const sample = SAMPLE_SLIDES.find((s) => s.id === sampleId);
     if (!sample) return;
     abortCurrent();
@@ -53,7 +55,7 @@ export const useCaseStore = create<CaseStore>()((set, get) => ({
   selectFile: (file) => {
     abortCurrent();
     set({
-      slide: { kind: 'file', file, sample: sampleForFilename(file.name), receivedAt: Date.now() },
+      slide: { kind: 'file', file, sample: inferenceMode === 'http' ? undefined : sampleForFilename(file.name), receivedAt: Date.now() },
       analysis: { phase: 'idle' },
     });
   },
@@ -128,6 +130,9 @@ export const useCaseStore = create<CaseStore>()((set, get) => ({
 
 /** Case-strip details for the current slide. */
 export function caseInfoFor(slide: SlideSelection | null): CaseInfo {
+  if (inferenceMode === 'http') {
+    return { caseId: 'Preprocessed-slide demo', specimen: 'Whole-slide image', clinic: 'Local research demo' };
+  }
   if (!slide) return DEFAULT_CASE;
   if (slide.sample) return SAMPLE_CASES[slide.sample.id] ?? DEFAULT_CASE;
   return UPLOAD_CASE;

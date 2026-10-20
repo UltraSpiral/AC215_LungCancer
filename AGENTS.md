@@ -1,4 +1,14 @@
-# Local Mac application handoff — checkpoint 25
+# Current native M1 cached-feature app — checkpoint 26
+
+The bounded app task is complete: native ARM64 Compose frontend/API, real saved
+classifier over content-matched cached features, actual browser proof and error
+checks. Read docs/LOCAL_APP.md and checkpoint 26 for current commands/evidence.
+Preserve local_data/cpu_bundle/, local_outputs/cpu/ and local_outputs/app/.
+Full fresh-UNI2 container verification remains pending; no further raw downloads,
+weights, refits, split/preprocessing changes, metric reruns or profiling are
+authorized. Earlier pending-app statements below are historical handoff context.
+
+# Historical local Mac application handoff — checkpoint 25
 
 The user requested persisted/pushed context for local Codex. Read
 docs/MAC_CODEX_HANDOFF.md first for the next bounded task: native M1 UI/backend
