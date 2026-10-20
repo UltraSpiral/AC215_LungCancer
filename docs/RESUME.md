@@ -1,3 +1,14 @@
+# Current Mac state — checkpoint 21
+
+The native M1 Docker CPU checks have completed successfully. Do not rerun them
+merely to inspect saved evidence. Read
+[checkpoint 21](checkpoints/2026-10-20-21-native-arm64.md),
+[current commands](COMMANDS.md) and [verification matrix](VERIFICATION_MATRIX.md).
+Logs, JSON/JUnit, image identity and visual evidence are in `local_outputs/cpu/`.
+The following pending-Mac statements are historical. Full slide-to-prediction
+containers and UI/backend interaction remain pending separately. No weights,
+slides, retraining, split changes or optional profiling are newly authorized.
+
 # Current publication state — checkpoint 20
 
 GitHub login as UltraSpiral and publication to origin/milestone2 succeeded.

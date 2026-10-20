@@ -1,4 +1,163 @@
-# Current commands — checkpoint 20, publication verified
+# Current commands — checkpoint 22, documentation publication
+
+**Needed now:** no manual user command. Codex is handling the authorized commit,
+push and live SHA verification. [Checkpoint 22](checkpoints/2026-10-20-22-cpu-publication.md)
+describes the scope; the observed final results are recorded in the ignored
+local `artifacts/publication/2026-10-20-22-cpu/` receipts after the push.
+
+Publication commands executed by Codex for this checkpoint:
+
+```bash
+git config --local user.name UltraSpiral
+git config --local user.email UltraSpiral@users.noreply.github.com
+git fetch origin milestone2
+git rev-list --left-right --count HEAD...origin/milestone2
+git diff --check
+python3 scripts/persist_records.py
+git add -- AGENTS.md STATUS.md docs/CHECKPOINTS.md docs/COMMANDS.md \
+  docs/CPU_CONTAINER_VERIFICATION.md docs/INDEX.md docs/LATEST_BACKUP.md \
+  docs/RESUME.md docs/VERIFICATION_MATRIX.md \
+  docs/checkpoints/2026-10-20-21-native-arm64.md \
+  docs/checkpoints/2026-10-20-22-cpu-publication.md
+git diff --cached --check
+git diff --cached --stat
+git commit -m "Document successful native M1 CPU verification"
+git push origin milestone2
+git rev-parse HEAD
+git ls-remote origin refs/heads/milestone2
+git show -s --format=fuller HEAD
+git status --short --branch
+```
+
+The standard persistence helper's genuine mounted-Drive check refuses Colab
+copying on this Mac. Its newly created source archive and all Markdown receive
+local SHA256-verified publication copies. No Drive mount is fabricated. The
+checkpoint-21 Drive package is preserved; new Git publication receipts remain
+local. No new cloud receipt upload or CPU/model execution is part of this step.
+
+# Previous commands — checkpoint 21, native M1 CPU checks passed
+
+**Needed now:** no user processing commands. Codex executed and inspected the
+complete native ARM64 Docker check. Results, exact image identity and remaining
+screenshot/cloud persistence status are in
+[checkpoint 21](checkpoints/2026-10-20-21-native-arm64.md).
+
+**Already executed by Codex on the Mac:**
+
+```bash
+git status --short --branch
+git remote -v
+git branch --show-current
+git rev-parse HEAD
+git ls-remote origin refs/heads/milestone2
+uname -m
+docker info --format 'server={{.ServerVersion}} os={{.OSType}} arch={{.Architecture}} cpus={{.NCPU}} memory={{.MemTotal}}'
+
+mkdir -p local_outputs/cpu
+python3 scripts/unpack_cpu_bundle.py \
+  --archive '/Users/shlokdholakia/Downloads/CPU Verification Audit Oct 20 2026.tar.gz' \
+  --sha256 c7681d5965a9fb318f07c87f109d77ee740b12a323e500734e522c01d16ee988 \
+  --destination local_data/cpu_bundle --apply
+
+set -o pipefail
+make cpu-build 2>&1 | tee local_outputs/cpu/build-initial.log
+```
+
+The restore output was also saved to `local_outputs/cpu/restore.log`. A separate
+stdlib verification checked every manifest entry and the real SVS MD5, saving
+`input_receipt.json` and `restored_inventory.json`. Restore refuses to overwrite
+the now-existing destination; do not rerun it against that directory.
+
+Codex then created a dedicated Terminal window and executed the local runner:
+
+```bash
+/bin/zsh local_outputs/cpu/run_cpu_checks.zsh
+```
+
+Its actual processing commands, including the exit-code preservation, were:
+
+```zsh
+set -o pipefail
+make cpu-check 2>&1 | tee local_outputs/cpu/console.log
+lc_check_status=$?
+print -r -- "$lc_check_status" > local_outputs/cpu/make_exit_code.txt
+if (( lc_check_status != 0 )); then exit "$lc_check_status"; fi
+docker image inspect lungcancer-cpu:milestone2 \
+  --format '{{.Id}} {{.Os}}/{{.Architecture}}' \
+  > local_outputs/cpu/image_identity.txt
+python3 local_outputs/cpu/show_evidence.py | tee local_outputs/cpu/ms2_summary.txt
+```
+
+The exit-code file contains `0`; all three stages report success. The local
+evidence viewer validates JSON/JUnit and the exit code before printing a summary.
+It is saved with the local evidence, outside Git. To display saved evidence
+without rerunning processing:
+
+```bash
+python3 local_outputs/cpu/show_evidence.py
+```
+
+Codex also recorded the engine/host, final image/layer identity and live
+container network/root-filesystem/mount inspection. Screenshot capture uses
+the dedicated Terminal window; see checkpoint 21 for its final result.
+
+**Persistence command executed; expected Mac failure preserved:**
+
+```bash
+python3 scripts/persist_records.py
+```
+
+It created a local source archive, then refused cloud copying because
+`/content/drive` is not a genuine mounted Drive on this Mac. The exception is in
+`local_outputs/cpu/colab-persistence-attempt.log`; no mount was fabricated.
+Actual local backup/copy hashes are in `docs/LATEST_BACKUP.md`. The connected
+Drive upload was initially rejected by automatic review; the user subsequently
+approved the exact package/Markdown backup. The connected Drive upload succeeded
+and the package's downloaded bytes matched SHA256
+`70493e8e5086ad83fc339bc649d13d52f2411b39dbe6e365a4202ffff5c4effa`.
+Temporary authenticated readback references were passed through hidden stdin;
+no such reference was saved in commands, logs, documents or backups.
+
+**Local persistence executed by Codex:**
+
+```bash
+python3 local_outputs/cpu/persist_local_evidence.py
+```
+
+This saved a new local source archive, copies of all Markdown and all CPU
+evidence under `artifacts/checkpoints/2026-10-20-21-native-arm64/`, verified every
+copied SHA256, and packaged the snapshot as
+`artifacts/checkpoints/cpu-evidence-2026-10-20-21-native-arm64.tar.gz`.
+The helper refuses existing snapshot destinations. The source archive follows
+the existing helper's allowlist; no credentials, input SVS, cached embedding
+inputs or UNI2 weights are included in this new evidence package.
+To recheck the saved snapshot without processing data:
+
+```bash
+cd artifacts/checkpoints/2026-10-20-21-native-arm64
+shasum -a 256 -c SHA256SUMS
+```
+
+The genuine screenshot is
+`local_outputs/cpu/ms2-docker-success-2026-10-20.png`. Codex restored the dedicated
+Terminal window onscreen and immediately ran `/usr/sbin/screencapture -x -l`
+with its actual window ID; capture succeeded and was visually inspected.
+
+**Connected Drive backup:** performed by Codex tools after explicit approval;
+no shell command or login is needed. The immutable package is the pre-upload
+snapshot, so its internal Markdown accurately says cloud backup was pending
+when it was created. Current Markdown in Drive is updated separately. The
+package link and final mirror verification receipt are in checkpoint 21 and
+LATEST_BACKUP.md. Drive Desktop remains unavailable; this uses the connected
+Drive service, without creating a fake Colab mount.
+
+**Future stages awaiting a new request:** full containerized UNI2 feature
+extraction/prediction and actual UI/backend interaction. New weights/slides,
+real-model training, split changes and optional profiling are outside the
+completed CPU check. No current need to run `cpu-unit`, `cpu-cache` or `cpu-real`
+again: the complete target already passed all three stages.
+
+# Historical commands — checkpoint 20, publication verified
 
 GitHub authentication and push succeeded. No manual Colab command is needed
 now. Current source is on origin/milestone2; the private Drive

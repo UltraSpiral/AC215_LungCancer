@@ -1,5 +1,7 @@
 # Current checkpoints
 
+- [22 — Publish the native M1 verification records](checkpoints/2026-10-20-22-cpu-publication.md)
+- [21 — Native M1 Docker CPU checks passed](checkpoints/2026-10-20-21-native-arm64.md)
 - [20 — GitHub login and publication verified](checkpoints/2026-10-20-20-github-published.md)
 - [19 — Exact commands to return after GitHub login](RETURN_TO_CHAT.md)
 - [18 — User Git identity and publication recovery](checkpoints/2026-10-20-18-git-identity.md)
@@ -8,13 +10,20 @@
 - [Exact M1 commands and Codex prompt](CPU_CONTAINER_VERIFICATION.md)
 - [Verification matrix](VERIFICATION_MATRIX.md)
 
-These supersede earlier pause/pending-auth statements. Current model is audit2
-(44 eligible patients); Docker/native ARM64 validation awaits the user's Mac.
+These supersede earlier pause/pending-auth/pending-Mac statements. Current model
+is audit2 (44 eligible patients). Native M1 Docker CPU validation passed at
+checkpoint 21; full slide-to-prediction containers and UI/backend remain pending.
+Local evidence: `local_outputs/cpu/`. Local source/document/evidence backup:
+see [LATEST_BACKUP.md](LATEST_BACKUP.md). After explicit user approval, the Drive
+evidence package was uploaded and SHA256-verified by readback. The current
+Markdown mirror is tracked by `local_outputs/cpu/cloud_persistence_receipt.json`.
 
 # LungCancer project records
 
-Persistent home: `/content/drive/MyDrive/LungCancer_AC215/docs/`.
-Local working copy: `/content/LungCancer/docs/`.
+Colab persistent home: `/content/drive/MyDrive/LungCancer_AC215/docs/`.
+Current Mac working copy:
+`/Users/shlokdholakia/Documents/Harvard/Semesters/SEM3/AC215/LungCancer/docs/`.
+The historical Colab local working copy was `/content/LungCancer/docs/`.
 
 The checkpoint summaries, commands, and factual corrections are stored as Markdown.
 The source data, images, and machine-readable evidence are retained separately.
@@ -62,7 +71,7 @@ The source data, images, and machine-readable evidence are retained separately.
 - Machine-readable fields: `../artifacts/pilot_review/details.json`.
 - Copy-verification receipts: `../artifacts/documentation_persistence.json`.
 
-## Current state
+## Historical state at checkpoint 04 — superseded above
 
 Nine real slides from nine patients completed feature extraction; no real-data
 classifier, held-out evaluation, or held-out inference has run. Downloads and

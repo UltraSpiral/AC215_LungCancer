@@ -1,5 +1,21 @@
 # Apple Silicon CPU container verification
 
+## Completed on the user's M1 — checkpoint 21, 2026-10-20
+
+Actual `make cpu-check` passed with exit code 0 in native `linux/arm64` Docker:
+29 unit tests; 44 real caches / 22,483 vectors; 12 frozen probabilities matched
+within 5.56e-17; and real 16-tile preprocessing with inspected overlays.
+Image `lungcancer-cpu:milestone2`:
+`sha256:c78cfbdd188e4c02a5330f110ccdcc77c8a6c7b9c815e893fd6ea3ca0f40a0da`.
+The archive was renamed locally to
+`/Users/shlokdholakia/Downloads/CPU Verification Audit Oct 20 2026.tar.gz`;
+its exact expected checksum and size passed before restore.
+See [checkpoint 21](checkpoints/2026-10-20-21-native-arm64.md) for the actual
+commands, logs, screenshot/persistence status and remaining verification.
+No pipeline or dependency fix was necessary. Full slide-to-prediction container
+verification remains pending. The preparation-only statements below describe
+the earlier Colab handoff and are superseded by this execution record.
+
 The GPU modeling stage has completed in Colab. The final model uses **44 eligible
 patients**, with 32 train / 6 validation / 6 test. One multiply linked slide was
 excluded conservatively; the other patients kept their original assignments.
@@ -10,7 +26,7 @@ checks: synthetic unit tests, real cached UNI2 embeddings with the saved logisti
 head, and a small real-SVS preprocessing smoke. Full slide → UNI2 → prediction
 container verification is tracked separately and remains pending.
 
-## What is already verified
+## Historical preparation evidence at the Colab handoff
 
 - Python Docker base metadata includes linux/arm64. The multi-platform digest is
   pinned in containers/cpu/Dockerfile and base-image.json.

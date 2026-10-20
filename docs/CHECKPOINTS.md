@@ -192,3 +192,41 @@ This checkpoint receives a final documentation commit; its exact verified SHA
 and refreshed recovery bundle are saved in the private Drive GIT_PUBLICATION.md
 receipt. Auth-failure notes above are historical. No ML/container stages reran.
 Next action: actual M1 Docker verification using the saved guide.
+
+## 21 — Native Apple M1 Docker verification passed (2026-10-20)
+
+Opened the existing clean milestone2 checkout and verified HEAD against live
+GitHub at 95fff6baab9e6942992356d70ee56e6c848da2c3. The renamed Downloads archive
+matched the exact guide SHA256/size; restored all 187 files without overwriting.
+Native linux/arm64 `make cpu-check` exited 0: 29 tests, 44 real caches / 22,483
+vectors, 12 frozen prediction references (max difference 5.56e-17), fixed patient
+separation/training-only scaling and real 16-tile preprocessing all passed.
+Live Docker inspection confirmed offline execution and read-only inputs.
+Saved logs, JUnit/JSON, image/layer identity, coordinates and inspected overlays.
+No source/lock/model/split fix or further processing rerun was necessary.
+The genuine successful-run screenshot was captured and visually verified.
+Cloud persistence status is recorded in
+[checkpoint 21](checkpoints/2026-10-20-21-native-arm64.md); local verified backups
+are indexed by [LATEST_BACKUP.md](LATEST_BACKUP.md). The Colab persistence helper
+correctly refused a nonexistent mounted Drive on the Mac; Drive Desktop timed
+out and automatic review rejected the initial connected Drive upload. The user
+subsequently explicitly approved the package/Markdown backup. The 3,217,295-byte
+evidence package was uploaded and its SHA256 matched after downloading it back;
+the Markdown mirror is tracked by the final cloud persistence receipt.
+Full slide-to-prediction containers/UI integration remain
+pending. No weights, slides, real training, split changes or profiling ran.
+
+## 22 — Publish the native M1 verification records (2026-10-20)
+
+The user explicitly authorized the commit and push to milestone2. A fresh
+fetch confirmed the unchanged parent 95fff6baab9e6942992356d70ee56e6c848da2c3.
+Applied the selected UltraSpiral noreply author/committer identity locally.
+The publication includes the CPU checkpoint, current status/matrix/commands
+and backup records, with only Markdown staged. Whitespace checks and focused
+secret-pattern inspection cover the exact staged files. Push uses the existing
+supported Git credentials and no force. Live/local SHA, clean-tree and identity
+verification receipts are saved after the push under
+artifacts/publication/2026-10-20-22-cpu/. Fresh source/Markdown persistence is
+local on this Mac; the immutable checkpoint-21 Drive snapshot is preserved.
+No CPU processing or model tests need repeating for these documentation edits.
+See [checkpoint 22](checkpoints/2026-10-20-22-cpu-publication.md).

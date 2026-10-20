@@ -1,3 +1,14 @@
+# Native M1 CPU verification completed — checkpoint 21
+
+On 2026-10-20, actual `make cpu-check` passed in `linux/arm64` Docker on Apple
+M1: 29 tests, 44 real caches / 22,483 vectors, 12 frozen reference predictions
+and the real 16-tile preprocessing smoke. Pipeline code, locks, saved model and
+splits were unchanged. Read docs/checkpoints/2026-10-20-21-native-arm64.md for
+image identity, logs, screenshot/persistence status and remaining scope.
+Earlier pending-Mac statements below are historical. Full slide-to-prediction
+container verification and UI/backend interaction remain pending separately.
+No additional downloads, real training or optional profiling are authorized.
+
 # Persistent checkpoint records
 
 The user requested durable Markdown records of every checkpoint summary and all

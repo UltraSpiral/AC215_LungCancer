@@ -7,7 +7,7 @@
 | Corrected real baseline | 44 patients; 32 train / 6 validation / 6 test; no patient moves or leakage | Tiny/reused test limits inference about generalization |
 | Real local SVS inference | Passed in Colab on an arbitrary filename, named uncalibrated probabilities and location overlay | Clinical validation is outside scope |
 | Torch-free CPU script sequence | Passed on x86_64 Colab: 29 tests, 44 real caches, real 16-tile SVS smoke | This is not Docker/ARM64 execution evidence |
-| Apple Silicon CPU container recipe | Dockerfile, Compose, uv project/lock, pinned ARM64-capable base, portable data and guide prepared | User's M1 Codex must build/run/debug and record proof |
+| Apple Silicon CPU container execution | **Passed on Apple M1, linux/arm64, checkpoint 21:** make exit 0; 29 tests; 44 real caches / 22,483 vectors; 12 frozen probabilities matched within 5.56e-17; real 16-tile smoke and inspected overlays | Logs, reports, image identity and genuine MS2 screenshot saved locally; approved Drive evidence package passed SHA256 readback; see checkpoint 21 |
 | Full slide-to-prediction container | Separate pending verification | Real encoder loading, embeddings and prediction in a suitable execution environment |
 | UI/backend interaction | Existing frontend and reference stub preserved | Run and document actual interaction; fixtures remain UI fixtures |
 | Optional synchronized profiling | Deferred | No stage timings or hardware-only A100 speedup claimed |

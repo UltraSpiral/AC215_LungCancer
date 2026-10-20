@@ -1,3 +1,30 @@
+# CPU verification documentation publication — checkpoint 22
+
+The user authorized committing and pushing the completed native M1 verification
+records to milestone2. See [checkpoint 22](docs/checkpoints/2026-10-20-22-cpu-publication.md)
+for publication scope and the local post-push verification receipt location.
+The existing CPU results below are unchanged; this is documentation publication.
+Raw/derived evidence remains outside Git. No model or preprocessing run is repeated.
+
+# Native Apple Silicon CPU checks passed — checkpoint 21
+
+Actual `make cpu-check` exited 0 on Apple M1 / Linux ARM64 Docker on 2026-10-20.
+29 unit tests passed; all 44 real embedding caches (22,483 vectors), 12 saved
+reference predictions, patient separation and training-only scaling verified.
+The real-SVS preprocessing smoke selected 16 in-bounds tiles; overlays inspected.
+No pipeline/lock/model/split changes were needed. Source HEAD and GitHub matched
+`95fff6baab9e6942992356d70ee56e6c848da2c3` before these documentation edits.
+Logs, JSON/JUnit, Docker identity and visual evidence are in `local_outputs/cpu/`.
+See [checkpoint 21](docs/checkpoints/2026-10-20-21-native-arm64.md) and
+[verification matrix](docs/VERIFICATION_MATRIX.md). This supersedes historical
+pending-Mac statements below. Full slide-to-prediction container verification
+and UI/backend interaction remain pending. No manual processing command is
+needed; no weights/extra slides, retraining or split changes were performed.
+The user subsequently approved Drive backup. The evidence package was uploaded
+and SHA256-verified by readback; current Markdown mirroring is tracked by
+`local_outputs/cpu/cloud_persistence_receipt.json`. Local copies are indexed in
+docs/LATEST_BACKUP.md.
+
 # GitHub publication verified — checkpoint 20
 
 GitHub authentication is verified as UltraSpiral. The modeling/CPU workflow
