@@ -1,3 +1,33 @@
+# Current command status — checkpoint 27, MS2 audit
+
+No new processing command is needed to review this assessment. From
+`/Users/shlokdholakia/Documents/Harvard/Semesters/SEM3/AC215/LungCancer`,
+the app's tested start command remains `make app-up`; use the existing
+`local_data/cpu_bundle/sample/sample.svs` at http://127.0.0.1:8080/.
+Read [MS2_READINESS.md](MS2_READINESS.md) for the requirement/evidence mapping.
+
+Audit/publication checks executed by Codex, without rerunning the model or CPU
+suite:
+
+```bash
+git status --short --branch
+git rev-parse HEAD
+git ls-remote origin refs/heads/milestone2
+git ls-files
+python3 scripts/persist_records.py
+git diff --check
+git diff --cached --check
+```
+
+The Colab persistence helper refuses a nonexistent mounted Drive on the Mac;
+the local source archive and copied Markdown are checksum-verified separately.
+Publication uses the previously authorized UltraSpiral identity and normal
+`git push origin milestone2`; the exact post-push SHA and backup receipt are
+saved under `artifacts/ms2_audit/2026-10-20-27/`.
+Full scientific container-pipeline execution remains pending. No newly written
+command is presented as an executed full pipeline, and no new weights, slides,
+training, split changes or metric reruns are authorized by this audit.
+
 # Current commands — checkpoint 26, working cached-feature app
 
 Working directory for all root commands:

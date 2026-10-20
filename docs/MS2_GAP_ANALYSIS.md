@@ -1,4 +1,13 @@
-# MS2 rubric alignment and remaining deliverables
+# Current MS2 assessment — checkpoint 27
+
+Read [MS2_READINESS.md](MS2_READINESS.md) for the current requirement/evidence
+mapping. The baseline, native ARM64 CPU checks and real cached-feature app
+are complete. Full scientific pipeline verification inside containers, selected
+GitHub evidence packaging, design/presentation records and Canvas submission
+remain separate gaps. This supersedes the historical missing-baseline,
+missing-Docker and missing-app statements below; historical text is preserved.
+
+# Historical MS2 rubric alignment and remaining deliverables
 
 Assessed 2026-10-20 against the rubric supplied in chat and the current
 milestone2 repository at 99c52a33ca4f097f27c369af16622740044295ca plus local handoff

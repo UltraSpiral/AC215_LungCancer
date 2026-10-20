@@ -281,3 +281,17 @@ Full fresh-UNI2 container verification remains pending. No new raw/weight downlo
 training, split changes, test-metric rerun or profiling occurred. See
 [checkpoint 26](checkpoints/2026-10-20-26-cached-feature-app.md) and
 [LOCAL_APP.md](LOCAL_APP.md).
+
+## 27 — Current MS2 requirement/evidence audit (2026-10-20)
+
+Compared the user-supplied rubric to committed source and saved execution proof.
+Confirmed the baseline and cached-feature app, two Python uv environments,
+native ARM64 checks and version identities. The main technical gap is a complete
+scientific pipeline executed inside containers. CPU screenshots/logs/reports
+exist privately but selected evidence still needs GitHub publication; original
+mock-up/refinement records, presentation and final Canvas SHA need confirmation.
+RAG does not apply to this vision project. Annotated the prior gap analysis
+without removing history. No processing, tests, new data/weights or modeling
+ran. Persistence/publication receipts are local; a new Drive mirror is not
+claimed. See [checkpoint 27](checkpoints/2026-10-20-27-ms2-readiness.md) and
+[the complete current checklist](MS2_READINESS.md).

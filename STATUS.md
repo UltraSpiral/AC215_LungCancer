@@ -1,3 +1,13 @@
+# MS2 readiness audit — checkpoint 27
+
+The current rubric/evidence mapping is in [docs/MS2_READINESS.md](docs/MS2_READINESS.md).
+The real baseline, native CPU verification and cached-feature UI/API demo are
+complete. The entire scientific pipeline has not been verified inside containers.
+Selected CPU/model evidence still needs GitHub packaging; original mock-up and
+feedback/refinement records, the team presentation and Canvas submission need
+confirmation. This assessment runs no new processing or experiments and does
+not expand authorization. Checkpoint 27 records the documentation audit.
+
 # Working native M1 cached-feature app — checkpoint 26
 
 The bounded local app is implemented and executed: browser → nginx → real API →

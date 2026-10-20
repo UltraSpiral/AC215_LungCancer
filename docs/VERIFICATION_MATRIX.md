@@ -1,5 +1,11 @@
 # Verification scope
 
+The supplied MS2 rubric has a current detailed mapping in
+[MS2_READINESS.md](MS2_READINESS.md), checkpoint 27. Verified cached inference
+and a separately executed preprocessing smoke do not establish the complete
+scientific pipeline inside containers. Presentation/Canvas and GitHub evidence
+packaging are assessed separately from scientific execution.
+
 | Component | Evidence/state | Remaining work |
 |---|---|---|
 | GDC acquisition and specimen audit | Real saved metadata; latest strict audit 3,172 eligible / 3,220, 48 excluded | Future cohorts need a new approved resource plan |

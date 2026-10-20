@@ -1,3 +1,11 @@
+# Current submission-readiness audit — checkpoint 27
+
+Read [MS2_READINESS.md](MS2_READINESS.md) for the supplied rubric mapped to
+executed evidence and remaining technical/publication/presentation items.
+The baseline and cached-feature app are verified; the full scientific pipeline
+has not been verified start-to-finish in containers. See
+[checkpoint 27](checkpoints/2026-10-20-27-ms2-readiness.md).
+
 # Current application — checkpoint 26
 
 The native M1 cached-feature application is implemented and browser-verified.
@@ -24,6 +32,8 @@ CPU container verification is complete; full inference containers remain pending
 
 # Current checkpoints
 
+- [27 — MS2 requirement/evidence audit](checkpoints/2026-10-20-27-ms2-readiness.md)
+- [Current submission readiness checklist](MS2_READINESS.md)
 - [26 — Working native M1 cached-feature application](checkpoints/2026-10-20-26-cached-feature-app.md)
 - [Local app guide, tested commands and scope](LOCAL_APP.md)
 - [22 — Publish the native M1 verification records](checkpoints/2026-10-20-22-cpu-publication.md)

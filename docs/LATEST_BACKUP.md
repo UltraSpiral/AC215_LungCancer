@@ -1,3 +1,31 @@
+# Current verified local source/record backup — checkpoint 27
+
+Updated: 2026-10-20T11:02:21.623263+00:00
+
+Source archive: `/Users/shlokdholakia/Documents/Harvard/Semesters/SEM3/AC215/LungCancer/artifacts/backups/code-20261020T110221Z.tar.gz`.
+
+SHA256: `0cfd3d3e8de6123216074775a24d6bc259014d6cce054b15028f2660e5d20a3f`.
+
+Archive size: 1,381,351 bytes; 207 source files.
+Fresh extraction verified every archived byte against current source before
+updating this pointer. Frontend/backend, uv/npm locks, containers and durable
+Markdown are included; private inputs, model/embedding/weight binaries, secrets,
+dependency/browser caches and Codex state are excluded.
+
+Local backup and publication receipts:
+`/Users/shlokdholakia/Documents/Harvard/Semesters/SEM3/AC215/LungCancer/artifacts/ms2_audit/2026-10-20-27`.
+All current Markdown receives separate SHA256-verified copies. The archive
+contains the previous pointer present at creation; the copied records include
+this refreshed pointer. Historical backups and checkpoint 26 remain preserved.
+
+The genuine Colab Drive guard refused copying on this Mac; its failure log is
+retained. No mount or control was changed. Current private backups are local;
+normal GitHub publication covers the documentation update. No new Drive upload
+is inferred from prior approval. This is a rubric audit, with no processing,
+new slide/weight acquisition, training, test rerun or running-app change.
+
+## Earlier backup records — retained
+
 # Current verified local app/source backup — checkpoint 26
 
 Updated: 2026-10-20T05:36:28.364660+00:00
