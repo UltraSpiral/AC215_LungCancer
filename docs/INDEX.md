@@ -1,5 +1,6 @@
 # Current checkpoints
 
+- [20 — GitHub login and publication verified](checkpoints/2026-10-20-20-github-published.md)
 - [19 — Exact commands to return after GitHub login](RETURN_TO_CHAT.md)
 - [18 — User Git identity and publication recovery](checkpoints/2026-10-20-18-git-identity.md)
 - [16 — Corrected real modeling results](checkpoints/2026-10-20-16-modeling-results.md)

@@ -1,4 +1,15 @@
-# Git publication identity — checkpoint 18
+# GitHub publication verified — checkpoint 20
+
+GitHub authentication is verified as UltraSpiral. The modeling/CPU workflow
+and saved return instructions were pushed to origin/milestone2; local and live
+remote SHAs matched at c6627377194d21711b6814be771de70da96cb9b1. This current
+checkpoint receives a final documentation commit; its verified full SHA and
+refreshed recovery bundle are in the private persistent docs/GIT_PUBLICATION.md
+receipt. Earlier missing-auth notes below are historical. No manual Colab login
+or modeling command is needed now. M1 Docker verification is the next task;
+read docs/CPU_CONTAINER_VERIFICATION.md and docs/VERIFICATION_MATRIX.md.
+
+# Historical Git publication identity — checkpoint 18
 
 User selected UltraSpiral <UltraSpiral@users.noreply.github.com>; repository-local
 author settings now match. No Codex-author commit was created. GitHub CLI login

@@ -1,4 +1,23 @@
-# Return to this chat — checkpoint 19
+# Current commands — checkpoint 20, publication verified
+
+GitHub authentication and push succeeded. No manual Colab command is needed
+now. Current source is on origin/milestone2; the private Drive
+docs/GIT_PUBLICATION.md receipt records the final verified full SHA and bundle.
+Read-only synchronization checks, already executed during publication:
+
+```bash
+git status --short --branch
+git rev-parse HEAD
+git ls-remote origin refs/heads/milestone2
+```
+
+The next authorized stage is the user's M1 CPU container verification. Its
+archive restore, build/run commands and Codex prompt are in
+[CPU_CONTAINER_VERIFICATION.md](CPU_CONTAINER_VERIFICATION.md). Actual Docker
+execution remains pending there; full slide-to-prediction container verification
+is separately pending. New real training/downloads remain outside this step.
+
+# Historical return instructions — checkpoint 19
 
 Keep the current Colab runtime running. Type `/quit` in Codex, then run the
 following at the terminal shell prompt. Complete the browser login before

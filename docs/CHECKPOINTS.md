@@ -182,3 +182,13 @@ rollout record. Saved exact quit/login/resume steps and a new-session fallback
 in docs/RETURN_TO_CHAT.md. Authentication/push remain pending. No ML stages
 were rerun. These Markdown updates are pending commit after login and are
 included in the verified persistent source/document backup.
+
+## 20 — GitHub publication verified after user login
+
+Verified authenticated account UltraSpiral, configured the supported Git helper,
+preserved remote work and committed the return instructions. Push succeeded;
+local/live remote both matched c6627377194d21711b6814be771de70da96cb9b1.
+This checkpoint receives a final documentation commit; its exact verified SHA
+and refreshed recovery bundle are saved in the private Drive GIT_PUBLICATION.md
+receipt. Auth-failure notes above are historical. No ML/container stages reran.
+Next action: actual M1 Docker verification using the saved guide.

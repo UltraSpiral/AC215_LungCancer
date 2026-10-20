@@ -1,4 +1,14 @@
-# Latest Git identity and publication check — checkpoint 18
+# Current publication state — checkpoint 20
+
+GitHub login as UltraSpiral and publication to origin/milestone2 succeeded.
+The first verified push matched local/live remote at
+c6627377194d21711b6814be771de70da96cb9b1. The current documentation checkpoint
+is subsequently committed/pushed; read the private persistent
+docs/GIT_PUBLICATION.md receipt for its final full SHA and refreshed Git bundle.
+No new Colab authentication or model run is needed. Next: use the M1 CPU
+verification guide. Earlier authentication blockers below are dated history.
+
+# Historical Git identity and publication check — checkpoint 18
 
 For the current short GitHub-login interruption, use
 [RETURN_TO_CHAT.md](RETURN_TO_CHAT.md), added at checkpoint 19. It includes

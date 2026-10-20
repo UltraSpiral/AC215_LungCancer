@@ -1,5 +1,10 @@
 # Return to this Codex chat after GitHub login
 
+Checkpoint-20 update: the user returned successfully, GitHub login is verified
+as UltraSpiral, and publication succeeded. The following commands remain a
+reference for future terminal interruptions. No login needs repeating now.
+Read the persistent docs/GIT_PUBLICATION.md receipt for the final published SHA.
+
 These commands are for the current Colab runtime. Keep the runtime running.
 You can also open another Colab terminal, run GitHub login there, and leave
 this chat open.
