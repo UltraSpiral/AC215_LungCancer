@@ -1,3 +1,12 @@
+# Detailed technical explanation — checkpoint 30
+
+Read [TECHNICAL_OVERVIEW.md](TECHNICAL_OVERVIEW.md) for the full data/model/app
+architecture, design decisions and evidence boundaries, with links to source.
+[MS2_DESIGN.md](MS2_DESIGN.md) compares the original mock-up with the implemented
+MVP. [MS2_SUBMISSION.md](MS2_SUBMISSION.md) provides setup and submission details.
+[Checkpoint 30](checkpoints/2026-10-20-30-technical-documentation.md) records this
+documentation-only update; processing and scientific state are unchanged.
+
 # Current MS2 submission entry point — checkpoint 29
 
 - [Submission guide, tested commands and remaining team tasks](MS2_SUBMISSION.md)
@@ -52,6 +61,7 @@ CPU container verification is complete; full inference containers remain pending
 
 # Current checkpoints
 
+- [30 — Detailed technical documentation](checkpoints/2026-10-20-30-technical-documentation.md)
 - [29 — MS2 replay and submission evidence](checkpoints/2026-10-20-29-ms2-submission-package.md)
 - [28 — Feature caching and MS2 scope clarified](checkpoints/2026-10-20-28-cache-scope-clarification.md)
 - [27 — MS2 requirement/evidence audit](checkpoints/2026-10-20-27-ms2-readiness.md)

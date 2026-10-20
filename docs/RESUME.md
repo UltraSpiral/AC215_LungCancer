@@ -1,3 +1,12 @@
+# Current technical reading entry point — checkpoint 30
+
+Read [TECHNICAL_OVERVIEW.md](TECHNICAL_OVERVIEW.md) for the detailed scientific
+and runtime architecture, then MS2_DESIGN.md and the evidence index. The public
+documentation describes source-backed behavior and recorded execution; internal
+draft presentation/rehearsal materials are excluded. No processing, tests, model
+changes or app restart occurred for this documentation update. Existing commands
+below remain valid; the private input bundle and evidence must be preserved.
+
 # Current submission/replay — checkpoint 29
 
 Read [MS2_SUBMISSION.md](MS2_SUBMISSION.md) for the current submission entry

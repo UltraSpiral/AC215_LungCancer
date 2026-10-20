@@ -1,5 +1,10 @@
 # Verification scope
 
+Checkpoint 30 is documentation only: the detailed source/evidence-based
+[technical overview](TECHNICAL_OVERVIEW.md) explains this matrix. No processing/
+tests were repeated or scientific artifacts changed. Public deliverables
+exclude internal draft presentation/rehearsal materials.
+
 Checkpoint 29 adds executed `make ms2-demo` and a selected public evidence
 package. It verifies the prepared-input workflow, a separate real preprocessing
 smoke and cached-feature HTTP prediction in one command. The new 16 smoke tiles

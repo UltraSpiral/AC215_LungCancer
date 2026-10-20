@@ -1,3 +1,30 @@
+# Current verified technical-documentation backup — checkpoint 30
+
+Updated: 2026-10-20T11:49:34.220129+00:00
+
+Source archive: `/Users/shlokdholakia/Documents/Harvard/Semesters/SEM3/AC215/LungCancer/artifacts/backups/code-20261020T114933Z.tar.gz`.
+SHA256: `c2362e0aa4f58f37309935baa1a12b6a4efc451001f9adf89523060a77d2043e`.
+Archive size: 4,680,680 bytes; 244 source/evidence files.
+
+Fresh extraction verified each archived file against source before refreshing
+this pointer. Frontend/backend, locked environments, containers, current records,
+selected real evidence and the technical overview are included. Internal draft
+presentation/rehearsal notes, private inputs/model/feature/weight binaries,
+authentication, dependencies, Codex state and the original full PDF are excluded.
+
+Local backup/publication receipts:
+`/Users/shlokdholakia/Documents/Harvard/Semesters/SEM3/AC215/LungCancer/artifacts/ms2_audit/2026-10-20-30`.
+Current Markdown receives separate SHA256-verified copies. The archive contains
+the pointer present at creation; copied records include this refreshed pointer.
+Historical backups and existing private data/evidence remain intact.
+
+The required Colab helper created a local source archive and refused Drive
+copying through its genuine mount guard. No mount/control change or new Drive
+mirror is claimed. This is documentation only; no source-code, scientific
+artifact, processing/test execution or running-service change occurred.
+
+## Earlier backup records — retained
+
 # Current verified MS2 source/evidence backup — checkpoint 29
 
 Updated: 2026-10-20T11:25:32.860226+00:00

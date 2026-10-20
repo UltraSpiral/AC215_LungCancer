@@ -328,3 +328,18 @@ private-snapshot access confirmation and Canvas submission remain team tasks.
 Source/evidence backups and publication receipts remain local; no new Drive
 mirror is claimed. See [checkpoint 29](checkpoints/2026-10-20-29-ms2-submission-package.md)
 and [MS2_SUBMISSION.md](MS2_SUBMISSION.md).
+
+## 30 — Detailed technical documentation (2026-10-20)
+
+Added a comprehensive technical overview after checking actual data/model/
+runtime source and saved reports. It explains labels, cohort correction,
+preprocessing, frozen features, scaling/regularization, result limitations,
+HTTP/UI behavior, containers, tests and recovery without rerunning the model.
+Expanded the MS1-versus-MS2 scope explanation using the reported TF permission.
+Kept internal presentation/rehearsal drafts outside the public deliverables,
+following the user's review preference. Quoted the supplied repository/hash
+deadline and presentation requirement without imposing a deck-first order.
+No deck, source-code change, processing/test rerun or Canvas action occurred.
+Local source/Markdown and recovery/publication receipts are saved; no new Drive
+mirror is claimed. See [checkpoint 30](checkpoints/2026-10-20-30-technical-documentation.md)
+and [TECHNICAL_OVERVIEW.md](TECHNICAL_OVERVIEW.md).

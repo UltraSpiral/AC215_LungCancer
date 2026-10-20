@@ -1,3 +1,34 @@
+# Current documentation checkpoint — 30
+
+No new processing command is needed to read the system explanation.
+Read [TECHNICAL_OVERVIEW.md](TECHNICAL_OVERVIEW.md). The tested app/replay
+commands from checkpoint 29 below remain unchanged and were not rerun for
+this documentation update.
+
+Working directory for document/publication checks:
+`/Users/shlokdholakia/Documents/Harvard/Semesters/SEM3/AC215/LungCancer`.
+
+```bash
+git status --short --branch
+git diff --check
+python3 scripts/persist_records.py
+git diff --cached --check
+git push origin milestone2
+git rev-parse HEAD
+git ls-remote origin refs/heads/milestone2
+```
+
+Codex additionally checks local references and documented constants against
+source/JSON/JUnit, verifies a source backup/fresh extraction and local Markdown
+copies, and creates a checked recovery bundle. Receipts are under
+`artifacts/ms2_audit/2026-10-20-30/`. The genuine Colab mount guard refuses new
+Drive copying on this Mac; no control/mount change or new Drive mirror occurs.
+
+The explicitly supplied deadline is the full Git hash on Canvas by October 20,
+10:00 PM ET. Slides are required for the TF presentation. Preserve the SHA
+actually submitted; later commits do not change that snapshot. Canvas
+submission has not been executed or verified.
+
 # Current MS2 commands — checkpoint 29
 
 Working directory:

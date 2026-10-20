@@ -1,3 +1,14 @@
+# Detailed technical documentation — checkpoint 30
+
+Added [docs/TECHNICAL_OVERVIEW.md](docs/TECHNICAL_OVERVIEW.md), explaining the
+source/evidence-backed data audit, preprocessing, frozen features, baseline
+selection/results, cached serving, containers, tests and recovery. Expanded
+the MS1-to-MS2 scope comparison and clarified the separate repository submission
+and presentation tasks using the supplied rubric. Internal draft presentation
+and rehearsal materials are excluded from the public deliverables.
+This is documentation only; source code, private inputs, model, splits and
+running services are unchanged. No processing/tests or Canvas action occurred.
+
 # MS2 replay and submission evidence prepared — checkpoint 29
 
 `make ms2-demo` passed on the M1: build/start, prepared-input inventory, real

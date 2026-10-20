@@ -5,6 +5,25 @@ the bounded, preprocessed-slide MVP. [Readiness details](MS2_READINESS.md),
 [design evolution](MS2_DESIGN.md) and [execution evidence](evidence/ms2/2026-10-20/README.md)
 provide the supporting records.
 
+Checkpoint 30 adds the detailed, source-based
+[technical overview](TECHNICAL_OVERVIEW.md). Internal draft presentation and
+rehearsal materials are excluded from the public deliverables.
+
+## Supplied submission and presentation requirements
+
+The user supplied these course instructions:
+
+> All deliverables must be submitted via GitHub (milestone2 branch); submit the full commit hash on Canvas by 10:00 PM ET, October 20th.
+
+> Slides: Bring slides that walk through what you built, why, and what's next.
+
+The dated requirement is **October 20, 10:00 PM ET for the full commit hash on
+Canvas**, pointing to the repository deliverables. Slides are required for the
+TF presentation. Follow the course platform for any additional deck-submission
+instruction. The task list below does not impose a deck-first order. Preserve
+the exact submitted SHA: later commits do not alter the earlier snapshot.
+Canvas submission has not been executed or verified by this project record.
+
 ## Technical deliverables prepared
 
 - Native Apple M1 / Linux ARM64 CPU, Python API and Node/nginx frontend images;
@@ -97,20 +116,22 @@ CPU preprocessing is offline. Host npm/HF login/Torch are unnecessary for this
 command. Full browser regression testing has separate development prerequisites
 in [LOCAL_APP.md](LOCAL_APP.md).
 
-## Remaining team tasks before presentation/submission
+## Remaining team tasks, separated by when they are needed
 
-1. **Prepare the actual presentation deck.** The repository supplies figures,
-   the original mock-up, scope comparison and execution records. A slide deck
-   has not been created or verified in this checkpoint. Keep the team talk to
-   the supplied 10–15-minute limit, with the live demo prepared in advance.
-2. **Rehearse together.** Everyone should explain the whole repository and their
-   actual contribution. Verify the demo machine and private snapshot access
-   before the TF meeting. Use the walkthrough below; do not invent team roles.
-3. **Submit the full final Git commit hash on Canvas by October 20, 10:00 PM ET.**
-   Use the published checkpoint's full SHA shown by Codex, or compare local
-   `git rev-parse HEAD` with `git ls-remote origin refs/heads/milestone2` if later
-   changes are made. Canvas submission must be completed in the course UI;
-   no Canvas submission has been executed or verified by Codex.
+1. **By October 20, 10:00 PM ET: submit the full repository commit hash on Canvas.**
+   Use the full pushed SHA for the chosen code/documentation/evidence snapshot.
+   Compare `git rev-parse HEAD` with `git ls-remote origin refs/heads/milestone2`
+   if source changes are made before submission. Canvas submission must be
+   completed in the course UI; Codex has not executed or verified it.
+2. **Before the TF presentation: prepare the actual deck**, subject to any
+   additional explicit slide-submission rule. Use the repository's original
+   mock-up, figures, scope comparison and actual execution records. Keep the
+   team talk within the supplied 10–15-minute range. No draft presentation
+   materials are included as an executed technical deliverable.
+3. **Before presenting: rehearse together and confirm demo input access.**
+   Everyone should explain the whole repository and their actual contribution.
+   Verify the demo machine and existing private snapshot access. Use the
+   technical overview and walkthrough below; do not invent team roles.
 
 ## Presentation and repository walkthrough
 

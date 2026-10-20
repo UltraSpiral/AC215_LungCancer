@@ -1,5 +1,8 @@
 # Working local preprocessed-slide application
 
+For a detailed explanation of the data, model, serving code and verification,
+read the [technical overview](docs/TECHNICAL_OVERVIEW.md).
+
 [MS2 submission guide](docs/MS2_SUBMISSION.md) ·
 [Original design and MVP refinements](docs/MS2_DESIGN.md) ·
 [Docker logs, test reports, screenshots and replay evidence](docs/evidence/ms2/2026-10-20/README.md).

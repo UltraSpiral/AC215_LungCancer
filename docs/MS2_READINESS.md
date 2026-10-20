@@ -1,5 +1,15 @@
 # Milestone 2 readiness — 2026-10-20, checkpoint 27
 
+## Detailed technical explanation — checkpoint 30
+
+Read [TECHNICAL_OVERVIEW.md](TECHNICAL_OVERVIEW.md) for the source/evidence-based
+data, model, serving and container explanation. The MS1-to-MS2 scope comparison
+is expanded in MS2_DESIGN.md. Public deliverables exclude internal draft
+presentation and rehearsal materials. This update performs no new processing
+and creates no slide deck. MS2_SUBMISSION.md quotes the supplied submission/
+presentation requirements and separates those tasks without imposing a
+deck-first repository-submission order.
+
 ## Current completion update — checkpoint 29
 
 The bounded MVP now has an actually executed **`make ms2-demo`** command and

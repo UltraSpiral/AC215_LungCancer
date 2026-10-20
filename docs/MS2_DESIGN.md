@@ -1,5 +1,24 @@
 # Approved MS1 design and the simpler MS2 MVP
 
+## Is the difference too great for MS2?
+
+The implemented app is substantially narrower in functionality than the
+eventual MS1 product, while retaining its upload/review/analysis structure.
+For this implementation milestone, the reduction is defensible given the
+reported TF permission and the original proposal's staged timeline. It adds
+real ingestion/preprocessing, a trained baseline and verified container/browser
+execution to what was previously an illustrative design.
+
+This is a scope assessment, not a guarantee of the TF's grading. The deck
+should show the original and current interfaces and explain the deliberate
+reductions. Multi-role workflows, report editing, confidence-based abstention
+and explanatory tumor heatmaps are future product work, not completed features.
+No extra redesign is inferred as necessary merely to make the MVP look closer
+to every MS1 screen. [TECHNICAL_OVERVIEW.md](TECHNICAL_OVERVIEW.md) explains the
+full system and links its implementation/evidence.
+
+## Source proposal and reported feedback
+
 The user reported on 2026-10-20 that the TF approved MS1 and allowed liberties
 to simplify the MS2 MVP. This is user-reported feedback, not an independent
 claim that the TF approved every current implementation or result.
@@ -30,7 +49,7 @@ the user-supplied Downloads path and is not added to Git.
 |---|---|
 | Multiple technician/pathologist/report screens | One real upload-and-review flow. It demonstrates basic UI/backend interaction with a smaller executable scope. |
 | Broad new-slide analysis | One genuine preprocessed slide, recognized by its bytes. Cached real features avoid new encoder/weight setup; unsupported inputs fail clearly. |
-| CNN/ViT comparisons and attention MIL | A frozen pathology ViT encoder plus mean pooling and a regularized logistic head establishes an interpretable first engineering baseline with limited learned parameters. |
+| CNN/ViT comparisons and attention MIL | A frozen pathology ViT encoder plus mean pooling and a regularized logistic head establishes a simple first engineering baseline with limited learned parameters. |
 | Confidence scores and confidence-based abstention | API probabilities are explicitly uncalibrated; the UI keeps them hidden. Unsupported-input rejection is a support check, not statistical uncertainty abstention. Calibration/selective prediction remains future work. |
 | Highlighted tumor regions / explanation heatmaps | Actual thumbnail plus cached analyzed-tile locations. Rectangles show sampled areas, not tumor predictions or attribution. No invented explanatory heatmap. |
 | Tissue-characteristic report, editable diagnosis and sign-off | Deferred. The current panel displays predicted class, model identity, actual tile count and recorded quality warnings. |
