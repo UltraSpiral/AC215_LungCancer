@@ -70,6 +70,20 @@ def paint(thumbnail, slide, values, scale):
     return Image.alpha_composite(thumbnail.convert('RGBA'), layer).convert('RGB')
 
 
+def paint_top(thumbnail, slide, values, scale, fraction=0.10):
+    """Easier-to-read view: fill only the top `fraction` of tiles; outline the rest faintly."""
+    cutoff = np.quantile(values, 1 - fraction)
+    layer = Image.new('RGBA', thumbnail.size, (0, 0, 0, 0))
+    draw = ImageDraw.Draw(layer)
+    for coord, value in zip(slide.coords, values):
+        box = tile_box(coord, slide.footprint, scale)
+        if value >= cutoff:
+            draw.rectangle(box, fill=(*hex_rgb(RAMP[2]), 230), outline=(255, 255, 255, 255))
+        else:
+            draw.rectangle(box, outline=(120, 120, 120, 150))
+    return Image.alpha_composite(thumbnail.convert('RGBA'), layer).convert('RGB')
+
+
 @torch.no_grad()
 def attention_for(run, seed, config, normalizer, slide):
     model = build_model(config['model'], seed)
@@ -119,6 +133,21 @@ def figure(panels, title, caption, path):
     fig.savefig(path, dpi=110, bbox_inches='tight'); plt.close(fig)
 
 
+def figure_plain(panels, title, caption, path):
+    """Panels without a colour legend (for the top-10% view)."""
+    import matplotlib
+    matplotlib.use('Agg')
+    import matplotlib.pyplot as plt
+    aspect = panels[0][0].height / panels[0][0].width
+    fig, axes = plt.subplots(1, len(panels), figsize=(6.2 * len(panels), 6.2 * aspect + 1.0),
+                             squeeze=False, layout='constrained')
+    for ax, (image, subtitle) in zip(axes[0], panels):
+        ax.imshow(image); ax.set_title(subtitle, fontsize=10); ax.axis('off')
+    fig.suptitle(title, fontsize=12)
+    fig.supxlabel(caption, fontsize=8.5, wrap=True)
+    fig.savefig(path, dpi=110, bbox_inches='tight'); plt.close(fig)
+
+
 def top_tiles(svs, slide, alpha, out, k=5):
     import openslide
     order = np.argsort(-alpha)[:k]
@@ -146,7 +175,11 @@ def main(argv=None):
     parser.add_argument('--seed', type=int, help='default: native_preferred_seed in seed_search.json')
     parser.add_argument('--stage', required=True, help='label printed on the figure')
     parser.add_argument('--out', type=Path, help='default: <run>/heatmap_<file-id prefix>')
+    parser.add_argument('--require-arm64', action='store_true')
     args = parser.parse_args(argv)
+    import platform
+    if args.require_arm64 and platform.machine().lower() not in {'aarch64', 'arm64'}:
+        raise SystemExit(f'expected an arm64 machine, got {platform.machine()}')
     import openslide
 
     run_info = json.loads((args.run / 'run.json').read_text())
@@ -189,6 +222,13 @@ def main(argv=None):
             (attention_img, f'Attention rank, seed {seed}'),
             (lr_img, f'Existing model, per-tile P({CLASSES[lr_class]}) rank')],
            title, caption, out / f'heatmap_{short}.png')
+    top_caption = (f'Filled: the top 10% of analysed tiles ({int(np.ceil(0.1 * len(rank)))} of {len(rank)}). '
+                   f'Grey outline: other analysed tiles. {DISCLAIMER}')
+    figure_plain([(thumbnail, 'Slide thumbnail'),
+                  (paint_top(thumbnail, slide, rank, scale), f'Attention top 10%, seed {seed}'),
+                  (paint_top(thumbnail, slide, rank_normalise(lr_tiles), scale),
+                   f'Existing model top 10%, per-tile P({CLASSES[lr_class]})')],
+                 title, top_caption, out / f'top10_{short}.png')
     figure([(attention_img, f'Seed {seed} only'), (average_img, 'Mean rank over 5 seeds')],
            f'{args.stage} | single seed vs seed-averaged attention', DISCLAIMER, out / f'seed_average_{short}.png')
     crops = top_tiles(args.svs, slide, alpha, out)

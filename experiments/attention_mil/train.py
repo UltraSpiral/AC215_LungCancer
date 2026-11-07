@@ -10,6 +10,7 @@ refuses to overwrite. Example, from the repository root:
 import argparse
 import copy
 import json
+import os
 import platform
 import subprocess
 import time
@@ -158,11 +159,22 @@ def plot_curves(results, path):
     fig.tight_layout(); fig.savefig(path, dpi=120); plt.close(fig)
 
 
+SOURCES = ('data.py', 'model.py', 'train.py', 'heatmap.py', 'evaluate.py', 'compare_runs.py')
+
+
 def git_commit():
+    """Docker has no git: `make` passes the host commit in LC_ATTN_GIT_COMMIT."""
+    if os.environ.get('LC_ATTN_GIT_COMMIT'):
+        return os.environ['LC_ATTN_GIT_COMMIT']
     try:
         return subprocess.run(['git', 'rev-parse', 'HEAD'], capture_output=True, text=True, check=True).stdout.strip()
     except Exception:
         return None
+
+
+def source_hashes():
+    here = Path(__file__).resolve().parent
+    return {name: checksum(here / name) for name in SOURCES if (here / name).is_file()}
 
 
 def main(argv=None):
@@ -171,7 +183,12 @@ def main(argv=None):
     parser.add_argument('--config', type=Path, required=True)
     parser.add_argument('--out', type=Path, required=True)
     parser.add_argument('--max-epochs', type=int, help='testing only; overrides the frozen value')
+    parser.add_argument('--authoritative', action='store_true',
+                        help='official (Docker) run: record the rule-selected seed as chosen_seed')
+    parser.add_argument('--require-arm64', action='store_true')
     args = parser.parse_args(argv)
+    if args.require_arm64 and platform.machine().lower() not in {'aarch64', 'arm64'}:
+        raise SystemExit(f'expected an arm64 machine, got {platform.machine()}')
     if args.out.exists():
         raise SystemExit(f'{args.out} already exists; refusing to overwrite a run')
     config = json.loads(args.config.read_text())
@@ -209,10 +226,12 @@ def main(argv=None):
 
     f1 = np.array([s['validation_macro_f1'] for s in summaries])
     loss = np.array([s['validation_loss'] for s in summaries])
+    selected = select_seed(summaries)
     report = {
-        'stage': 'native exploratory run (Phase 3); Docker (Phase 5) is authoritative',
+        'stage': ('authoritative Docker run (Phase 5)' if args.authoritative
+                  else 'native exploratory run (Phase 3); Docker (Phase 5) is authoritative'),
         'seed_selection_rule': config['seed_selection_rule'],
-        'native_preferred_seed': select_seed(summaries),
+        ('chosen_seed' if args.authoritative else 'native_preferred_seed'): selected,
         'seeds': summaries,
         'across_seeds': {'validation_macro_f1_mean': float(f1.mean()), 'validation_macro_f1_sd': float(f1.std(ddof=1)),
                          'validation_loss_mean': float(loss.mean()), 'validation_loss_sd': float(loss.std(ddof=1))},
@@ -223,19 +242,20 @@ def main(argv=None):
     plot_curves(results, args.out / 'training_curves.png')
     run = {
         'config_path': str(args.config), 'config_sha256': checksum(args.config), 'config': config,
-        'git_commit': git_commit(), 'split_identifier': identity['split_identifier'],
+        'git_commit': git_commit(), 'source_sha256': source_hashes(), 'split_identifier': identity['split_identifier'],
         'split_file_sha256': identity['split_file_sha256'],
         'encoder_identifier': identity['encoder_identifier'],
         'preprocessing_config': identity['preprocessing_config'],
         'parameters': count_parameters(build_model(config['model'], 0)),
-        'max_epochs_override': args.max_epochs,
+        'max_epochs_override': args.max_epochs, 'authoritative': args.authoritative,
         'versions': {'python': platform.python_version(), 'torch': torch.__version__, 'numpy': np.__version__},
         'platform': f'{platform.system()} {platform.machine()}',
         'elapsed_seconds': round(time.time() - started, 1),
         'test_split_accessed': False,
     }
     (args.out / 'run.json').write_text(json.dumps(run, indent=1))
-    print(f'wrote {args.out} in {run["elapsed_seconds"]} s; native preferred seed {report["native_preferred_seed"]}')
+    print(f'wrote {args.out} in {run["elapsed_seconds"]} s; '
+          f'{"chosen" if args.authoritative else "native preferred"} seed {selected}')
     return report
 
 

@@ -45,3 +45,29 @@ app-logs:
 .PHONY: ms2-demo
 ms2-demo:
 	python3 scripts/run_ms2_demo.py
+
+# Attention MIL experiment (docs/ATTENTION_PLAN.md). Torch-CPU image, separate from cpu/app.
+LC_ATTN_UID := $(shell id -u)
+LC_ATTN_GID := $(shell id -g)
+LC_ATTN_GIT_COMMIT := $(shell git rev-parse HEAD 2>/dev/null)
+LC_ATTN_RUN ?= docker
+ATTN_NATIVE ?= $(lastword $(sort $(wildcard local_outputs/attention/native-*)))
+export LC_ATTN_UID LC_ATTN_GID LC_ATTN_GIT_COMMIT LC_ATTN_RUN
+ATTN_COMPOSE = docker compose -f compose.attention.yml
+
+.PHONY: attention-build attention-unit attention-train attention-test attention-heatmap attention-compare
+attention-build:
+	$(ATTN_COMPOSE) build attention-unit
+attention-unit: attention-build
+	mkdir -p local_outputs/attention
+	$(ATTN_COMPOSE) run --rm attention-unit
+attention-train: attention-build
+	mkdir -p local_outputs/attention
+	$(ATTN_COMPOSE) run --rm attention-train
+attention-test: attention-build
+	$(ATTN_COMPOSE) run --rm attention-test
+attention-heatmap: attention-build
+	$(ATTN_COMPOSE) run --rm attention-heatmap
+attention-compare:
+	uv run --project experiments/attention_mil python -m experiments.attention_mil.compare_runs \
+	  --native $(ATTN_NATIVE) --docker local_outputs/attention/$(LC_ATTN_RUN)
