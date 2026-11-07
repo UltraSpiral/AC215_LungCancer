@@ -384,3 +384,11 @@ downloads and no changes to splits, caches, the saved model or the app. Plan in
 [ATTENTION_PLAN.md](ATTENTION_PLAN.md); boundary at the top of `AGENTS.md`.
 Work is on branch `attention-mil`. See
 [checkpoint 33](checkpoints/2026-11-06-33-attention-approval.md).
+
+## 34 — Attention experiment Phase 1: data module (2026-11-06)
+
+Added `experiments/attention_mil/data.py`: verified train/validation loading via
+the repository's own cache checks, a locked test split, and a training-only
+feature normaliser. Six tests pass; a mutation check confirmed the test-split
+lock test fails when the lock is removed. No training yet. See
+[checkpoint 34](checkpoints/2026-11-06-34-attention-data-module.md).

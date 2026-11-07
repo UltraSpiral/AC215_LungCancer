@@ -1,4 +1,4 @@
-# Attention-pooling experiment — checkpoint 33
+# Attention-pooling experiment — checkpoints 33–34
 
 Run from the repository root on branch `attention-mil`. Commands are added here
 phase by phase as they are actually executed; see
@@ -9,6 +9,12 @@ Phase 0, executed 2026-11-06. Set up the environment and verify every cache:
 ```bash
 uv sync --project experiments/attention_mil
 uv run --project experiments/attention_mil python -m experiments.attention_mil.smoke --bundle local_data/cpu_bundle
+```
+
+Phase 1, executed 2026-11-06. Run the experiment's tests:
+
+```bash
+uv run --project experiments/attention_mil pytest experiments/attention_mil -v
 ```
 
 # Current setup and reproduction commands — checkpoint 32
