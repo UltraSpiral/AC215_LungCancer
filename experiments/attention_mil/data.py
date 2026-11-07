@@ -58,6 +58,24 @@ def bundle_identity(bundle):
     }
 
 
+def _load_row(bundle, row, identity):
+    """Verify one split row's cache and return it as a Slide."""
+    config = TileConfig(**identity['preprocessing_config'])
+    directory = bundle / 'slides' / row['file_id']
+    # verify_cache: file hashes, md5/file_id identity, preprocessing + encoder fingerprint.
+    prep, meta = verify_cache(row, directory, config, identity['encoder_identifier'])
+    features, coords, embedded = load_features(directory / 'embeddings.npz')
+    if (embedded['encoder_identifier'] != identity['encoder_identifier'] or
+            embedded['preprocessing_config'] != identity['preprocessing_config']):
+        raise ValueError(f'feature provenance mismatch for {row["file_id"]}')
+    return Slide(
+        file_id=row['file_id'], case_id=row['case_id'],
+        label=CLASSES.index(row['candidate_class']),
+        features=features, coords=coords,
+        footprint=tuple(prep['geometry']['footprint_level0']),
+        dimensions=tuple(prep['dimensions_level0']))
+
+
 def load_split(bundle, split_name, *, allow_test=False):
     """Return the verified slides of one split, in splits.json order.
 
@@ -70,27 +88,23 @@ def load_split(bundle, split_name, *, allow_test=False):
         raise LockedTestSplit('test slides are reserved for the single test evaluation')
     bundle = Path(bundle)
     identity = bundle_identity(bundle)
-    config = TileConfig(**identity['preprocessing_config'])
-    slides = []
-    for row in identity['split_rows']:
-        if row['split'] != split_name:
-            continue
-        directory = bundle / 'slides' / row['file_id']
-        # verify_cache: file hashes, md5/file_id identity, preprocessing + encoder fingerprint.
-        prep, meta = verify_cache(row, directory, config, identity['encoder_identifier'])
-        features, coords, embedded = load_features(directory / 'embeddings.npz')
-        if (embedded['encoder_identifier'] != identity['encoder_identifier'] or
-                embedded['preprocessing_config'] != identity['preprocessing_config']):
-            raise ValueError(f'feature provenance mismatch for {row["file_id"]}')
-        slides.append(Slide(
-            file_id=row['file_id'], case_id=row['case_id'],
-            label=CLASSES.index(row['candidate_class']),
-            features=features, coords=coords,
-            footprint=tuple(prep['geometry']['footprint_level0']),
-            dimensions=tuple(prep['dimensions_level0'])))
+    slides = [_load_row(bundle, row, identity) for row in identity['split_rows']
+              if row['split'] == split_name]
     if not slides:
         raise ValueError(f'no slides in split {split_name!r}')
     return slides
+
+
+def load_slide(bundle, file_id, *, allow_test=False):
+    """One verified slide by file_id (used for heatmaps). The test lock still applies."""
+    bundle = Path(bundle)
+    identity = bundle_identity(bundle)
+    row = next((r for r in identity['split_rows'] if r['file_id'] == file_id), None)
+    if row is None:
+        raise ValueError(f'{file_id} is not in splits.json')
+    if row['split'] == 'test' and not allow_test:
+        raise LockedTestSplit(f'{file_id} is a test slide; pass allow_test=True explicitly')
+    return _load_row(bundle, row, identity), row['split']
 
 
 class Normalizer:

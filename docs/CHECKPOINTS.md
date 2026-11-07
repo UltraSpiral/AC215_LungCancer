@@ -410,3 +410,13 @@ existing model, a difference of one slide; validation loss 0.22–0.39 vs 0.51.
 Attention rankings are stable across seeds (Spearman 0.76–0.99). Native
 preferred seed 215; Docker will apply the rule. Test slides not read. See
 [checkpoint 36](checkpoints/2026-11-06-36-attention-native-training.md).
+
+## 37 — Attention experiment Phase 4: heatmap preview and baseline (2026-11-06)
+
+Added `heatmap.py`: md5-verified tile overlay coloured by within-slide attention
+rank, the mandatory logistic-regression per-tile baseline, a seed-averaged map,
+top-5 tile crops and a frontend-shaped tile JSON. Native preview on `sample.svs`:
+both models predict non_tumor (0.997 attention, 0.951 existing); attention is
+diffuse (max 5.5× uniform) and agrees with the baseline's tile ranking at
+Spearman 0.70. 31 tests pass. Preview only; Docker renders the final map. See
+[checkpoint 37](checkpoints/2026-11-06-37-attention-heatmap-preview.md).

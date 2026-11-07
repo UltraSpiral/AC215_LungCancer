@@ -1,4 +1,4 @@
-# Attention-pooling experiment — checkpoints 33–36
+# Attention-pooling experiment — checkpoints 33–37
 
 Run from the repository root on branch `attention-mil`. Commands are added here
 phase by phase as they are actually executed; see
@@ -24,6 +24,16 @@ output directory each time; the script refuses to overwrite):
 uv run --project experiments/attention_mil python -m experiments.attention_mil.train \
   --bundle local_data/cpu_bundle --config experiments/attention_mil/frozen_config.json \
   --out local_outputs/attention/native-$(date -u +%Y%m%dT%H%MZ)
+```
+
+Phase 4, executed 2026-11-06. Heatmap preview for `sample.svs` from a native run
+(replace the run directory with your own; output goes inside it):
+
+```bash
+uv run --project experiments/attention_mil python -m experiments.attention_mil.heatmap \
+  --bundle local_data/cpu_bundle --run local_outputs/attention/native-20261107T0037Z \
+  --svs local_data/cpu_bundle/sample/sample.svs \
+  --file-id a2e48dce-1874-468d-a302-fd30b3107f4a --stage "Native preview, not reported"
 ```
 
 # Current setup and reproduction commands — checkpoint 32
