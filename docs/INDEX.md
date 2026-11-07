@@ -1,8 +1,9 @@
-# Attention-pooling experiment — checkpoints 33–34
+# Attention-pooling experiment — checkpoints 33–35
 
 - [Plan and decisions](ATTENTION_PLAN.md).
 - [Checkpoint 33 — Approval and Phase 0 setup](checkpoints/2026-11-06-33-attention-approval.md).
 - [Checkpoint 34 — Phase 1 data module](checkpoints/2026-11-06-34-attention-data-module.md).
+- [Checkpoint 35 — Phase 2 gated attention model](checkpoints/2026-11-06-35-attention-model.md).
 
 CPU-only experiment on branch `attention-mil`. The existing mean-pool model and
 app are unchanged and remain the default.

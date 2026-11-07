@@ -392,3 +392,12 @@ the repository's own cache checks, a locked test split, and a training-only
 feature normaliser. Six tests pass; a mutation check confirmed the test-split
 lock test fails when the lock is removed. No training yet. See
 [checkpoint 34](checkpoints/2026-11-06-34-attention-data-module.md).
+
+## 35 — Attention experiment Phase 2: gated attention model (2026-11-06)
+
+Added `experiments/attention_mil/model.py`, a 460,163-parameter gated attention
+MIL head returning class logits and per-tile attention. 20 tests pass,
+including exact reduction to mean pooling under equal scores and a synthetic
+task where attention concentrates on informative tiles; a uniform-attention
+mutation is caught. No real training yet. See
+[checkpoint 35](checkpoints/2026-11-06-35-attention-model.md).
