@@ -5,7 +5,6 @@ import { useNow } from '../../lib/useNow';
 import { formatBytes, formatElapsed, formatInt, shortJobId } from '../../lib/formatters';
 import type { AnalysisState, SlideSelection } from '../../state/types';
 import styles from './AnalysisPanel.module.css';
-import { AttentionBlock } from './AttentionBlock';
 import { PredictionBlock } from './PredictionBlock';
 import { QualityWarnings } from './QualityWarnings';
 import { SlideSummary } from './SlideSummary';
@@ -19,9 +18,6 @@ export interface AnalysisPanelProps {
   onCancel: () => void;
   onRetry: () => void;
   onChooseAnother: () => void;
-  /** Whether the viewer shows the attention heatmap (only when an attention result exists). */
-  showHeatmap?: boolean;
-  onToggleHeatmap?: (show: boolean) => void;
 }
 
 /**
@@ -66,7 +62,7 @@ export function AnalysisPanel(props: AnalysisPanelProps) {
   );
 }
 
-function PanelBody({ slide, analysis, picker, showHeatmap = false, onToggleHeatmap }: AnalysisPanelProps) {
+function PanelBody({ slide, analysis, picker }: AnalysisPanelProps) {
   switch (analysis.phase) {
     case 'idle':
       if (!slide) return <>{picker}</>;
@@ -105,9 +101,6 @@ function PanelBody({ slide, analysis, picker, showHeatmap = false, onToggleHeatm
             <StatNumber value={formatInt(p.tiles_analyzed)} label="Tiles analysed" />
           </section>
           <QualityWarnings warnings={p.quality_warnings} />
-          {p.attention && onToggleHeatmap && (
-            <AttentionBlock attention={p.attention} showHeatmap={showHeatmap} onToggleHeatmap={onToggleHeatmap} />
-          )}
           {/* Deferred slots (see ./deferred.ts): confidence, tumor area, subtype patterns,
               flags, top regions, heatmap overlay, Agree/Disagree review. */}
         </>

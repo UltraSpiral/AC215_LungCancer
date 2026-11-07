@@ -215,15 +215,3 @@
   padding: 14px 16px 16px;
   border-top: 1px solid var(--color-ink-7);
 }
-
-/* Attention model second opinion: Medium 14, ink */
-.secondary {
-  font-size: var(--text-14);
-  line-height: var(--lh-14-para);
-  font-weight: var(--weight-medium);
-  color: var(--color-ink);
-}
-
-.toggleRow {
-  padding: 4px 0;
-}

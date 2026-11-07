@@ -1,4 +1,3 @@
-import { useState } from 'react';
 import { AppHeader } from '../components/layout/AppHeader';
 import { CaseStrip } from '../components/layout/CaseStrip';
 import { PageFrame } from '../components/layout/PageFrame';
@@ -22,9 +21,7 @@ export function ReviewPage() {
   const clearSlide = useCaseStore((s) => s.clearSlide);
   const startAnalysis = useCaseStore((s) => s.startAnalysis);
   const cancelAnalysis = useCaseStore((s) => s.cancelAnalysis);
-  // Heatmap is on by default whenever the server returns an attention result.
-  const [showHeatmap, setShowHeatmap] = useState(true);
-  const source = useViewerSource(slide, analysis, showHeatmap);
+  const source = useViewerSource(slide, analysis);
   // Before a slide arrives, show the live Eastern clock; afterwards, when it was received.
   const now = useNow(1_000);
 
@@ -53,8 +50,6 @@ export function ReviewPage() {
             onCancel={cancelAnalysis}
             onRetry={startAnalysis}
             onChooseAnother={clearSlide}
-            showHeatmap={showHeatmap}
-            onToggleHeatmap={setShowHeatmap}
           />
         </GlassCard>
       }

@@ -8,23 +8,13 @@ import { useSlideMetadata } from './slideMetadata';
  * Decide what the viewer pane shows for the selected slide. Only sample slides
  * have Deep Zoom tiles; an uploaded .svs is never decoded in the browser.
  */
-export function useViewerSource(
-  slide: SlideSelection | null,
-  analysis: AnalysisState,
-  showHeatmap = false,
-): ViewerSource {
+export function useViewerSource(slide: SlideSelection | null, analysis: AnalysisState): ViewerSource {
   const sampleId = inferenceMode === 'http' ? null : slide?.sample?.id ?? null;
   const meta = useSlideMetadata(sampleId);
 
   if (!slide) return { kind: 'empty' };
 
   if (inferenceMode === 'http') {
-    const attention = analysis.phase === 'result' ? analysis.prediction.attention : undefined;
-    if (attention && showHeatmap) {
-      return { kind: 'image', url: attention.heatmap, legend: true,
-        alt: 'Supplied slide with analysed tiles coloured by attention rank',
-        detail: `Attention model: ${attention.tiles_analyzed} analysed tiles coloured by rank within this slide; white outline = top ${attention.top_tiles_outlined}. ${attention.disclaimer}` };
-    }
     if (analysis.phase === 'result' && analysis.prediction.analyzed_tiles_overlay) {
       return { kind: 'image', url: analysis.prediction.analyzed_tiles_overlay,
         detail: `${analysis.prediction.tiles_analyzed} previously analyzed tile locations. These marks show sampling locations, not a tumor heatmap.` };

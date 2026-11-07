@@ -5,8 +5,7 @@
  *
  * - confidence   ← class_probabilities exist in the contract but are uncalibrated
  *                  (probabilities_calibrated: false), so no % is shown.
- * - heatmap      ← the attention heatmap is shown as an image in the viewer when the server
- *                  returns `attention` (see AttentionBlock); this zoomable OSD layer slot is unused.
+ * - heatmap      ← analyzed_tiles_overlay in the contract; viewer layer not built yet.
  * - tumorArea, regions, flags, subtypePatterns, review: not produced by the model yet.
  *   (Figma's "Subtype probabilities" are adenocarcinoma growth patterns —
  *   acinar/papillary/solid/lepidic/micropapillary — not LUAD vs LUSC.)
