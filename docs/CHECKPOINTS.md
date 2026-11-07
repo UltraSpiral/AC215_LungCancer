@@ -375,3 +375,12 @@ model, caches and splits did not. Full fresh-UNI2 Docker verification remains
 pending. No new slides/weights, fitting, features, metrics or profiling ran.
 Local backups/publication receipts are retained without a new Drive mirror.
 See [checkpoint 32](checkpoints/2026-10-20-32-reviewer-reproduction.md).
+
+## 33 — Attention-pooling experiment approved; Phase 0 setup (2026-11-06)
+
+Recorded Awassada's approval of a CPU-only gated attention MIL head on the
+existing cached UNI2-h embeddings and a heatmap on `sample.svs`, with no
+downloads and no changes to splits, caches, the saved model or the app. Plan in
+[ATTENTION_PLAN.md](ATTENTION_PLAN.md); boundary at the top of `AGENTS.md`.
+Work is on branch `attention-mil`. See
+[checkpoint 33](checkpoints/2026-11-06-33-attention-approval.md).

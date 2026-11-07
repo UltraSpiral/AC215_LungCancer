@@ -1,3 +1,9 @@
+# Attention-pooling experiment — checkpoint 33
+
+Run from the repository root on branch `attention-mil`. Commands are added here
+phase by phase as they are actually executed; see
+[ATTENTION_PLAN.md](ATTENTION_PLAN.md).
+
 # Current setup and reproduction commands — checkpoint 32
 
 For normal setup/run commands, use [REVIEWER_SETUP.md](REVIEWER_SETUP.md).

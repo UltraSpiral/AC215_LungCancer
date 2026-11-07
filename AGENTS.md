@@ -1,3 +1,21 @@
+# Approved CPU attention-pooling experiment — checkpoint 33
+
+On 2026-11-06 Awassada approved one new real-data model experiment: a gated
+attention MIL head (Ilse et al. 2018) trained on the EXISTING cached UNI2-h
+tile embeddings, plus a per-tile attention heatmap on sample.svs. The full plan
+is docs/ATTENTION_PLAN.md; read it before working on this experiment.
+
+Authorized: fitting this one head (fixed hyperparameters, 5 seeds) on the 32
+train slides, model selection on the 6 validation slides, ONE test evaluation
+inside the attention Docker service, and heatmaps on sample.svs only.
+Not authorized: slide/weight downloads, changes to splits, preprocessing,
+cached files, the saved logistic-regression bundle, lungcancer/, backend/,
+frontend/ or local_outputs/app/. All new code lives in experiments/attention_mil/
+with its own torch-CPU environment; torch must never enter the CPU or app images.
+Outputs go to local_outputs/attention/. Work is on branch attention-mil.
+The existing mean-pool model remains the app default. Statements below that no
+refits are authorized remain true for everything outside this experiment.
+
 # Current native M1 cached-feature app — checkpoint 26
 
 The bounded app task is complete: native ARM64 Compose frontend/API, real saved

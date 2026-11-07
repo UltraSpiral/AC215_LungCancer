@@ -1,3 +1,11 @@
+# Attention-pooling experiment — checkpoint 33
+
+- [Plan and decisions](ATTENTION_PLAN.md).
+- [Checkpoint 33 — Approval and Phase 0 setup](checkpoints/2026-11-06-33-attention-approval.md).
+
+CPU-only experiment on branch `attention-mil`. The existing mean-pool model and
+app are unchanged and remain the default.
+
 # Current setup, pipeline map and reviewer reproduction — checkpoint 32
 
 - [Stage environments, inputs/outputs and verification boundary](PIPELINE_SCOPE.md).
