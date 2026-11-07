@@ -4,6 +4,13 @@ Run from the repository root on branch `attention-mil`. Commands are added here
 phase by phase as they are actually executed; see
 [ATTENTION_PLAN.md](ATTENTION_PLAN.md).
 
+Phase 0, executed 2026-11-06. Set up the environment and verify every cache:
+
+```bash
+uv sync --project experiments/attention_mil
+uv run --project experiments/attention_mil python -m experiments.attention_mil.smoke --bundle local_data/cpu_bundle
+```
+
 # Current setup and reproduction commands — checkpoint 32
 
 For normal setup/run commands, use [REVIEWER_SETUP.md](REVIEWER_SETUP.md).
