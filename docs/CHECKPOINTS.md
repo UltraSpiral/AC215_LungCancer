@@ -438,3 +438,7 @@ backend plus a heatmap switch and legend in the frontend. The default
 prediction is unchanged. 20 backend tests pass; frontend check passes; a real
 Chromium upload of sample.svs shows the heatmap with no errors. See
 [checkpoint 39](checkpoints/2026-11-06-39-attention-app-heatmap.md).
+
+Note (2026-11-06): branch `attention-mil` was renamed to `milestone3` with no
+change to its commits. Checkpoints 33–39 name `attention-mil` because that was
+the branch name when they were written.

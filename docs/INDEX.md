@@ -9,7 +9,7 @@
 - [Checkpoint 38 — Phase 5 Docker run, single test evaluation and final heatmap](checkpoints/2026-11-06-38-attention-docker-final.md).
 - [Checkpoint 39 — Attention heatmap in the app](checkpoints/2026-11-06-39-attention-app-heatmap.md) · [how to run it](LOCAL_APP.md).
 
-CPU-only experiment on branch `attention-mil`. The existing mean-pool model and
+CPU-only experiment on branch `milestone3` (renamed from `attention-mil`). The existing mean-pool model and
 app are unchanged and remain the default.
 
 # Current setup, pipeline map and reviewer reproduction — checkpoint 32

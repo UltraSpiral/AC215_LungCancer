@@ -1,6 +1,6 @@
 # Attention-pooling experiment — checkpoints 33–39
 
-Run from the repository root on branch `attention-mil`. Commands are added here
+Run from the repository root on branch `milestone3`. Commands are added here
 phase by phase as they are actually executed; see
 [ATTENTION_PLAN.md](ATTENTION_PLAN.md).
 

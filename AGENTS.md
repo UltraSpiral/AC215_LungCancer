@@ -24,7 +24,7 @@ Not authorized: slide/weight downloads, changes to splits, preprocessing,
 cached files, the saved logistic-regression bundle, lungcancer/, backend/,
 frontend/ or local_outputs/app/. All new code lives in experiments/attention_mil/
 with its own torch-CPU environment; torch must never enter the CPU or app images.
-Outputs go to local_outputs/attention/. Work is on branch attention-mil.
+Outputs go to local_outputs/attention/. Work is on branch milestone3 (renamed from attention-mil).
 The existing mean-pool model remains the app default. Statements below that no
 refits are authorized remain true for everything outside this experiment.
 
@@ -119,7 +119,7 @@ record real local/Drive Desktop persistence explicitly without faking that mount
 Commit under the git identity configured on the machine of the teammate running
 the session (`git config user.name` / `user.email`). Never substitute another
 teammate's identity or an AI/Codex author, and add no Co-Authored-By trailers.
-Awassada's work, including branch `attention-mil`, is authored by
+Awassada's work, including branch `milestone3`, is authored by
 Awassada Ariyaphuttarat <awassada_ariya@mde.harvard.edu>.
 Historical note: earlier sessions run by the teammate who owns the GitHub repo
 selected UltraSpiral <UltraSpiral@users.noreply.github.com> for their commits.
