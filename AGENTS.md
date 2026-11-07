@@ -1,33 +1,3 @@
-# Approved app integration of the attention heatmap — checkpoint 39
-
-On 2026-11-06 Awassada asked to wire the attention model into the app so that
-uploading sample.svs shows the attention heatmap. This approves edits to
-backend/, frontend/ and compose.app.yml for that purpose only (plan Phase 7,
-backend + frontend items). Constraints: the existing mean-pool logistic model
-stays the app's default prediction; the backend stays torch-free (the attention
-head is exported to numpy weights from the authoritative Docker run, seed 215);
-the app must work unchanged when no attention export is mounted; no downloads,
-no retraining, no new test evaluation. Still not authorized: changes to
-lungcancer/, splits, caches, the saved logistic bundle, or a tumor-slide download.
-
-# Approved CPU attention-pooling experiment — checkpoint 33
-
-On 2026-11-06 Awassada approved one new real-data model experiment: a gated
-attention MIL head (Ilse et al. 2018) trained on the EXISTING cached UNI2-h
-tile embeddings, plus a per-tile attention heatmap on sample.svs. The full plan
-is docs/ATTENTION_PLAN.md; read it before working on this experiment.
-
-Authorized: fitting this one head (fixed hyperparameters, 5 seeds) on the 32
-train slides, model selection on the 6 validation slides, ONE test evaluation
-inside the attention Docker service, and heatmaps on sample.svs only.
-Not authorized: slide/weight downloads, changes to splits, preprocessing,
-cached files, the saved logistic-regression bundle, lungcancer/, backend/,
-frontend/ or local_outputs/app/. All new code lives in experiments/attention_mil/
-with its own torch-CPU environment; torch must never enter the CPU or app images.
-Outputs go to local_outputs/attention/. Work is on branch milestone3 (renamed from attention-mil).
-The existing mean-pool model remains the app default. Statements below that no
-refits are authorized remain true for everything outside this experiment.
-
 # Current native M1 cached-feature app — checkpoint 26
 
 The bounded app task is complete: native ARM64 Compose frontend/API, real saved
@@ -114,14 +84,9 @@ No HF credentials or UNI2 weights belong in the CPU image or portable bundle.
 The Colab Drive persistence helper requires a genuine mounted Drive; on the Mac,
 record real local/Drive Desktop persistence explicitly without faking that mount.
 
-# Git identity
+# User-selected Git identity
 
-Commit under the git identity configured on the machine of the teammate running
-the session (`git config user.name` / `user.email`). Never substitute another
-teammate's identity or an AI/Codex author, and add no Co-Authored-By trailers.
-Awassada's work, including branch `milestone3`, is authored by
-Awassada Ariyaphuttarat <awassada_ariya@mde.harvard.edu>.
-Historical note: earlier sessions run by the teammate who owns the GitHub repo
-selected UltraSpiral <UltraSpiral@users.noreply.github.com> for their commits.
+The user explicitly selected UltraSpiral <UltraSpiral@users.noreply.github.com>
+for project commits. Use this identity; do not substitute a Codex author.
 Authentication must use the user's supported GitHub login. Never ask them to
 paste a token into chat or include credentials in code, documents, or remotes.
