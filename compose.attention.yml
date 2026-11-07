@@ -1,0 +1,38 @@
+# Attention MIL experiment (docs/ATTENTION_PLAN.md, Phase 5). Use the make targets:
+#   make attention-unit | attention-train | attention-test | attention-heatmap
+x-attention: &attention
+  image: ${LC_ATTN_IMAGE:-lungcancer-attention:milestone2}
+  platform: linux/arm64
+  build:
+    context: .
+    dockerfile: containers/attention/Dockerfile
+  user: "${LC_ATTN_UID:-10001}:${LC_ATTN_GID:-10001}"
+  network_mode: none
+  read_only: true
+  tmpfs:
+    - /tmp
+  environment:
+    LC_ATTN_GIT_COMMIT: ${LC_ATTN_GIT_COMMIT:-}
+  volumes:
+    - ${LC_ATTN_BUNDLE:-./local_data/cpu_bundle}:/inputs:ro
+    - ${LC_ATTN_OUTPUT:-./local_outputs/attention}:/outputs
+
+services:
+  attention-unit:
+    <<: *attention
+    command: ["python", "-m", "pytest", "experiments/attention_mil", "-q", "-p", "no:cacheprovider"]
+  attention-train:
+    <<: *attention
+    command: ["python", "-m", "experiments.attention_mil.train", "--bundle", "/inputs",
+              "--config", "experiments/attention_mil/frozen_config.json",
+              "--out", "/outputs/${LC_ATTN_RUN:-docker}", "--authoritative", "--require-arm64"]
+  attention-test:
+    <<: *attention
+    command: ["python", "-m", "experiments.attention_mil.evaluate", "--bundle", "/inputs",
+              "--run", "/outputs/${LC_ATTN_RUN:-docker}", "--require-arm64"]
+  attention-heatmap:
+    <<: *attention
+    command: ["python", "-m", "experiments.attention_mil.heatmap", "--bundle", "/inputs",
+              "--run", "/outputs/${LC_ATTN_RUN:-docker}", "--svs", "/inputs/sample/sample.svs",
+              "--file-id", "a2e48dce-1874-468d-a302-fd30b3107f4a",
+              "--stage", "Final (Docker, rule-chosen seed)", "--require-arm64"]

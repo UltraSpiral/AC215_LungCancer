@@ -1,0 +1,17 @@
+{
+  "description": "Pre-specified training configuration for the gated attention MIL head. Fixed from docs/ATTENTION_PLAN.md before any training on real labels; nothing here is tuned on validation results.",
+  "model": {"hidden": 256, "attention": 128, "dropout": 0.25},
+  "optimiser": {"name": "AdamW", "lr": 0.0002, "weight_decay": 0.0001},
+  "loss": "cross-entropy weighted per slide by n_train / (3 * n_train_in_class)",
+  "max_epochs": 100,
+  "early_stopping": {"monitor": "validation_loss", "patience": 15, "keep": "epoch with lowest validation loss"},
+  "regularisation": {
+    "tile_subsampling": {"enabled": true, "keep_fraction_uniform": [0.5, 1.0], "per": "slide per step"},
+    "gaussian_feature_noise": {"enabled": false, "reason": "fixed off a priori; choosing it on 6 validation slides would be tuning on noise"}
+  },
+  "batch": "one slide per optimiser step; slide order reshuffled each epoch",
+  "seeds": [215, 216, 217, 218, 219],
+  "determinism": {"torch_manual_seed": "per seed", "use_deterministic_algorithms": true, "num_threads": 1},
+  "seed_selection_rule": "highest validation macro-F1; ties broken by lowest validation loss, then lowest seed number. Applied by the Docker run (Phase 5); the native run only reports which seed it would pick.",
+  "metrics": "lungcancer.modeling.metric_report (identical definitions to the saved logistic-regression model)"
+}
