@@ -53,25 +53,6 @@ Stop and resume were tested; the app was left running for review. Job JSON is
 retained on disk, but in-memory HTTP job lookup is per app session. Old job IDs
 are not resumed after restarting the API. Submit the slide again for a new job.
 
-## Optional attention heatmap (checkpoint 39)
-
-When `local_outputs/attention_app/` holds a verified attention export, the app adds
-an experimental second opinion and a heatmap to each successful result. The
-default prediction is still the saved mean-pool logistic model. Without the export,
-the app behaves exactly as before and `/api/health` reports `attention_available: false`.
-
-```bash
-# once, after the Phase 5 Docker run (see docs/ATTENTION_PLAN.md)
-uv run --project experiments/attention_mil python -m experiments.attention_mil.export_for_app \
-  --bundle local_data/cpu_bundle --run local_outputs/attention/docker --out local_outputs/attention_app
-make app-up
-```
-
-Upload `local_data/cpu_bundle/sample/sample.svs` at http://127.0.0.1:8080/. The
-"Attention model · experimental" section has an "Attention heatmap" switch; the
-heatmap colours the 512 analysed tiles by attention rank within the slide
-(dark blue low, cyan high, white outline = top 10%). It is not a tumor outline.
-
 ## Supported input and output
 
 Upload `local_data/cpu_bundle/sample/sample.svs`, already present on the Mac.

@@ -1,17 +1,3 @@
-# Attention-pooling experiment — checkpoints 33–39
-
-- [Plan and decisions](ATTENTION_PLAN.md).
-- [Checkpoint 33 — Approval and Phase 0 setup](checkpoints/2026-11-06-33-attention-approval.md).
-- [Checkpoint 34 — Phase 1 data module](checkpoints/2026-11-06-34-attention-data-module.md).
-- [Checkpoint 35 — Phase 2 gated attention model](checkpoints/2026-11-06-35-attention-model.md).
-- [Checkpoint 36 — Phase 3 native training and validation results](checkpoints/2026-11-06-36-attention-native-training.md).
-- [Checkpoint 37 — Phase 4 heatmap preview and logistic baseline](checkpoints/2026-11-06-37-attention-heatmap-preview.md).
-- [Checkpoint 38 — Phase 5 Docker run, single test evaluation and final heatmap](checkpoints/2026-11-06-38-attention-docker-final.md).
-- [Checkpoint 39 — Attention heatmap in the app](checkpoints/2026-11-06-39-attention-app-heatmap.md) · [how to run it](LOCAL_APP.md).
-
-CPU-only experiment on branch `milestone3` (renamed from `attention-mil`). The existing mean-pool model and
-app are unchanged and remain the default.
-
 # Current setup, pipeline map and reviewer reproduction — checkpoint 32
 
 - [Stage environments, inputs/outputs and verification boundary](PIPELINE_SCOPE.md).
