@@ -429,3 +429,12 @@ reproduced the native run (same seed 215, max alpha difference 1.2e-6). Test:
 attention and the existing model both 6/6 (macro-F1 1.000); test loss 0.005 vs
 0.110. Image IDs change per rebuild; content layers verified identical. See
 [checkpoint 38](checkpoints/2026-11-06-38-attention-docker-final.md).
+
+## 39 — Attention heatmap wired into the app (2026-11-06)
+
+On Awassada's request, exported the chosen attention model to numpy (parity
+with torch 1.3e-07) and added a fail-soft attention view to the torch-free
+backend plus a heatmap switch and legend in the frontend. The default
+prediction is unchanged. 20 backend tests pass; frontend check passes; a real
+Chromium upload of sample.svs shows the heatmap with no errors. See
+[checkpoint 39](checkpoints/2026-11-06-39-attention-app-heatmap.md).

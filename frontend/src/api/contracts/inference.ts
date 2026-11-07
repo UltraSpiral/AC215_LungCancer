@@ -25,6 +25,25 @@ export type QualityWarningCode = (typeof QUALITY_WARNING_CODES)[number];
 /** A known code, or a code added by a newer pipeline (kept as-is, shown with a generic label). */
 export type QualityWarning = QualityWarningCode | (string & {});
 
+/**
+ * Optional second opinion from the experimental gated-attention model
+ * (experiments/attention_mil). The default prediction above is unchanged by it.
+ */
+export interface AttentionResult {
+  model_identifier: string;
+  predicted_class: PredictedClass;
+  class_probabilities: Record<PredictedClass, number>;
+  probabilities_calibrated: false;
+  agrees_with_default_model: boolean;
+  /** URL of a JPEG: analysed tiles coloured by within-slide attention rank. */
+  heatmap: string;
+  tiles_analyzed: number;
+  top_tiles_outlined: number;
+  validation_macro_f1: number | null;
+  test_macro_f1: number | null;
+  disclaimer: string;
+}
+
 export interface PredictionSuccess {
   status: 'success';
   predicted_class: PredictedClass;
@@ -39,6 +58,8 @@ export interface PredictionSuccess {
   model_identifier: string;
   /** Optional URL/path of an image showing which tiles were analysed. Not shown in the MVP. */
   analyzed_tiles_overlay?: string;
+  /** Present only when the server has a verified attention export mounted. */
+  attention?: AttentionResult;
 }
 
 export interface PredictionFailure {
@@ -123,6 +144,7 @@ export function parsePrediction(raw: unknown): Prediction {
     return invalid('analyzed_tiles_overlay must be a string');
   }
 
+  const attention = parseAttention(raw.attention);
   return {
     status: 'success',
     predicted_class: raw.predicted_class,
@@ -136,6 +158,49 @@ export function parsePrediction(raw: unknown): Prediction {
     quality_warnings: raw.quality_warnings as QualityWarning[],
     model_identifier: raw.model_identifier,
     ...(raw.analyzed_tiles_overlay !== undefined && { analyzed_tiles_overlay: raw.analyzed_tiles_overlay }),
+    ...(attention && { attention }),
+  };
+}
+
+const nullableNumber = (v: unknown): number | null => (isFiniteNumber(v) ? v : null);
+
+/**
+ * Validate the optional attention block. A malformed block is dropped (returns
+ * undefined) so it can never block or alter the verified default prediction.
+ */
+export function parseAttention(raw: unknown): AttentionResult | undefined {
+  if (!isObject(raw) || !isPredictedClass(raw.predicted_class)) return undefined;
+  const probs = raw.class_probabilities;
+  if (!isObject(probs) || !PREDICTED_CLASSES.every((c) => isFiniteNumber(probs[c]) && probs[c] >= 0 && probs[c] <= 1)) {
+    return undefined;
+  }
+  if (
+    typeof raw.model_identifier !== 'string' ||
+    typeof raw.heatmap !== 'string' ||
+    typeof raw.disclaimer !== 'string' ||
+    typeof raw.agrees_with_default_model !== 'boolean' ||
+    raw.probabilities_calibrated !== false ||
+    !isFiniteNumber(raw.tiles_analyzed) ||
+    !isFiniteNumber(raw.top_tiles_outlined)
+  ) {
+    return undefined;
+  }
+  return {
+    model_identifier: raw.model_identifier,
+    predicted_class: raw.predicted_class,
+    class_probabilities: {
+      non_tumor: probs.non_tumor as number,
+      adenocarcinoma: probs.adenocarcinoma as number,
+      squamous: probs.squamous as number,
+    },
+    probabilities_calibrated: false,
+    agrees_with_default_model: raw.agrees_with_default_model,
+    heatmap: raw.heatmap,
+    tiles_analyzed: raw.tiles_analyzed,
+    top_tiles_outlined: raw.top_tiles_outlined,
+    validation_macro_f1: nullableNumber(raw.validation_macro_f1),
+    test_macro_f1: nullableNumber(raw.test_macro_f1),
+    disclaimer: raw.disclaimer,
   };
 }
 

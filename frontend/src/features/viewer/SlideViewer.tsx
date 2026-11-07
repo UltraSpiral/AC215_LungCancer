@@ -10,7 +10,7 @@ import { ZoomControls } from './ZoomControls';
 export type ViewerSource =
   | { kind: 'empty' }
   | { kind: 'loading' }
-  | { kind: 'image'; url: string; detail: string }
+  | { kind: 'image'; url: string; detail: string; alt?: string; legend?: boolean }
   | { kind: 'dzi'; meta: SlideMetadata; attribution?: string }
   | { kind: 'message'; title: string; detail: ReactNode };
 
@@ -91,7 +91,14 @@ export function SlideViewer({ source, emptyContent }: SlideViewerProps) {
           : source.kind !== 'dzi' && source.kind !== 'image' && <PaneMessage source={source} />}
         {source.kind === 'image' && (
           <figure className={styles.cachedPreview}>
-            <img src={source.url} alt="Actual supplied slide with previously analyzed tile locations" />
+            <img src={source.url} alt={source.alt ?? 'Actual supplied slide with previously analyzed tile locations'} />
+            {source.legend && (
+              <div className={styles.legend} aria-label="Attention legend: low to high, rank within slide">
+                <span>Low</span>
+                <span className={styles.legendRamp} />
+                <span>High attention</span>
+              </div>
+            )}
             <figcaption>{source.detail}</figcaption>
           </figure>
         )}

@@ -1,3 +1,15 @@
+# Approved app integration of the attention heatmap — checkpoint 39
+
+On 2026-11-06 Awassada asked to wire the attention model into the app so that
+uploading sample.svs shows the attention heatmap. This approves edits to
+backend/, frontend/ and compose.app.yml for that purpose only (plan Phase 7,
+backend + frontend items). Constraints: the existing mean-pool logistic model
+stays the app's default prediction; the backend stays torch-free (the attention
+head is exported to numpy weights from the authoritative Docker run, seed 215);
+the app must work unchanged when no attention export is mounted; no downloads,
+no retraining, no new test evaluation. Still not authorized: changes to
+lungcancer/, splits, caches, the saved logistic bundle, or a tumor-slide download.
+
 # Approved CPU attention-pooling experiment — checkpoint 33
 
 On 2026-11-06 Awassada approved one new real-data model experiment: a gated

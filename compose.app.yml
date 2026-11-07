@@ -15,6 +15,8 @@ services:
     volumes:
       - ${LC_APP_BUNDLE:-./local_data/cpu_bundle}:/inputs:ro
       - ${LC_APP_OUTPUT:-./local_outputs/app/jobs}:/work/jobs
+      # Optional attention heatmap (experiments/attention_mil export); app runs unchanged without it.
+      - ${LC_APP_ATTENTION:-./local_outputs/attention_app}:/attention:ro
     networks: [app]
     healthcheck:
       test: ["CMD", "python", "-c", "import urllib.request; urllib.request.urlopen('http://127.0.0.1:8000/health', timeout=3)"]
@@ -61,6 +63,8 @@ services:
     volumes:
       - ${LC_APP_BUNDLE:-./local_data/cpu_bundle}:/inputs:ro
       - ${LC_APP_OUTPUT:-./local_outputs/app/jobs}:/work/jobs
+      # Optional attention heatmap (experiments/attention_mil export); app runs unchanged without it.
+      - ${LC_APP_ATTENTION:-./local_outputs/attention_app}:/attention:ro
 
 networks:
   app:

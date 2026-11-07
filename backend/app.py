@@ -16,7 +16,7 @@ from starlette.datastructures import UploadFile
 from starlette.exceptions import HTTPException as StarletteHTTPException
 
 from backend.model import CachedClassifier, MODEL_ID, SNAPSHOT_ID, UnsupportedSlide
-from lungcancer.common import atomic_json, utcnow
+from lungcancer.common import CLASSES, atomic_json, utcnow
 
 MAX_FILE_BYTES = 80_000_000
 MAX_REQUEST_BYTES = 82_000_000
@@ -78,12 +78,56 @@ class BoundedUpload:
             await self.app(scope, replay, send)
 
 
+class AttentionView:
+    """Optional second opinion from the exported attention head, plus its heatmap.
+
+    Fail-soft: if no export is mounted, or anything about it cannot be verified,
+    the app runs exactly as before and /health reports why attention is off.
+    """
+    def __init__(self, model, directory, output):
+        self.head, self.reason = None, 'no attention export mounted'
+        directory = Path(directory) if directory else None
+        if directory is None or not (directory / 'manifest.json').is_file():
+            return
+        try:
+            from backend.attention import AttentionHead, DISCLAIMER, render_heatmap
+            import openslide
+            head = AttentionHead.load(directory)
+            vectors, coordinates, _, prep = model._features()
+            probabilities, alpha = head.forward(vectors)
+            with openslide.OpenSlide(str(model.source)) as slide:
+                thumbnail = slide.get_thumbnail((1024, 1024)).convert('RGB')
+            drawn = render_heatmap(thumbnail, coordinates, prep['geometry']['footprint_level0'],
+                                   prep['dimensions_level0'], alpha, Path(output) / 'attention_heatmap.jpg')
+            self.summary = {
+                'model_identifier': head.model_identifier,
+                'predicted_class': CLASSES[int(probabilities.argmax())],
+                'class_probabilities': {c: float(p) for c, p in zip(CLASSES, probabilities)},
+                'probabilities_calibrated': False, 'tiles_analyzed': len(alpha),
+                'colour_scale': 'within-slide rank of attention; white outline = top 10% of tiles',
+                'top_tiles_outlined': drawn['top_tiles'],
+                'validation_macro_f1': head.manifest.get('validation_macro_f1'),
+                'test_macro_f1': head.manifest.get('test_macro_f1'),
+                'disclaimer': DISCLAIMER,
+            }
+            self.head, self.reason = head, None
+        except Exception as exc:     # never let the optional view block the verified default model
+            self.head, self.reason = None, f'attention export could not be verified ({type(exc).__name__})'
+
+    def result(self, key, default_prediction):
+        if self.head is None:
+            return None
+        return {**self.summary, 'heatmap': f'/api/jobs/{key}/heatmap',
+                'agrees_with_default_model': self.summary['predicted_class'] == default_prediction}
+
+
 class Jobs:
-    def __init__(self, model, output):
+    def __init__(self, model, output, attention_dir=None):
         self.model = model
         self.output = Path(output)
         self.output.mkdir(parents=True, exist_ok=True)
         self.model.create_overlay(self.output / 'analyzed_tiles_overlay.jpg')
+        self.attention = AttentionView(model, attention_dir, self.output)
         self.lock = threading.RLock()
         self.pool = ThreadPoolExecutor(max_workers=1, thread_name_prefix='cached-classifier')
         self.records = {}
@@ -117,6 +161,9 @@ class Jobs:
         try:
             result = self.model.predict(*identity)
             result['analyzed_tiles_overlay'] = f'/api/jobs/{key}/overlay'
+            attention = self.attention.result(key, result['predicted_class'])
+            if attention is not None:
+                result['attention'] = attention
             with self.lock:
                 if job['status'] == 'failed':
                     return
@@ -152,14 +199,17 @@ class Jobs:
             return dict(job)
 
 
-def create_app(bundle=None, output=None, model_factory=CachedClassifier):
+def create_app(bundle=None, output=None, model_factory=CachedClassifier, attention=None):
     @asynccontextmanager
     async def lifespan(api):
         model = model_factory(Path(bundle or os.environ.get('LC_APP_BUNDLE', '/inputs')))
-        jobs = Jobs(model, Path(output or os.environ.get('LC_APP_OUTPUT', '/work/jobs')))
+        jobs = Jobs(model, Path(output or os.environ.get('LC_APP_OUTPUT', '/work/jobs')),
+                    attention or os.environ.get('LC_APP_ATTENTION', '/attention'))
         api.state.jobs = jobs
         print(json.dumps({'event': 'verified_model_ready', 'model_identifier': MODEL_ID,
-                          'data_snapshot_identifier': SNAPSHOT_ID, 'uni2_encoding_performed': False}), flush=True)
+                          'data_snapshot_identifier': SNAPSHOT_ID, 'uni2_encoding_performed': False,
+                          'attention_available': jobs.attention.head is not None,
+                          'attention_reason': jobs.attention.reason}), flush=True)
         yield
         jobs.pool.shutdown(wait=True, cancel_futures=True)
 
@@ -171,8 +221,10 @@ def create_app(bundle=None, output=None, model_factory=CachedClassifier):
 
     @api.get('/health')
     def health():
+        attention = api.state.jobs.attention
         return {'status': 'ready', 'processing_mode': 'preprocessed_slide_demo', 'model_identifier': MODEL_ID,
-                'data_snapshot_identifier': SNAPSHOT_ID, 'supported_slides': 1, 'uni2_encoding_performed': False}
+                'data_snapshot_identifier': SNAPSHOT_ID, 'supported_slides': 1, 'uni2_encoding_performed': False,
+                'attention_available': attention.head is not None, 'attention_reason': attention.reason}
 
     @api.post('/jobs', status_code=202)
     async def submit(request: Request):
@@ -208,6 +260,13 @@ def create_app(bundle=None, output=None, model_factory=CachedClassifier):
         if api.state.jobs.get(key)['status'] != 'done':
             raise HTTPException(404, 'No analyzed tile overlay is available for this job.')
         return FileResponse(api.state.jobs.output / 'analyzed_tiles_overlay.jpg', media_type='image/jpeg')
+
+    @api.get('/jobs/{key}/heatmap')
+    def heatmap(key: str):
+        job = api.state.jobs.get(key)
+        if job['status'] != 'done' or api.state.jobs.attention.head is None:
+            raise HTTPException(404, 'No attention heatmap is available for this job.')
+        return FileResponse(api.state.jobs.output / 'attention_heatmap.jpg', media_type='image/jpeg')
 
     return BoundedUpload(api)
 

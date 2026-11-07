@@ -1,4 +1,4 @@
-# Attention-pooling experiment — checkpoints 33–38
+# Attention-pooling experiment — checkpoints 33–39
 
 Run from the repository root on branch `attention-mil`. Commands are added here
 phase by phase as they are actually executed; see
@@ -47,6 +47,15 @@ make attention-train
 make attention-compare
 make attention-test
 make attention-heatmap
+```
+
+App heatmap, executed 2026-11-06. Export once, then start the app and upload
+`local_data/cpu_bundle/sample/sample.svs` at http://127.0.0.1:8080/:
+
+```bash
+uv run --project experiments/attention_mil python -m experiments.attention_mil.export_for_app \
+  --bundle local_data/cpu_bundle --run local_outputs/attention/docker --out local_outputs/attention_app
+make app-up
 ```
 
 # Current setup and reproduction commands — checkpoint 32
