@@ -401,3 +401,12 @@ including exact reduction to mean pooling under equal scores and a synthetic
 task where attention concentrates on informative tiles; a uniform-attention
 mutation is caught. No real training yet. See
 [checkpoint 35](checkpoints/2026-11-06-35-attention-model.md).
+
+## 36 — Attention experiment Phase 3: native training (2026-11-06)
+
+Froze the training configuration in a commit before training, then trained 5
+seeds natively in 13.9 s. Every seed: validation macro-F1 0.822 vs 0.667 for the
+existing model, a difference of one slide; validation loss 0.22–0.39 vs 0.51.
+Attention rankings are stable across seeds (Spearman 0.76–0.99). Native
+preferred seed 215; Docker will apply the rule. Test slides not read. See
+[checkpoint 36](checkpoints/2026-11-06-36-attention-native-training.md).
