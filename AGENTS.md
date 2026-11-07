@@ -102,9 +102,14 @@ No HF credentials or UNI2 weights belong in the CPU image or portable bundle.
 The Colab Drive persistence helper requires a genuine mounted Drive; on the Mac,
 record real local/Drive Desktop persistence explicitly without faking that mount.
 
-# User-selected Git identity
+# Git identity
 
-The user explicitly selected UltraSpiral <UltraSpiral@users.noreply.github.com>
-for project commits. Use this identity; do not substitute a Codex author.
+Commit under the git identity configured on the machine of the teammate running
+the session (`git config user.name` / `user.email`). Never substitute another
+teammate's identity or an AI/Codex author, and add no Co-Authored-By trailers.
+Awassada's work, including branch `attention-mil`, is authored by
+Awassada Ariyaphuttarat <awassada_ariya@mde.harvard.edu>.
+Historical note: earlier sessions run by the teammate who owns the GitHub repo
+selected UltraSpiral <UltraSpiral@users.noreply.github.com> for their commits.
 Authentication must use the user's supported GitHub login. Never ask them to
 paste a token into chat or include credentials in code, documents, or remotes.

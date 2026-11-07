@@ -73,7 +73,7 @@ torch = { index = "pytorch-cpu" }
 ## 5. Phases
 
 ### Phase 0 — Records + native environment (≈30 min)
-- **(rev) Records first, no code yet:** copy this plan to `docs/ATTENTION_PLAN.md`; add an AGENTS.md section recording the 6 Nov 2026 approval and its boundary (no downloads; splits, caches, bundle, existing model and app untouched); add a dated checkpoint under `docs/checkpoints/` and a `docs/COMMANDS.md` entry; commit with the UltraSpiral identity.
+- **(rev) Records first, no code yet:** copy this plan to `docs/ATTENTION_PLAN.md`; add an AGENTS.md section recording the 6 Nov 2026 approval and its boundary (no downloads; splits, caches, bundle, existing model and app untouched); add a dated checkpoint under `docs/checkpoints/` and a `docs/COMMANDS.md` entry; commit under the session teammate's own git identity, with no co-author trailer.
 - `experiments/attention_mil/pyproject.toml` (uv, `package = false`): python 3.13, `torch` (exact version, CPU index per §4a), numpy 2.1.3, scikit-learn 1.6.1, openslide-python 1.4.6, openslide-bin 4.0.1.2, Pillow 11.3.0, matplotlib, pytest. Commit `uv.lock`.
 - Make the repo importable read-only (`pythonpath` to repo root) to reuse `load_features`, `verify_cache`, `check_patient_separation`, `metric_report`.
 - Smoke: `uv run python -c "import torch; print(torch.__version__)"`; load one slide through `load_features` and `verify_cache`.
