@@ -46,7 +46,7 @@ app-logs:
 ms2-demo:
 	python3 scripts/run_ms2_demo.py
 
-# Attention MIL experiment (docs/ATTENTION_PLAN.md). Torch-CPU image, separate from cpu/app.
+# Attention MIL experiment
 LC_ATTN_UID := $(shell id -u)
 LC_ATTN_GID := $(shell id -g)
 LC_ATTN_GIT_COMMIT := $(shell git rev-parse HEAD 2>/dev/null)

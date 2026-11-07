@@ -15,7 +15,6 @@ services:
     volumes:
       - ${LC_APP_BUNDLE:-./local_data/cpu_bundle}:/inputs:ro
       - ${LC_APP_OUTPUT:-./local_outputs/app/jobs}:/work/jobs
-      # Optional attention heatmap (experiments/attention_mil export); app runs unchanged without it.
       - ${LC_APP_ATTENTION:-./local_outputs/attention_app}:/attention:ro
     networks: [app]
     healthcheck:
@@ -63,7 +62,6 @@ services:
     volumes:
       - ${LC_APP_BUNDLE:-./local_data/cpu_bundle}:/inputs:ro
       - ${LC_APP_OUTPUT:-./local_outputs/app/jobs}:/work/jobs
-      # Optional attention heatmap (experiments/attention_mil export); app runs unchanged without it.
       - ${LC_APP_ATTENTION:-./local_outputs/attention_app}:/attention:ro
 
 networks:
