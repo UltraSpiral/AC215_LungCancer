@@ -1,4 +1,4 @@
-# Attention-pooling experiment — checkpoints 33–37
+# Attention-pooling experiment — checkpoints 33–38
 
 Run from the repository root on branch `attention-mil`. Commands are added here
 phase by phase as they are actually executed; see
@@ -34,6 +34,19 @@ uv run --project experiments/attention_mil python -m experiments.attention_mil.h
   --bundle local_data/cpu_bundle --run local_outputs/attention/native-20261107T0037Z \
   --svs local_data/cpu_bundle/sample/sample.svs \
   --file-id a2e48dce-1874-468d-a302-fd30b3107f4a --stage "Native preview, not reported"
+```
+
+Phase 5, executed 2026-11-06. Authoritative Docker run (from the repository root,
+in this order). `attention-test` runs once per run and refuses to repeat;
+`attention-train` refuses an existing run directory, so set
+`LC_ATTN_RUN=<new name>` for a fresh run:
+
+```bash
+make attention-unit
+make attention-train
+make attention-compare
+make attention-test
+make attention-heatmap
 ```
 
 # Current setup and reproduction commands — checkpoint 32

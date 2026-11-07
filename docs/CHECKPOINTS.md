@@ -420,3 +420,12 @@ both models predict non_tumor (0.997 attention, 0.951 existing); attention is
 diffuse (max 5.5× uniform) and agrees with the baseline's tile ranking at
 Spearman 0.70. 31 tests pass. Preview only; Docker renders the final map. See
 [checkpoint 37](checkpoints/2026-11-06-37-attention-heatmap-preview.md).
+
+## 38 — Attention experiment Phase 5: Docker run, single test evaluation, final heatmap (2026-11-06)
+
+Built a torch-CPU linux/arm64 image (36 tests pass inside) and ran training,
+the single test evaluation and the final heatmap offline in Docker. Docker
+reproduced the native run (same seed 215, max alpha difference 1.2e-6). Test:
+attention and the existing model both 6/6 (macro-F1 1.000); test loss 0.005 vs
+0.110. Image IDs change per rebuild; content layers verified identical. See
+[checkpoint 38](checkpoints/2026-11-06-38-attention-docker-final.md).
