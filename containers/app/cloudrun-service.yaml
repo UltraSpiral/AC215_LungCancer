@@ -1,0 +1,80 @@
+apiVersion: serving.knative.dev/v1
+kind: Service
+metadata:
+  name: lungcancer-app
+  labels:
+    cloud.googleapis.com/location: us-central1
+spec:
+  template:
+    metadata:
+      annotations:
+        run.googleapis.com/execution-environment: gen2
+        run.googleapis.com/container-dependencies: '{"web":["api"]}'
+        autoscaling.knative.dev/minScale: '0'
+        autoscaling.knative.dev/maxScale: '2'
+    spec:
+      serviceAccountName: lungcancer-app@ac215-lungcancer.iam.gserviceaccount.com
+      containerConcurrency: 10
+      timeoutSeconds: 300
+      containers:
+        - name: web
+          image: us-central1-docker.pkg.dev/ac215-lungcancer/lungcancer/web:v1
+          ports:
+            - name: h2c
+              containerPort: 8080
+          resources:
+            limits:
+              cpu: '1'
+              memory: 512Mi
+        - name: api
+          image: us-central1-docker.pkg.dev/ac215-lungcancer/lungcancer/api:v1
+          env:
+            - name: LC_APP_BUNDLE
+              value: /inputs
+            - name: LC_APP_OUTPUT
+              value: /work/jobs
+            - name: LC_APP_ATTENTION
+              value: /attention
+          resources:
+            limits:
+              cpu: '2'
+              memory: 4Gi
+          startupProbe:
+            httpGet:
+              path: /health
+              port: 8000
+            periodSeconds: 5
+            timeoutSeconds: 3
+            failureThreshold: 48
+          volumeMounts:
+            - name: bundle
+              mountPath: /inputs
+            - name: attention
+              mountPath: /attention
+            - name: uploads
+              mountPath: /work/uploads
+            - name: jobs
+              mountPath: /work/jobs
+      volumes:
+        - name: bundle
+          csi:
+            driver: gcsfuse.run.googleapis.com
+            readOnly: true
+            volumeAttributes:
+              bucketName: ac215-lungcancer-data
+              mountOptions: only-dir=app/cpu_bundle_audit2
+        - name: attention
+          csi:
+            driver: gcsfuse.run.googleapis.com
+            readOnly: true
+            volumeAttributes:
+              bucketName: ac215-lungcancer-data
+              mountOptions: only-dir=app/attention_app
+        - name: uploads
+          emptyDir:
+            medium: Memory
+            sizeLimit: 512Mi
+        - name: jobs
+          emptyDir:
+            medium: Memory
+            sizeLimit: 256Mi

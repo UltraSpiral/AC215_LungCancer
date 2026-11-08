@@ -8,7 +8,8 @@ ENV VITE_INFERENCE_MODE=http VITE_API_BASE_URL=/api
 RUN npm run check
 
 FROM nginx:stable-alpine@sha256:970364228b1e4f932abc22d321932816782cca8a20b85a77552a7cfe9acfb3b5
-COPY containers/app/nginx.conf /etc/nginx/nginx.conf
+ARG NGINX_CONF=containers/app/nginx.conf
+COPY ${NGINX_CONF} /etc/nginx/nginx.conf
 COPY --from=build /app/dist /usr/share/nginx/html
 USER nginx
 EXPOSE 8080
