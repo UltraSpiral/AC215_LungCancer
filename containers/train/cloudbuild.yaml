@@ -1,0 +1,6 @@
+steps:
+  - name: gcr.io/cloud-builders/docker
+    args: ['build', '--platform', 'linux/amd64', '-f', 'containers/train/Dockerfile', '-t', '${_IMAGE}', '.']
+images: ['${_IMAGE}']
+substitutions:
+  _IMAGE: us-central1-docker.pkg.dev/ac215-lungcancer/lungcancer/train:v1
