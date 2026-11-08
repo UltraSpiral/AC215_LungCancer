@@ -8,6 +8,8 @@ spec:
   template:
     metadata:
       annotations:
+        run.googleapis.com/startup-cpu-boost: 'true'
+        run.googleapis.com/container-dependencies: '{"web":["api"]}'
         run.googleapis.com/execution-environment: gen2
         run.googleapis.com/container-dependencies: '{"web":["api"]}'
         autoscaling.knative.dev/minScale: '0'
